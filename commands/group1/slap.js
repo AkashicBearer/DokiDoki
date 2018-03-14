@@ -24,7 +24,7 @@ module.exports = class PatCommand extends Command {
         const user = member.user;
         const embed = new RichEmbed()
             .setDescription('DokiDoki Slaps ' + args.member.user)
-			.setImage("https://vignette.wikia.nocookie.net/kancolle/images/4/40/Ryona_SLAP%21%21.gif/revision/latest?cb=20161129141305")
+			.setImage("https://lh3.googleusercontent.com/-c14CEBkg-R0/VUof2f-wEII/AAAAAAAA7L8/GU8Mv6UiSBs/w530-h301-n-rw/1278328036202.gif")
 			.setColor(0x23ff12)
         return msg.embed(embed);
     }
