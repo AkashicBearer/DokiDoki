@@ -24,7 +24,7 @@ module.exports = class PatCommand extends Command {
         const user = member.user;
         const embed = new RichEmbed()
             .setDescription('DokiDoki Slaps ' + args.member.user)
-			.setImage("http://i0.kym-cdn.com/photos/images/newsfeed/001/093/848/033.25067")
+			.setImage("https://data.whicdn.com/images/136249177/original.gif")
 			.setColor(0x23ff12)
         return msg.embed(embed);
     }
