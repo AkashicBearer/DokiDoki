@@ -11,10 +11,10 @@ module.exports = class PatCommand extends Command {
           
 			args: [
 				{
-					key: 'member',
-					label: 'user',
-					prompt: 'Who to slap?',
-					type: 'member'
+				key: 'member',
+				label: 'user',
+				prompt: 'Who to slap?',
+				type: 'member'
 				}
 			]
         });
@@ -24,7 +24,7 @@ module.exports = class PatCommand extends Command {
         const user = member.user;
         const embed = new RichEmbed()
             .setDescription('DokiDoki Slaps ' + args.member.user)
-			.setImage("https://data.whicdn.com/images/136249177/original.gif")
+			.setImage("https://vignette.wikia.nocookie.net/kancolle/images/4/40/Ryona_SLAP%21%21.gif/revision/latest?cb=20161129141305")
 			.setColor(0x23ff12)
         return msg.embed(embed);
     }
