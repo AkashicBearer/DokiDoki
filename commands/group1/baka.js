@@ -1,6 +1,6 @@
 const { Command } = require('discord.js-commando');
 const { RichEmbed } = require('discord.js');
-
+//test
 module.exports = class BakaCommand extends Command {
     constructor(client) {
         super(client, {
