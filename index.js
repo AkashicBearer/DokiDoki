@@ -17,7 +17,7 @@ sqlite.open(path.join(__dirname, "settings.sqlite3")).then((db) => {
 
 var http = require("http");
 setInterval(function() {
-    http.get("http://<your app name>.herokuapp.com");
+    http.get("http://superdokidokibot.herokuapp.com");
 }, 300000);
 // Command Groups
 
