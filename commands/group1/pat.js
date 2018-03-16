@@ -52,14 +52,14 @@ module.exports = class PatCommand extends Command {
         };
         const embed = new RichEmbed()
          if(msg.author.id == args.member.id){
-            .setDescription(msg.author + ' pats.. their own head.. everyone needs a little bit of love sometimes ')
-            .setImage(imgpat[Math.floor(Math.random() * Object.keys(imgselfpat).length).toString()])
+            embed.setDescription(msg.author + ' pats.. their own head.. everyone needs a little bit of love sometimes ')
+            embed.setImage(imgpat[Math.floor(Math.random() * Object.keys(imgselfpat).length).toString()])
          }else{
-            .setDescription(msg.author + ' pats ' + args.member.user)
-            .setImage(imgpat[Math.floor(Math.random() * Object.keys(imgpat).length).toString()])
+            embed.setDescription(msg.author + ' pats ' + args.member.user)
+            embed.setImage(imgpat[Math.floor(Math.random() * Object.keys(imgpat).length).toString()])
          }
             
-            .setColor(0x23ff12)
+            embed.setColor(0x23ff12)
         return msg.embed(embed);
     }
 };
