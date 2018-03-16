@@ -52,15 +52,8 @@ module.exports = class PatCommand extends Command {
         };
         const embed = new RichEmbed()
             .setDescription('DokiDoki pats ' + args.member.user)
-            .setImage(imgspat[Math.floor(Math.random() * Object.keys(imgselfpat).length).toString()])
-            .setColor(0x23ff12)    
-            /*if(message.author.tag == args.member.user.tag){
-                embed.setDescription(message.author + ' pats... their own head, sometimes you just need a little bit love. ')
-                embed.setImage(imgselfpat[Math.floor(Math.random() * Object.keys(imgselfpat).length).toString()])                
-            }else{
-                embed.setDescription(message.author + ' pats ' + args.member.user)
-                embed.setImage(imgpat[Math.floor(Math.random() * Object.keys(imgpat).length).toString()])                
-            }*/
+            .setImage(imgpat[Math.floor(Math.random() * Object.keys(imgpat).length).toString()])
+            .setColor(0x23ff12)
         return msg.embed(embed);
     }
 };
