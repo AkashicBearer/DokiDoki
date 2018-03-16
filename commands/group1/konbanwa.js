@@ -9,7 +9,7 @@ module.exports = class konbanwaCommand extends Command {
         group: 'group1',
         memberName: 'konbanwa',
         description: 'Konbanwa!!',
-                    args: [
+            args: [
                 {
                     key: 'member',
                     label: 'user',
@@ -21,8 +21,6 @@ module.exports = class konbanwaCommand extends Command {
     }
 
 	async run(msg, args) {
-        const member = args.member;
-        const user = member.user;
         var imgkon = {
             "0": "http://4.bp.blogspot.com/-Bk7l0ehbx-g/UjTHJHDKz7I/AAAAAAAADTY/9be5jIRhi5s/s1600/tumblr_mfxmbe0g4H1qk24ijo1_500.gif",
             "1": "http://pa1.narvii.com/6285/532de6cdf092c265d4c713e0246fc348a723fd01_hq.gif",
@@ -37,12 +35,12 @@ module.exports = class konbanwaCommand extends Command {
             "10": "http://m0shi-m0shi.com/images/data/avatar_membre/7012_IMG_3589_grand.gif",
             "11": "http://pa1.narvii.com/6085/426168899cb3fdfced9c50fee193387416bfdf2a_hq.gif",
             "12": "https://2.bp.blogspot.com/-DBTBPpexDxk/Wj56PkUsdxI/AAAAAAAACU4/_rgn0qAHZFkX1v6QLJd6oXAcNJgOZYYEwCLcBGAs/s1600/re-creators-gif-voce-sabia-anime%2B%25287%2529.gif",
-          "13": "http://images6.fanpop.com/image/photos/32500000/-Hyouka-Eru-Chitanda-hyouka-32580592-500-240.gif",
+            "13": "http://images6.fanpop.com/image/photos/32500000/-Hyouka-Eru-Chitanda-hyouka-32580592-500-240.gif",
             "14": "https://data.whicdn.com/images/208992684/original.gif",
             "15": "http://pa1.narvii.com/6148/b2a8e81579bb58002a0993a7b3721176f55933af_hq.gif"
         };
             const embed = new RichEmbed()
-                embed.setDescription(msg.author + 'Konbanwa' + msg.member)        
+                embed.setDescription(msg.author + 'Konbanwa' + args.member)        
                 embed.setImage(imgkon[Math.floor(Math.random() * Object.keys(imgkon).length).toString()])
                 embed.setColor(0x23ff12)
             return msg.embed(embed);
