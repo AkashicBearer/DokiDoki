@@ -16,7 +16,7 @@ async run(msg, args) {
         const user = member.user;
         var imgneko = {
             "0": "https://media.giphy.com/media/M5yyzCim2A6li/giphy.gif",
-            "1":"http://gifimage.net/wp-content/uploads/2017/09/anime-neko-girl-gif-7.gif",
+            "1": "http://gifimage.net/wp-content/uploads/2017/09/anime-neko-girl-gif-7.gif",
             "2": "https://media.giphy.com/media/svAVUj69hK5a0/giphy.gif",
             "3": "https://i.imgur.com/B9ogjI2.gif",
             "4": "https://i.imgur.com/B9ogjI2.gif",
@@ -38,7 +38,7 @@ async run(msg, args) {
         };
 
         const embed = new RichEmbed()
-            .setDescription('Have a Neko ')
+            .setDescription("Have a Neko")
             .setImage(imgneko[Math.floor(Math.random() * Object.keys(imgneko).length).toString()])
             .setColor(0x23ff12)
         return msg.embed(embed);
