@@ -42,7 +42,7 @@ module.exports = class konbanwaCommand extends Command {
         };
            const embed = new RichEmbed()
              if(msg.author.id == args.member.id){
-                embed.setDescription(msg.author + ' just came in: "Konbanwa, minna-san!"')
+                embed.setDescription(msg.author + ': "Konbanwa, minna-san!"')
              }else{
                 embed.setDescription('Konbanwa, ' + args.member + '!')  
              }
