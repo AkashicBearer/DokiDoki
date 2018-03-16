@@ -53,13 +53,13 @@ module.exports = class PatCommand extends Command {
         const embed = new RichEmbed()
             
             if(message.author == args.member.user){
-                .setDescription(message.author + ' pats... their own head, sometimes you just need a little bit love. ')
-                .setImage(imgselfpat[Math.floor(Math.random() * Object.keys(imgselfpat).length).toString()])                
+                embed.setDescription(message.author + ' pats... their own head, sometimes you just need a little bit love. ')
+                embed.setImage(imgselfpat[Math.floor(Math.random() * Object.keys(imgselfpat).length).toString()])                
             }else{
-                .setDescription(message.author + ' pats ' + args.member.user)
-                .setImage(imgpat[Math.floor(Math.random() * Object.keys(imgpat).length).toString()])                
+                embed.setDescription(message.author + ' pats ' + args.member.user)
+                embed.setImage(imgpat[Math.floor(Math.random() * Object.keys(imgpat).length).toString()])                
             }
-            .setColor(0x23ff12)
+            embed.setColor(0x23ff12)
         return msg.embed(embed);
     }
 };

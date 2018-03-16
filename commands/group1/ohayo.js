@@ -43,9 +43,9 @@ module.exports = class ohayoCommand extends Command {
         };
         const embed = new RichEmbed()
             if(message.author == args.member.user){
-                .setDescription(message.author + 'just woke up: "Ohayo, minna-san!"')
+                embed.setDescription(message.author + 'just woke up: "Ohayo, minna-san!"')
             }else{
-                .setDescription('Ohayo, ' + args.member.user + '!')
+                embed.setDescription('Ohayo, ' + args.member.user + '!')
             }
             .setImage(imgoha[Math.floor(Math.random() * Object.keys(imgoha).length).toString()])
             .setColor(0x23ff12)

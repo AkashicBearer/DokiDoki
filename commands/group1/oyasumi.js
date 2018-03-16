@@ -43,9 +43,9 @@ module.exports = class oyasumiCommand extends Command {
         };
         const embed = new RichEmbed()
             if(message.author == args.member.user){
-                .setDescription(message.author + 'is going to sleep: "Oyasumi, minna-san!"')
+                embed.setDescription(message.author + 'is going to sleep: "Oyasumi, minna-san!"')
             }else{
-                .setDescription('Oyasumi, ' + args.member.user + '!')
+                embed.setDescription('Oyasumi, ' + args.member.user + '!')
             }
             
             .setImage(imgoya[Math.floor(Math.random() * Object.keys(imgoya).length).toString()])
