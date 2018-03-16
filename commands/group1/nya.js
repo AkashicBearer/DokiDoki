@@ -11,7 +11,7 @@ module.exports = class NyaCommand extends Command {
         });
     }
 
-async run(msg, args) {
+	async run(msg, args) {
         var imgneko = {
             "0": "https://media.giphy.com/media/M5yyzCim2A6li/giphy.gif",
             "1": "http://gifimage.net/wp-content/uploads/2017/09/anime-neko-girl-gif-7.gif",
@@ -36,9 +36,9 @@ async run(msg, args) {
         };
 
         const embed = new RichEmbed()
-            .setDescription("Have a Neko")
-            .setImage(imgneko[Math.floor(Math.random() * Object.keys(imgneko).length).toString()])
-            .setColor(0x23ff12)
+            embed.setDescription("Have a Neko")
+            embed.setImage(imgneko[Math.floor(Math.random() * Object.keys(imgneko).length).toString()])
+            embed.setColor(0x23ff12)
         return msg.embed(embed);
     }
 
