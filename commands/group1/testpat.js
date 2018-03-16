@@ -21,7 +21,6 @@ module.exports = class PatCommand extends Command {
     }
 	async run(msg, args) {
 		const member = args.member;
-        const user = member.user;
         var imgpat = {
             "0": "https://thumbs.gfycat.com/BlankGiftedBurro-max-1mb.gif",
             "1":"https://media1.tenor.com/images/1e92c03121c0bd6688d17eef8d275ea7/tenor.gif?itemid=9920853",
@@ -51,7 +50,7 @@ module.exports = class PatCommand extends Command {
             "4": "http://i.imgur.com/uacfoA9.gif"
         };
         const embed = new RichEmbed()
-            .setDescription(msg.author + ' pats ' + msg.mentions[0])
+            .setDescription(msg.author + ' pats ' + args.member)
             .setImage(imgpat[Math.floor(Math.random() * Object.keys(imgpat).length).toString()])
             .setColor(0x23ff12)
         return msg.embed(embed);
