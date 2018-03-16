@@ -4,16 +4,17 @@ const { RichEmbed } = require('discord.js');
 module.exports = class konbanwaCommand extends Command {
     constructor(client) {
       super(client, {
-        name: 'konbanwa',
-        aliases:['kon'],
-        group: 'group1',
-        memberName: 'konbanwa',
-        description: 'Konbanwa!!',
+            name: 'konbanwa',
+            aliases: ['kon'],
+            group: 'group1',
+            memberName: 'konbanwa',
+            description: 'Konbanwa!',
+        
             args: [
                 {
                     key: 'member',
                     label: 'user',
-                    prompt: 'Who do you want to say Konbanwa?',
+                    prompt: 'Who do you want to say konbanwa to?',
                     type: 'member'
                 }
             ]
@@ -39,9 +40,14 @@ module.exports = class konbanwaCommand extends Command {
             "14": "https://data.whicdn.com/images/208992684/original.gif",
             "15": "http://pa1.narvii.com/6148/b2a8e81579bb58002a0993a7b3721176f55933af_hq.gif"
         };
-            const embed = new RichEmbed()
-                embed.setDescription(msg.author + 'Konbanwa' + args.member)        
+           const embed = new RichEmbed()
+             if(msg.author.id == args.member.id){
+                embed.setDescription(msg.author + ' just came in: "Konbanwa, minna-san!"')
+             }else{
+                embed.setDescription('Konbanwa, ' + args.member + '!')  
+             }
                 embed.setImage(imgkon[Math.floor(Math.random() * Object.keys(imgkon).length).toString()])
                 embed.setColor(0x23ff12)
             return msg.embed(embed);
+        }
 	};
