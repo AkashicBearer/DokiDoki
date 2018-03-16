@@ -43,7 +43,7 @@ module.exports = class ohayoCommand extends Command {
         };
         const embed = new RichEmbed()
              if(msg.author.id == args.member.id){
-                embed.setDescription(msg.author + 'just woke up: Ohayo, minna-san!')
+                embed.setDescription(msg.author + ' just woke up: "Ohayo, minna-san!"')
              }else{
                 embed.setDescription('Ohayo, ' + args.member + '!')  
              }
