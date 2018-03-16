@@ -13,7 +13,7 @@ module.exports = class HappyCommand extends Command {
 	async run(msg, args) {
         var imgjoy = {
             "0": "https://media1.tenor.com/images/7706dded712d1e0f6ddb38d0f6352c95/tenor.gif?itemid=6014343",
-            "1":"https://media.giphy.com/media/IWM2uI93SaTde/giphy.gif",
+            "1": "https://media.giphy.com/media/IWM2uI93SaTde/giphy.gif",
             "2": "https://media.giphy.com/media/3Cm8cxtSHqu6Q/giphy.gif",
             "3": "https://media1.tenor.com/images/0f9847a5f258da9a3bdccc3860f91eb5/tenor.gif?itemid=9188246",
             "4": "https://media.giphy.com/media/lDYHk3Okrag7K/giphy.gif",
