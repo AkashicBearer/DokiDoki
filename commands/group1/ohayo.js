@@ -7,7 +7,7 @@ module.exports = class ohayoCommand extends Command {
             name: 'ohayo',
             group: 'group1',
             memberName: 'ohayo',
-            description: 'Ohayo Gozaimasu'
+            description: 'Ohayo Gozaimasu',
         
             args: [
                 {
