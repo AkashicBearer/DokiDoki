@@ -51,7 +51,7 @@ module.exports = class PatCommand extends Command {
             "4": "http://i.imgur.com/uacfoA9.gif"
         };
         const embed = new RichEmbed()
-        if(msg.author == args.member.user){
+        if(msg.author.id == args.member.user.id){
             .setAuthor(msg.author.username)
         }
             .setDescription(msg.author + ' DokiDoki pats ' + args.member.user)
