@@ -14,10 +14,10 @@ module.exports = class PatCommand extends Command {
     async run(msg, args) {
         const embed = new RichEmbed()
 			.setTitle('DokiDoki Information')
-            .setDescription('My Information:')
+            		.setDescription('My Information:')
 			.addField("My Discord Invite Link", "https://discordapp.com/api/oauth2/authorize?client_id=385115460397694977&permissions=8&scope=bot")
-            .addField("My Github Documentation", https://github.com/AkashicBearer/DokiDoki")
-			.addField("DokiDoki Runs on Discird.JS/Commando')
+         		.addField("My Github Documentation", "https://github.com/AkashicBearer/DokiDoki")
+			.addField("DokiDoki Runs on Discird.JS-Commando")
 			.setColor(0x23ff12)
         return msg.embed(embed);
     }
