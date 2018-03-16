@@ -29,6 +29,7 @@
     "config.json": "0.0.4",
     "discord.js": "^11.3.2",
     "discord.js-commando": "github:discordjs/Commando#11.2",
+    "dotenv": "^5.0.1",
     "git-all": "0.0.3",
     "node.js": "0.0.0",
     "querystring": "^0.2.0",

@@ -1,3 +1,4 @@
+require('dotenv').config();
 const { CommandoClient, SQLiteProvider } = require('discord.js-commando');
 const config = require("./config.json");
 const oneLine = require('common-tags').oneLine;
