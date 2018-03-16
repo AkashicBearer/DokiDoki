@@ -51,4 +51,4 @@ module.exports = class KonbanwaCommand extends Command {
                 embed.setImage(imgkon[Math.floor(Math.random() * Object.keys(imgkon).length).toString()])
                 embed.setColor(0x23ff12)
             return msg.embed(embed);
-        }
+        };
