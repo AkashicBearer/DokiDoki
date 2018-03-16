@@ -8,6 +8,7 @@ module.exports = class InfoCommand extends Command {
 	    aliases: ["about", "invite", "information"],
             group: 'group4',
             memberName: 'info',
+	    description: 'Shows Info about the Bot'
         });
     }
     async run(msg, args) {
