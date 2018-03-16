@@ -1,7 +1,7 @@
 const { Command } = require('discord.js-commando');
 const { RichEmbed } = require('discord.js');
 
-module.exports = class BakaCommand extends Command {
+module.exports = class HappyCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'happy',
@@ -37,7 +37,7 @@ module.exports = class BakaCommand extends Command {
         };
 
         const embed = new RichEmbed()
-            embed.setDescription(msg.author + ' is  very happy!')
+            embed.setDescription(' is  very happy!')
             embed.setImage(imgjoy[Math.floor(Math.random() * Object.keys(imgjoy).length).toString()])
             embed.setColor(0x23ff12)
         return msg.embed(embed);
