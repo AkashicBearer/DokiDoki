@@ -23,7 +23,7 @@ module.exports = class oyasumiCommand extends Command {
     async run(msg, args) {
         const member = args.member;
         const user = member.user;
-        var imgoha = {
+        var imgoya = {
             "0":"https://s1.zerochan.net/Toyosatomimi.no.Miko.600.1452679.jpg",
             "1":"http://media.giphy.com/media/lqcSPTw3DuwRa/giphy.gif",
             "2":"https://animeforums.net/uploads/monthly_2017_06/62baee119a5169316483161dde2f01c2c8dd3162_hq.gif.fd82c80b0f22e19d48d6a18ac1d4112b.gif",
@@ -42,8 +42,8 @@ module.exports = class oyasumiCommand extends Command {
             "15":"https://data.whicdn.com/images/185545514/original.gif",
         };
         const embed = new RichEmbed()
-            .setDescription('Ohayo, ' + args.member.user + '!')
-            .setImage(imgoha[Math.floor(Math.random() * Object.keys(imgoha).length).toString()])
+            .setDescription('Oyasumi, ' + args.member.user + '!')
+            .setImage(imgoya[Math.floor(Math.random() * Object.keys(imgoya).length).toString()])
             .setColor(0x23ff12)
         return msg.embed(embed);
     }
