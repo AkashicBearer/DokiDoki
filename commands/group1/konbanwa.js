@@ -43,12 +43,8 @@ module.exports = class KonbanwaCommand extends Command {
             "15": "http://pa1.narvii.com/6148/b2a8e81579bb58002a0993a7b3721176f55933af_hq.gif"
         };
         const embed = new RichEmbed()
-             if(msg.author.id == args.member.id){
-                embed.setDescription(msg.author + ' Says: "Konbanwa, minna-san!"')
-             }else{
-                embed.setDescription('Konbanwa, ' + args.member + '!')  
-             }
-                embed.setImage(imgkon[Math.floor(Math.random() * Object.keys(imgkon).length).toString()])
-                embed.setColor(0x23ff12)
+                .setDescription(msg.author + 'Konbanwa' + msg.member.user)        
+                .setImage(imgkon[Math.floor(Math.random() * Object.keys(imgkon).length).toString()])
+                .setColor(0x23ff12)
             return msg.embed(embed);
         };
