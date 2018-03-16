@@ -51,16 +51,17 @@ module.exports = class PatCommand extends Command {
             "4": "http://i.imgur.com/uacfoA9.gif"
         };
         const embed = new RichEmbed()
-            embed.setDescription(' pats...')
-                
-            if(message.author.tag == args.member.user.tag){
+            .setDescription(message.author + ' pats ' + args.member.user)
+            .setImage(imgselfpat[Math.floor(Math.random() * Object.keys(imgselfpat).length).toString()])
+            .setColor(0x23ff12)    
+            /*if(message.author.tag == args.member.user.tag){
                 embed.setDescription(message.author + ' pats... their own head, sometimes you just need a little bit love. ')
                 embed.setImage(imgselfpat[Math.floor(Math.random() * Object.keys(imgselfpat).length).toString()])                
             }else{
                 embed.setDescription(message.author + ' pats ' + args.member.user)
                 embed.setImage(imgpat[Math.floor(Math.random() * Object.keys(imgpat).length).toString()])                
-            }
-            embed.setColor(0x23ff12)
+            }*/
+            
         return msg.embed(embed);
     }
 };
