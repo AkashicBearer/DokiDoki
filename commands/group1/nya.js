@@ -45,5 +45,3 @@ async run(msg, args) {
     }
 
 };
-    }
-};
