@@ -61,7 +61,7 @@ module.exports = class PatCommand extends Command {
                 embed.setDescription(message.author + ' pats ' + args.member.user)
                 embed.setImage(imgpat[Math.floor(Math.random() * Object.keys(imgpat).length).toString()])                
             }*/
-            msg.channel.send(message.author)
+            msg.channel.send(member.author)
         return msg.embed(embed);
     }
 };
