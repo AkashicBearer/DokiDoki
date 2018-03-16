@@ -5,7 +5,7 @@ module.exports = class KonbanwaCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'konbanwa',
-	    aliases:['kon']
+	    aliases:['kon'],
             group: 'group1',
             memberName: 'konbanwa',
             description: 'Konbanwa!!',
