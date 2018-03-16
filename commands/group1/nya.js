@@ -12,8 +12,6 @@ module.exports = class NyaCommand extends Command {
     }
 
 async run(msg, args) {
-        const member = args.member;
-        const user = member.user;
         var imgneko = {
             "0": "https://media.giphy.com/media/M5yyzCim2A6li/giphy.gif",
             "1": "http://gifimage.net/wp-content/uploads/2017/09/anime-neko-girl-gif-7.gif",
@@ -33,8 +31,8 @@ async run(msg, args) {
             "15": "https://media.giphy.com/media/mMcDEfSDUfNBu/giphy.gif",
             "16": "https://pa1.narvii.com/5993/b02d6ce36d662b7fbd03d54493aebfb1031892d8_hq.gif",
             "17": "http://i0.kym-cdn.com/photos/images/newsfeed/000/989/155/a6e.gif",
-	    "18": "https://nokywln.files.wordpress.com/2012/06/hastur-11.gif",
-	    "19": "https://i.pinimg.com/originals/4e/d6/43/4ed6435b4073fa285f75b1545f44d7f2.gif"
+	    	"18": "https://nokywln.files.wordpress.com/2012/06/hastur-11.gif",
+	    	"19": "https://i.pinimg.com/originals/4e/d6/43/4ed6435b4073fa285f75b1545f44d7f2.gif"
         };
 
         const embed = new RichEmbed()
