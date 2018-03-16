@@ -47,8 +47,8 @@ module.exports = class ohayoCommand extends Command {
             }else{
                 embed.setDescription('Ohayo, ' + args.member.user + '!')
             }
-            .setImage(imgoha[Math.floor(Math.random() * Object.keys(imgoha).length).toString()])
-            .setColor(0x23ff12)
+            embed.setImage(imgoha[Math.floor(Math.random() * Object.keys(imgoha).length).toString()])
+            embed.setColor(0x23ff12)
         return msg.embed(embed);
     }
 };

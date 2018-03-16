@@ -48,8 +48,8 @@ module.exports = class oyasumiCommand extends Command {
                 embed.setDescription('Oyasumi, ' + args.member.user + '!')
             }
             
-            .setImage(imgoya[Math.floor(Math.random() * Object.keys(imgoya).length).toString()])
-            .setColor(0x23ff12)
+            embed.setImage(imgoya[Math.floor(Math.random() * Object.keys(imgoya).length).toString()])
+            embed.setColor(0x23ff12)
         return msg.embed(embed);
     }
 };
