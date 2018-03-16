@@ -8,7 +8,7 @@ module.exports = class KonbanwaCommand extends Command {
 	    aliases:['kon']
             group: 'group1',
             memberName: 'konbanwa',
-            description: 'Konbanwa ^^',
+            description: 'Konbanwa!!',
         
             args: [
                 {
