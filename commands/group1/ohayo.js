@@ -8,14 +8,30 @@ module.exports = class ohayoCommand extends Command {
             group: 'group1',
             memberName: 'ohayo',
             description: 'Ohayo Gozaimasu'
+        
+            args: [
+                {
+                    key: 'member',
+                    label: 'user',
+                    prompt: 'Who do you want to say ohayo to?',
+                    type: 'member'
+                }
+            ]
         });
     }
 
 	async run(msg, args) {
+        const member = args.member;
+        const user = member.user;
+        var imgoha = {
+            "0":"https://data.whicdn.com/images/49009068/large.png",
+            "1":"https://pa1.narvii.com/5905/319c5ddf3a7e04303b642ac9ffc9765669ec8480_hq.gif",
+            "2":"http://i.imgur.com/vkBXzXK.gif"
+        };
         const embed = new RichEmbed()
-            .setDescription(' Ohayo Gozaimasu Master >,<')
-			.setImage('https://data.whicdn.com/images/49009068/large.png')
-            .setColor(0x9013FE)
+            .setDescription('Ohayo, ' + args.member.user + '!')
+            .setImage(imgoha[Math.floor(Math.random() * Object.keys(imgoha).length).toString()])
+            .setColor(0x23ff12)
         return msg.embed(embed);
     }
 };
