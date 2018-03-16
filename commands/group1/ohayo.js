@@ -42,14 +42,12 @@ module.exports = class ohayoCommand extends Command {
             "15":"https://media1.tenor.com/images/d58387362b6cea96c4399130b61684f0/tenor.gif?itemid=8388336"
         };
         const embed = new RichEmbed()
-             if(msg.author.id == args.member.id){
-                embed.setDescription(message.author + 'just woke up: "Ohayo, minna-san!"')
-                embed.setImage(imgoha[Math.floor(Math.random() * Object.keys(imgselfpat).length).toString()])
+             /*if(msg.author.id == args.member.id){
+                embed.setDescription(message.author + 'just woke up: Ohayo, minna-san!')
              }else{
-                embed.setDescription('Ohayo, ' + args.member + '!')
+                embed.setDescription('Ohayo, ' + args.member + '!')  
+             }*/
                 embed.setImage(imgoha[Math.floor(Math.random() * Object.keys(imgpat).length).toString()])
-             }
-                
                 embed.setColor(0x23ff12)
             return msg.embed(embed);
         }
