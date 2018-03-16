@@ -1,7 +1,7 @@
 const { Command } = require('discord.js-commando');
 const { RichEmbed } = require('discord.js');
 
-module.exports = class KonbanwaCommand extends Command {
+module.exports = class konbanwaCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'konbanwa',
@@ -42,9 +42,9 @@ module.exports = class KonbanwaCommand extends Command {
             "14": "https://data.whicdn.com/images/208992684/original.gif",
             "15": "http://pa1.narvii.com/6148/b2a8e81579bb58002a0993a7b3721176f55933af_hq.gif"
         };
-        const embed = new RichEmbed()
+            const embed = new RichEmbed()
                 .setDescription(msg.author + 'Konbanwa' + msg.member.user)        
                 .setImage(imgkon[Math.floor(Math.random() * Object.keys(imgkon).length).toString()])
                 .setColor(0x23ff12)
             return msg.embed(embed);
-        };
+};
