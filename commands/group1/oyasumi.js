@@ -43,7 +43,7 @@ module.exports = class oyasumiCommand extends Command {
         };
         const embed = new RichEmbed()
            if(msg.author.id == args.member.id){
-                embed.setDescription(msg.author + 'is going to sleep: "Oyasumi, minna-san!"')
+                embed.setDescription(msg.author + ' is going to sleep: "Oyasumi, minna-san!"')
             }else{
                 embed.setDescription('Oyasumi, ' + args.member + '!')
             }
