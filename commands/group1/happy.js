@@ -5,10 +5,9 @@ module.exports = class HappyCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'happy',
-            aliases: ['joy'],
             group: 'group1',
             memberName: 'happy',
-            description: 'Show your happiness!',
+            description: 'Show how happy you are!'
         });
     }
 	async run(msg, args) {
@@ -36,7 +35,7 @@ module.exports = class HappyCommand extends Command {
             "20": "https://media1.tenor.com/images/56350dfdcd3a5fa4fd66e9e87f9574bb/tenor.gif?itemid=4718162"
         };
 
-        const embed = new RichEmbed()
+       const embed = new RichEmbed()
             embed.setDescription("Someone is really happy!")
             embed.setImage(imgjoy[Math.floor(Math.random() * Object.keys(imgjoy).length).toString()])
             embed.setColor(0x23ff12)
