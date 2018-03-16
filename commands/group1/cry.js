@@ -31,9 +31,9 @@ module.exports = class CryCommand extends Command {
             "14": "https://tenor.com/view/anime-girl-crying-sad-black-gif-4952249"
         };
            const embed = new RichEmbed()
-                embed.setDescription(msg.author ' Why are you crying?' )  
-                embed.setImage(imgcry[Math.floor(Math.random() * Object.keys(imgcry).length).toString()])
-                embed.setColor(0x23ff12)
+                .setDescription(msg.author ' Why are you crying?' )  
+                .setImage(imgcry[Math.floor(Math.random() * Object.keys(imgcry).length).toString()])
+                .setColor(0x23ff12)
             return msg.embed(embed);
         }
 	};
