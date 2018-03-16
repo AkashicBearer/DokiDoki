@@ -12,8 +12,6 @@ module.exports = class BakaCommand extends Command {
         });
     }
 	async run(msg, args) {
-        const member = args.member;
-        const user = member.user;
         var imgjoy = {
             "0": "https://media1.tenor.com/images/7706dded712d1e0f6ddb38d0f6352c95/tenor.gif?itemid=6014343",
             "1":"https://media.giphy.com/media/IWM2uI93SaTde/giphy.gif",
@@ -39,7 +37,6 @@ module.exports = class BakaCommand extends Command {
         };
 
         const embed = new RichEmbed()
-
             embed.setDescription(msg.author + ' is  very happy!')
             embed.setImage(imgjoy[Math.floor(Math.random() * Object.keys(imgjoy).length).toString()])
             embed.setColor(0x23ff12)
