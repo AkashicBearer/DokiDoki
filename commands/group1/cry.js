@@ -31,7 +31,7 @@ module.exports = class CryCommand extends Command {
             "14": "https://tenor.com/view/anime-girl-crying-sad-black-gif-4952249"
         };
            const embed = new RichEmbed()
-                .setDescription(msg.author + 'is Crying' )  
+                .setDescription(msg.author + ' is Crying' )  
                 .setImage(imgcry[Math.floor(Math.random() * Object.keys(imgcry).length).toString()])
                 .setColor(0x23ff12)
             return msg.embed(embed);
