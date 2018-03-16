@@ -36,9 +36,9 @@ module.exports = class HappyCommand extends Command {
         };
 
        const embed = new RichEmbed()
-            embed.setDescription(message.author + ' is really happy!')
-            embed.setImage(imgjoy[Math.floor(Math.random() * Object.keys(imgjoy).length).toString()])
-            embed.setColor(0x23ff12)
+            .setDescription(message.author + ' is really happy!')
+            .setImage(imgjoy[Math.floor(Math.random() * Object.keys(imgjoy).length).toString()])
+            .setColor(0x23ff12)
         return message.embed(embed);
     }
 	
