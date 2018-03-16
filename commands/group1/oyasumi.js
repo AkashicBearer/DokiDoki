@@ -39,7 +39,7 @@ module.exports = class oyasumiCommand extends Command {
             "12":"https://thumbs.gfycat.com/FeistyWhirlwindAllosaurus-max-1mb.gif",
             "13":"https://78.media.tumblr.com/39264c47dedd6780ac208aea82aa2848/tumblr_o8a7492ngl1tmvxxdo1_250.gif",
             "14":"https://78.media.tumblr.com/ce580475e37ec01204948c5a3c8ae63f/tumblr_o5bp26p7MN1vppss6o1_400.gif",
-            "15":"https://data.whicdn.com/images/185545514/original.gif",
+            "15":"https://data.whicdn.com/images/185545514/original.gif"
         };
         const embed = new RichEmbed()
             .setDescription('Oyasumi, ' + args.member.user + '!')
