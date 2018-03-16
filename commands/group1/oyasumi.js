@@ -47,4 +47,4 @@ module.exports = class oyasumiCommand extends Command {
             .setColor(0x23ff12)
         return msg.embed(embed);
     }
-};https://s1.zerochan.net/Toyosatomimi.no.Miko.600.1452679.jpg
+};
