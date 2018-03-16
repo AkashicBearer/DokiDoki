@@ -53,7 +53,7 @@ module.exports = class PatCommand extends Command {
         const embed = new RichEmbed()
          if(msg.author.id == args.member.id){
             embed.setDescription(msg.author + ' pats.. their own head.. everyone needs a little bit of love sometimes ')
-            embed.setImage(imgpat[Math.floor(Math.random() * Object.keys(imgselfpat).length).toString()])
+            embed.setImage(imgselfpat[Math.floor(Math.random() * Object.keys(imgselfpat).length).toString()])
          }else{
             embed.setDescription(msg.author + ' pats ' + args.member.user)
             embed.setImage(imgpat[Math.floor(Math.random() * Object.keys(imgpat).length).toString()])
