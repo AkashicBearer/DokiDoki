@@ -36,10 +36,10 @@ module.exports = class HappyCommand extends Command {
         };
 
        const embed = new RichEmbed()
-            .setDescription(message.author + ' is really happy!')
+            .setDescription(msg.author + ' is really happy!')
             .setImage(imgjoy[Math.floor(Math.random() * Object.keys(imgjoy).length).toString()])
             .setColor(0x23ff12)
-        return message.embed(embed);
+        return msg.embed(embed);
     }
 	
 };
