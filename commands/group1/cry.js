@@ -8,16 +8,7 @@ module.exports = class CryCommand extends Command {
             aliases: ['waa'],
             group: 'group1',
             memberName: 'cry',
-            description: 'Cry',
-        
-            args: [
-                {
-                    key: 'member',
-                    label: 'user',
-                    prompt: 'Who is Crying?',
-                    type: 'member'
-                }
-            ]
+            description: 'Cry'
         });
     }
 
@@ -40,11 +31,7 @@ module.exports = class CryCommand extends Command {
             "14": "https://tenor.com/view/anime-girl-crying-sad-black-gif-4952249"
         };
            const embed = new RichEmbed()
-             if(msg.author.id == args.member.id){
-                embed.setDescription(msg.author + ': "is Crying"')
-             }else{
-                embed.setDescription('Why are you crying  ' + args.member + '!')  
-             }
+                embed.setDescription(msg.author ' Why are you crying?' )  
                 embed.setImage(imgcry[Math.floor(Math.random() * Object.keys(imgcry).length).toString()])
                 embed.setColor(0x23ff12)
             return msg.embed(embed);
