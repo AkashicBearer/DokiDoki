@@ -71,4 +71,4 @@ client.registry
 		`);
 	});
 	
-client.login(config.token);
+client.login(process.env.token);
