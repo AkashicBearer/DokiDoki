@@ -51,8 +51,9 @@ module.exports = class PatCommand extends Command {
             "4": "http://i.imgur.com/uacfoA9.gif"
         };
         const embed = new RichEmbed()
-            
-            if(message.author == args.member.user){
+            embed.setDescription(' pats...')
+                
+            if(message.author.tag == args.member.user.tag){
                 embed.setDescription(message.author + ' pats... their own head, sometimes you just need a little bit love. ')
                 embed.setImage(imgselfpat[Math.floor(Math.random() * Object.keys(imgselfpat).length).toString()])                
             }else{

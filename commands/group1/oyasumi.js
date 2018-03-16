@@ -42,7 +42,7 @@ module.exports = class oyasumiCommand extends Command {
             "15":"https://data.whicdn.com/images/185545514/original.gif"
         };
         const embed = new RichEmbed()
-            if(message.author == args.member.user){
+            if(message.author.tag == args.member.user.tag){
                 embed.setDescription(message.author + 'is going to sleep: "Oyasumi, minna-san!"')
             }else{
                 embed.setDescription('Oyasumi, ' + args.member.user + '!')
