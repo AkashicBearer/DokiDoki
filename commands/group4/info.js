@@ -5,10 +5,9 @@ module.exports = class PatCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'info',
-			aliases: ["about", "invite", "information"],
-            group: 'util',
+	    aliases: ["about", "invite", "information"],
+            group: 'group4',
             memberName: 'info',
-            description: 'Who do you want to pat?>,<'
         });
     }
     async run(msg, args) {
