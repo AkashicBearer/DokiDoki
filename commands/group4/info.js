@@ -17,7 +17,7 @@ module.exports = class InfoCommand extends Command {
             		.setDescription('My Information:')
 			.addField("My Discord Invite Link", "[Discord Invite Link](https://discordapp.com/api/oauth2/authorize?client_id=385115460397694977&permissions=8&scope=bot)")
          		.addField("My Github Documentation", "[GitHub](https://github.com/AkashicBearer/DokiDoki)")
-			.addField("DokiDoki Runs on Discird.JS-Commando")
+			.addField("Additional Information","DokiDoki Runs on Discird.JS-Commando, Its Current Devs are Akashic Bearer#2305 and Kandrina#1426")
 			.setColor(0x23ff12)
         return msg.embed(embed);
     }
