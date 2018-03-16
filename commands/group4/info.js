@@ -14,8 +14,8 @@ module.exports = class InfoCommand extends Command {
         const embed = new RichEmbed()
 			.setTitle('DokiDoki Information')
             		.setDescription('My Information:')
-			.addField("My Discord [Invite Link]("discordapp.com/api/oauth2/authorize?client_id=385115460397694977&permissions=8&scope=bot")
-         		.addField("My [Github](https://github.com/AkashicBearer/DokiDoki) Documentation")
+			.addField("My Discord [Invite Link]('https://discordapp.com/api/oauth2/authorize?client_id=385115460397694977&permissions=8&scope=bot')")
+         		.addField("My [Github]('https://github.com/AkashicBearer/DokiDoki') Documentation")
 			.addField("DokiDoki Runs on Discird.JS-Commando")
 			.setColor(0x23ff12)
         return msg.embed(embed);
