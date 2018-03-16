@@ -38,11 +38,27 @@ module.exports = class PatCommand extends Command {
             "12": "https://78.media.tumblr.com/364e5ba769517c4295a218dcb81c0602/tumblr_mp0yr2VHQQ1rvdjx0o1_1280.gif",
             "13": "https://i.pinimg.com/originals/7b/b4/04/7bb404a3fd5376fa3b539407904a5291.gif",
             "14": "https://pa1.narvii.com/6279/f72997893c952a02e6ef1732ecf98e61ef57863a_hq.gif",
-            "15": "https://media1.tenor.com/images/183ff4514cbe90609e3f286adaa3d0b4/tenor.gif?itemid=5518321"
+            "15": "https://media1.tenor.com/images/183ff4514cbe90609e3f286adaa3d0b4/tenor.gif?itemid=5518321",
+            "16": "https://pa1.narvii.com/6401/e11bc915114f632da1d2cc70716b7cb86478c130_hq.gif",
+            "17": "https://pa1.narvii.com/6401/9629e80dbe24f32a009ac51ee633a32dfbe1773f_hq.gif"
+        };
+
+        var imgselfpat = {
+            "0": "https://pa1.narvii.com/6401/655b40f33530a90101682ee74c5fa12a673df749_hq.gif",
+            "1": "https://i.redd.it/2ohfjanym13z.gif",
+            "2": "https://i.imgur.com/65yP14R.gif",
+            "3": "https://pa1.narvii.com/5790/0556780a813c3f6d93b0b178187bca7cec5b68dd_hq.gif",
+            "4": "http://i.imgur.com/uacfoA9.gif"
         };
         const embed = new RichEmbed()
-            .setDescription('DokiDoki Pats ' + args.member.user)
-            .setImage(imgpat[Math.floor(Math.random() * Object.keys(imgpat).length).toString()])
+            
+            if(message.author == args.member.user){
+                .setDescription(message.author + ' pats... their own head, sometimes you just need a little bit love. ')
+                .setImage(imgselfpat[Math.floor(Math.random() * Object.keys(imgselfpat).length).toString()])                
+            }else{
+                .setDescription(message.author + ' pats ' + args.member.user)
+                .setImage(imgpat[Math.floor(Math.random() * Object.keys(imgpat).length).toString()])                
+            }
             .setColor(0x23ff12)
         return msg.embed(embed);
     }

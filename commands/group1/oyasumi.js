@@ -42,7 +42,12 @@ module.exports = class oyasumiCommand extends Command {
             "15":"https://data.whicdn.com/images/185545514/original.gif"
         };
         const embed = new RichEmbed()
-            .setDescription('Oyasumi, ' + args.member.user + '!')
+            if(message.author == args.member.user){
+                .setDescription(message.author + 'is going to sleep: "Oyasumi, minna-san!"')
+            }else{
+                .setDescription('Oyasumi, ' + args.member.user + '!')
+            }
+            
             .setImage(imgoya[Math.floor(Math.random() * Object.keys(imgoya).length).toString()])
             .setColor(0x23ff12)
         return msg.embed(embed);
