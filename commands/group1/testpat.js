@@ -50,7 +50,7 @@ module.exports = class PatCommand extends Command {
             "4": "http://i.imgur.com/uacfoA9.gif"
         };
         const embed = new RichEmbed()
-        if(msg.author == args.member){
+        if(msg.author.id == args.member.id){
             embed.setDescription(msg.author + ' pats thenselves')
         }else{
             embed.setDescription(msg.author + ' pats ' + args.member)
