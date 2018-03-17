@@ -30,7 +30,7 @@ client.registry
     .registerDefaultCommands()
     .registerCommandsIn(path.join(__dirname, 'commands'));
   client	 
-	.on('ready', () => {client.user.setGame('On ', + ${this.client.guilds.size}, + 'servers'})
+	.on('ready', () => {client.user.setGame('On  ${this.client.guilds.size} servers'})
 	.on('error', console.error)
 	.on('warn', console.warn)
 	.on('debug', console.log)
