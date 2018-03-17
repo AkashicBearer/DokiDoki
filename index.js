@@ -30,7 +30,7 @@ client.registry
     .registerDefaultCommands()
     .registerCommandsIn(path.join(__dirname, 'commands'));
   client	 
-	.on('ready', () => {client.user.setGame('Playing With My Neko Army') })
+	.on('ready', () => {client.user.setGame('On ${this.client.guilds.size} servers, for a total of ${this.client.users.size} users.')})
 	.on('error', console.error)
 	.on('warn', console.warn)
 	.on('debug', console.log)
