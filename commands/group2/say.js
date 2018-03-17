@@ -30,10 +30,7 @@ module.exports = class SayCommand extends Command {
     }
 
     async run(msg, { text }){
-    const embed = new RichEmbed()
-          .setDescription({ text })  
-          .setColor(0x23ff12)
-    return msg.embed(embed);
-            msg.delete();
+           msg.delete();
+    return msg.channel.send({ Text });
     }
 };
