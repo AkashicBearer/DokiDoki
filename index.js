@@ -29,7 +29,7 @@ client.registry
 	
 // Console.Log and other stuff -.-
     .registerDefaultGroups()
-    .registerDefaultCommands()
+    .registerDefaultCommands([options.commandState(false)])
     .registerCommandsIn(path.join(__dirname, 'commands'));
 	client
 	.on('error', console.error)
