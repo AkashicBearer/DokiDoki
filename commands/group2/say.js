@@ -31,6 +31,6 @@ module.exports = class SayCommand extends Command {
 
     async run(msg, { text }){
            msg.delete();
-    return msg.channel.send({ Text });
+    return msg.say(text);
     }
 };
