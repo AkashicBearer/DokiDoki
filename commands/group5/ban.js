@@ -34,9 +34,8 @@ module.exports = class BanCommand extends Command {
     
 
 async run(msg, args, ){
- if{user.hasPermission then guild.ban(args.member, {reason: args.text})  
+ if user.hasPermission then guild.ban(args.member, {reason: args.text})  
  msg.channel.send(args.member.user + "Was Banned");
-   }else{
-msg.channel.send(msg.author + ' You Dont Have the Required Permissions to Ban this Member')
-  }}
+ else msg.channel.send(msg.author + ' You Dont Have the Required Permissions to Ban this Member')
+  }
 };
