@@ -3,7 +3,7 @@ const config = require("./config.json");
 const oneLine = require('common-tags').oneLine;
 const sqlite = require('sqlite');
 const path = require('path');
-new Commando.GuildSettingsHelper(clientguild);
+new Commando.GuildSettingsHelper(client, guild);
 const client = new CommandoClient({
     commandPrefix: '<',
     unknownCommandResponse: false,
