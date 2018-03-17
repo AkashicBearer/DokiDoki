@@ -26,11 +26,10 @@ client.registry
 		['group4', 'User Commands'],
 		['group5', 'Administration Commands']
     ])
-	
+	.registerDefaultGroups()
+	.registerDefaultCommands({ help = false, prefix = false, ping = false, eval_ = false, commandState = true } = {}) {
+	}
 // Console.Log and other stuff -.-
-    .registerDefaultGroups()
-    .registerDefaultCommands([options.commandState(false)])
-    .registerCommandsIn(path.join(__dirname, 'commands'));
 	client
 	.on('error', console.error)
 	.on('warn', console.warn)
