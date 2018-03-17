@@ -11,6 +11,7 @@ module.exports = class BanCommand extends Command {
             examples: ['{Prefix}Ban @User#0000'],
             guildOnly: true,
             clientPermissions: ['ADMINISTRATOR', "BAN_MEMBERS"],
+            userPermissions: ['ADMINISTRATOR', "BAN_MEMBERS"],
             throttling: {
                 usages: 2,
                 duration: 10
@@ -30,12 +31,12 @@ module.exports = class BanCommand extends Command {
                   ]
 });
 }
+    
 
 async run(msg, args, ){
-if(user.hasPermissions(['ADMINISTRATOR', 'BAN_MEMBERS'] [explicit = true]))
-    guild.ban(args.member, {reason: args.text})  
-    then(msg.channel.send(args.member.user + "Was Banned"));
-if(user.missing(['BAN_MEMBERS'] [checkAdmin = true]))
-    msg.channel.send(msg.author + ' You Dont Have the Required Permissions to Ban this Member')
+ await guild.ban(args.member, {reason: args.text})  
+ then(msg.channel.send(args.member.user + "Was Banned"));
+else
+msg.channel.send(msg.author + ' You Dont Have the Required Permissions to Ban this Member')
   }
 };
