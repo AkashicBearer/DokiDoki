@@ -3,12 +3,10 @@ const config = require("./config.json");
 const oneLine = require('common-tags').oneLine;
 const sqlite = require('sqlite');
 const path = require('path');
-new Commando.GuildSettingsHelper(client, guild);
 const client = new CommandoClient({
     commandPrefix: '<',
     unknownCommandResponse: false,
     owner: ['193021560792154112', '111469545637605376'],
-	developper: '339974470137544715',
     disableEveryone: true
 });
 
@@ -32,7 +30,7 @@ client.registry
     .registerDefaultCommands()
     .registerCommandsIn(path.join(__dirname, 'commands'));
   client	 
-	.on('ready', () => {client.user.setGame('Playing With ' + this.client.guild.size + ' Members') })
+	.on('ready', () => {client.user.setGame('Playing With My Neko Army') })
 	.on('error', console.error)
 	.on('warn', console.warn)
 	.on('debug', console.log)
