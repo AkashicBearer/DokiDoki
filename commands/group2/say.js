@@ -29,11 +29,11 @@ module.exports = class SayCommand extends Command {
         });    
     }
 
-    async run(msg, { text }) {
-        msg.delete();
+    async run(msg, { text }){
     const embed = new RichEmbed()
           .setDescription({ text })  
           .setColor(0x23ff12)
     return msg.embed(embed);
+            msg.delete();
     }
 };
