@@ -31,6 +31,9 @@ module.exports = class SayCommand extends Command {
 
     run(msg, { text }) {
         msg.delete();
-        return msg.say(text);
+    const embed = new RichEmbed()
+            .setDescription(text)  
+            .setColor(0x23ff12)
+            return msg.embed(embed);
     }
 };
