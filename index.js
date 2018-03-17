@@ -31,7 +31,7 @@ client.registry
     .registerDefaultCommands()
     .registerCommandsIn(path.join(__dirname, 'commands'));
   client	 
-	.on('ready', () => { bot.user.setGame('Playing With ' + this.client.guilds.size + ' Members') })
+	.on('ready', () => {client.user.setGame('Playing With ' + this.client.guilds.size + ' Members') })
 	.on('error', console.error)
 	.on('warn', console.warn)
 	.on('debug', console.log)
