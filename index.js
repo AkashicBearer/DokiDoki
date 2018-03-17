@@ -23,12 +23,10 @@ client.registry
         ['group1', 'Emotion Commands'],
         ['group2', 'Random Commands'],
         ['group3', 'Bullshit Commands'],
-		['group4', 'User Commands'],
-		['group5', 'Administration Commands']
-    ])
-	.registerDefaultGroups()
-	.registerDefaultCommands({ help = false, prefix = false, ping = false, eval_ = false, commandState = true } = {}) {
-	}
+	['group4', 'User Commands'],
+	['group5', 'Administration Commands']
+    ])	
+	.registerDefaultCommands({ help = false, prefix = false, ping = false, eval_ = false, commandState = true } = {}) {}
 // Console.Log and other stuff -.-
 	client
 	.on('error', console.error)
