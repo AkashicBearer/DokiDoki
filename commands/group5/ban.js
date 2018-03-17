@@ -32,7 +32,7 @@ module.exports = class BanCommand extends Command {
 }
 
 async run(msg, args, ){
-if(user.hasPermissions(['ADMINISTRATOR', 'BAN_MEMBERS'] [explicit: 'true'])
+if(user.hasPermissions(['ADMINISTRATOR', 'BAN_MEMBERS'] [explicit = true])
   then(guild.ban(args.member.user, {reason: args.text }))
   then(console.log, + msg.channel.send(args.member.user + "Was Banned"));
   catch(console.error);
