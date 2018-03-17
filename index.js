@@ -24,7 +24,8 @@ client.registry
         ['group2', 'Random Commands'],
         ['group3', 'Bullshit Commands'],
 	['group4', 'User Commands'],
-	['group5', 'Administration Commands']
+	['group5', 'Administration Commands'],
+	['util', 'Utilisation Commands']
     ])	
 	.registerDefaultCommands([ help = false, prefix = false, ping = false, eval_ = false])
 // Console.Log and other stuff -.-
