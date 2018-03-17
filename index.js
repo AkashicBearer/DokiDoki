@@ -18,9 +18,7 @@ sqlite.open(path.join(__dirname, "settings.sqlite3")).then((db) => {
 // Command Groups
 
 client.registry
-   .registerDefaultGroups()
-    .registerDefaultCommands({ping:false, help:false, eval:false, prefix:false, commandState:true})
-    .registerCommandsIn(path.join(__dirname, 'commands'));
+    .registerDefaultGroups()
     .registerGroups([
         ['group1', 'Emotion Commands'],
         ['group2', 'Random Commands'],
@@ -29,6 +27,8 @@ client.registry
 	['group5', 'Administration Commands']
 ])	
 // Console.Log and other stuff -.-
+    .registerDefaultCommands({ping:false, help:false, eval:false, prefix:false, commandState:true})
+    .registerCommandsIn(path.join(__dirname, 'commands'));
   client
 	.on('error', console.error)
 	.on('warn', console.warn)
