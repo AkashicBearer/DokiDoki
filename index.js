@@ -26,7 +26,7 @@ client.registry
 	['group4', 'User Commands'],
 	['group5', 'Administration Commands']
     ])	
-	.registerDefaultCommands({ help = false, prefix = false, ping = false, eval_ = false, commandState = true })
+	.registerDefaultCommands([ help = false, prefix = false, ping = false, eval_ = false, commandState = true ])
 // Console.Log and other stuff -.-
 	client
 	.on('error', console.error)
