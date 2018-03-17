@@ -25,9 +25,8 @@ client.registry
         ['group2', 'Random Commands'],
         ['group3', 'Bullshit Commands'],
 	['group4', 'User Commands'],
-	['group5', 'Administration Commands'],
-	['util', 'Utilisation Commands']
-    ])	
+	['group5', 'Administration Commands']
+])	
 // Console.Log and other stuff -.-
 	client
 	.on('error', console.error)
