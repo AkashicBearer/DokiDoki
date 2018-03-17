@@ -1,4 +1,4 @@
-/* (const { Command } = require('discord.js-commando');
+const { Command } = require('discord.js-commando');
 
 module.exports = class BanCommand extends Command {
     constructor(client) {
@@ -11,7 +11,6 @@ module.exports = class BanCommand extends Command {
             examples: ['{Prefix}Ban @User#0000'],
             guildOnly: true,
             clientPermissions: ['ADMINISTRATOR', "BAN_MEMBERS"],
-            userPermissions: ['ADMINISTRATOR', "BAN_MEMBERS"],
             throttling: {
                 usages: 2,
                 duration: 10
@@ -31,14 +30,11 @@ module.exports = class BanCommand extends Command {
                   ]
 });
 }
-const new Discord.Permissions(member, [ 
-                                    'ADMINISTRATOR'.
-                                    'BAN_MEMBERS'
-                                    ]);
-
+    
 async run(msg, args, ){
- if member.hasPermission then guild.ban(args.member, {reason: args.text})  
- msg.channel.send(args.member.user + "Was Banned");
- else msg.channel.send(msg.author + ' You Dont Have the Required Permissions to Ban this Member')
+    if permissions.has("ADMINISTRATOR");
+    then guild.ban(user {reason: args.text});
+    msg.channel.send(args.member.user + "Was Banned");
+    else msg.channel.send(msg.author + ' You Dont Have the Required Permissions to Ban this Member');
   }
 };
