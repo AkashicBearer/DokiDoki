@@ -18,7 +18,7 @@ sqlite.open(path.join(__dirname, "settings.sqlite3")).then((db) => {
 // Command Groups
 
 client.registry
-    .registerDefaultGroups()
+    .registerDefaultTypes()
     .registerGroups([
         ['group1', 'Emotion Commands'],
         ['group2', 'Random Commands'],
@@ -27,9 +27,11 @@ client.registry
 	['group5', 'Administration Commands']
 ])	
 // Console.Log and other stuff -.-
+    .registerDefaultGroups()
     .registerDefaultCommands()
     .registerCommandsIn(path.join(__dirname, 'commands'));
-  client
+  client	 
+	.on('ready', () => { bot.user.setGame('Playing With ' + this.client.guilds.size + ' Members') })
 	.on('error', console.error)
 	.on('warn', console.warn)
 	.on('debug', console.log)
@@ -68,5 +70,5 @@ client.registry
 			${guild ? `in guild ${guild.name} (${guild.id})` : 'globally'}.
 		`);
 	});
-	
+
 client.login(process.env.token);
