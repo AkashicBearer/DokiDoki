@@ -14,7 +14,7 @@ module.exports = class oyasumiCommand extends Command {
                     key: 'member',
                     label: 'user',
                     prompt: 'Who is going to sleep?',
-                    type: 'member'
+                    type: 'member',
                     default: ''
                 }
             ]
