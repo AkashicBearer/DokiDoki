@@ -12,7 +12,7 @@ module.exports = class QuoteCommand extends Command {
 			args: [
 				{
 					key: 'idx',
-					label: 'user',
+					label: 'message',
 					prompt: 'What message do you want to quote? (ID)',
 					type: 'message'
 				}
