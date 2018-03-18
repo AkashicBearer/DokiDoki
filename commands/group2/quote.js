@@ -11,7 +11,7 @@ module.exports = class QuoteCommand extends Command {
           
 			args: [
 				{
-					key: 'id',
+					key: 'idx',
 					label: 'user',
 					prompt: 'What message do you want to quote? (ID)',
 					type: 'message'
@@ -20,7 +20,7 @@ module.exports = class QuoteCommand extends Command {
         });
     }
 	async run(msg, args) {
-        const msgid = msg.channel.fetchMessage(args.id).id;
+        const msgid = msg.channel.fetchMessage(args.idx).id;
         const embed = new RichEmbed()
 //            embed.setThumbnaul(args.id,author.avatar)
 //            embed.setAuthor(args.id.author)
