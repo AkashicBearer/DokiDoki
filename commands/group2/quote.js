@@ -21,13 +21,14 @@ module.exports = class QuoteCommand extends Command {
     }
 	async run(msg, args) {
        // const msgid = msg.channel.fetchMessage(args.idx)
-       /* const embed = new RichEmbed()
+        const embed = new RichEmbed()
             .setAuthor(args.idx.author.username, args.idx.author.avatarURL)
             .setDescription(args.idx.content)
             .setColor(0x23ff12)
-            .setTimestamp(args.idx)
-        return msg.embed(embed);*/
-        msg.channel.send({embed: {
+            //.setTimestamp(args.idx)
+        return msg.embed(embed);
+
+      /*  msg.channel.send({embed: {
             description: args.idx.content,
             author: {
               name: args.idx.author.username,
@@ -35,6 +36,6 @@ module.exports = class QuoteCommand extends Command {
             },
             color: 0x23ff12,
             timestamp: args.idx
-        }})
+        }})*/
     }
 };
