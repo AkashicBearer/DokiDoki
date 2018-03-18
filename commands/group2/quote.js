@@ -22,6 +22,7 @@ module.exports = class QuoteCommand extends Command {
 	async run(msg, args) {
        // const msgid = msg.channel.fetchMessage(args.idx)
         const embed = new RichEmbed()
+            .setAuthor(args.idx.author, args.idx.author.avatarURL)
             .setDescription(args.idx.content)
             .setColor(0x23ff12)
         return msg.embed(embed);
