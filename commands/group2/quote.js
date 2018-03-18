@@ -23,7 +23,7 @@ module.exports = class QuoteCommand extends Command {
         const embed = new RichEmbed()
 //            embed.setThumbnaul(args.id,author.avatar)
 //            embed.setAuthor(args.id.author)
-            embed.setDescription(args.content)
+            embed.setDescription(args.id)
             embed.setColor(0x23ff12)
         return msg.embed(embed);
     }
