@@ -17,6 +17,8 @@ module.exports = class LewdtCommand extends Command {
     }
 
 	async run(msg, args) {
+	const member = args.member;
+        const user = member.user;
         var imgstare = {
             "0": "https://media.giphy.com/media/fzPHhmTFa3Jpm/giphy.gif",
             "1": "http://i.imgur.com/iNq7r.gif",
@@ -40,7 +42,7 @@ module.exports = class LewdtCommand extends Command {
             "19": "https://vignette.wikia.nocookie.net/fairytailfanon/images/7/7d/Sword-Art-Online-II-episode-19-Asuna-gives-Kirito-evil-eye-thousand-yard-stare.gif/revision/latest?cb=20160102215657",
         };
            const embed = new RichEmbed()
-                .setDescription(msg.author + ' is starting at ' + args.member)  
+                .setDescription(msg.author + ' is starting at ' + args.member.user)  
                 .setImage(imgstare[Math.floor(Math.random() * Object.keys(imgstare).length).toString()])
                 .setColor(0x23ff12)
             return msg.embed(embed);
