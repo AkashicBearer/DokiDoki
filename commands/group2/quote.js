@@ -26,6 +26,7 @@ module.exports = class QuoteCommand extends Command {
             .setAuthor(args.idx.author.username, args.idx.author.avatarURL)
             .setDescription(args.idx.content)
             .setColor(0x23ff12)
+            .setFooter(stamp + "")
             //.setTimestamp(args.idx)
         return msg.embed(embed);
 
