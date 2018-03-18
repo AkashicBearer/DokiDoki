@@ -14,7 +14,7 @@ module.exports = class QuoteCommand extends Command {
 					key: 'idx',
 					label: 'user',
 					prompt: 'What message do you want to quote? (ID)',
-					type: 'integer'
+					type: 'message'
 				}
 			]
         });
