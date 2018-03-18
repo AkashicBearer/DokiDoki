@@ -20,12 +20,12 @@ module.exports = class QuoteCommand extends Command {
         });
     }
 	async run(msg, args) {
-        const msgid = msg.channel.fetchMessage(args.idx).id;
+        const msgid = message.channel.fetchMessage(args.idx).id;
         const embed = new RichEmbed()
 //            embed.setThumbnaul(args.id,author.avatar)
 //            embed.setAuthor(args.id.author)
-            embed.setDescription(msgid.content)
-            embed.setColor(0x23ff12)
+            .setDescription(msgid.content)
+            .setColor(0x23ff12)
         return msg.embed(embed);
     }
 };
