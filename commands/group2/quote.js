@@ -21,9 +21,9 @@ module.exports = class QuoteCommand extends Command {
     }
 	async run(msg, args) {
         const embed = new RichEmbed()
-        embed.setThumbnaul(args.id,author.avatar)
+//            embed.setThumbnaul(args.id,author.avatar)
             embed.setAuthor(args.id.author)
-            embed.setDescription(args.is.content)
+            embed.setDescription(args.id.content)
             embed.setColor(0x23ff12)
         return msg.embed(embed);
     }
