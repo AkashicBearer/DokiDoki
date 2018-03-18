@@ -14,16 +14,14 @@ module.exports = class QuoteCommand extends Command {
 					key: 'idx',
 					label: 'user',
 					prompt: 'What message do you want to quote? (ID)',
-					type: 'message'
+					type: 'integer'
 				}
 			]
         });
     }
 	async run(msg, args) {
-        const msgid = client.getMessage(msg.channel, args.idx);
+        const msgid = msg.channel.fetchMessage(args.idx);
         const embed = new RichEmbed()
-//            embed.setThumbnaul(args.id,author.avatar)
-//            embed.setAuthor(args.id.author)
             .setDescription(msgid.content)
             .setColor(0x23ff12)
         return msg.embed(embed);
