@@ -21,7 +21,7 @@ module.exports = class QuoteCommand extends Command {
     }
 	async run(msg, args) {
        // const msgid = msg.channel.fetchMessage(args.idx)
-        const stamp = args.idx.timestamp
+        const stamp = args.idx.createdTimestamp
         const embed = new RichEmbed()
             .setAuthor(args.idx.author.username, args.idx.author.avatarURL)
             .setDescription(args.idx.content)
