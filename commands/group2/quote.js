@@ -20,10 +20,10 @@ module.exports = class QuoteCommand extends Command {
         });
     }
 	async run(msg, args) {
-        const msgid = msg.channel.fetchMessage(args.id);
+        const msgid = message.channel.fetchMessage(args.id);
         const embed = new RichEmbed()
             //embed.setThumbnail(msgid.author.avatar)
-            //embed.setAuthor(msgid.author)
+            embed.setAuthor(msgid.author.username, msgid.author.displayAvatarURL)
             embed.setDescription(msgid.content)
             embed.setColor(0x23ff12)
         return msg.embed(embed);
