@@ -20,6 +20,7 @@ module.exports = class QuoteCommand extends Command {
         });
     }
 	async run(msg, args) {
+        const msgid = msg.channel.fetchMessage(args.id).id;
         const embed = new RichEmbed()
 //            embed.setThumbnaul(args.id,author.avatar)
 //            embed.setAuthor(args.id.author)
