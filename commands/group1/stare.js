@@ -8,7 +8,7 @@ module.exports = class LewdtCommand extends Command {
             group: 'group1',
             memberName: 'stare',
             description: 'Stare at a User',
-            args{[
+            args[
                  key: 'member',
                  label: 'user',
                  prompt: 'Who are you staring at?',
