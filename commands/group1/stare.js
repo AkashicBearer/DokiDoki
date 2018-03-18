@@ -11,7 +11,7 @@ module.exports = class LewdtCommand extends Command {
             args{[
                  key: 'member',
                  label: 'user',
-                 prompt: 'Who are you staring at?,
+                 prompt: 'Who are you staring at?',
                  type: 'member'
         });
     }
