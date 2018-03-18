@@ -15,7 +15,7 @@ module.exports = class oyasumiCommand extends Command {
                     label: 'user',
                     prompt: 'Who is going to sleep?',
                     type: 'member'
-                    default: msg.author
+                    default: msg.author.mention
                 }
             ]
         });
