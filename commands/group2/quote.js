@@ -13,7 +13,7 @@ module.exports = class QuoteCommand extends Command {
 				{
 					key: 'id',
 					label: 'user',
-					prompt: 'What messáge do you want to quote? (ID)',
+					prompt: 'What message do you want to quote? (ID)',
 					type: 'message'
 				}
 			]
@@ -22,7 +22,7 @@ module.exports = class QuoteCommand extends Command {
 	async run(msg, args) {
         const msgid = msg.channel.fetchMessage(args.id).id;
         const embed = new RichEmbed()
-            embed.setThumbnail(msgidauthor.avatar)
+            embed.setThumbnail(msgid.author.avatar)
             embed.setAuthor(msgid.author)
             embed.setDescription(msgid.content)
             embed.setColor(0x23ff12)
