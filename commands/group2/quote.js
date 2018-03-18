@@ -24,7 +24,7 @@ module.exports = class QuoteCommand extends Command {
         const embed = new RichEmbed()
             //embed.setThumbnail(msgid.author.avatar)
             //embed.setAuthor(msgid.author)
-            embed.setDescription(msgid)
+            embed.setDescription(msgid.content)
             embed.setColor(0x23ff12)
         return msg.embed(embed);
     }
