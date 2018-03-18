@@ -15,7 +15,7 @@ module.exports = class oyasumiCommand extends Command {
                     label: 'user',
                     prompt: 'Who is going to sleep?',
                     type: 'member'
-                    default: msg.author.mention
+                    default: ''
                 }
             ]
         });
@@ -43,7 +43,7 @@ module.exports = class oyasumiCommand extends Command {
             "15":"https://data.whicdn.com/images/185545514/original.gif"
         };
         const embed = new RichEmbed()
-           if(msg.author.id == args.member.id){
+           if(msg.author.id == args.member.id || !args.member){
                 embed.setDescription(msg.author + ' is going to sleep: "Oyasumi, minna-san!"')
             }else{
                 embed.setDescription('Oyasumi, ' + args.member + '!')
