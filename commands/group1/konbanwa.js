@@ -16,6 +16,7 @@ module.exports = class konbanwaCommand extends Command {
                     label: 'user',
                     prompt: 'Who do you want to say konbanwa to?',
                     type: 'member'
+                    default: ''
                 }
             ]
         });
@@ -41,7 +42,7 @@ module.exports = class konbanwaCommand extends Command {
             "15": "http://pa1.narvii.com/6148/b2a8e81579bb58002a0993a7b3721176f55933af_hq.gif"
         };
            const embed = new RichEmbed()
-             if(msg.author.id == args.member.id){
+             if(msg.author.id == args.member.id || !args.member){
                 embed.setDescription(msg.author + ': "Konbanwa, minna-san!"')
              }else{
                 embed.setDescription('Konbanwa, ' + args.member + '!')  
