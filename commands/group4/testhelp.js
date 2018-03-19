@@ -23,7 +23,7 @@ module.exports = class TestHelpCommand extends Command {
         const embed = new RichEmbed()
             .setTitle('DokiDoki Commands')
             .setDescription('')
-            .addField("")
+            .addField("","")
             .setColor(0x23ff12)
         return msg.embed(embed);
     }
