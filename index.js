@@ -28,7 +28,7 @@ client.registry
 // Console.Log and other stuff -.-
     .registerDefaultGroups()
     .registerDefaultCommands({
-	help: false,
+	help: true,
 	ping: true,
 	prefix: true,
 	eval: true
