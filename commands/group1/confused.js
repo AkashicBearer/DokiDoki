@@ -13,8 +13,6 @@ module.exports = class confusedCommand extends Command {
     }
 
 	async run(msg, args) {
-	const member = args.member;
-        const user = member.user;
         var imgconfused = {
             "0": "https://media1.tenor.com/images/e765e06eb21f7bdd41eb6605222c4f60/tenor.gif?itemid=6014356",
             "1": "http://gifimage.net/wp-content/uploads/2017/09/anime-confused-gif-9.gif",
