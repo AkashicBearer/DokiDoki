@@ -1,4 +1,5 @@
 const { Command } = require('discord.js-commando');
+const { RichEmbed } = require('discord.js');
 
 class DiceRollCommand extends  Command {
     constructor(client) {
