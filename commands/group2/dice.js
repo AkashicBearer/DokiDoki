@@ -25,7 +25,7 @@ class DiceRollCommand extends  Command {
     }
 
 async run(msg, args) {
-        var roll = Math.floor(Math.random() * args.xsides) + 1;
+        const roll = Math.floor(Math.random() * args.xsides) + 1;
         const embed = new RichEmbed()
             .setDescription("You rolled a " + roll)
             .setColor(0x212121)
@@ -34,4 +34,4 @@ async run(msg, args) {
 
 }
 
-module.exports = DiceRollCommand;
+//module.exports = DiceRollCommand;
