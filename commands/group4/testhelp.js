@@ -19,12 +19,12 @@ module.exports = class TestHelpCommand extends Command {
         });
     }
     async run(msg, args) {
-        const groups = this.client.registry.groups;
+        const groups = this.client.registry.groups.first(7);
         const commands = this.client.registry.findCommands(args.command, false, msg);
         const showAll = args.command && args.command.toLowerCase() === 'all';
         const embed = new RichEmbed()
                 .setTitle('DokiDoki Commands')
-                .addField(groups.first().name+"", commands.first().name+"")
+                .setDescription(groups[0].name + "")
             .setColor(0x23ff12)
         return msg.embed(embed);
     }
