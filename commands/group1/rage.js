@@ -14,7 +14,7 @@ module.exports = class rageCommand extends Command {
                 {
                     key: 'member',
                     label: 'user',
-                    prompt: 'Who do you want to say rage to?',
+                    prompt: 'Who are you mad at?',
                     type: 'member',
                     default: ''
                 }
