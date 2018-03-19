@@ -19,7 +19,9 @@ module.exports = class TestHelpCommand extends Command {
         });
     }
     async run(msg, args) {
+        const groups = this.client.registry.groups;
         const commands = this.client.registry.findCommands(args.command, false, msg);
+        const showAll = args.command && args.command.toLowerCase() === 'all';
         const embed = new RichEmbed()
                 .setTitle('DokiDoki Commands')
 //            .addField("My Discord Invite Link", "[Discord Invite Link](https://discordapp.com/api/oauth2/authorize?client_id=385115460397694977&permissions=8&scope=bot)")
