@@ -22,7 +22,9 @@ module.exports = class TestdiceCommand extends Command {
     async run(msg, args) {
         const roll = Math.floor(Math.random() * args.xsides) + 1;
         const embed = new RichEmbed()
+            .setAuthor(msg.author, msg.author.avatarURL)
             .setDescription("You rolled a " + roll)
+            .setThumbnail("https://gilkalai.files.wordpress.com/2017/09/dice.png?w=640")
             .setColor(0x212121)
         return msg.embed(embed);
     } 
