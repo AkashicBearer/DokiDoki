@@ -28,9 +28,9 @@ class DiceRollCommand extends  Command {
 async run(msg, args) {
         const roll = Math.floor(Math.random() * args.xsides) + 1;
         const embed = new RichEmbed()
-            .setDescription("You rolled a " + roll)
-            .setColor(0x212121)
-        return msg.embed(embed);
+            embed.setDescription("You rolled a " + roll)
+            embed.setColor(0x212121)
+        return message.embed(embed);
     } 
 
 }
