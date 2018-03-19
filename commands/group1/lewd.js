@@ -8,7 +8,16 @@ module.exports = class LewdtCommand extends Command {
             aliases: ['blush', 'lew'],
             group: 'group1',
             memberName: 'lewd',
-            description: 'T-to Lewd...'
+            description: 'T-to Lewd...',
+            args: [
+                {
+                    key: 'member',
+                    label: 'user',
+                    prompt: 'Who is lewd?',
+                    type: 'member',
+                    default: ''
+                }
+            ]
         });
     }
 
@@ -36,9 +45,13 @@ module.exports = class LewdtCommand extends Command {
             "19": "https://78.media.tumblr.com/tumblr_lwc0uhI4211qhx4eno2_250.gif",
         };
            const embed = new RichEmbed()
-                .setDescription(msg.author + ' is Blushing' )  
-                .setImage(imglewd[Math.floor(Math.random() * Object.keys(imglewd).length).toString()])
-                .setColor(0x23ff12)
+                if(!args.member){
+                    embed.setDescription(msg.author + ' is Blushing' )  
+                }else{
+                    embed.setDescription(msg.author + ' thinks ' + args.member + 'is too lewd.')  
+                }
+                embed.setImage(imglewd[Math.floor(Math.random() * Object.keys(imglewd).length).toString()])
+                embed.setColor(0x23ff12)
             return msg.embed(embed);
         }
 	};

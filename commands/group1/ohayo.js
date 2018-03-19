@@ -14,7 +14,8 @@ module.exports = class ohayoCommand extends Command {
                     key: 'member',
                     label: 'user',
                     prompt: 'Who do you want to say ohayo to?',
-                    type: 'member'
+                    type: 'member',
+                    default: ''
                 }
             ]
         });
@@ -42,7 +43,7 @@ module.exports = class ohayoCommand extends Command {
             "15":"https://media1.tenor.com/images/d58387362b6cea96c4399130b61684f0/tenor.gif?itemid=8388336"
         };
         const embed = new RichEmbed()
-             if(msg.author.id == args.member.id){
+             if(msg.author.id == args.member.id || !args.member){
                 embed.setDescription(msg.author + ' just woke up: "Ohayo, minna-san!"')
              }else{
                 embed.setDescription('Ohayo, ' + args.member + '!')  

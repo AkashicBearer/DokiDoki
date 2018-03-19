@@ -12,7 +12,8 @@ module.exports = class LewdtCommand extends Command {
                  key: 'member',
                  label: 'user',
                  prompt: 'Who are you staring at?',
-                 type: 'member'
+                 type: 'member',
+                 default:''
 	    }] 
         });
     }
@@ -43,9 +44,13 @@ module.exports = class LewdtCommand extends Command {
             "19": "https://vignette.wikia.nocookie.net/fairytailfanon/images/7/7d/Sword-Art-Online-II-episode-19-Asuna-gives-Kirito-evil-eye-thousand-yard-stare.gif/revision/latest?cb=20160102215657",
         };
            const embed = new RichEmbed()
-                .setDescription(msg.author + ' is starting at ' + args.member.user)  
-                .setImage(imgstare[Math.floor(Math.random() * Object.keys(imgstare).length).toString()])
-                .setColor(0x23ff12)
+                if(!args.member){
+                    embed.setDescription(msg.author + ' is staring')  
+                }else{
+                    embed.setDescription(msg.author + ' is staring at ' + args.member.user)    
+                }
+                embed.setImage(imgstare[Math.floor(Math.random() * Object.keys(imgstare).length).toString()])
+                embed.setColor(0x23ff12)
             return msg.embed(embed);
         }
 	};
