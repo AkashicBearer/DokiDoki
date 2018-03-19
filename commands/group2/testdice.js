@@ -5,7 +5,7 @@ module.exports = class TestDiceCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'testdice',
-            group: 'group2',
+            group: 'group1',
             memberName: 'testdice',
             description: 'Rolls a Dice'
             args: [
