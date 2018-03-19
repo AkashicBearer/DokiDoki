@@ -33,7 +33,12 @@ module.exports = class BanCommand extends Command {
 }
     
 async run(msg, args, ){
+    if(!client.memberHasRole(msg.author, ADMINISTRATOR)){   
     args.member.ban(args.text);
     msg.channel.send(args.member.user + "Was Banned");
+    }else{
+
+        msg.channel.send("You need to be Admin to use this");
+    }
   }
 };
