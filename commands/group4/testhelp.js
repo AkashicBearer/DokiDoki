@@ -13,7 +13,7 @@ module.exports = class TestHelpCommand extends Command {
     async run(msg, args) {
         const embed = new RichEmbed()
 //            .setTitle('DokiDoki Information')
-                    .setDescription('My Information:')
+                    .setTitle('DokiDoki Commands')
 //            .addField("My Discord Invite Link", "[Discord Invite Link](https://discordapp.com/api/oauth2/authorize?client_id=385115460397694977&permissions=8&scope=bot)")
             .setColor(0x23ff12)
         return msg.embed(embed);
