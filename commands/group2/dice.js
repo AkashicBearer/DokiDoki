@@ -7,7 +7,7 @@ module.exports = class DiceRollCommand extends  Command {
             name: 'dice',
             aliases: ['roll', 'rolldice', 'diceroll', 'rd'],
             group: 'group2',
-            memberName: 'doce',
+            memberName: 'dice',
             description: 'Roles a 6 Sided Dice.',
             throttling: {
                 usages: 2,
@@ -26,7 +26,7 @@ module.exports = class DiceRollCommand extends  Command {
     }
 
 async run(msg, args) {
-        const roll = Math.floor(Math.random() * args.xsides) + 1;
+        const roll = Math.floor(Math.random() * args.xsides) + 1
         const embed = new RichEmbed()
             embed.setDescription("You rolled a " + roll)
             embed.setColor(0x212121)
