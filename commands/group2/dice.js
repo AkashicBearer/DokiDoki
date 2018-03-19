@@ -18,7 +18,7 @@ module.exports = class DiceRollCommand extends  Command {
                     key: 'xsides',
                     label: 'sides',
                     prompt: 'How many sides does the dice have?',
-                    type: 'integer',
+                    type: 'float',
                     default: 6
                 }
             ]
