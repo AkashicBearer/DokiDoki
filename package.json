@@ -1,6 +1,6 @@
 {
-  "name": "ddlc_bot",
-  "version": "1.0.0",
+  "name": "dokidoki",
+  "version": "0.1.0",
   "description": "",
   "main": "index.js",
   "engines": {
@@ -24,8 +24,6 @@
   "dependencies": {
     "bufferutil": "^3.0.3",
     "cheerio": "^1.0.0-rc.2",
-    "cleverbot-node": "^0.3.11",
-    "cleverbot.io": "^1.0.4",
     "config.json": "0.0.4",
     "discord.js": "^11.3.2",
     "discord.js-commando": "github:discordjs/Commando#11.2",
