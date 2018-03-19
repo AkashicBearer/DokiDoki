@@ -13,6 +13,14 @@ module.exports = class EightBalllCommand extends Command {
                 usages: 2,
                 duration: 1
             },
+            args: [
+                {
+                key: 'text',
+                label: 'question',
+                prompt: 'What do you want to ask?',
+                type: 'string'
+                }
+            ]
         });
     }
     async run(msg, args) {
@@ -40,7 +48,7 @@ module.exports = class EightBalllCommand extends Command {
     }
         const embed = new RichEmbed()
             .setAuthor(msg.author.username, msg.author.avatarURL)
-            .setTitle(msg.content)
+            .setTitle(args.text)
             .setDescription("The magical 8Ball Says: " + answer[Math.floor(Math.random() * Object.keys(answer).length).toString()])
             .setThumbnail("http://icons.iconarchive.com/icons/barkerbaggies/pool-ball/256/Ball-8-icon.png")
             .setColor(0x212121)
