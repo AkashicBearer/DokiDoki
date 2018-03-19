@@ -12,13 +12,26 @@ class DiceRollCommand extends  Command {
                 usages: 2,
                 duration: 1
             },
-			
+			args: [
+                {
+                    key: 'sides',
+                    label: 'sides',
+                    prompt: 'Who do you want to say ohayo to?',
+                    type: 'integer',
+                    default: 6
+                }
+            ]
         });
     }
 async run(message, args) {
-    var roll = Math.floor(Math.random() * 6) + 1;
-    message.reply("You rolled a " + roll);
-}
+    var roll = Math.floor(Math.random() * args.sides) + 1;
+        const embed = new RichEmbed()
+            .setTitle('Rolling a ' + args.sides + ' sided dice.')
+            .setDescription('You rolled a ' + roll)
+            .setThumbnail("https://gilkalai.files.wordpress.com/2017/09/dice.png?w=640")
+            .setColor(0x212121)
+        return msg.embed(embed);
+    } 
 
 }
 
