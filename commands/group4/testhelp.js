@@ -54,7 +54,8 @@ module.exports = class TestHelpCommand extends Command {
         }
         const embed = new RichEmbed()
                 .setTitle('DokiDoki Commands')
-                embed.addField(groups[0].name + "",grp1+"",true)
+                //embed.addField(groups[0].name + "",grp1+"",true)
+                .setdDescription(groups[0].name + "\n"+grp1+"\n \n" + groups[1].name + "\n"+grp2+"\n \n" + groups[2].name + "\n"+grp3+"\n \n" + groups[3].name + "\n"+grp4+"\n \n" + groups[4].name + "\n"+grp5+"\n \n" + groups[5].name + "\n"+grp6+"\n \n" + groups[6].name + "\n"+grp7)
             .setColor(0x23ff12)
         return msg.embed(embed);
     }
