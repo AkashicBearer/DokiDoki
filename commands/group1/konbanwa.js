@@ -15,7 +15,7 @@ module.exports = class konbanwaCommand extends Command {
                     key: 'member',
                     label: 'user',
                     prompt: 'Who do you want to say konbanwa to?',
-                    type: 'member'
+                    type: 'member',
                     default: ''
                 }
             ]
