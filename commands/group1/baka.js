@@ -7,7 +7,7 @@ module.exports = class BakaCommand extends Command {
             name: 'baka',
             group: 'group1',
             memberName: 'baka',
-            description: 'Mentions a User who is a Baka >,<',
+            description: 'Mentions a User who is a Baka',
 			args: [
 				{
 					key: 'member',

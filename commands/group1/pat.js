@@ -7,7 +7,7 @@ module.exports = class PatCommand extends Command {
             name: 'pat',
             group: 'group1',
             memberName: 'pat',
-            description: 'Who do you want to pat?>,<',
+            description: 'Who do you want to pat?',
           
 			args: [
 				{
