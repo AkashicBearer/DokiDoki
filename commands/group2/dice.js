@@ -7,7 +7,7 @@ class DiceRollCommand extends  Command {
             aliases: ['roll', 'rolldice', 'diceroll', 'rd'],
             group: 'group2',
             memberName: 'doce',
-            description: 'Roles a 6 Sided Dice.',
+            description: 'Roles a Dice with given sides, default is 6.',
             throttling: {
                 usages: 2,
                 duration: 1
@@ -15,8 +15,8 @@ class DiceRollCommand extends  Command {
 			args: [
                 {
                     key: 'sides',
-                    label: 'sides',
-                    prompt: 'Who do you want to say ohayo to?',
+                    label: 'dots',
+                    prompt: 'How many sides should the dice have?',
                     type: 'integer',
                     default: 6
                 }
@@ -26,9 +26,9 @@ class DiceRollCommand extends  Command {
 async run(message, args) {
     var roll = Math.floor(Math.random() * args.sides) + 1;
         const embed = new RichEmbed()
-            .setTitle('Rolling a ' + args.sides + ' sided dice.')
+            //.setTitle('Rolling a ' + args.sides + ' sided dice.')
             .setDescription('You rolled a ' + roll)
-            .setThumbnail("https://gilkalai.files.wordpress.com/2017/09/dice.png?w=640")
+            //.setThumbnail("https://gilkalai.files.wordpress.com/2017/09/dice.png?w=640")
             .setColor(0x212121)
         return msg.embed(embed);
     } 
