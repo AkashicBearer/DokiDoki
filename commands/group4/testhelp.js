@@ -20,7 +20,7 @@ module.exports = class TestHelpCommand extends Command {
         });
     }
     async run(msg, args) {
-        const commands = this.client.registry.findCommands(args.command)
+        //const commands = this.client.registry.findCommands(args.command)
         const embed = new RichEmbed()
             .setTitle('DokiDoki Commands')
                     .setDescription('')
