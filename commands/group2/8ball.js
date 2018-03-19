@@ -49,7 +49,7 @@ module.exports = class EightBalllCommand extends Command {
         const embed = new RichEmbed()
             .setAuthor(msg.author.username, msg.author.avatarURL)
             .setTitle(args.text)
-            .setDescription("The magical 8Ball Says: /\n/" + answer[Math.floor(Math.random() * Object.keys(answer).length).toString()])
+            .setDescription("The magical 8Ball Says: \n" + answer[Math.floor(Math.random() * Object.keys(answer).length).toString()])
             .setThumbnail("http://icons.iconarchive.com/icons/barkerbaggies/pool-ball/256/Ball-8-icon.png")
             .setColor(0x212121)
         return msg.embed(embed);
