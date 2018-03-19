@@ -24,7 +24,7 @@ module.exports = class TestHelpCommand extends Command {
         const showAll = args.command && args.command.toLowerCase() === 'all';
         const embed = new RichEmbed()
                 .setTitle('DokiDoki Commands')
-//            .addField("My Discord Invite Link", "[Discord Invite Link](https://discordapp.com/api/oauth2/authorize?client_id=385115460397694977&permissions=8&scope=bot)")
+                .addField(groups[0].name, commands[0].name)
             .setColor(0x23ff12)
         return msg.embed(embed);
     }
