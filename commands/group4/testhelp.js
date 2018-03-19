@@ -22,7 +22,7 @@ module.exports = class TestHelpCommand extends Command {
         const groups = this.client.registry.groups.first(7);
         const commands = this.client.registry.findCommands().first(51);
         const showAll = args.command && args.command.toLowerCase() === 'all';
-        var grp1 = "";
+        /*var grp1 = "";
         var grp2 = "";
         var grp3 = "";
         var grp4 = "";
@@ -51,10 +51,10 @@ module.exports = class TestHelpCommand extends Command {
             if(commands[i].group.name == groups[6]){
                 grp7=grp7+commands[i].name+", ";
             }
-        }
+        }*/
         const embed = new RichEmbed()
                 .setTitle('DokiDoki Commands')
-                .addField(groups[0].name + "",grp1+"",true)
+                //.addField(groups[0].name + "",grp1+"",true)
             .setColor(0x23ff12)
         return msg.embed(embed);
     }
