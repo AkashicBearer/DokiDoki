@@ -25,14 +25,15 @@ module.exports = class BanCommand extends Command {
                 {
                  key: "text",
                  prompt: "Why are you Banning this user?",
-                 type: "string"
+                 type: "string",
+                 default: ''
                  }
                   ]
 });
 }
     
 async run(msg, args, ){
-    guild.ban(args.member)
+  //  guild.ban(args.member)
     msg.channel.send(args.member.user + "Was Banned");
   }
 };
