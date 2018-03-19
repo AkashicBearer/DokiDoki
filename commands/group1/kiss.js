@@ -33,7 +33,7 @@ module.exports = class kissCommand extends Command {
             "9": "https://thumbs.gfycat.com/DimwittedSomeArabianhorse-size_restricted.gif",
             "10": "https://78.media.tumblr.com/2bbeb57901f4a62bc8bc268d8122db9a/tumblr_p2d6setldS1r0zucyo1_540.gif",
             "11": "https://78.media.tumblr.com/3d93be7699a2ba8b4bc13a29a37b84ad/tumblr_odt2geMkpc1t86l7wo1_500.gif",
-            "12": "https://vignette.wikia.nocookie.net/central/images/2/26/Kiss-anime.gif/revision/latest?cb=20140412150834",
+            "12": "https://78.media.tumblr.com/33f2ea0c27fd84ee06613b55e5bde098/tumblr_oxa01tjIbW1s8v1m3o1_500.gif",
             "13": "http://gif-finder.com/wp-content/uploads/2016/02/Death-Note-Gif-Misa-Amane-and-Light-Yagami-Kiss.gif",
             "14": "https://media.giphy.com/media/vUrwEOLtBUnJe/giphy.gif",
             "15": "http://www.lovethisgif.com/uploaded_images/41239-Anime-Cheek-Kiss-Gif-Karen-Kissing-Shino-lewd-.gif",
