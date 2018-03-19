@@ -13,8 +13,6 @@ module.exports = class nomCommand extends Command {
     }
 
 	async run(msg, args) {
-	const member = args.member;
-        const user = member.user;
         var imgnom = {
             "0": "https://media1.tenor.com/images/26beab5ca39fba753a2de57b1d74e519/tenor.gif?itemid=5215437",
             "1": "https://media.giphy.com/media/Y5PHkDeg2Yydi/giphy.gif",
