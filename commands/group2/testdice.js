@@ -1,36 +1,28 @@
 const { Command } = require('discord.js-commando')
 const { RichEmbed } = require('discord.js');
 
-module.exports = class TestDiceRollCommand extends  Command {
+module.exports = class TestDiceCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'testdice',
             group: 'group2',
             memberName: 'testdice',
-            description: 'Rolls a 6 Sided Dice.',
-            throttling: {
-                usages: 2,
-                duration: 1
-            },
-			 args: [
+            description: 'Rolls a Dice'
+            args: [
                 {
                     key: 'xsides',
                     label: 'sides',
                     prompt: 'How many sides does the dice have?',
-                    type: 'integer',
+                    type: 'float',
                     default: 6
                 }
             ]
         });
     }
-async run(message, args) {
-//    var roll = Math.floor(Math.random() * args.xsides) + 1;
- //   message.reply("You rolled a " + roll);
-
-     const embed = new RichEmbed()
-            .setDescription('TestDice' + args.xsides)
+    async run(msg, args) {
+        const embed = new RichEmbed()
+            .setDescription('Test')
             .setColor(0x212121)
         return msg.embed(embed);
-}
-
-}
+    } 
+};
