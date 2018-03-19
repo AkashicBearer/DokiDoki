@@ -1,6 +1,6 @@
 const { Command } = require('discord.js-commando');
 
-class DiceRollCommand extends  Command {
+module.exports = class DiceRollCommand extends  Command {
     constructor(client) {
         super(client, {
             name: 'dice',
@@ -12,24 +12,12 @@ class DiceRollCommand extends  Command {
                 usages: 2,
                 duration: 1
             },
-			 args: [
-                {
-                    key: 'xsides',
-                    label: 'sides',
-                    prompt: 'How many sides does the dice have?',
-                    type: 'integer',
-                    default: '6'
-                }
-            ]
+			
         });
     }
 async run(message, args) {
-    var roll = Math.floor(Math.random() * args.xsides) + 1;
+    var roll = Math.floor(Math.random() * 6) + 1;
     message.reply("You rolled a " + roll);
 }
 
-
-
 }
-
-module.exports = DiceRollCommand;
