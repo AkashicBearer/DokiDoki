@@ -7,23 +7,14 @@ module.exports = class TestHelpCommand extends Command {
             name: 'testhelp',
             group: 'group4',
             memberName: 'testhelp',
-            description: 'Displays a list of available commands, or detailed information for a specified command.',
-            args: [
-                {
-                    key: 'command',
-                    prompt: 'Which command would you like to view the help for?',
-                    type: 'string',
-                    default: ''
-                }
-            ]
+        description: 'Shows commands of the Bot'
         });
     }
     async run(msg, args) {
-        //const commands = this.client.registry.findCommands(args.command)
         const embed = new RichEmbed()
-            .setTitle('DokiDoki Commands')
-            .setDescription('')
-            .addField("","")
+//            .setTitle('DokiDoki Information')
+                    .setDescription('My Information:')
+//            .addField("My Discord Invite Link", "[Discord Invite Link](https://discordapp.com/api/oauth2/authorize?client_id=385115460397694977&permissions=8&scope=bot)")
             .setColor(0x23ff12)
         return msg.embed(embed);
     }
