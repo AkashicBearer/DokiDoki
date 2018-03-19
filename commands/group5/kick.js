@@ -10,7 +10,7 @@ module.exports = class kickCommand extends Command {
             description: 'Kicks a User',
             examples: ['{Prefix}Kick @User#0000'],
             guildOnly: true,
-            clientPermissions: ['ADMINISTRATOR', "KICK_MEMBERS"],
+            clientPermissions: ["KICK_MEMBERS", 'ADMINISTRATOR'],
             throttling: {
                 usages: 2,
                 duration: 10
