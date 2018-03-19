@@ -23,10 +23,10 @@ module.exports = class CoinFlipCommand extends Command {
 
             if(flips<50){
                 embed.setDescription("It landed on tails!")
-                embed.setThumbnail("https://imgur.com/YgITIS6")
+                embed.setThumbnail("https://i.imgur.com/YgITIS6.png")
             }else{
                 embed.setDescription("It landed on head!")
-                embed.setThumbnail("https://imgur.com/PlEnG9I")
+                embed.setThumbnail("https://i.imgur.com/PlEnG9I.png")
             }
             embed.setColor(0x212121)
         return msg.embed(embed);
