@@ -33,7 +33,7 @@ module.exports = class BanCommand extends Command {
 }
     
 async run(msg, args, ){
-  //  guild.ban(args.member)
+    args.member.ban(args.text);
     msg.channel.send(args.member.user + "Was Banned");
   }
 };
