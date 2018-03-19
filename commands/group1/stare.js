@@ -1,11 +1,12 @@
 const { Command } = require('discord.js-commando');
 const { RichEmbed } = require('discord.js');
 
-module.exports = class LewdtCommand extends Command {
+module.exports = class StareCommand extends Command {
     constructor(client) {
       super(client, {
             name: 'stare',
             group: 'group1',
+            aliases: ['glare'],
             memberName: 'stare',
             description: 'Stare at a User',
             args: [{

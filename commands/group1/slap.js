@@ -1,13 +1,13 @@
 const { Command } = require('discord.js-commando');
 const { RichEmbed } = require('discord.js');
 
-module.exports = class PatCommand extends Command {
+module.exports = class SlapCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'slap',
             group: 'group1',
             memberName: 'slap',
-            description: 'Who do you want to slap?>,<',
+            description: 'Who do you want to slap?',
           
 			args: [
 				{
