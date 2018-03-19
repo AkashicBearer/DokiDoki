@@ -7,13 +7,21 @@ module.exports = class TestHelpCommand extends Command {
             name: 'testhelp',
             group: 'group4',
             memberName: 'testhelp',
-        description: 'Shows commands of the Bot'
+            description: 'Shows commands of the Bot',
+            args: [
+                    {
+                        key: 'command',
+                        prompt: 'Which command would you like to view the help for?',
+                        type: 'string',
+                        default: ''
+                    }
+            ]
         });
     }
     async run(msg, args) {
+
         const embed = new RichEmbed()
-//            .setTitle('DokiDoki Information')
-                    .setTitle('DokiDoki Commands')
+                .setTitle('DokiDoki Commands')
 //            .addField("My Discord Invite Link", "[Discord Invite Link](https://discordapp.com/api/oauth2/authorize?client_id=385115460397694977&permissions=8&scope=bot)")
             .setColor(0x23ff12)
         return msg.embed(embed);
