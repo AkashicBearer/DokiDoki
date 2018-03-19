@@ -1,7 +1,7 @@
 const { Command } = require('discord.js-commando');
 const { RichEmbed } = require('discord.js');
 
-module.exports = class InfoCommand extends Command {
+module.exports = class TestHelpCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'testhelp',
@@ -9,9 +9,6 @@ module.exports = class InfoCommand extends Command {
             group: 'group4',
             memberName: 'testhelp',
             description: 'Displays a list of available commands, or detailed information for a specified command.',
-            examples: ['help', 'help prefix'],
-            guarded: true,
-
             args: [
                 {
                     key: 'command',
@@ -23,7 +20,7 @@ module.exports = class InfoCommand extends Command {
         });
     }
     async run(msg, args) {
-        const commands = this.client.registry.findCommands(args.command, false, msg)
+        const commands = this.client.registry.findCommands(args.command)
         const embed = new RichEmbed()
             .setTitle('DokiDoki Commands')
                     .setDescription('')
