@@ -16,17 +16,14 @@ module.exports = class TestHelpCommand extends Command {
                     type: 'string',
                     default: ''
                 }
-]
+            ]
         });
     }
     async run(msg, args) {
         //const commands = this.client.registry.findCommands(args.command)
         const embed = new RichEmbed()
             .setTitle('DokiDoki Commands')
-                    .setDescription('')
-            .addField("")
-                .addField("")
-            .addField("")
+            .setDescription('')
             .addField("")
             .setColor(0x23ff12)
         return msg.embed(embed);
