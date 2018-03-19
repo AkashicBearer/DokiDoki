@@ -23,10 +23,14 @@ class DiceRollCommand extends  Command {
             ]
         });
     }
-async run(message, args) {
-    var roll = Math.floor(Math.random() * args.xsides) + 1;
-    message.reply("You rolled a " + roll);
-}
+
+async run(msg, args) {
+        var roll = Math.floor(Math.random() * args.xsides) + 1;
+        const embed = new RichEmbed()
+            .setDescription("You rolled a " + roll)
+            .setColor(0x212121)
+        return msg.embed(embed);
+    } 
 
 }
 
