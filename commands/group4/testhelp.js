@@ -9,10 +9,6 @@ module.exports = class InfoCommand extends Command {
             group: 'group4',
             memberName: 'testhelp',
             description: 'Displays a list of available commands, or detailed information for a specified command.',
-            details: oneLine`
-                The command may be part of a command name or a whole command name.
-                If it isn't specified, all available commands will be listed.
-            `,
             examples: ['help', 'help prefix'],
             guarded: true,
 
