@@ -20,9 +20,9 @@ module.exports = class TestdiceCommand extends Command {
         });
     }
     async run(msg, args) {
+        const roll = Math.floor(Math.random() * args.xsides) + 1;
         const embed = new RichEmbed()
-            .setDescription(args.xsides)
-            .setImage("https://i.imgur.com/lqSm7gk.gif")
+            .setDescription("You rolled a " + roll)
             .setColor(0x212121)
         return msg.embed(embed);
     } 
