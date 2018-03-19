@@ -23,11 +23,16 @@ client.registry
         ['group2', 'Random Commands'],
         ['group3', 'Bullshit Commands'],
 	['group4', 'User Commands'],
-	['group5', 'Administration Commands']
+	['group5', 'Administration Commands'],
 ])	
 // Console.Log and other stuff -.-
     .registerDefaultGroups()
-    .registerDefaultCommands()
+    .registerDefaultCommands({
+	help: true,
+	ping: true,
+	prefix: true,
+	eval: true
+})
     .registerCommandsIn(path.join(__dirname, 'commands'));
   client	 
 	  .on('error', console.error)
