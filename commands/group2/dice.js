@@ -28,7 +28,7 @@ module.exports = class DiceRollCommand extends Command {
         const roll = Math.floor(Math.random() * args.xsides) + 1;
         const embed = new RichEmbed()
             .setAuthor(msg.author.username, msg.author.avatarURL)
-            .setTitle("Rolling " + args.xsides + " sided dice.")
+            .setTitle("Rolling a " + args.xsides + " sided dice.")
             .setDescription("You rolled a " + roll)
             .setThumbnail("https://gilkalai.files.wordpress.com/2017/09/dice.png?w=640")
             .setColor(0x212121)
