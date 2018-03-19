@@ -35,7 +35,7 @@ module.exports = class biteCommand extends Command {
             "11": "https://78.media.tumblr.com/7e2cad3ab0432205cdd5c37fab83d977/tumblr_ojh7gzPyeB1uzwbyjo1_500.gif",
             "12": "http://i0.kym-cdn.com/photos/images/original/000/832/011/aaa.gif",
             "13": "https://i.pinimg.com/originals/c0/b4/a9/c0b4a94993a08d1df826e27e55dd2fb0.gif",
-            "14": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTl-Zu5tmOff9TzY6Tk5ZGW9c4aWV_sx4KoQW0gNAi3ax_k6c-p",
+            "14": "http://img1.ak.crunchyroll.com/i/spire1/6992aca5d65cc35994e64d1db60712dc1269709025_full.gif",
             "15": "https://data.whicdn.com/images/81002249/original.gif",
             "16": "http://img1.ak.crunchyroll.com/i/spire3/105470d8f6fc8f277f511aada0e564c21488138818_full.gif",
             "17": "http://rs767.pbsrc.com/albums/xx320/abdul_dxr/Anime%20GIF/Headbite.gif~c200",
