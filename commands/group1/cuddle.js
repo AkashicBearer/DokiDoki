@@ -40,7 +40,7 @@ module.exports = class cuddleCommand extends Command {
             "16": "https://i.pinimg.com/originals/f2/80/5f/f2805f274471676c96aff2bc9fbedd70.gif",
             "17": "https://78.media.tumblr.com/03ff7fd99493a936d99bb9f01359925c/tumblr_od31w5SNBs1vztiw8o1_500.gif",
             "18": "https://i.pinimg.com/originals/c1/8e/b4/c18eb4b8ede12c07814e240bb02b7d02.gif",
-            "19": "https://vignette.wikia.nocookie.net/loli8353/images/e/e6/Serious_Chino_Hugging.gif/revision/latest?cb=20161102141641"
+            "19": "https://media1.tenor.com/images/49a21e182fcdfb3e96cc9d9421f8ee3f/tenor.gif?itemid=3532079"
         };
 
         
