@@ -35,7 +35,7 @@ module.exports = class oyasumiCommand extends Command {
             "7":"https://media1.tenor.com/images/9650b39d78fd6b91456924ad51f79de2/tenor.gif?itemid=9352439",
             "8":"http://i.imgur.com/ZQ0G3.gif",
             "9":"https://media.giphy.com/media/RighgsIygIWrK/giphy.gif",
-            "10":"https://vignette.wikia.nocookie.net/kancolle/images/0/05/Chino_sleeping.gif/revision/latest?cb=20170211223644",
+            "10":"https://media1.tenor.com/images/c08efe7356f36e19ee3e2489c10d31f3/tenor.gif?itemid=10173924",
             "11":"https://img.fireden.net/a/image/1446/10/1446102265145.gif",
             "12":"https://thumbs.gfycat.com/FeistyWhirlwindAllosaurus-max-1mb.gif",
             "13":"https://78.media.tumblr.com/39264c47dedd6780ac208aea82aa2848/tumblr_o8a7492ngl1tmvxxdo1_250.gif",
