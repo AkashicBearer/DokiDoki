@@ -80,8 +80,8 @@ module.exports = class TestHelpCommand extends Command {
         }
 
         const embed = new RichEmbed()
-                embed.setTitle('DokiDoki Commands')
                 if(!args.command){
+                embed.setTitle('DokiDoki Commands')
                     if(grp1c.length > 0){
                         embed.addField(groups.find('id','group1').name+"",grp1+" ")
                     }
