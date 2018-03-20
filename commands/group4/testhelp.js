@@ -98,7 +98,7 @@ module.exports = class TestHelpCommand extends Command {
                         embed.addField(groups.find('id','group5').name+"",grp5+" ")
                     }
                 }else{
-                    //const cmd = commands.find('name', arg.command);
+                    const cmd = commands.find('name', args.command);
                     //embed.setTitle("Help for " + cmd.name)
                 }
                 
