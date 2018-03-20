@@ -19,11 +19,12 @@ module.exports = class TestHelpCommand extends Command {
         });
     }
     async run(msg, args) {
-        const groups = this.client.registry.groups.first(7);
-        const commands = this.client.registry.findCommands().first(51);
+        const groups = this.client.registry.groups;
+        const commands = this.client.registry.findCommands();
         const showAll = args.command && args.command.toLowerCase() === 'all';
-        /*var grp1 = "";
-        var grp2 = "";
+        const grp1c = commands.findAll('groupID','group1')
+        var grp1 = "";
+        /*var grp2 = "";
         var grp3 = "";
         var grp4 = "";
         var grp5 = "";
@@ -52,8 +53,12 @@ module.exports = class TestHelpCommand extends Command {
                 grp7=grp7+commands[i].name+", ";
             }
         }*/
+        for(var i = 0; i < grp1c.length; i++){
+            grp1=grp1+grp1c[i].name+", "
+        }
         const embed = new RichEmbed()
                 .setTitle('DokiDoki Commands')
+                .setDescription(grp1)
                 //.addField(groups[0].name + "",grp1+"",true)
             .setColor(0x23ff12)
         return msg.embed(embed);
