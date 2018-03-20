@@ -83,7 +83,7 @@ module.exports = class TestHelpCommand extends Command {
                 .setTitle('DokiDoki Commands')
                 .addField(groups.find('id','group1').name+"",grp1)
                 .addField(groups.find('id','group2').name+"",grp2)
-            //    .addField(groups.find('id','group3').name+"",grp3)
+                .addField(groups.find('id','group3').name+"",grp3)
             //    .addField(groups.find('id','group4').name+"",grp4)
             //    .addField(groups.find('id','group5').name+"",grp5)
             .setColor(0x23ff12)
