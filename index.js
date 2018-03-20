@@ -3,6 +3,8 @@ const config = require("./config.json");
 const oneLine = require('common-tags').oneLine;
 const sqlite = require('sqlite');
 const path = require('path');
+const DBL = require("dblapi.js");
+const dbl = new DBL('process.env.dbl');
 const client = new CommandoClient({
     commandPrefix: '<',
     unknownCommandResponse: false,
@@ -40,6 +42,10 @@ client.registry
 	.on('debug', console.log)
 	.on('ready', () => {
 		console.log(`Client ready; logged in as ${client.user.username}#${client.user.discriminator} (${client.user.id})`);
+	  	client.user.setGame(`with ${client.guilds.size} Servers`);
+	  	setInterval(() => {
+		dbl.postStats(client.guilds.size);
+   		 }, 1800000);
 	})
 	.on('disconnect', () => { console.warn('Disconnected!'); })
 	.on('reconnecting', () => { console.warn('Reconnecting...'); })
@@ -74,7 +80,6 @@ client.registry
 		`);
 	});
 // Random Shits
-
 
 
 client.login(process.env.token);
