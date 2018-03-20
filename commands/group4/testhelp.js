@@ -41,7 +41,7 @@ module.exports = class TestHelpCommand extends Command {
                 grp2=grp2+", ";
             }
         }
-/*
+
         const grp3c = commands.findAll('groupID','group3');
         var grp3 = "";
         for(var i = 0; i < grp3c.length; i++){
@@ -50,7 +50,7 @@ module.exports = class TestHelpCommand extends Command {
                 grp3=grp3+", ";
             }
         }
-
+/*
         const grp4c = commands.findAll('groupID','group4');
         var grp4 = "";
         for(var i = 0; i < grp4c.length; i++){
@@ -73,9 +73,9 @@ module.exports = class TestHelpCommand extends Command {
                 .setTitle('DokiDoki Commands')
                 .addField(groups.find('id','group1').name+"",grp1)
                 .addField(groups.find('id','group2').name+"",grp2)
-            //    .addField(groups.find('id','group3').name,grp3)
-            //    .addField(groups.find('id','group4').name,grp4)
-            //    .addField(groups.find('id','group5').name,grp5)
+                .addField(groups.find('id','group3').name+"",grp3)
+            //    .addField(groups.find('id','group4').name+"",grp4)
+            //    .addField(groups.find('id','group5').name+"",grp5)
             .setColor(0x23ff12)
         return msg.embed(embed);
     }
