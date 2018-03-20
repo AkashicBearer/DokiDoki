@@ -56,7 +56,7 @@ module.exports = class TestHelpCommand extends Command {
             } 
         }
             
-/*
+
         const grp4c = commands.findAll('groupID','group4');
         var grp4 = "";
         if(grp1c.length > 0){
@@ -78,24 +78,24 @@ module.exports = class TestHelpCommand extends Command {
                 }
             }
         }
-*/
+
         const embed = new RichEmbed()
                 embed.setTitle('DokiDoki Commands')
                 if(grp1c.length > 0){
-                    embed.addField(groups.find('id','group1').name+"",grp1)
+                    embed.addField(groups.find('id','group1').name+"",grp1+"\n")
                 }
                 if(grp2c.length > 0){
-                    embed.addField(groups.find('id','group2').name+"",grp2)
+                    embed.addField(groups.find('id','group2').name+"",grp2+"\n")
                 }
                 if(grp3c.length > 0){
-                    embed.addField(groups.find('id','group3').name+"",grp3+" ")
+                    embed.addField(groups.find('id','group3').name+"",grp3+"\n")
                 }
-               /* if(grp4c.length > 0){
-                    embed.addField(groups.find('id','group4').name+"",grp4)
+                if(grp4c.length > 0){
+                    embed.addField(groups.find('id','group4').name+"",grp4+"\n")
                 }
                 if(grp5c.length > 0){
-                    embed.addField(groups.find('id','group5').name+"",grp5)
-                }*/
+                    embed.addField(groups.find('id','group5').name+"",grp5+"\n")
+                }
             //    embed.addField(groups.find('id','group4').name+"",grp4)
             //    embed.addField(groups.find('id','group5').name+"",grp5)
             embed.setColor(0x23ff12)
