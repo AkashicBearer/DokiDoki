@@ -24,48 +24,58 @@ module.exports = class TestHelpCommand extends Command {
 
         const grp1c = commands.findAll('groupID','group1');
         var grp1 = "";
-
-        for(var i = 0; i < grp1c.length; i++){
-            grp1=grp1+"`"+grp1c[i].name+"`";
-            if(i+1 < grp1c.length){
-                grp1=grp1+", ";
+        if(grp1c.length > 0){
+            for(var i = 0; i < grp1c.length; i++){
+                grp1=grp1+"`"+grp1c[i].name+"`";
+                if(i+1 < grp1c.length){
+                    grp1=grp1+", ";
+                }
             }
         }
 
 
         const grp2c = commands.findAll('groupID','group2');
         var grp2 = "";
-        for(var i = 0; i < grp2c.length; i++){
-            grp2=grp2+"`"+grp2c[i].name+"`";
-            if(i+1 < grp2c.length){
-                grp2=grp2+", ";
+        if(grp2c.length > 0){
+            for(var i = 0; i < grp2c.length; i++){
+                grp2=grp2+"`"+grp2c[i].name+"`";
+                if(i+1 < grp2c.length){
+                    grp2=grp2+", ";
+                }
             }
         }
 
         const grp3c = commands.findAll('groupID','group3');
         var grp3 = "";
-        for(var i = 0; i < grp3c.length; i++){
-            grp3=grp3+"`"+grp3c[i].name+"`";
-            if(i+1 < grp3c.length){
-                grp3=grp3+", ";
-            }
+        if(grp3c.length > 0){
+           for(var i = 0; i < grp3c.length; i++){
+                grp3=grp3+"`"+grp3c[i].name+"`";
+                if(i+1 < grp3c.length){
+                    grp3=grp3+", ";
+                }
+            } 
         }
+            
 /*
         const grp4c = commands.findAll('groupID','group4');
         var grp4 = "";
-        for(var i = 0; i < grp4c.length; i++){
-            grp4=grp4+"`"+grp4c[i].name+"`";
-            if(i+1 < grp4c.length){
-                grp4=grp4+", ";
+        if(grp1c.length > 0){
+            for(var i = 0; i < grp4c.length; i++){
+                grp4=grp4+"`"+grp4c[i].name+"`";
+                if(i+1 < grp4c.length){
+                    grp4=grp4+", ";
+                }
             }
         }
 
         const grp5c = commands.findAll('groupID','group5');
         var grp5 = "";
-        for(var i = 0; i < grp5c.length; i++){
-            grp5=grp5+"`"+grp5c[i].name+"`";
-            if(i+1 < grp5c.length){
-                grp5=grp5+", ";
+        if(grp1c.length > 0){
+            for(var i = 0; i < grp5c.length; i++){
+                grp5=grp5+"`"+grp5c[i].name+"`";
+                if(i+1 < grp5c.length){
+                    grp5=grp5+", ";
+                }
             }
         }
 */
