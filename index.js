@@ -75,6 +75,6 @@ client.registry
 	});
 // Random Shits
 
-this.client.user.setGame('with ' + {this.client.guilds.size} + 'Servers')
+this.client.user.setGame('with ' + {client.guilds.size} + 'Servers')
 
 client.login(process.env.token);
