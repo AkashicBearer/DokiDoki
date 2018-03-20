@@ -99,7 +99,7 @@ module.exports = class TestHelpCommand extends Command {
                     }
                 }else{
                     const cmd = commands.find('name', arg.command);
-                    embed.setTitle("Help for " + cmd.cmd)
+                    embed.setTitle("Help for " + cmd.name)
                 }
                 
             embed.setColor(0x23ff12)
