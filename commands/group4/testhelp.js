@@ -29,30 +29,7 @@ module.exports = class TestHelpCommand extends Command {
         var grp4 = "";
         var grp5 = "";
         var grp6 = "";
-        var grp7 = "";
-        for(var i = 0; i < 51; i++){
-            if(commands[i].group.name == groups[0]){
-                grp1=grp1+commands[i].name+", ";
-            }
-            if(commands[i].group.name == groups[1]){
-                grp2=grp2+commands[i].name+", ";
-            }
-            if(commands[i].group.name == groups[2]){
-                grp3=grp3+commands[i].name+", ";
-            }
-            if(commands[i].group.name == groups[3]){
-                grp4=grp4+commands[i].name+", ";
-            }
-            if(commands[i].group.name == groups[4]){
-                grp5=grp5+commands[i].name+", ";
-            }
-            if(commands[i].group.name == groups[5]){
-                grp6=grp6+commands[i].name+", ";
-            }
-            if(commands[i].group.name == groups[6]){
-                grp7=grp7+commands[i].name+", ";
-            }
-        }*/
+        var grp7 = "";*/
         for(var i = 0; i < grp1c.length; i++){
             grp1=grp1+"`"+grp1c[i].name;
             if(i+1 < grp1c.length){
