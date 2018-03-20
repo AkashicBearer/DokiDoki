@@ -19,8 +19,8 @@ module.exports = class TestHelpCommand extends Command {
         });
     }
     async run(msg, args) {
-        const groups = this.client.registry.groups;
-        const commands = this.client.registry.findCommands();
+        //const groups = this.client.registry.groups;
+        //const commands = this.client.registry.findCommands();
 
         //const grp1c = commands.findAll('groupID','group1');
         //var grp1 = "";
