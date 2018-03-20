@@ -81,27 +81,27 @@ module.exports = class TestHelpCommand extends Command {
 
         const embed = new RichEmbed()
                 embed.setTitle('DokiDoki Commands')
-                if(grp1c.length > 0){
-                    embed.addField(groups.find('id','group1').name+"",grp1+"\n")
-                    embed.addField(" ", " ")
+                if(!args.command){
+                    if(grp1c.length > 0){
+                        embed.addField(groups.find('id','group1').name+"",grp1+" ")
+                    }
+                    if(grp2c.length > 0){
+                        embed.addField(groups.find('id','group2').name+"",grp2+" ")
+                    }
+                    if(grp3c.length > 0){
+                        embed.addField(groups.find('id','group3').name+"",grp3+" ")
+                    }
+                    if(grp4c.length > 0){
+                        embed.addField(groups.find('id','group4').name+"",grp4+" ")
+                    }
+                    if(grp5c.length > 0){
+                        embed.addField(groups.find('id','group5').name+"",grp5+" ")
+                    }
+                }else{
+                    const cmd = commands.find('name', arg.command);
+                    embed.setTitle("Help for " + cmd.cmd)
                 }
-                if(grp2c.length > 0){
-                    embed.addField(groups.find('id','group2').name+"",grp2+"\n")
-                    embed.addField(" ", " ")
-                }
-                if(grp3c.length > 0){
-                    embed.addField(groups.find('id','group3').name+"",grp3+"\n")
-                    embed.addField(" ", " ")
-                }
-                if(grp4c.length > 0){
-                    embed.addField(groups.find('id','group4').name+"",grp4+"\n")
-                    embed.addField(" ", " ")
-                }
-                if(grp5c.length > 0){
-                    embed.addField(groups.find('id','group5').name+"",grp5+"\n")
-                }
-            //    embed.addField(groups.find('id','group4').name+"",grp4)
-            //    embed.addField(groups.find('id','group5').name+"",grp5)
+                
             embed.setColor(0x23ff12)
         return msg.embed(embed);
     }
