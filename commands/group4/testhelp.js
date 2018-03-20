@@ -24,14 +24,13 @@ module.exports = class TestHelpCommand extends Command {
 
         const grp1c = commands.findAll('groupID','group1');
         var grp1 = "";
-        var gr1 = groups.find('id','group1');
 
-        for(var i = 0; i < grp1c.length; i++){
+        /*for(var i = 0; i < grp1c.length; i++){
             grp1=grp1+"`"+grp1c[i].name+"`";
             if(i+1 < grp1c.length){
                 grp1=grp1+", ";
             }
-        }
+        }*/
 
 /*
         const grp2c = commands.findAll('groupID','group2');
