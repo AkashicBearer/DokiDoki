@@ -31,7 +31,7 @@ module.exports = class TestHelpCommand extends Command {
         var grp6 = "";
         var grp7 = "";
         for(var i = 0; i < grp1c.length; i++){
-            grp1=grp1+"`"+grp1c[i].name+"`";
+            grp1=grp1+grp1c[i].name+;
             if(i+1 < grp1c.length){
                 grp1=grp1+", ";
             }
