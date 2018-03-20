@@ -35,7 +35,6 @@ module.exports = class TestHelpCommand extends Command {
             if(i+1 < grp1c.length){
                 grp1=grp1+", ";
             }
-
         }
         const embed = new RichEmbed()
                 .setTitle('DokiDoki Commands')
