@@ -32,7 +32,7 @@ module.exports = class TestHelpCommand extends Command {
             }
         }
 
-/*
+
         const grp2c = commands.findAll('groupID','group2');
         var grp2 = "";
         for(var i = 0; i < grp2c.length; i++){
@@ -68,14 +68,14 @@ module.exports = class TestHelpCommand extends Command {
                 grp5=grp5+", ";
             }
         }
-*/
+
         const embed = new RichEmbed()
                 .setTitle('DokiDoki Commands')
                 .addField(groups.find('id','group1').name+"",grp1)
-            //    .addField(groups.find('id','group2').name,grp2)
-            //    .addField(groups.find('id','group3').name,grp3)
-            //    .addField(groups.find('id','group4').name,grp4)
-            //    .addField(groups.find('id','group5').name,grp5)
+                .addField(groups.find('id','group2').name,grp2)
+                .addField(groups.find('id','group3').name,grp3)
+                .addField(groups.find('id','group4').name,grp4)
+                .addField(groups.find('id','group5').name,grp5)
             .setColor(0x23ff12)
         return msg.embed(embed);
     }
