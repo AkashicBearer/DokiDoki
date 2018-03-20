@@ -88,7 +88,7 @@ module.exports = class TestHelpCommand extends Command {
                     embed.addField(groups.find('id','group2').name+"",grp2)
                 }
                 if(grp3c.length > 0){
-                    embed.addField(groups.find('id','group3').name+"",grp3)
+                    embed.addField(groups.find('id','group3').name+"",grp3+" ")
                 }
                /* if(grp4c.length > 0){
                     embed.addField(groups.find('id','group4').name+"",grp4)
