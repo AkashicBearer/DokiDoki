@@ -75,6 +75,6 @@ client.registry
 	});
 // Random Shits
 
-client.user.setActivity('with ' + {this.client.guilds.size})
+client.user.setPresence('with ' + {this.client.guilds.size})
 
 client.login(process.env.token);
