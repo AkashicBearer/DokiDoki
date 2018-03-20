@@ -54,12 +54,14 @@ module.exports = class TestHelpCommand extends Command {
             }
         }*/
         for(var i = 0; i < grp1c.length; i++){
-            grp1=grp1+grp1c[i].name+", "
+            grp1=grp1+grp1c[i].name;
+            if(i+1 < grp1c.length){
+                grp1=grp1+", ";
+            }
         }
         const embed = new RichEmbed()
                 .setTitle('DokiDoki Commands')
                 .addField(groups.find('id','group1').name,grp1)
-                .setDescription(grp1)
                 //.addField(groups[0].name + "",grp1+"",true)
             .setColor(0x23ff12)
         return msg.embed(embed);
