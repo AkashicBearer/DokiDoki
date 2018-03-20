@@ -40,6 +40,7 @@ client.registry
 	.on('debug', console.log)
 	.on('ready', () => {
 		console.log(`Client ready; logged in as ${client.user.username}#${client.user.discriminator} (${client.user.id})`);
+	  	client.user.setGame('with ${this.client.guilds.size} Servers');
 	})
 	.on('disconnect', () => { console.warn('Disconnected!'); })
 	.on('reconnecting', () => { console.warn('Reconnecting...'); })
@@ -75,6 +76,5 @@ client.registry
 	});
 // Random Shits
 
-this.client.user.setGame('with ${this.client.guilds.size} Servers')
 
 client.login(process.env.token);
