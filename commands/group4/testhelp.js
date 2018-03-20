@@ -23,7 +23,7 @@ module.exports = class TestHelpCommand extends Command {
         const commands = this.client.registry.findCommands();
         const showAll = args.command && args.command.toLowerCase() === 'all';
         const grp1c = commands.findAll('groupID','group1')
-        var grp1 = "";
+        var grp1 = "x";
         /*var grp2 = "";
         var grp3 = "";
         var grp4 = "";
@@ -56,8 +56,9 @@ module.exports = class TestHelpCommand extends Command {
         for(var i = 0; i < grp1c.length; i++){
             grp1=grp1+grp1c[i].name;
             if(i+1 < grp1c.length){
-                grp1=grp1+"x, x";
+                grp1=grp1+"x, ";
             }
+            grp1=grp1+"x";
         }
         const embed = new RichEmbed()
                 .setTitle('DokiDoki Commands')
