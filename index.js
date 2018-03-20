@@ -40,8 +40,7 @@ client.registry
 	.on('debug', console.log)
 	.on('ready', () => {
 		console.log(`Client ready; logged in as ${client.user.username}#${client.user.discriminator} (${client.user.id})`);
-	  	console.log(`Bot has started, with ${this.client.users.size} users, in ${this.client.channels.size} channels of ${this.client.guilds.size} guilds.`); 
-	  	client.user.setGame(`with ${this.client.guilds.size} Servers`);
+	  	client.user.setGame(`with ${client.guilds.size} Servers`);
 	})
 	.on('disconnect', () => { console.warn('Disconnected!'); })
 	.on('reconnecting', () => { console.warn('Reconnecting...'); })
