@@ -80,13 +80,15 @@ module.exports = class TestHelpCommand extends Command {
         }
 */
         const embed = new RichEmbed()
-                .setTitle('DokiDoki Commands')
-                .addField(groups.find('id','group1').name+"",grp1)
-                .addField(groups.find('id','group2').name+"",grp2)
-                .addField(groups.find('id','group3').name+"",grp3)
-            //    .addField(groups.find('id','group4').name+"",grp4)
-            //    .addField(groups.find('id','group5').name+"",grp5)
-            .setColor(0x23ff12)
+                embed.setTitle('DokiDoki Commands')
+                embed.addField(groups.find('id','group1').name+"",grp1)
+                embed.addField(groups.find('id','group2').name+"",grp2)
+                if(grp3c.length > 0){
+                embed.addField(groups.find('id','group2').name+"",grp2)
+                }
+            //    embed.addField(groups.find('id','group4').name+"",grp4)
+            //    embed.addField(groups.find('id','group5').name+"",grp5)
+            embed.setColor(0x23ff12)
         return msg.embed(embed);
     }
 
