@@ -75,6 +75,6 @@ client.registry
 	});
 // Random Shits
 
-client.user.setActivity('with ${this.client.guilds.size}', { type: 'Playing' })
+client.user.setGame('with ${this.client.guilds.size}', { type: 'Playing' })
 
 client.login(process.env.token);
