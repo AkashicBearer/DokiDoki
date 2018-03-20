@@ -22,8 +22,8 @@ module.exports = class TestHelpCommand extends Command {
         const groups = this.client.registry.groups;
         const commands = this.client.registry.findCommands();
 
-        const grp1c = commands.findAll('groupID','group1');
-        var grp1 = "";
+        //const grp1c = commands.findAll('groupID','group1');
+        //var grp1 = "";
 
         /*for(var i = 0; i < grp1c.length; i++){
             grp1=grp1+"`"+grp1c[i].name+"`";
