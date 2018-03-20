@@ -56,7 +56,7 @@ module.exports = class TestHelpCommand extends Command {
         for(var i = 0; i < grp1c.length; i++){
             grp1=grp1+grp1c[i].name;
             if(i+1 < grp1c.length){
-                grp1=grp1+", ";
+                grp1="x"+grp1+"x, ";
             }
         }
         const embed = new RichEmbed()
