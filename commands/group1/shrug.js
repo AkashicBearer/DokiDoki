@@ -1,18 +1,18 @@
 const { Command } = require('discord.js-commando');
 const { RichEmbed } = require('discord.js');
 
-module.exports = class BakaCommand extends Command {
+module.exports = class ShrugCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'shrug',
             group: 'group1',
             memberName: 'shrug',
-            description: 'Sends a Shrug',
+            description: 'Sends a Shrug'
 });
 }
 
 async run(msg, args) {
-        var imgwshrug = {
+        var imgshrug = {
             "0": "https://media1.tenor.com/images/8e74b7dbfadfd639c35cfddf33252bbd/tenor.gif?itemid=5655161",
             "1":"http://gifimage.net/wp-content/uploads/2017/09/anime-shrug-gif.gif",
             "2": "http://gifimage.net/wp-content/uploads/2017/09/anime-shrug-gif-9.gif",
