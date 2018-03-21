@@ -94,7 +94,7 @@ module.exports = class TestHelpCommand extends Command {
                     }
                     embed.addField("Aliases",aliass+" ")
 
-                    if(cmd.examples.length>0){
+                   /* if(cmd.examples.length > 0){
                         for(var i = 0; i < cmd.examples.length;i++){
                             examp=examp+"`"+cmd.examples[i]+"`";
                             if(i+1 < cmd.examples.length){
@@ -102,7 +102,7 @@ module.exports = class TestHelpCommand extends Command {
                             }
                         }
                         embed.addField("Examples",examp+" ")
-                    }
+                    }*/
                 
                 }else{
 
