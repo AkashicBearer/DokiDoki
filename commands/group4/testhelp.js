@@ -80,7 +80,7 @@ module.exports = class TestHelpCommand extends Command {
         }
 
         const embed = new RichEmbed()
-                if(!args.command && commands.find('name',args.command)){
+                if(args.command && commands.find('name',args.command)){
                     const cmd = commands.find('name', args.command);
                     embed.setTitle("Help for " + cmd.name)
                     embed.addField("Description", cmd.description+" ")
