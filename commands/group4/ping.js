@@ -23,3 +23,4 @@ embed.setDescription('The heartbeat ping is '+Math.round(client.ping)+'ms.')
 return msg.embed(embed)
 }
 };  
+*/
