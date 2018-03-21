@@ -93,9 +93,8 @@ module.exports = class TestHelpCommand extends Command {
                         }
                     }
                     embed.addField("Aliases",aliass+" ")
-                    embed.setDescription(cmd.examples.length+"")
 
-                   /* if(cmd.examples.length > 0){
+                    if(cmd.examples){
                         for(var i = 0; i < cmd.examples.length;i++){
                             examp=examp+"`"+cmd.examples[i]+"`";
                             if(i+1 < cmd.examples.length){
@@ -103,7 +102,7 @@ module.exports = class TestHelpCommand extends Command {
                             }
                         }
                         embed.addField("Examples",examp+" ")
-                    }*/
+                    }
                 
                 }else{
 
