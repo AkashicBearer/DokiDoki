@@ -100,6 +100,16 @@ module.exports = class TestHelpCommand extends Command {
                 }else{
                     const cmd = commands.find('name', args.command);
                     embed.setTitle("Help for " + cmd.name)
+                    embed.addField("Description" + cmd.description)
+                    var aliass = "";
+                    var examp = "";
+                    for(var i = 0; i < cmd.aliases.length){
+                        aliass=aliass+"`"+cmd.aliases[i]+"`";
+                        if(i+1 < cmd.aliases.length){
+                            aliass=aliass+", ";
+                        }
+                    }
+                    embed.addField("Aliases",aliass+" ")
                 }
                 
             embed.setColor(0x23ff12)
