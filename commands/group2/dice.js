@@ -8,7 +8,8 @@ module.exports = class DiceRollCommand extends Command {
             aliases: ['roll', 'rolldice', 'diceroll', 'rd'],
             group: 'group2',
             memberName: 'dice',
-            description: 'Roles a Dice with provided sides.',
+            description: 'Rolls a Dice with provided sides.',
+            examples: ['<rd', '<rd 124'],
             throttling: {
                 usages: 2,
                 duration: 1
