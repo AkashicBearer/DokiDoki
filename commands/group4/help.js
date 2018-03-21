@@ -7,7 +7,7 @@ module.exports = class HelpCommand extends Command {
             name: 'help',
             aliases: ['commands'],
             group: 'group4',
-            memberName: 'testhelp',
+            memberName: 'help',
             description: 'Shows commands of the Bot',
             args: [
                     {
