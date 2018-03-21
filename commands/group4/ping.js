@@ -16,12 +16,13 @@ module.exports = class PingCommand extends Command {
 		});
 	}
 
-	async run(msg) {
-  function test(){
-        const embed = new RichEmbed()
-            embed.setAuthor(msg.author.username)
-      embed.setDescription('The heartbeat ping is '+Math.round(client.ping)+'ms.')
-        return msg.embed(embed)
+async run(msg) {
+function test(){
+const embed = new RichEmbed()
+embed.setAuthor(msg.author.username)
+embed.setDescription('The heartbeat ping is '+Math.round(client.ping)+'ms.')
+return msg.embed(embed)
 }
 test();
+}
 };  
