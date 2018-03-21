@@ -80,24 +80,7 @@ module.exports = class TestHelpCommand extends Command {
         }
 
         const embed = new RichEmbed()
-                if(!args.command){
-                embed.setTitle('DokiDoki Commands')
-                    if(grp1c.length > 0){
-                        embed.addField(groups.find('id','group1').name+"",grp1+" ")
-                    }
-                    if(grp2c.length > 0){
-                        embed.addField(groups.find('id','group2').name+"",grp2+" ")
-                    }
-                    if(grp3c.length > 0){
-                        embed.addField(groups.find('id','group3').name+"",grp3+" ")
-                    }
-                    if(grp4c.length > 0){
-                        embed.addField(groups.find('id','group4').name+"",grp4+" ")
-                    }
-                    if(grp5c.length > 0){
-                        embed.addField(groups.find('id','group5').name+"",grp5+" ")
-                    }
-                }else{
+                if(!args.command && commands.find('name',args.command)){
                     const cmd = commands.find('name', args.command);
                     embed.setTitle("Help for " + cmd.name)
                     embed.addField("Description", cmd.description+" ")
@@ -118,6 +101,25 @@ module.exports = class TestHelpCommand extends Command {
                         }
                     }
                     embed.addField("Examples",examp+" ")
+                
+                }else{
+
+                    embed.setTitle('DokiDoki Commands')
+                    if(grp1c.length > 0){
+                        embed.addField(groups.find('id','group1').name+"",grp1+" ")
+                    }
+                    if(grp2c.length > 0){
+                        embed.addField(groups.find('id','group2').name+"",grp2+" ")
+                    }
+                    if(grp3c.length > 0){
+                        embed.addField(groups.find('id','group3').name+"",grp3+" ")
+                    }
+                    if(grp4c.length > 0){
+                        embed.addField(groups.find('id','group4').name+"",grp4+" ")
+                    }
+                    if(grp5c.length > 0){
+                        embed.addField(groups.find('id','group5').name+"",grp5+" ")
+                    }
                 }
                 
             embed.setColor(0x23ff12)
