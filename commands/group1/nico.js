@@ -8,14 +8,6 @@ module.exports = class NameCommand extends Command {
             group: 'group1',
             memberName: 'nico',
             description: 'Nic Nico Nii!!',
-            args: [
-                {
-		key: 'member',
-		label: 'user',
-		prompt: 'Who is a Baka?',
-		type: 'member'
-                }
-            ]
         });
     }
     
