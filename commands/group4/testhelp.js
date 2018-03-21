@@ -94,13 +94,15 @@ module.exports = class TestHelpCommand extends Command {
                     }
                     embed.addField("Aliases",aliass+" ")
 
-                    for(var i = 0; i < cmd.examples.length;i++){
-                        examp=examp+"`"+cmd.examples[i]+"`";
-                        if(i+1 < cmd.examples.length){
-                            examp=examp+", ";
+                    if(cmd.examples.length>0){
+                        for(var i = 0; i < cmd.examples.length;i++){
+                            examp=examp+"`"+cmd.examples[i]+"`";
+                            if(i+1 < cmd.examples.length){
+                                examp=examp+", ";
+                            }
                         }
+                        embed.addField("Examples",examp+" ")
                     }
-                    embed.addField("Examples",examp+" ")
                 
                 }else{
 
