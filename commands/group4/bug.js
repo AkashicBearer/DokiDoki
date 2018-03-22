@@ -26,9 +26,9 @@ module.exports = class BanCommand extends Command {
     
 async run(msg, args, ){
      const embed = new RichEmbed()
-                embed.setAuthor(msg.author.username, msg.author.avatarURL)
-                embed.setDescription(msg.author + ' is waving!')
+                //embed.setAuthor(msg.author.username, msg.author.avatarURL)
+                embed.setDescription(args.text + "")
                 embed.setColor(0x23ff12)
-    client.guilds.find("name", "Doki Doki Server").channels.find('name','bug-reports').sendMessage(embed);
+    client.guilds.find("name", "Doki Doki Server").channels.find('name','bug-reports').sendMessage('test');
 }
 };
