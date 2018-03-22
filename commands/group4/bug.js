@@ -1,6 +1,6 @@
 const { Command } = require('discord.js-commando');
 
-module.exports = class BanCommand extends Command {
+module.exports = class BugCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'bug',
@@ -29,6 +29,6 @@ async run(msg, args, ){
                 //embed.setAuthor(msg.author.username, msg.author.avatarURL)
        //         embed.setDescription(args.text + "")
        //         embed.setColor(0x23ff12)
-    client.guilds.find("name", "Doki Doki Server").channels.find('name','bug-reports').sendMessage('test');
+    //client.guilds.find("name", "Doki Doki Server").channels.find('name','bug-reports').sendMessage('test');
 }
 };
