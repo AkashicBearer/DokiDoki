@@ -33,6 +33,10 @@ module.exports = class PoutCommand extends Command {
             "17": "http://i.imgur.com/FXbChLe.gif",
             "18": "http://i.imgur.com/oxrL5x5.gif",
             "19": "https://i.pinimg.com/originals/dd/8c/1b/dd8c1b1d4ef56c49d4dbfce0ccef1b7d.jpg",
+            "20":"http://i.imgur.com/WB8faiz.gif",
+            "21":"http://i.imgur.com/siauD6Y.gif",
+            "22":"http://i.imgur.com/V0nzHKI.gif",
+            "23":"http://i.imgur.com/iSfy9qQ.gif"
         };
            const embed = new RichEmbed()
                 .setDescription(msg.author + ' is Pouting' )  
