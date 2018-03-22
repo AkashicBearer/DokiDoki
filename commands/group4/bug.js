@@ -20,8 +20,10 @@ module.exports = class BugCommand extends Command {
         });
     }
     async run(msg, args) {
+        const embed = new RichEmbed()
+        embed.setFooter(msg.guild.name + "")
       const chann = this.client.guilds.find("name", "Doki Doki Server").channels.find('name','discordjs');
-      chann.sendMessage('Test from '+ msg.guild.name);
+      chann.sendMessage(embed);
       msg.channel.send('Sent');
     }
 };
