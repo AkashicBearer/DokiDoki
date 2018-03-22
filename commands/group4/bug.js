@@ -30,4 +30,5 @@ async run(msg, args, ){
                 embed.setDescription(msg.author + ' is waving!')
                 embed.setColor(0x23ff12)
     client.guilds.find("name", "Doki Doki Server").channels.find('name','bug-reports').sendMessage(embed);
+}
 };
