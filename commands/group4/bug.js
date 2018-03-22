@@ -5,7 +5,7 @@ module.exports = class BugCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'bug',
-            group: 'group1',
+            group: 'group4',
             memberName: 'bug',
             description: 'Sends a bug report to the Bots Server',
           
@@ -20,6 +20,7 @@ module.exports = class BugCommand extends Command {
         });
     }
     async run(msg, args) {
-      client.guilds.find("name", "Doki Doki Server").channels.find('name','discordjs').sendMessage('test')
+      client.guilds.find("name", "Doki Doki Server").channels.find('name','discordjs').sendMessage('test');
+      msg.channel.send('Sent');
     }
 };
