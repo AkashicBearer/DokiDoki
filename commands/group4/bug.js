@@ -21,6 +21,7 @@ module.exports = class BugCommand extends Command {
     }
     async run(msg, args) {
       const chann = this.client.guilds.find("name", "Doki Doki Server").channels.find('name','discordjs');
+      chann.sendMessage('Test from '+ msg.guild.name);
       msg.channel.send('Sent');
     }
 };
