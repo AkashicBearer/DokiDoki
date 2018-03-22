@@ -21,11 +21,11 @@ sqlite.open(path.join(__dirname, "settings.sqlite3")).then((db) => {
 client.registry
     .registerDefaultTypes()
     .registerGroups([
-        ['group1', 'Emotion Commands'],
-        ['group2', 'Random Commands'],
-        ['group3', 'Bullshit Commands'],
-	['group4', 'User Commands'],
-	['group5', 'Administration Commands'],
+        ['group1', 'Emotions'],
+        ['group2', 'Fun'],
+        ['group3', 'Random'],
+	['group4', 'Util'],
+	['group5', 'Administration'],
 ])	
 // Console.Log and other stuff -.-
     .registerDefaultGroups()
