@@ -28,6 +28,6 @@ module.exports = class BugCommand extends Command {
         embed.setTimestamp()
       const chann = this.client.guilds.find("name", "Doki Doki Server").channels.find('name','bug-reports');
       chann.sendMessage(embed);
-      msg.channel.send('Sent');
+      msg.channel.send('Your Bug report was sent!');
     }
 };
