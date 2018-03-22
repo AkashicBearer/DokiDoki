@@ -4,7 +4,7 @@ module.exports = class BanCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'bug',
-            aliases: ['burgeport', 'br'],
+            aliases: ['burgreport', 'br'],
             group: 'group5',
             memberName: 'bug',
             description: 'Report a Bug',
