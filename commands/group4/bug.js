@@ -21,12 +21,12 @@ module.exports = class BugCommand extends Command {
     }
     async run(msg, args) {
         const embed = new RichEmbed()
-        embed.setAuthor(msg.author, msg.author.avatarURL)
+        embed.setAuthor(msg.author.tag, msg.author.avatarURL)
         embed.setTitle('Bug Report')
         embed.setDescription(args.text)
         embed.setFooter(msg.guild.name + "")
         embed.setTimestamp()
-      const chann = this.client.guilds.find("name", "Doki Doki Server").channels.find('name','discordjs');
+      const chann = this.client.guilds.find("name", "Doki Doki Server").channels.find('name','bug-reports');
       chann.sendMessage(embed);
       msg.channel.send('Sent');
     }
