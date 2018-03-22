@@ -22,6 +22,7 @@ module.exports = class BanCommand extends Command {
                   ]
 });
 }
+
     
 async run(msg, args, ){
      const embed = new RichEmbed()
