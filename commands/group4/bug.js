@@ -20,7 +20,7 @@ module.exports = class BugCommand extends Command {
         });
     }
     async run(msg, args) {
-      client.guilds.find("name", "Doki Doki Server").channels.find('name','discordjs').sendMessage('test');
+      //client.guilds.find("name", "Doki Doki Server").channels.find('name','discordjs').sendMessage('test');
       msg.channel.send('Sent');
     }
 };
