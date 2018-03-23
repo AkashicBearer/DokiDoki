@@ -95,7 +95,7 @@ module.exports = class HelpCommand extends Command {
                     }
                     embed.addField("Aliases",aliass+" ")
 
-                    if(cmd.examples != null){
+                    
                         for(var i = 0; i < cmd.examples.length;i++){
                             examp=examp+"`"+cmd.examples[i]+"`";
                             if(i+1 < cmd.examples.length){
@@ -103,7 +103,7 @@ module.exports = class HelpCommand extends Command {
                             }
                         }
                         embed.addField("Examples",examp+" ")
-                    }
+                    
                 
                 }else{
 
