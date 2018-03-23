@@ -14,7 +14,7 @@ module.exports = class avatarCommand extends Command {
 				{
 					key: 'user',
 					label: 'user',
-					prompt: 'Whose avatar would you like to see??',
+					prompt: 'Whose avatar would you like to see?',
 					type: 'member',
 					default: ''
 				}
@@ -24,12 +24,12 @@ module.exports = class avatarCommand extends Command {
 
 	async run(msg, args) {
 		const embed = new RichEmbed()
-             if(!args.member){
+             if(!args.user){
                 embed.setImage(msg.author.avatarURL)
-                embed.setAuthor(msg.author.username)
+                embed.setAuthor(msg.author.tag)
              }else{
                 embed.setImage(args.user.avatarURL)
-                embed.setAuthor(args.user.username)  
+                embed.setAuthor(args.user.tag)  
              }
                 embed.setColor(0x23ff12)
             return msg.embed(embed);
