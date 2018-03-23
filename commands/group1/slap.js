@@ -34,7 +34,7 @@ module.exports = class SlapCommand extends Command {
             "9": "http://gifimage.net/wp-content/uploads/2017/07/anime-slap-gif-9.gif",
             "10": "http://img.mrdrsr.net/slap.gif",
             "11": "https://i.pinimg.com/originals/4e/9e/a1/4e9ea150354ad3159339b202cbc6cad9.jpg",
-            "12": "https://i.pinimg.com/originals/f8/5f/4c/f85f4c557e5a03d2a7a2e903b66e0047.jpg",
+            "12": "https://im-01.gifer.com/7beD.gif",
             "13": "https://artemisunfiltered.files.wordpress.com/2014/05/golden-time-nana-slap.gif",
             "14": "https://78.media.tumblr.com/tumblr_m1nsxc3jUu1qdjfd8o1_400.gif",
             "15": "http://www.sharegif.com/wp-content/uploads/2013/09/20/slap-gif-1.gif",

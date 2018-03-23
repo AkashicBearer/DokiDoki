@@ -42,7 +42,7 @@ module.exports = class PatCommand extends Command {
             "15": "https://media1.tenor.com/images/183ff4514cbe90609e3f286adaa3d0b4/tenor.gif?itemid=5518321",
             "16": "https://pa1.narvii.com/6401/e11bc915114f632da1d2cc70716b7cb86478c130_hq.gif",
             "17": "https://pa1.narvii.com/6401/9629e80dbe24f32a009ac51ee633a32dfbe1773f_hq.gif",
-	        "18": "https://media.giphy.com/media/N0CIxcyPLputW/giphy.gif%27"
+	        "18": "http://pa1.narvii.com/6451/a2ed84c9d486fff04ce6769b2e365baf1bba4d6a_hq.gif"
         };
 
         var imgselfpat = {

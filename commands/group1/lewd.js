@@ -40,7 +40,7 @@ module.exports = class LewdtCommand extends Command {
             "14": "https://media.giphy.com/media/12YleBEPoJmTu/giphy.gif",
             "15": "https://media1.tenor.com/images/2a3a020417deca849d7cb6218edf75fa/tenor.gif?itemid=8680310",
             "16": "https://media.giphy.com/media/V8QqGkaD8fZCM/source.gif",
-            "17": "https://i.pinimg.com/originals/4e/43/29/4e432999bd440ca8b205d282a680634a.jpg",
+            "17": "http://i0.kym-cdn.com/photos/images/newsfeed/000/786/305/7db.gif",
             "18": "https://78.media.tumblr.com/c2e174dce5b16f24109a450c5781838a/tumblr_ni8yoi6qLO1u55xnmo3_500.gif",
             "19": "https://78.media.tumblr.com/tumblr_lwc0uhI4211qhx4eno2_250.gif",
         };

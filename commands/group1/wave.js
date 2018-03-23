@@ -33,7 +33,7 @@ module.exports = class waveCommand extends Command {
             "6": "https://78.media.tumblr.com/15df33af563301da61a47e2e7f009416/tumblr_obg1bkefkL1tydz8to1_500.gif",
             "7": "https://m.popkey.co/e6dff4/WgQWD.gif",
             "8": "https://78.media.tumblr.com/8ad5ef23cab77faf004601c3201fc127/tumblr_oalo4fRB5M1tydz8to1_500.gif",
-            "9": "https://vignette.wikia.nocookie.net/animaljam/images/b/b9/Tumblr_inline_nrqbc0lrW31twd49j_500.gif/revision/latest?cb=20150830030059",
+            "9": "https://78.media.tumblr.com/15df33af563301da61a47e2e7f009416/tumblr_obg1bkefkL1tydz8to1_500.gif",
             "10": "https://data.whicdn.com/images/245075010/original.gif",
             "11": "https://media.giphy.com/media/9hEKnxxhpclbO/giphy.gif",
             "12": "http://i0.kym-cdn.com/photos/images/newsfeed/001/073/005/67f.gif",
