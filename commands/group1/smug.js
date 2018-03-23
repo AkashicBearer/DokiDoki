@@ -5,7 +5,7 @@ module.exports = class SmugtCommand extends Command {
     constructor(client) {
       super(client, {
             name: 'smug',
-            aliases: [''],
+            aliases: [],
             group: 'group1',
             memberName: 'smug',
             description: 'Sends a Smug'
