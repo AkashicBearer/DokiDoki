@@ -27,7 +27,7 @@ module.exports = class LewdtCommand extends Command {
             "1": "https://media.giphy.com/media/e6NFJK3Pvy8Yo/giphy.gif",
             "2": "http://gifimage.net/wp-content/uploads/2017/06/blush-gif-16.gif",
             "3": "https://media.tenor.com/images/f45f5c5fd72dd7c9ff50976e2bc7133c/tenor.gif",
-            "4": "https://media.giphy.com/media/11BQakBXz5pJok/giphy.gif",
+            "4": "https://media.giphy.com/media/e6NFJK3Pvy8Yo/giphy.gif",
             "5": "https://media1.tenor.com/images/dc917566da214fa3c4e7ddcc58228db9/tenor.gif?itemid=3554995",
             "6": "https://media1.tenor.com/images/9eba52d0506b552b7ef6a1981c0cfcff/tenor.gif?itemid=8680309",
             "7": "http://gifimage.net/wp-content/uploads/2017/07/blush-anime-gif-2.gif",
