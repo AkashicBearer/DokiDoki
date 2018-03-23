@@ -28,7 +28,7 @@ module.exports = class avatarCommand extends Command {
                 embed.setImage(msg.author.avatarURL)
                 embed.setAuthor(msg.author.tag)
              }else{
-                embed.setImage(args.user.avatarURL)
+                embed.setImage(args.user.avatar)
                 embed.setAuthor(args.user.tag)  
              }
                 embed.setColor(0x23ff12)
