@@ -24,7 +24,7 @@ module.exports = class avatarCommand extends Command {
 
 	async run(msg, args) {
 		const embed = new RichEmbed()
-             if(!args.user){
+             if(!args.member){
                 embed.setImage(msg.author.avatarURL)
                 embed.setAuthor(msg.author.tag)
              }else{
