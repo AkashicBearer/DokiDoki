@@ -12,7 +12,7 @@ module.exports = class avatarCommand extends Command {
 
 			args: [
 				{
-					key: 'user',
+					key: 'member',
 					label: 'user',
 					prompt: 'Whose avatar would you like to see?',
 					type: 'member',
@@ -28,8 +28,8 @@ module.exports = class avatarCommand extends Command {
                 embed.setImage(msg.author.avatarURL)
                 embed.setAuthor(msg.author.tag)
              }else{
-                embed.setImage(args.user.avatar)
-                embed.setAuthor(args.user.tag)  
+                embed.setImage(args.member.avatarURL)
+                embed.setAuthor(args.member.tag)  
              }
                 embed.setColor(0x23ff12)
             return msg.embed(embed);
