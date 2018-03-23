@@ -5,6 +5,7 @@ module.exports = class EmbedCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'embed',
+            aliases: [],
             group: 'group2',
             memberName: 'embed',
             description: 'Embeds the text you provide.',

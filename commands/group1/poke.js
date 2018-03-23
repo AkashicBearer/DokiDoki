@@ -5,6 +5,7 @@ module.exports = class PokeCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'poke',
+            aliases: [],
             group: 'group1',
             memberName: 'poke',
             description: 'Who do you want to poke?',

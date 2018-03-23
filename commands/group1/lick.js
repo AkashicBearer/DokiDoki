@@ -5,6 +5,7 @@ module.exports = class lickCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'lick',
+            aliases: [],
             group: 'group1',
             memberName: 'lick',
             description: 'Who do you want to lick?',

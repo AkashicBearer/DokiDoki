@@ -5,6 +5,7 @@ module.exports = class biteCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'bite',
+            aliases: [],
             group: 'group1',
             memberName: 'bite',
             description: 'Who do you want to bite?',

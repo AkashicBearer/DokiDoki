@@ -5,6 +5,7 @@ module.exports = class NyaCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'nya',
+            aliases: [],
             group: 'group1',
             memberName: 'nya',
             description: 'Replies with a Neko.'

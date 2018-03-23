@@ -5,6 +5,7 @@ module.exports = class danceCommand extends Command {
     constructor(client) {
       super(client, {
             name: 'dance',
+            aliases: [],
             group: 'group1',
             memberName: 'dance',
             description: 'You dance', 

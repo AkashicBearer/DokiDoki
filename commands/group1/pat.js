@@ -5,6 +5,7 @@ module.exports = class PatCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'pat',
+            aliases: [],
             group: 'group1',
             memberName: 'pat',
             description: 'Who do you want to pat?',

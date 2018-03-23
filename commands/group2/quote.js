@@ -5,6 +5,7 @@ module.exports = class QuoteCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'quote',
+            aliases: [],
             group: 'group1',
             memberName: 'quote',
             description: 'What message do you want to quote?',

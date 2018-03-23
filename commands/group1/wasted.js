@@ -5,6 +5,7 @@ module.exports = class WastedCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'wasted',
+            aliases: [],
             group: 'group1',
             memberName: 'wasted',
             description: 'You commit Suicide...',

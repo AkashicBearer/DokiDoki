@@ -5,6 +5,7 @@ module.exports = class kissCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'kiss',
+            aliases: ['chu'],
             group: 'group1',
             memberName: 'kiss',
             description: 'Who do you want to kiss?',

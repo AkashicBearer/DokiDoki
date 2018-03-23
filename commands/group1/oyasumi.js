@@ -5,6 +5,7 @@ module.exports = class oyasumiCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'oyasumi',
+            aliases: [],
             group: 'group1',
             memberName: 'oyasumi',
             description: 'Oyasumi Nasai',

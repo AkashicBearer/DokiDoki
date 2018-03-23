@@ -5,6 +5,7 @@ module.exports = class waveCommand extends Command {
     constructor(client) {
       super(client, {
             name: 'wave',
+            aliases: [],
             group: 'group1',
             memberName: 'wave',
             description: 'You wave',

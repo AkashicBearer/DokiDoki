@@ -4,6 +4,7 @@ module.exports = class SayCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'dm',
+            aliases: [],
             group: 'group2',
             memberName: 'dm',
             description: 'Sends a message to the user you mention.',
