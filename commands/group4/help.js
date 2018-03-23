@@ -94,8 +94,8 @@ module.exports = class HelpCommand extends Command {
                                 aliass=aliass+", ";
                             }
                         }
-                    }
                     embed.addField("Aliases",aliass+" ")
+                    }
 
                     if(cmd.examples != null){
                         for(var i = 0; i < cmd.examples.length;i++){
