@@ -82,9 +82,9 @@ module.exports = class HelpCommand extends Command {
 
         const embed = new RichEmbed()
                 if(commands.find('name',args.command)){
-                    const cmd = commands.find('name', args.command);
-                  //  embed.setTitle("Help for " + cmd.name)
-                  //  embed.addField("Description", cmd.description+" ")
+                    const cmd = this.client.registry.findCommands().find('name', args.command);
+                    embed.setTitle("Help for " + cmd.name)
+                    embed.addField("Description", cmd.description+" ")
                     var aliass = "";
                     var examp = "";
                     for(var i = 0; i < cmd.aliases.length;i++){
@@ -95,7 +95,7 @@ module.exports = class HelpCommand extends Command {
                     }
                     embed.addField("Aliases",aliass+" ")
 
-                   /* if(cmd.examples != null){
+                    if(cmd.examples != null){
                         for(var i = 0; i < cmd.examples.length;i++){
                             examp=examp+"`"+cmd.examples[i]+"`";
                             if(i+1 < cmd.examples.length){
@@ -103,7 +103,7 @@ module.exports = class HelpCommand extends Command {
                             }
                         }
                         embed.addField("Examples",examp+" ")
-                    }*/
+                    }
                 
                 }else{
 
