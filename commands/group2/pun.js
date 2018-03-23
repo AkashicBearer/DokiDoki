@@ -75,7 +75,7 @@ async run(msg, args) {
         };
 
         const embed = new RichEmbed()
-            embed.setDescription(puns[Math.floor(Math.random() * Object.keys(puns).length).toString()]])
+            embed.setDescription(puns[Math.floor(Math.random() * Object.keys(puns).length).toString()])
             embed.setColor(0x23ff12)
         return msg.embed(embed);
     }
