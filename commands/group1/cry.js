@@ -26,7 +26,7 @@ module.exports = class CryCommand extends Command {
             "9": "http://gif-finder.com/wp-content/uploads/2015/07/Anime-boy-crying.gif",
             "10": "https://thumbs.gfycat.com/ReadySpicyFrigatebird-max-1mb.gif",
             "11": "http://megumi.img.s3.amazonaws.com/tumblr_o5ljgu8pDF1t3uwllo1_500.gif",
-            "12": "https://tenor.com/view/anime-crying-anime-crying-gif-5370823",
+            "12": "http://gifimage.net/wp-content/uploads/2017/07/anime-cry-gif-18.gif",
             "13": "https://media.giphy.com/media/ROF8OQvDmxytW/giphy.gif",
             "14": "https://tenor.com/view/anime-girl-crying-sad-black-gif-4952249"
         };

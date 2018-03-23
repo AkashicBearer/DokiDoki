@@ -39,7 +39,7 @@ module.exports = class hugCommand extends Command {
             "15": "https://i.pinimg.com/originals/9e/aa/dd/9eaadde3891872fa2d29781874cbfcfc.gif",
             "16": "http://i0.kym-cdn.com/photos/images/newsfeed/000/935/627/3a5.gif",
             "17": "https://media.giphy.com/media/pXQhWw2oHoPIs/giphy-downsized-large.gif",
-            "18": "https://media.tenor.co/images/b4ba20e6cb49d8f8bae81d86e45e4dcc/raw",
+            "18": "http://gifimage.net/wp-content/uploads/2017/01/Anime-hug-GIF-Image-Download-10.gif",
             "19": "https://78.media.tumblr.com/d795df9b60134d4971dd372796ae3ab4/tumblr_nox50xwORk1toklayo1_500.gif"
         };
 
