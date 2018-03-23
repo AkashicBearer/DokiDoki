@@ -22,11 +22,11 @@ module.exports = class QuoteCommand extends Command {
     }
 	async run(msg, args) {
        // const msgid = msg.channel.fetchMessage(args.idx)
-        const stamp = args.idx.createdAt
+        const stamp = args.idx.createdAt;
         const embed = new RichEmbed()
             .setAuthor(args.idx.author.username, args.idx.author.avatarURL)
             .setDescription(args.idx.content)
-            .setImage(args.idx.attachments.first().url)
+            //.setImage(args.idx.attachments.first().url)
             .setColor(0x23ff12)
             .setFooter(stamp + "")
             //.setTimestamp(args.idx)
