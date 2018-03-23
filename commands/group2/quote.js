@@ -26,6 +26,7 @@ module.exports = class QuoteCommand extends Command {
         const embed = new RichEmbed()
             .setAuthor(args.idx.author.username, args.idx.author.avatarURL)
             .setDescription(args.idx.content)
+            .setImage(args.idx.attachments.first())
             .setColor(0x23ff12)
             .setFooter(stamp + "")
             //.setTimestamp(args.idx)
