@@ -37,7 +37,7 @@ module.exports = class shipCommand extends Command {
            
             shipname = usrn1.substring(0,usrn1.length/2)+""+usrn2.substring(usrn2.length/2,usrn2.length).toLowerCase()
             embed.setTitle("Shipping " + usrn1 + " and " + usrn2)
-            embed.setDescription(shipname)
+            embed.setDescription("Their Shipname is: **"+shipname+"**!")
         }
 
         if(args.usr1 && !args.usr2){
@@ -51,7 +51,13 @@ module.exports = class shipCommand extends Command {
         }
 
         if(!args.usr1 && !args.usr2){
-            embed.setTitle()
+            var candidates = []; 
+            var membArray = msg.guild.members.array();
+            for (var user in membArray) 
+                    candidates.push(membArray[user].user.username);
+            const randMemb = candidates[Math.floor(Math.random()*candidates.length)]
+
+            embed.setTitle("Shipping " + msg.author.username + " and " + randMemb)
             embed.setDescription()
         }
             embed.setThumbnail("https://vignette.wikia.nocookie.net/parody/images/b/b0/Anime_Heart.png/revision/latest?cb=20161125185957")
