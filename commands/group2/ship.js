@@ -31,13 +31,24 @@ module.exports = class shipCommand extends Command {
 	async run(msg, args) {
         const embed = new RichEmbed()
         var shipname = "";
+        var compab = (Math.random()*100).toFixed(2);
+        var compatibility = ""
+        if(compab <= 50){
+            compatibility = "They are not very compatible: **"+compab+"%**";
+        }
+        if(compab > 50 && compab <90){
+            compatibility = "They are compatible: **"+compab+"%**";
+        }
+        if(compab >= 90){
+            compatibility = "They are very compatible: **"+compab+"%**";
+        }
         if(args.usr1 && args.usr2){
             const usrn1 = args.usr1.user.username;
             const usrn2 = args.usr2.user.username;
            
             shipname = usrn1.substring(0,usrn1.length/2)+""+usrn2.substring(usrn2.length/2,usrn2.length).toLowerCase()
             embed.setTitle("Shipping " + usrn1 + " and " + usrn2)
-            embed.setDescription("Their Shipname is: **"+shipname+"**!")
+            embed.setDescription("Their Shipname is: **"+shipname+"**! \n"+compatibility)
         }
 
         if(args.usr1 && !args.usr2){
@@ -50,7 +61,7 @@ module.exports = class shipCommand extends Command {
             const usrn2 = randMemb;
             shipname = usrn1.substring(0,usrn1.length/2)+""+usrn2.substring(usrn2.length/2,usrn2.length).toLowerCase()
             embed.setTitle("Shipping " + usrn1 + " and " + usrn2)
-            embed.setDescription("Their Shipname is: **"+shipname+"**!")
+            embed.setDescription("Their Shipname is: **"+shipname+"**! \n"+compatibility)
         }
 
         if(!args.usr1 && !args.usr2){
@@ -63,7 +74,7 @@ module.exports = class shipCommand extends Command {
             const usrn2 = randMemb;
             shipname = usrn1.substring(0,usrn1.length/2)+""+usrn2.substring(usrn2.length/2,usrn2.length).toLowerCase()
             embed.setTitle("Shipping " + usrn1 + " and " + usrn2)
-            embed.setDescription("Their Shipname is: **"+shipname+"**!")
+            embed.setDescription("Their Shipname is: **"+shipname+"**! \n"+compatibility)
         }
             embed.setThumbnail("https://vignette.wikia.nocookie.net/parody/images/b/b0/Anime_Heart.png/revision/latest?cb=20161125185957")
             embed.setColor(0x23ff12)
