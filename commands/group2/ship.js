@@ -24,6 +24,13 @@ module.exports = class shipCommand extends Command {
                     prompt: 'Who do you want to Ship?',
                     type: 'member',
                     default:''
+                },
+                {
+                    key: 'type',
+                    label: 'user2',
+                    prompt: 'Random?',
+                    type: 'text',
+                    default:''
                 }
 			]
         });
@@ -41,8 +48,14 @@ module.exports = class shipCommand extends Command {
         }
 
         if(args.usr1 && !args.usr2){
-            embed.setTitle()
-            embed.setDescription()
+            if(args.type=="random"){
+                embed.setTitle("Random")
+                embed.setDescription()
+            }else{
+                embed.setTitle()
+                embed.setDescription()  
+            }
+            
         }
 
         if(!args.usr1 && args.usr2){
