@@ -19,17 +19,17 @@ module.exports = class shipCommand extends Command {
                     default:''
 				},
                 {
-                    key: 'usr2',
-                    label: 'user2',
-                    prompt: 'Who do you want to Ship?',
-                    type: 'member',
-                    default:''
-                },
-                {
                     key: 'type',
                     label: 'user2',
                     prompt: 'Random?',
                     type: 'text',
+                    default:''
+                },
+                {
+                    key: 'usr2',
+                    label: 'user2',
+                    prompt: 'Who do you want to Ship?',
+                    type: 'member',
                     default:''
                 }
 			]
