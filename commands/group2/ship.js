@@ -34,10 +34,10 @@ module.exports = class shipCommand extends Command {
         if(args.usr1 && args.usr2){
             const usrn1 = args.usr1.username;
             const usrn2 = args.usr2.username;
-            const subs1 = usrn1.substring(0,2);
+           // const subs1 = usrn1.substring(0,2);
          //   shipname = +""+usrn2.substring(usrn1.length/2,usrn1.length)
             embed.setTitle("Shipping " + usrn1 + " and " + usrn2)
-            embed.setDescription(shipname)
+            embed.setDescription(usrn1)
         }
 
         if(args.usr1 && !args.usr2){
