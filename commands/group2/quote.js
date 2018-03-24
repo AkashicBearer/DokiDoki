@@ -6,7 +6,7 @@ module.exports = class QuoteCommand extends Command {
         super(client, {
             name: 'quote',
             aliases: [],
-            group: 'group1',
+            group: 'group2',
             memberName: 'quote',
             description: 'What message do you want to quote?',
           
