@@ -8,7 +8,7 @@ module.exports = class shipCommand extends Command {
             aliases: [],
             group: 'group2',
             memberName: 'ship',
-            description: 'Who do you want to ship?',
+            description: "Mention two Members to ship them. \n Mention one member to randoly ship them with another member. \n Don't mention anyone to randomly ship yourself.",
           
 			args: [
 				{
