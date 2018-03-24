@@ -35,23 +35,23 @@ module.exports = class shipCommand extends Command {
             const usrn1 = args.usr1.username;
             const usrn2 = args.usr2.username;
             shipname = usrn1.substring(0,usrn1.length/2)+""+usrn2.substring(usrn1.length/2,usrn1.length)
-            .setTitle()
-            .setDescription(shipname)
+            embed.setTitle()
+            embed.setDescription(shipname)
         }
 
         if(args.usr1 && !args.usr2){
-            .setTitle()
-            .setDescription()
+            embed.setTitle()
+            embed.setDescription()
         }
 
         if(!args.usr1 && args.usr2){
-            .setTitle()
-            .setDescription()
+            embed.setTitle()
+            embed.setDescription()
         }
 
         if(!args.usr1 && !args.usr2){
-            .setTitle()
-            .setDescription()
+            embed.setTitle()
+            embed.setDescription()
         }
             .setThumbnail("https://vignette.wikia.nocookie.net/parody/images/b/b0/Anime_Heart.png/revision/latest?cb=20161125185957")
             .setColor(0x23ff12)
