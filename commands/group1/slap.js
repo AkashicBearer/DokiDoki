@@ -41,7 +41,8 @@ module.exports = class SlapCommand extends Command {
             "16": "https://orig00.deviantart.net/45a9/f/2014/023/2/4/senza_titolo_1_by_lightning441-d73dgey.gif",
             "17": "https://m.popkey.co/80c11f/Ep51Y.gif",
             "18": "http://i.imgur.com/dkDScHT.gif",
-            "19": "https://pa1.narvii.com/5716/2589c3050f75867c9277d33dc2e4742680c3399e_hq.gif"
+            "19": "https://pa1.narvii.com/5716/2589c3050f75867c9277d33dc2e4742680c3399e_hq.gif",
+            "20": "http://i0.kym-cdn.com/photos/images/original/001/264/655/379.gif"
         };
 
         
