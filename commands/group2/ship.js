@@ -49,7 +49,7 @@ module.exports = class shipCommand extends Command {
             const usrn1 = args.usr1.user.username;
             const usrn2 = randMemb;
             shipname = usrn1.substring(0,usrn1.length/2)+""+usrn2.substring(usrn2.length/2,usrn2.length).toLowerCase()
-            embed.setTitle("Shipping " + msg.author.username + " and " + randMemb)
+            embed.setTitle("Shipping " + usrn1 + " and " + usrn2)
             embed.setDescription("Their Shipname is: **"+shipname+"**!")
         }
 
@@ -62,7 +62,7 @@ module.exports = class shipCommand extends Command {
             const usrn1 = msg.author.username;
             const usrn2 = randMemb;
             shipname = usrn1.substring(0,usrn1.length/2)+""+usrn2.substring(usrn2.length/2,usrn2.length).toLowerCase()
-            embed.setTitle("Shipping " + msg.author.username + " and " + randMemb)
+            embed.setTitle("Shipping " + usrn1 + " and " + usrn2)
             embed.setDescription("Their Shipname is: **"+shipname+"**!")
         }
             embed.setThumbnail("https://vignette.wikia.nocookie.net/parody/images/b/b0/Anime_Heart.png/revision/latest?cb=20161125185957")
