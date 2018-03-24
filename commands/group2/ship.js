@@ -56,9 +56,11 @@ module.exports = class shipCommand extends Command {
             for (var user in membArray) 
                     candidates.push(membArray[user].user.username);
             const randMemb = candidates[Math.floor(Math.random()*candidates.length)]
-
+            const usrn1 = msg.author.username;
+            const usrn2 = randMemb;
+            shipname = usrn1.substring(0,usrn1.length/2)+""+usrn2.substring(usrn2.length/2,usrn2.length).toLowerCase()
             embed.setTitle("Shipping " + msg.author.username + " and " + randMemb)
-            embed.setDescription()
+            embed.setDescription("Their Shipname is: **"+shipname+"**!")
         }
             embed.setThumbnail("https://vignette.wikia.nocookie.net/parody/images/b/b0/Anime_Heart.png/revision/latest?cb=20161125185957")
             embed.setColor(0x23ff12)
