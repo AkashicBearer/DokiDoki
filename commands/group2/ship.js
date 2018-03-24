@@ -1,0 +1,60 @@
+const { Command } = require('discord.js-commando');
+const { RichEmbed } = require('discord.js');
+
+module.exports = class shipCommand extends Command {
+    constructor(client) {
+        super(client, {
+            name: 'ship',
+            aliases: [],
+            group: 'group2',
+            memberName: 'ship',
+            description: 'Who do you want to ship?',
+          
+			args: [
+				{
+					key: 'usr1',
+					label: 'user1',
+					prompt: 'Who do you want to Ship?',
+					type: 'member',
+                    default:''
+				},
+                {
+                    key: 'usr2',
+                    label: 'user2',
+                    prompt: 'Who do you want to Ship?',
+                    type: 'member',
+                    default:''
+                }
+			]
+        });
+    }
+	async run(msg, args) {
+        const embed = new RichEmbed()
+        var shipname = "";
+        if(args.usr1 && args.usr2){
+            const usrn1 = args.usr1.username;
+            const usrn2 = args.usr2.username;
+            shipname = usrn1.substring(0,usrn1.length/2)+""+usrn2.substring(usrn1.length/2,usrn1.length)
+            .setTitle()
+            .setDescription(shipname)
+        }
+
+        if(args.usr1 && !args.usr2){
+            .setTitle()
+            .setDescription()
+        }
+
+        if(!args.usr1 && args.usr2){
+            .setTitle()
+            .setDescription()
+        }
+
+        if(!args.usr1 && !args.usr2){
+            .setTitle()
+            .setDescription()
+        }
+            .setThumbnail("https://vignette.wikia.nocookie.net/parody/images/b/b0/Anime_Heart.png/revision/latest?cb=20161125185957")
+            .setColor(0x23ff12)
+        return msg.embed(embed);
+    }
+};
