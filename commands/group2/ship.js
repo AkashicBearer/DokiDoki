@@ -19,13 +19,6 @@ module.exports = class shipCommand extends Command {
                     default:''
 				},
                 {
-                    key: 'type',
-                    label: 'user2',
-                    prompt: 'Random?',
-                    type: 'text',
-                    default:''
-                },
-                {
                     key: 'usr2',
                     label: 'user2',
                     prompt: 'Who do you want to Ship?',
@@ -48,19 +41,16 @@ module.exports = class shipCommand extends Command {
         }
 
         if(args.usr1 && !args.usr2){
-            if(args.type=="random"){
-                embed.setTitle("Random")
-                embed.setDescription()
-            }else{
-                embed.setTitle()
-                embed.setDescription()  
-            }
-            
-        }
-
-        if(!args.usr1 && args.usr2){
-            embed.setTitle()
-            embed.setDescription()
+            var candidates = []; 
+            var membArray = msg.guild.members.array();
+            for (var user in membArray) 
+                    candidates.push(membArray[user].user.username);
+            const randMemb = candidates[Math.floor(Math.random()*candidates.length)]
+            const usrn1 = args.usr1.user.username;
+            const usrn2 = randMemb;
+            shipname = usrn1.substring(0,usrn1.length/2)+""+usrn2.substring(usrn2.length/2,usrn2.length).toLowerCase()
+            embed.setTitle("Shipping " + msg.author.username + " and " + randMemb)
+            embed.setDescription("Their Shipname is: **"+shipname+"**!")
         }
 
         if(!args.usr1 && !args.usr2){
