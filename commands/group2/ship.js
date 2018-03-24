@@ -53,8 +53,8 @@ module.exports = class shipCommand extends Command {
             embed.setTitle()
             embed.setDescription()
         }
-            .setThumbnail("https://vignette.wikia.nocookie.net/parody/images/b/b0/Anime_Heart.png/revision/latest?cb=20161125185957")
-            .setColor(0x23ff12)
+            embed.setThumbnail("https://vignette.wikia.nocookie.net/parody/images/b/b0/Anime_Heart.png/revision/latest?cb=20161125185957")
+            embed.setColor(0x23ff12)
         return msg.embed(embed);
     }
 };
