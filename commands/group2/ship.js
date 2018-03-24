@@ -35,7 +35,7 @@ module.exports = class shipCommand extends Command {
             const usrn1 = args.usr1.user.username;
             const usrn2 = args.usr2.user.username;
            
-            shipname = usrn1.substring(0,usrn1.length/2)+""+usrn2.substring(usrn2.length/2,usrn2.length).toLowercase()
+            shipname = usrn1.substring(0,usrn1.length/2)+""+usrn2.substring(usrn2.length/2,usrn2.length).toLowerCase()
             embed.setTitle("Shipping " + usrn1 + " and " + usrn2)
             embed.setDescription(shipname)
         }
