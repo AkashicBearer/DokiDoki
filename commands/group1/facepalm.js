@@ -8,7 +8,7 @@ module.exports = class FacepalmCommand extends Command {
             aliases: ['fp'],
             group: 'group1',
             memberName: 'facepalm',
-            description: 'Facepalm....',
+            description: 'Facepalm....'
         });
     }
 	async run(msg) {
@@ -30,11 +30,11 @@ module.exports = class FacepalmCommand extends Command {
             "14": "https://media1.tenor.com/images/4393544537d2096c6970d6ed8a2c9c54/tenor.gif?itemid=7392519",
             "15": "https://linustechtips.com/main/applications/core/interface/imageproxy/imageproxy.php?img=http://i.imgur.com/iNo9Bob.gif&key=8b93b2822e58e7b71791bd16f756bbe2c8bc907d3a5cdf3c570809781a289800",
             "16": "https://78.media.tumblr.com/a90b90cdf720d3f39b5e3320f46f2e46/tumblr_n6ysczOK0p1qzmfgzo1_r1_500.gif",
-            "17": "https://orig00.deviantart.net/125a/f/2014/301/3/5/49_by_prettykitty_13-d84gtw2.gif",
+            "17": "https://orig00.deviantart.net/125a/f/2014/301/3/5/49_by_prettykitty_13-d84gtw2.gif"
             };
 
         const embed = new RichEmbed()
-         	embed.setDescription(msg.author + ' thinks ' + args.member.user + ' is a baka.')
+         	embed.setDescription(msg.author + ' facepalm....')
           embed.setImage(imgfp[Math.floor(Math.random() * Object.keys(imgfp).length).toString()])
           embed.setColor(0x23ff12)
         return msg.embed(embed);
