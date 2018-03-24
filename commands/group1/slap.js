@@ -33,13 +33,13 @@ module.exports = class SlapCommand extends Command {
             "8": "http://gifimage.net/wp-content/uploads/2017/07/anime-slap-gif-15.gif",
             "9": "http://gifimage.net/wp-content/uploads/2017/07/anime-slap-gif-9.gif",
             "10": "http://img.mrdrsr.net/slap.gif",
-            "11": "https://i.pinimg.com/originals/4e/9e/a1/4e9ea150354ad3159339b202cbc6cad9.jpg",
+            "11": "https://78.media.tumblr.com/db2c23d95ea558373d5ac51a7b8b4193/tumblr_nl801msjXa1saml9ao2_500.gif",
             "12": "https://im-01.gifer.com/7beD.gif",
             "13": "https://artemisunfiltered.files.wordpress.com/2014/05/golden-time-nana-slap.gif",
             "14": "https://78.media.tumblr.com/tumblr_m1nsxc3jUu1qdjfd8o1_400.gif",
             "15": "http://www.sharegif.com/wp-content/uploads/2013/09/20/slap-gif-1.gif",
             "16": "https://orig00.deviantart.net/45a9/f/2014/023/2/4/senza_titolo_1_by_lightning441-d73dgey.gif",
-            "17": "https://vignette.wikia.nocookie.net/prettycure/images/3/39/Cure_Sword_slap.gif/revision/latest?cb=20161001152454",
+            "17": "https://m.popkey.co/80c11f/Ep51Y.gif",
             "18": "http://i.imgur.com/dkDScHT.gif",
             "19": "https://pa1.narvii.com/5716/2589c3050f75867c9277d33dc2e4742680c3399e_hq.gif"
         };
