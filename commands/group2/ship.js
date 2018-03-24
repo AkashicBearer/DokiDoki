@@ -5,11 +5,11 @@ module.exports = class shipCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'ship',
-            aliases: [],
+            aliases: ['pair', 'couple'],
             group: 'group2',
             memberName: 'ship',
-            description: "Mention two Members to ship them. \n Mention one member to randoly ship them with another member. \n Don't mention anyone to randomly ship yourself.",
-          
+            description: "Mention two Members to ship them. \nMention one member to randoly ship them with another member. \nDon't mention anyone to randomly ship yourself.",
+            examples: ['<ship @User1 @User2', '<ship @User', '<ship'],
 			args: [
 				{
 					key: 'usr1',
