@@ -34,7 +34,8 @@ module.exports = class nomCommand extends Command {
             "17": "https://i.imgur.com/XOlRryu.gif",
             "18": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTp3FvlyDcBfhyrSgD-QmzaK-Foibe9bz-85QokLqGbnmxy_k9D",
             "19": "https://78.media.tumblr.com/f243c24381afe638f1948af71ff7a965/tumblr_omqt8pjliX1uxvvvzo1_500.gif",
-            "20": "https://img.memecdn.com/nom-nom-nom-3_o_600538.gif"
+            "20": "https://img.memecdn.com/nom-nom-nom-3_o_600538.gif",
+            "21": "https://i.pinimg.com/originals/28/b0/40/28b040a10e9848678c56bbbbd069fded.gif"
         };
            const embed = new RichEmbed()
                 embed.setDescription(msg.author + ' is nomming on something')  
