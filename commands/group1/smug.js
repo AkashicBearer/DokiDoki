@@ -20,7 +20,7 @@ module.exports = class SmugtCommand extends Command {
             "3": "https://media1.tenor.com/images/906bbc85a7820f68a7fc658aeeceb069/tenor.gif?itemid=10195728",
             "4": "http://i0.kym-cdn.com/photos/images/newsfeed/000/928/760/db8.gif",
             "5": "https://thumbs.gfycat.com/AccurateSafeAfricanparadiseflycatcher-max-1mb.gif",
-            "6": "http://i0.kym-cdn.com/photos/images/newsfeed/000/993/093/e39.gif",
+            "6": "https://78.media.tumblr.com/34afa029cc966cc0f97505d9135fcbf2/tumblr_p5hr85vavD1tjqw6so7_r1_500.gif",
             "7": "https://i.imgur.com/S4vTLpP.gif",
             "8": "https://i.pinimg.com/originals/0a/c2/ff/0ac2ff9ec856f14485a35e3ab424234c.gif",
             "9": "https://78.media.tumblr.com/ca60f46082218e87f9fb1995c6e6d182/tumblr_oebt000Z6Q1te3l73o3_540.gif",
