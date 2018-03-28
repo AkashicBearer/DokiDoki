@@ -37,6 +37,8 @@ module.exports = class QuoteCommand extends Command {
                 embed.setColor(0x23ff12)
                 if(args.idx.embeds[0].footer){
                     embed.setImage(args.idx.embeds[0].footer)
+                }else{
+                    embed.setFooter(stamp + "")
                 }
             return msg.embed(embed);
         }else{
