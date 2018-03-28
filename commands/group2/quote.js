@@ -22,15 +22,19 @@ module.exports = class QuoteCommand extends Command {
     }
 	async run(msg, args) {
         const stamp = args.idx.createdAt;
-        const embed = new RichEmbed()
-            embed.setAuthor(args.idx.author.username, args.idx.author.avatarURL)
-            embed.setDescription(args.idx.content)
-            if(args.idx.attachments.first()){
-                embed.setImage(args.idx.attachments.first().proxyURL)
-            }
-            
-            embed.setColor(0x23ff12)
-            embed.setFooter(stamp + "")
-        return msg.embed(embed);
+        if(args.idx.embeds.length == 0){
+            return msg.embed(args.idx.embeds[0]);
+        }else{
+            const embed = new RichEmbed()
+                embed.setAuthor(args.idx.author.username, args.idx.author.avatarURL)
+                embed.setDescription(args.idx.content)
+                if(args.idx.attachments.first()){
+                    embed.setImage(args.idx.attachments.first().proxyURL)
+                }
+                
+                embed.setColor(0x23ff12)
+                embed.setFooter(stamp + "")
+            return msg.embed(embed);
+        }
     }
 };
