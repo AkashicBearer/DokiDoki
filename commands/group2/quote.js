@@ -25,7 +25,7 @@ module.exports = class QuoteCommand extends Command {
         if(args.idx.embeds.length > 0){
             const embed = new RichEmbed()
                 if(args.idx.embeds[0].author){
-                    embed.setAuthor(args.idx.embeds[0].author, args.idx.embeds[0].author.avatarURL)
+                    embed.setAuthor(args.idx.embeds[0].author.name, args.idx.embeds[0].author.iconURL)
                 }else{
                     embed.setAuthor(args.idx.author.username, args.idx.author.avatarURL) 
                 }
