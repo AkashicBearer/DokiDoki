@@ -47,7 +47,7 @@ module.exports = class QuoteCommand extends Command {
                 }
 
                 if(args.idx.embeds[0].thumbnail){
-                    embed.setThumbnail(args.idx.embeds[0].thumbnail)
+                    embed.setThumbnail(args.idx.embeds[0].thumbnail.url)
                 }
                 if(args.idx.embeds[0].title){
                     embed.setTitle(args.idx.embeds[0].title)
