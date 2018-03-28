@@ -51,7 +51,12 @@ module.exports = class rageCommand extends Command {
              }else{
                 embed.setDescription(msg.author + ' is very mad at ' + args.member + '!')  
              }
-                embed.setImage(imgrage[Math.floor(Math.random() * Object.keys(imgrage).length).toString()])
+                const randm = Math.random();
+             if(randm < 1){
+                embed.setImage(imgrage[Math.floor(randm * Object.keys(imgrage).length).toString()])
+             }else{
+                embed.setImage(imgrage[Math.floor(randm * Object.keys(imgrage).length-1).toString()])
+             }
                 embed.setColor(0x23ff12)
             return msg.embed(embed);
         }

@@ -52,7 +52,12 @@ module.exports = class SlapCommand extends Command {
             }else{
             embed.setDescription(msg.author + ' slaps ' + args.member.user)
             }
-            embed.setImage(imgslap[Math.floor(Math.random() * Object.keys(imgslap).length).toString()])
+            const randm = Math.random();
+             if(randm < 1){
+                embed.setImage(imgslap[Math.floor(randm * Object.keys(imgslap).length).toString()])
+             }else{
+                embed.setImage(imgslap[Math.floor(randm * Object.keys(imgslap).length-1).toString()])
+             }
             embed.setColor(0x23ff12)
         return msg.embed(embed);
     }

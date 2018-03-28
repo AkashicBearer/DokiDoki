@@ -51,7 +51,12 @@ module.exports = class waveCommand extends Command {
              }else{
                 embed.setDescription(msg.author + ' is waving at ' + args.member + '!')  
              }
-                embed.setImage(imgwave[Math.floor(Math.random() * Object.keys(imgwave).length).toString()])
+                const randm = Math.random();
+                 if(randm < 1){
+                    embed.setImage(imgwave[Math.floor(randm * Object.keys(imgwave).length).toString()])
+                 }else{
+                    embed.setImage(imgwave[Math.floor(randm * Object.keys(imgwave).length-1).toString()])
+                 }
                 embed.setColor(0x23ff12)
             return msg.embed(embed);
         }

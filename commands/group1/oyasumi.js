@@ -49,7 +49,12 @@ module.exports = class oyasumiCommand extends Command {
             }else{
                 embed.setDescription('Oyasumi, ' + args.member + '!')
             }
-            embed.setImage(imgoya[Math.floor(Math.random() * Object.keys(imgoya).length).toString()])
+            const randm = Math.random();
+             if(randm < 1){
+                embed.setImage(imgoya[Math.floor(randm * Object.keys(imgoya).length).toString()])
+             }else{
+                embed.setImage(imgoya[Math.floor(randm * Object.keys(imgoya).length-1).toString()])
+             }
             embed.setColor(0x23ff12)
         return msg.embed(embed);
     }

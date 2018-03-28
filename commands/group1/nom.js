@@ -39,7 +39,12 @@ module.exports = class nomCommand extends Command {
         };
            const embed = new RichEmbed()
                 embed.setDescription(msg.author + ' is nomming on something')  
-                embed.setImage(imgnom[Math.floor(Math.random() * Object.keys(imgnom).length).toString()])
+                const randm = Math.random();
+                 if(randm < 1){
+                    embed.setImage(imgnom[Math.floor(randm * Object.keys(imgnom).length).toString()])
+                 }else{
+                    embed.setImage(imgnom[Math.floor(randm * Object.keys(imgnom).length-1).toString()])
+                 }
                 embed.setColor(0x23ff12)
             return msg.embed(embed);
         }

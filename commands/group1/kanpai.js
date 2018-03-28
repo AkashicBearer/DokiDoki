@@ -39,7 +39,12 @@ module.exports = class KanpaiCommand extends Command {
 
         const embed = new RichEmbed()
             embed.setDescription("Kanpai!")
-            embed.setImage(imgkan[Math.floor(Math.random() * Object.keys(imgkan).length).toString()])
+            const randm = Math.random();
+             if(randm < 1){
+                embed.setImage(imgkan[Math.floor(randm * Object.keys(imgkan).length).toString()])
+             }else{
+                embed.setImage(imgkan[Math.floor(randm * Object.keys(imgkan).length-1).toString()])
+             }
             embed.setColor(0x23ff12)
         return msg.embed(embed);
     }

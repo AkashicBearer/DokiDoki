@@ -36,9 +36,14 @@ module.exports = class SmugtCommand extends Command {
             "19": "http://i0.kym-cdn.com/photos/images/newsfeed/000/928/963/ab3.gif",
         };
            const embed = new RichEmbed()
-                .setDescription(msg.author + ' is Smuging' )  
-                .setImage(imgsmug[Math.floor(Math.random() * Object.keys(imgsmug).length).toString()])
-                .setColor(0x23ff12)
+                embed.setDescription(msg.author + ' is Smuging' )  
+                const randm = Math.random();
+                 if(randm < 1){
+                    embed.setImage(imgsmug[Math.floor(randm * Object.keys(imgsmug).length).toString()])
+                 }else{
+                    embed.setImage(imgsmug[Math.floor(randm * Object.keys(imgsmug).length-1).toString()])
+                 }
+                embed.setColor(0x23ff12)
             return msg.embed(embed);
         }
 	};

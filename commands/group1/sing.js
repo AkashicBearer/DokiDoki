@@ -37,8 +37,13 @@ async run(msg, args) {
         };
 
         const embed = new RichEmbed()
-             embed.setDescription(msg.author + ' is Singing')
-            embed.setImage(imgSing[Math.floor(Math.random() * Object.keys(imgSing).length).toString()])
+            embed.setDescription(msg.author + ' is Singing')
+            const randm = Math.random();
+             if(randm < 1){
+                embed.setImage(imgsing[Math.floor(randm * Object.keys(imgsing).length).toString()])
+             }else{
+                embed.setImage(imgsing[Math.floor(randm * Object.keys(imgsing).length-1).toString()])
+             }
             embed.setColor(0x23ff12)
         return msg.embed(embed);
     }

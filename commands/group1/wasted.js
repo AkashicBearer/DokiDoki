@@ -41,7 +41,12 @@ async run(msg, args) {
          }else{
          	embed.setDescription(msg.author + ' Killed ' + args.member.user)
          }
-            embed.setImage(imgwasted[Math.floor(Math.random() * Object.keys(imgwasted).length).toString()])
+            const randm = Math.random();
+             if(randm < 1){
+                embed.setImage(imgwasted[Math.floor(randm * Object.keys(imgwasted).length).toString()])
+             }else{
+                embed.setImage(imgwasted[Math.floor(randm * Object.keys(imgwasted).length-1).toString()])
+             }
             embed.setColor(0x23ff12)
         return msg.embed(embed);
     }

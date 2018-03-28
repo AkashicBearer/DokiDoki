@@ -51,7 +51,12 @@ module.exports = class cuddleCommand extends Command {
             }else{
             embed.setDescription(msg.author + ' cuddles ' + args.member.user)
             }
-            embed.setImage(imgcuddle[Math.floor(Math.random() * Object.keys(imgcuddle).length).toString()])
+            const randm = Math.random();
+             if(randm < 1){
+                embed.setImage(imgcuddle[Math.floor(randm * Object.keys(imgcuddle).length).toString()])
+             }else{
+                embed.setImage(imgcuddle[Math.floor(randm * Object.keys(imgcuddle).length-1).toString()])
+             }
             embed.setColor(0x23ff12)
         return msg.embed(embed);
     }

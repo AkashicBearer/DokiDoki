@@ -40,9 +40,14 @@ module.exports = class PoutCommand extends Command {
             "23":"http://i.imgur.com/iSfy9qQ.gif"
         };
            const embed = new RichEmbed()
-                .setDescription(msg.author + ' is Pouting' )  
-                .setImage(imgpout[Math.floor(Math.random() * Object.keys(imgpout).length).toString()])
-                .setColor(0x23ff12)
+                embed.setDescription(msg.author + ' is Pouting' )  
+                const randm = Math.random();
+                 if(randm < 1){
+                    embed.setImage(imgpout[Math.floor(randm * Object.keys(imgpout).length).toString()])
+                 }else{
+                    embed.setImage(imgpout[Math.floor(randm * Object.keys(imgpout).length-1).toString()])
+                 }
+                embed.setColor(0x23ff12)
             return msg.embed(embed);
         }
 	};

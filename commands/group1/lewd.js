@@ -50,7 +50,12 @@ module.exports = class LewdtCommand extends Command {
                 }else{
                     embed.setDescription(msg.author + ' thinks ' + args.member + 'is too lewd.')  
                 }
-                embed.setImage(imglewd[Math.floor(Math.random() * Object.keys(imglewd).length).toString()])
+                const randm = Math.random();
+                 if(randm < 1){
+                    embed.setImage(imglewd[Math.floor(randm * Object.keys(imglewd).length).toString()])
+                 }else{
+                    embed.setImage(imglewd[Math.floor(randm * Object.keys(imglewd).length-1).toString()])
+                 }
                 embed.setColor(0x23ff12)
             return msg.embed(embed);
         }

@@ -38,7 +38,12 @@ module.exports = class NyaCommand extends Command {
 
         const embed = new RichEmbed()
             embed.setDescription("Have a Neko")
-            embed.setImage(imgneko[Math.floor(Math.random() * Object.keys(imgneko).length).toString()])
+            const randm = Math.random();
+             if(randm < 1){
+                embed.setImage(imgneko[Math.floor(randm * Object.keys(imgneko).length).toString()])
+             }else{
+                embed.setImage(imgneko[Math.floor(randm * Object.keys(imgneko).length-1).toString()])
+             }
             embed.setColor(0x23ff12)
         return msg.embed(embed);
     }

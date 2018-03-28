@@ -51,8 +51,13 @@ module.exports = class biteCommand extends Command {
             }else{
             embed.setDescription(msg.author + ' bites ' + args.member.user)
             }
-            embed.setImage(imgbite[Math.floor(Math.random() * Object.keys(imgbite).length).toString()])
-            embed.setColor(0x23ff12)
+            const randm = Math.random();
+         if(randm < 1){
+            embed.setImage(imgbite[Math.floor(randm * Object.keys(imgbite).length).toString()])
+         }else{
+            embed.setImage(imgbite[Math.floor(randm * Object.keys(imgbite).length-1).toString()])
+         }
+         embed.setColor(0x23ff12)
         return msg.embed(embed);
     }
 	

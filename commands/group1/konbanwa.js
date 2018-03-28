@@ -47,7 +47,12 @@ module.exports = class konbanwaCommand extends Command {
              }else{
                 embed.setDescription('Konbanwa, ' + args.member + '!')  
              }
-                embed.setImage(imgkon[Math.floor(Math.random() * Object.keys(imgkon).length).toString()])
+                const randm = Math.random();
+             if(randm < 1){
+                embed.setImage(imgkon[Math.floor(randm * Object.keys(imgkon).length).toString()])
+             }else{
+                embed.setImage(imgkon[Math.floor(randm * Object.keys(imgkon).length-1).toString()])
+             }
                 embed.setColor(0x23ff12)
             return msg.embed(embed);
         }

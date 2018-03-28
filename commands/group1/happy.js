@@ -37,9 +37,14 @@ module.exports = class HappyCommand extends Command {
             "20": "https://media1.tenor.com/images/56350dfdcd3a5fa4fd66e9e87f9574bb/tenor.gif?itemid=4718162"
         };
            const embed = new RichEmbed()
-                .setDescription(msg.author + ' is very happy!' )  
-                .setImage(imgjoy[Math.floor(Math.random() * Object.keys(imgjoy).length).toString()])
-                .setColor(0x23ff12)
+                embed.setDescription(msg.author + ' is very happy!' )  
+                const randm = Math.random();
+                 if(randm < 1){
+                    embed.setImage(imgjoy[Math.floor(randm * Object.keys(imgjoy).length).toString()])
+                 }else{
+                    embed.setImage(imgjoy[Math.floor(randm * Object.keys(imgjoy).length-1).toString()])
+                 }
+                embed.setColor(0x23ff12)
             return msg.embed(embed);
         }
 	};
