@@ -22,7 +22,7 @@ module.exports = class QuoteCommand extends Command {
     }
 	async run(msg, args) {
         const stamp = args.idx.createdAt;
-        if(args.idx.embeds.length == 0){
+        if(args.idx.embeds.length > 0){
             const embed = new RichEmbed()
                 if(args.idx.embeds[0].author){
                     embed.setAuthor(args.idx.embeds[0].author, args.idx.embeds[0].author.avatarURL)
