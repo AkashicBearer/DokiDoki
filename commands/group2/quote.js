@@ -40,6 +40,11 @@ module.exports = class QuoteCommand extends Command {
                 }else{
                     embed.setFooter(stamp + "")
                 }
+                if(args.idx.embeds[0].fields.length > 0){
+                    for(var i = 0; i < args.idx.embeds[0].fields.length; i++){
+                        embed.addField(args.idx.embeds[0].fields[i])
+                    }
+                }
             return msg.embed(embed);
         }else{
             const embed = new RichEmbed()
