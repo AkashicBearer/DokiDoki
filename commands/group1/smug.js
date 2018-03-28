@@ -22,7 +22,7 @@ module.exports = class SmugtCommand extends Command {
             "5": "https://thumbs.gfycat.com/AccurateSafeAfricanparadiseflycatcher-max-1mb.gif",
             "6": "https://78.media.tumblr.com/34afa029cc966cc0f97505d9135fcbf2/tumblr_p5hr85vavD1tjqw6so7_r1_500.gif",
             "7": "https://i.imgur.com/S4vTLpP.gif",
-            "8": "https://i.pinimg.com/originals/0a/c2/ff/0ac2ff9ec856f14485a35e3ab424234c.gif",
+            "8": "https://i.redd.it/hyvzf96bmxsy.gif",
             "9": "https://78.media.tumblr.com/ca60f46082218e87f9fb1995c6e6d182/tumblr_oebt000Z6Q1te3l73o3_540.gif",
             "10": "https://pa1.narvii.com/6373/48b105a2145d1773200c74b45795d1d9263b0109_hq.gif",
  /*IS*/     "11": "https://3.bp.blogspot.com/-Sm00lk6JVAc/V4P5d3sxGqI/AAAAAAAAhAU/q6XhRoKNcMguVOeXrp1VYJPKtRYbFS5PACKgB/s1600/Omake%2BGif%2BAnime%2B-%2BLove%2BLive%2521%2BSunshine%2521%2521%2B-%2BEpisode%2B2%2B-%2BDia%2BSmug.gif",
