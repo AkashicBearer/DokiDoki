@@ -44,13 +44,19 @@ module.exports = class BakaCommand extends Command {
             "20": "http://gifimage.net/wp-content/uploads/2017/09/baka-gif-11.gif"
         };
 
-        const embed = new RichEmbed()
+        const embed = new RichEmbed();
+        
          if(msg.author.id == args.member.id){
          	embed.setDescription(msg.author + ' is a baka, because they are calling themselves baka')
          }else{
          	embed.setDescription(msg.author + ' thinks ' + args.member.user + ' is a baka.')
          }
-            embed.setImage(imgbaka[Math.floor(Math.random() * Object.keys(imgbaka).length).toString()])
+         const randm = Math.random();
+         if(randm < 1){
+            embed.setImage(imgbaka[Math.floor(randm * Object.keys(imgbaka).length).toString()])
+         }else{
+            embed.setImage(imgbaka[Math.floor(randm * Object.keys(imgbaka).length-1).toString()])
+         }
             embed.setColor(0x23ff12)
         return msg.embed(embed);
     }
