@@ -45,6 +45,14 @@ module.exports = class QuoteCommand extends Command {
                         embed.addField(args.idx.embeds[0].fields[i])
                     }
                 }
+
+                if(args.idx.embeds[0].thumbnail){
+                    embed.setThumbnail(args.idx.embeds[0].thumbnail)
+                }
+                if(args.idx.embeds[0].title){
+                    embed.setTitle(args.idx.embeds[0].title)
+                }
+
             return msg.embed(embed);
         }else{
             const embed = new RichEmbed()
