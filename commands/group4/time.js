@@ -8,7 +8,7 @@ module.exports = class timeRollCommand extends Command {
             aliases: [],
             group: 'group4',
             memberName: 'time',
-            description: 'Shows the Time for the given Timezone \n Currently only UTC and GMT are supprted \nDo not use spaces when giving a Timezone',
+            description: 'Shows the Time for the given Timezone \n Currently only UTC and GMT are supprted',
             examples: ['<time', '<time gmt+2', '<time UTC-2'],
             args: [
                 {
@@ -79,14 +79,10 @@ module.exports = class timeRollCommand extends Command {
 
         const embed = new RichEmbed()
             embed.setAuthor(msg.author.username, msg.author.avatarURL)
-            if(str.includes(" ") || str.length!=5){
-                embed.setDescription("You either entered a wrong Timezone Format, or we do't support your timezone yet. \nPlease try again, with UTC or GMT and no spaces")
-            }else{
                 embed.addField("Time", splDate[4], true)
                 embed.addField("Timezone", TZ.toUpperCase(), true)
                 embed.addField("Date", weekday + ", " + month + " " + splDate[2] + ", " + splDate[3])
                 
-            }
             embed.setThumbnail("https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Crystal_Clear_app_clock.svg/1024px-Crystal_Clear_app_clock.svg.png")
             embed.setColor(0x212121)
         return msg.embed(embed);
