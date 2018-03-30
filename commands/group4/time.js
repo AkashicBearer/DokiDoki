@@ -103,16 +103,6 @@ module.exports = class timeRollCommand extends Command {
             "Sun": "Sunday"
         }
 
-        const zones= {
-            "HST": "-11",
-            "AKST": "-10",
-            "PST": "-9",
-            "MST": "-8",
-            "CST": "-7",
-            "EST": "-6"
-
-        }
-
         const month = months[splDate[1]];
         const weekday = weekdays[splDate[0]];
 
