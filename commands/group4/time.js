@@ -1,6 +1,5 @@
 const { Command } = require('discord.js-commando')
 const { RichEmbed } = require('discord.js');
-const { time } = require('time');
 
 module.exports = class timeRollCommand extends Command {
     constructor(client) {
@@ -23,6 +22,7 @@ module.exports = class timeRollCommand extends Command {
         });
     }
     async run(msg, args) {
+        var time = require('time');
         var now = new time.Date();
 
         var splDate = now.toString().split(' ');
