@@ -112,7 +112,9 @@ module.exports = class timeRollCommand extends Command {
             embed.setAuthor(msg.author.username, msg.author.avatarURL)
                 embed.addField("Time", splDate[4], true)
                  if(args.zone){
-                embed.addField("Timezone", TZ.toUpperCase(), true)
+                    embed.addField("Timezone", TZ.toUpperCase(), true)
+                }else{
+                    embed.addField("Timezone", "UTC/GMT", true)
                 }
                 embed.addField("Date", weekday + ", " + month + " " + splDate[2] + ", " + splDate[3])
                 
