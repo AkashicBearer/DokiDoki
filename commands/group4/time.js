@@ -111,7 +111,7 @@ module.exports = class timeRollCommand extends Command {
         const embed = new RichEmbed()
             embed.setAuthor(msg.author.username, msg.author.avatarURL)
                 embed.addField("Time", splDate[4], true)
-                embed.addField("Timezone", TZ.getTimezone().substring(1,3), true)
+                embed.addField("Timezone", now.getTimezone().substring(1,3), true)
                 embed.addField("Date", weekday + ", " + month + " " + splDate[2] + ", " + splDate[3])
                 
             embed.setThumbnail("https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Crystal_Clear_app_clock.svg/1024px-Crystal_Clear_app_clock.svg.png")
