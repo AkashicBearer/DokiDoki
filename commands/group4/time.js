@@ -25,6 +25,18 @@ module.exports = class timeRollCommand extends Command {
         var time = require('time');
         var now = new time.Date();
 
+        if(args.zone){
+            var str = args.zone;
+            if(str.includes("-")){
+                str = str.split('-')[0]+'+'+str.split('-')[1];
+            }
+            if(str.includes("+")){
+                str = str.split('+')[0]+'1'+str.split('+')[1];
+            }
+        }
+
+        now.setTimezone(str);
+
         var splDate = now.toString().split(' ');
         // 0        1       2   3       4           5               6   
         //Weekday   Month   Day Year    Time        TimezoneGMT    TimezoneShort
@@ -56,6 +68,9 @@ module.exports = class timeRollCommand extends Command {
 
         const month = months[splDate[1]];
         const weekday = weekdays[splDate[0]];
+
+        
+
 
         const embed = new RichEmbed()
             embed.setAuthor(msg.author.username, msg.author.avatarURL)
