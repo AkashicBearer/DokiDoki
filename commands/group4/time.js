@@ -62,6 +62,7 @@ module.exports = class timeRollCommand extends Command {
             embed.setTitle("Showing Time for " + now.getTimezone())
             embed.addField("Date", weekday + ", " + month + " " + splDate[2] + " " + splDate[3])
             embed.addField("Time", splDate[4])
+            embed.addField("Timezone", splDate[6], true)
             embed.setThumbnail("https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Crystal_Clear_app_clock.svg/1024px-Crystal_Clear_app_clock.svg.png")
             embed.setColor(0x212121)
         return msg.embed(embed);
