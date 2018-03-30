@@ -28,7 +28,7 @@ module.exports = class timeRollCommand extends Command {
         if(args.zone){
             var str = args.zone.toLowerCase().trim();
             var TZ = str;
-            str = "gmt"+str.substring(str.length-2,str.length);
+            str = "gmt"+str.substring(3,str.length);
             if(str.length==3){
                 str = str+"+0";
             }
