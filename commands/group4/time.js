@@ -69,10 +69,10 @@ module.exports = class timeRollCommand extends Command {
                 }else if(str.includes("+")){
                     str = str.split('+')[0]+"-"+str.split('+')[1];
                 }
-
+            now.setTimezone(str);
         }
 
-        now.setTimezone(str);
+        
 
         var splDate = now.toString().split(' ');
         // 0        1       2   3       4           5               6   
