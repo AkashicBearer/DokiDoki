@@ -52,11 +52,9 @@ module.exports = class lickCommand extends Command {
             embed.setDescription(msg.author + ' licks ' + args.member.user)
             }
             const randm = Math.random();
-             if(randm < 1){
+
                 embed.setImage(imglick[Math.floor(randm * Object.keys(imglick).length).toString()])
-             }else{
-                embed.setImage(imglick[Math.floor(randm * Object.keys(imglick).length-1).toString()])
-             }
+
             embed.setColor(0x23ff12)
         return msg.embed(embed);
     }

@@ -36,11 +36,9 @@ module.exports = class FacepalmCommand extends Command {
         const embed = new RichEmbed()
           embed.setDescription(msg.author + ' facepalm....')
           const randm = Math.random();
-         if(randm < 1){
+
             embed.setImage(imgfp[Math.floor(randm * Object.keys(imgfp).length).toString()])
-         }else{
-            embed.setImage(imgfp[Math.floor(randm * Object.keys(imgfp).length-1).toString()])
-         }
+
           embed.setColor(0x23ff12)
         return msg.embed(embed);
     }

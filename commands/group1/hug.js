@@ -35,7 +35,7 @@ module.exports = class hugCommand extends Command {
             "10": "https://media1.tenor.com/images/37a4c26fe65660b79f2efb73fc7bf76b/tenor.gif?itemid=9200935",
             "11": "https://media.giphy.com/media/lrr9rHuoJOE0w/giphy.gif",
             "12": "http://cdn.smosh.com/sites/default/files/2015/11/itnernet-hugs-anime-japan2.gif",
-            "13": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyAi-p4vM-HZMXYTWpImlqG8CFi2xkO0Sp2N_L_dW6u8ODN-tMLw",
+            "13": "http://i0.kym-cdn.com/photos/images/original/000/906/455/51f.gif",
             "14": "https://78.media.tumblr.com/f95126745e7f608d3718adae179fad6e/tumblr_o6yw691YXE1vptudso1_500.gif",
             "15": "https://i.pinimg.com/originals/9e/aa/dd/9eaadde3891872fa2d29781874cbfcfc.gif",
             "16": "http://i0.kym-cdn.com/photos/images/newsfeed/000/935/627/3a5.gif",
@@ -52,11 +52,9 @@ module.exports = class hugCommand extends Command {
             embed.setDescription(msg.author + ' hugs ' + args.member.user)
             }
             const randm = Math.random();
-             if(randm < 1){
+
                 embed.setImage(imghug[Math.floor(randm * Object.keys(imghug).length).toString()])
-             }else{
-                embed.setImage(imghug[Math.floor(randm * Object.keys(imghug).length-1).toString()])
-             }
+
             embed.setColor(0x23ff12)
         return msg.embed(embed);
     }

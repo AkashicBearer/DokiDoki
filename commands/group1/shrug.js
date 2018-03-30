@@ -34,11 +34,9 @@ async run(msg, args) {
         const embed = new RichEmbed()
             embed.setDescription(msg.author + 'is Shrugging')
             const randm = Math.random();
-             if(randm < 1){
+
                 embed.setImage(imgshrug[Math.floor(randm * Object.keys(imgshrug).length).toString()])
-             }else{
-                embed.setImage(imgshrug[Math.floor(randm * Object.keys(imgshrug).length-1).toString()])
-             }
+
             embed.setColor(0x23ff12)
         return msg.embed(embed);
     }

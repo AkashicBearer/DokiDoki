@@ -51,11 +51,9 @@ module.exports = class StareCommand extends Command {
                     embed.setDescription(msg.author + ' is staring at ' + args.member.user)    
                 }
                 const randm = Math.random();
-                 if(randm < 1){
+
                     embed.setImage(imgstare[Math.floor(randm * Object.keys(imgstare).length).toString()])
-                 }else{
-                    embed.setImage(imgstare[Math.floor(randm * Object.keys(imgstare).length-1).toString()])
-                 }
+
                 embed.setColor(0x23ff12)
             return msg.embed(embed);
         }

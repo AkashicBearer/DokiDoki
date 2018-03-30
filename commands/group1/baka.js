@@ -52,11 +52,8 @@ module.exports = class BakaCommand extends Command {
          	embed.setDescription(msg.author + ' thinks ' + args.member.user + ' is a baka.')
          }
          const randm = Math.random();
-         if(randm < 1){
             embed.setImage(imgbaka[Math.floor(randm * Object.keys(imgbaka).length).toString()])
-         }else{
-            embed.setImage(imgbaka[Math.floor(randm * Object.keys(imgbaka).length-1).toString()])
-         }
+
             embed.setColor(0x23ff12)
         return msg.embed(embed);
     }

@@ -38,11 +38,9 @@ module.exports = class SmugtCommand extends Command {
            const embed = new RichEmbed()
                 embed.setDescription(msg.author + ' is Smuging' )  
                 const randm = Math.random();
-                 if(randm < 1){
+
                     embed.setImage(imgsmug[Math.floor(randm * Object.keys(imgsmug).length).toString()])
-                 }else{
-                    embed.setImage(imgsmug[Math.floor(randm * Object.keys(imgsmug).length-1).toString()])
-                 }
+
                 embed.setColor(0x23ff12)
             return msg.embed(embed);
         }

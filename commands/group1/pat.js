@@ -57,19 +57,15 @@ module.exports = class PatCommand extends Command {
          if(msg.author.id == args.member.id){
             embed.setDescription(msg.author + ' pats.. their own head.. everyone needs a little bit of love sometimes ')
             const randm = Math.random();
-             if(randm < 1){
+
                 embed.setImage(imgselfpat[Math.floor(randm * Object.keys(imgselfpat).length).toString()])
-             }else{
-                embed.setImage(imgselfpat[Math.floor(randm * Object.keys(imgselfpat).length-1).toString()])
-             }
+
          }else{
             embed.setDescription(msg.author + ' pats ' + args.member.user)
             const randm = Math.random();
-             if(randm < 1){
+
                 embed.setImage(imgpat[Math.floor(randm * Object.keys(imgpat).length).toString()])
-             }else{
-                embed.setImage(imgpat[Math.floor(randm * Object.keys(imgpat).length-1).toString()])
-             }
+
          }
             
             embed.setColor(0x23ff12)

@@ -40,7 +40,7 @@ module.exports = class waveCommand extends Command {
             "13": "https://media1.tenor.com/images/3c2054130fb03de2d8549a98a3e2685a/tenor.gif?itemid=6195457",
             "14": "https://media1.giphy.com/media/yyVph7ANKftIs/giphy.gif",
             "15": "https://i.imgur.com/WoZZIPD.gif",
-            "16": "http://i.imgur.com/aqyDYi7.gif",
+            "16": "https://78.media.tumblr.com/0ff48dce2689bd713c215bc6794ee479/tumblr_o328lujnMO1tydz8to1_500.gif",
             "17": "http://media.giphy.com/media/xpgpXaXaDgvJK/giphy.gif",
             "18": "https://media.tenor.com/images/250fc8aacb8c89b4b3b8a0384a3df4ea/tenor.gif",
             "19": "https://78.media.tumblr.com/17b0edaa7b7d5e8350f74390629195c3/tumblr_notq4gp0qw1us70pno1_500.gif"
@@ -52,11 +52,9 @@ module.exports = class waveCommand extends Command {
                 embed.setDescription(msg.author + ' is waving at ' + args.member + '!')  
              }
                 const randm = Math.random();
-                 if(randm < 1){
+
                     embed.setImage(imgwave[Math.floor(randm * Object.keys(imgwave).length).toString()])
-                 }else{
-                    embed.setImage(imgwave[Math.floor(randm * Object.keys(imgwave).length-1).toString()])
-                 }
+
                 embed.setColor(0x23ff12)
             return msg.embed(embed);
         }

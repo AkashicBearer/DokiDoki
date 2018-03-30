@@ -52,11 +52,9 @@ module.exports = class PokeCommand extends Command {
             embed.setDescription(msg.author + ' pokes ' + args.member.user)
             }
             const randm = Math.random();
-             if(randm < 1){
+
                 embed.setImage(imgpoke[Math.floor(randm * Object.keys(imgpoke).length).toString()])
-             }else{
-                embed.setImage(imgpoke[Math.floor(randm * Object.keys(imgpoke).length-1).toString()])
-             }
+
             embed.setColor(0x23ff12)
         return msg.embed(embed);
     }

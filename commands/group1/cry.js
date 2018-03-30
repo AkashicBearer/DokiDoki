@@ -33,11 +33,9 @@ module.exports = class CryCommand extends Command {
            const embed = new RichEmbed()
                 embed.setDescription(msg.author + ' is Crying' )  
                 const randm = Math.random();
-             if(randm < 1){
+
                 embed.setImage(imgcry[Math.floor(randm * Object.keys(imgcry).length).toString()])
-             }else{
-                embed.setImage(imgcry[Math.floor(randm * Object.keys(imgcry).length-1).toString()])
-             }
+
              embed.setColor(0x23ff12)
             return msg.embed(embed);
         }

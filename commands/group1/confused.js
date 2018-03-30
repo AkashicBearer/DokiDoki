@@ -38,11 +38,9 @@ module.exports = class confusedCommand extends Command {
            const embed = new RichEmbed()
                 embed.setDescription(msg.author + ' is confused')  
                 const randm = Math.random();
-             if(randm < 1){
+
                 embed.setImage(imgconfused[Math.floor(randm * Object.keys(imgconfused).length).toString()])
-             }else{
-                embed.setImage(imgconfused[Math.floor(randm * Object.keys(imgconfused).length-1).toString()])
-             }
+
           embed.setColor(0x23ff12)
             return msg.embed(embed);
         }

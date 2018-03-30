@@ -39,11 +39,9 @@ module.exports = class NyaCommand extends Command {
         const embed = new RichEmbed()
             embed.setDescription(msg.author + " is shocked.")
             const randm = Math.random();
-             if(randm < 1){
+
                 embed.setImage(imgshock[Math.floor(randm * Object.keys(imgshock).length).toString()])
-             }else{
-                embed.setImage(imgshock[Math.floor(randm * Object.keys(imgshock).length-1).toString()])
-             }
+
             embed.setColor(0x23ff12)
         return msg.embed(embed);
     }

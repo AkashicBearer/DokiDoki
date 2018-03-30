@@ -42,11 +42,9 @@ module.exports = class PoutCommand extends Command {
            const embed = new RichEmbed()
                 embed.setDescription(msg.author + ' is Pouting' )  
                 const randm = Math.random();
-                 if(randm < 1){
+
                     embed.setImage(imgpout[Math.floor(randm * Object.keys(imgpout).length).toString()])
-                 }else{
-                    embed.setImage(imgpout[Math.floor(randm * Object.keys(imgpout).length-1).toString()])
-                 }
+
                 embed.setColor(0x23ff12)
             return msg.embed(embed);
         }
