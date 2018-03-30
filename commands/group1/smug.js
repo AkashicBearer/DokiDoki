@@ -36,7 +36,7 @@ module.exports = class SmugtCommand extends Command {
             "19": "http://i0.kym-cdn.com/photos/images/newsfeed/000/928/963/ab3.gif",
         };
            const embed = new RichEmbed()
-                embed.setDescription(msg.author + ' is Smuging' )  
+                embed.setDescription(msg.author + ' is Smugging' )  
                 const randm = Math.random();
 
                     embed.setImage(imgsmug[Math.floor(randm * Object.keys(imgsmug).length).toString()])
