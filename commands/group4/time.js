@@ -43,10 +43,11 @@ module.exports = class timeRollCommand extends Command {
             "cst": "-6",
             "est": "-5"
         }
-        const TZ = "";
+
         if(args.zone){
             var str = args.zone.toLowerCase().replace(/ /g,'');
-            const TZ = str;
+            var TZ = str;
+
 
             if(str.length==3 && str!="gmt" && str!="utc"){
                 if(DLT){
@@ -68,7 +69,7 @@ module.exports = class timeRollCommand extends Command {
                 }else if(str.includes("+")){
                     str = str.split('+')[0]+"-"+str.split('+')[1];
                 }
-            now.setTimezone(str);
+                now.setTimezone(str);
         }
 
         
@@ -111,12 +112,7 @@ module.exports = class timeRollCommand extends Command {
         const embed = new RichEmbed()
             embed.setAuthor(msg.author.username, msg.author.avatarURL)
                 embed.addField("Time", splDate[4], true)
-                if(args.zone){
-                    embed.addField("Timezone", TZ.toUpperCase(), true)
-                }else{
-                    embed.addField("Timezone", now.getTimezone().toUpperCase(), true)
-                }
-                
+                embed.addField("Timezone", TZ.toUpperCase(), true)
                 embed.addField("Date", weekday + ", " + month + " " + splDate[2] + ", " + splDate[3])
                 
             embed.setThumbnail("https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Crystal_Clear_app_clock.svg/1024px-Crystal_Clear_app_clock.svg.png")
