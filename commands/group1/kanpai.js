@@ -8,7 +8,16 @@ module.exports = class KanpaiCommand extends Command {
             aliases: ['cheers'],
             group: 'group1',
             memberName: 'kanpai',
-            description: 'Cheers!'
+            description: 'Cheers!',
+          
+            args: [
+                {
+                key: 'member',
+                label: 'user',
+                prompt: 'Who to hug?',
+                type: 'member'
+                }
+            ]
         });
     }
 
@@ -38,7 +47,11 @@ module.exports = class KanpaiCommand extends Command {
         };
 
         const embed = new RichEmbed()
-            embed.setDescription("Kanpai!")
+            if(msg.author.id == args.member.id || !args.member){
+            embed.setDescription('Kanpai, minna-san!')
+            }else{
+            embed.setDescription('Kanpai, ' + args.member.user+'!')
+            }
             const randm = Math.random();
 
                 embed.setImage(imgkan[Math.floor(randm * Object.keys(imgkan).length).toString()])
