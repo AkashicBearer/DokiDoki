@@ -65,14 +65,18 @@ module.exports = class timeRollCommand extends Command {
               }
             }
 
-            
-            
+            if(str.includes("gmt") && !str.includes("-") && !str.includes("+")){
+                TZ = "GMT"
+                now.setTimezone(TZ);
+            }else{
                 if(str.includes("-")){
                     str = str.split('-')[0]+"+"+str.split('-')[1];
                 }else if(str.includes("+")){
                     str = str.split('+')[0]+"-"+str.split('+')[1];
                 }
                 now.setTimezone(str);
+            }
+
         }
 
         
