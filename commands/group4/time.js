@@ -27,12 +27,12 @@ module.exports = class timeRollCommand extends Command {
 
         if(args.zone){
             var str = args.zone;
-            if(str.includes("-")){
+         /*   if(str.includes("-")){
                 str = str.split('-')[0]+'+'+str.split('-')[1];
             }
             if(str.includes("+")){
                 str = str.split('+')[0]+'1'+str.split('+')[1];
-            }
+            }*/
         }
 
         now.setTimezone(str);
