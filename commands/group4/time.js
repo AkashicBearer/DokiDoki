@@ -24,24 +24,37 @@ module.exports = class timeRollCommand extends Command {
     async run(msg, args) {
         var time = require('time');
         var now = new time.Date();
+        var DLT = true;
 
         const zones= {
-            "hst": "-11",
-            "akst": "-10",
-            "pst": "-9",
-            "mst": "-8",
-            "cst": "-7",
-            "est": "-6"
+            "hst": "-10",
+            "akst": "-9",
+            "pst": "-8",
+            "mst": "-7",
+            "cst": "-6",
+            "est": "-5"
         }
 
-        
+        const zonesDLT= {
+            "hst": "-10",
+            "akst": "-9",
+            "pst": "-8",
+            "mst": "-7",
+            "cst": "-6",
+            "est": "-5"
+        }
 
         if(args.zone){
             var str = args.zone.toLowerCase().replace(/ /g,'');
             var TZ = str;
 
+
             if(str.length==3 && str!="gmt" && str!="utc"){
-             str = "gmt"+zones[str];  
+                if(DLT){
+                    str = "gmt"+zones[str]; 
+                }else{
+                    str = "gmt"+zonesDLT[str]; 
+                } 
             }else{
               str = "gmt"+str.substring(str.length-2,str.length);  
               if(str.length==3){
