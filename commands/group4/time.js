@@ -32,8 +32,7 @@ module.exports = class timeRollCommand extends Command {
 
                 if(str.includes("-")){
                     str = str.split('-')[0]+"+"+str.split('-')[1];
-                }
-                if(str.includes("+")){
+                }else{
                     str = str.split('+')[0]+"-"+str.split('+')[1];
                 }
             
