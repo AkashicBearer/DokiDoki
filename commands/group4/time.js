@@ -44,7 +44,7 @@ module.exports = class timeRollCommand extends Command {
             "est": "-5"
         }
 
-        if(args.zone){
+        if(args.zone != ''){
             var str = args.zone.toLowerCase().replace(/ /g,'');
             var TZ = str;
 
