@@ -25,13 +25,32 @@ module.exports = class timeRollCommand extends Command {
         var time = require('time');
         var now = new time.Date();
 
+        const zones= {
+            "hst": "-11",
+            "akst": "-10",
+            "pst": "-9",
+            "mst": "-8",
+            "cst": "-7",
+            "est": "-6"
+        }
+
+        
+
         if(args.zone){
             var str = args.zone.toLowerCase().replace(/ /g,'');
             var TZ = str;
-            str = "gmt"+str.substring(3,str.length);
-            if(str.length==3){
+
+            if(str.length==3 && str!="gmt" && str!="utc"){
+             str = "gmt"+zones[str];  
+            }else{
+              str = "gmt"+str.substring(str.length-2,str.length);  
+              if(str.length==3){
                 str = str+"+0";
+              }
             }
+
+            
+            
                 if(str.includes("-")){
                     str = str.split('-')[0]+"+"+str.split('-')[1];
                 }else if(str.includes("+")){
@@ -69,6 +88,16 @@ module.exports = class timeRollCommand extends Command {
             "Fri": "Friday",
             "Sat": "Saturday",
             "Sun": "Sunday"
+        }
+
+        const zones= {
+            "HST": "-11",
+            "AKST": "-10",
+            "PST": "-9",
+            "MST": "-8",
+            "CST": "-7",
+            "EST": "-6"
+
         }
 
         const month = months[splDate[1]];
