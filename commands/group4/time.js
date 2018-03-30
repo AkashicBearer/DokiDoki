@@ -28,10 +28,10 @@ module.exports = class timeRollCommand extends Command {
         if(args.zone){
             var str = args.zone;
             if(str.includes("-")){
-                str = str.split('-')[0]+String.fromChar(45)+str.split('-')[1];
+                str = str.split('-')[0]+String.fromCharCode(43)+str.split('-')[1];
             }
             if(str.includes("+")){
-                str = str.split('+')[0]+String.fromChar(43)+str.split('+')[1];
+                str = str.split('+')[0]+String.fromCharCode(45)+str.split('+')[1];
             }
         }
 
