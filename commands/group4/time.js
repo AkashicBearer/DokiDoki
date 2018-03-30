@@ -59,9 +59,10 @@ module.exports = class timeRollCommand extends Command {
 
         const embed = new RichEmbed()
             embed.setAuthor(msg.author.username, msg.author.avatarURL)
-            embed.setTitle("Showing the Time for the Timezone " + now.getTimezone())
+            embed.setTitle("Showing Time for " + now.getTimezone())
             embed.addField("Date", weekday + ", " + month + " " + splDate[2] + " " + splDate[3])
-            embed.setThumbnail("https://78.media.tumblr.com/3c7adfb94ec6e8d01cb01c4390143122/tumblr_n3jf0cKF5q1sxexz4o1_1280.png")
+            embed.addField("Time", splDate[4])
+            embed.setThumbnail("https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Crystal_Clear_app_clock.svg/1024px-Crystal_Clear_app_clock.svg.png")
             embed.setColor(0x212121)
         return msg.embed(embed);
     } 
