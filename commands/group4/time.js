@@ -8,8 +8,8 @@ module.exports = class timeRollCommand extends Command {
             aliases: [],
             group: 'group4',
             memberName: 'time',
-            description: 'Shows the Time',
-            examples: ['<time'],
+            description: 'Shows the Time for the given Timezone \n Currently only UTC and GMT are supprted \nDo not use spaces when giving a Timezone',
+            examples: ['<time', '<time gmt+2', '<time UTC-2'],
             args: [
                 {
                     key: 'zone',
@@ -80,7 +80,6 @@ module.exports = class timeRollCommand extends Command {
             embed.addField("Date", weekday + ", " + month + " " + splDate[2] + ", " + splDate[3])
             embed.addField("Time", splDate[4], true)
             embed.addField("Timezone", TZ.toUpperCase(), true)
-            embed.setDescription(str)
             embed.setThumbnail("https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Crystal_Clear_app_clock.svg/1024px-Crystal_Clear_app_clock.svg.png")
             embed.setColor(0x212121)
         return msg.embed(embed);
