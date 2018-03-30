@@ -28,13 +28,15 @@ module.exports = class timeRollCommand extends Command {
         if(args.zone){
             var str = args.zone;
             var TZ = str;
+
+            if(str.toLowerCase().includes("gmt")){
                 if(str.includes("-")){
                     str = str.split('-')[0]+String.fromCharCode(43)+str.split('-')[1];
                 }
                 if(str.includes("+")){
                     str = str.split('+')[0]+String.fromCharCode(45)+str.split('+')[1];
                 }
-            
+            }
         }
 
         now.setTimezone(str);
