@@ -27,6 +27,7 @@ module.exports = class timeRollCommand extends Command {
 
         if(args.zone){
             var str = args.zone;
+            var TZ = str;
             if(str.includes("-")){
                 str = str.split('-')[0]+String.fromCharCode(43)+str.split('-')[1];
             }
@@ -74,10 +75,10 @@ module.exports = class timeRollCommand extends Command {
 
         const embed = new RichEmbed()
             embed.setAuthor(msg.author.username, msg.author.avatarURL)
-            embed.setTitle("Showing Time for " + now.getTimezone())
+            embed.setTitle("Showing Time for " + TZ.toUpperCase())
             embed.addField("Date", weekday + ", " + month + " " + splDate[2] + " " + splDate[3])
             embed.addField("Time", splDate[4], true)
-            embed.addField("Timezone", splDate[6], true)
+            embed.addField("Timezone", TZ.toUpperCase(), true)
             embed.setThumbnail("https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Crystal_Clear_app_clock.svg/1024px-Crystal_Clear_app_clock.svg.png")
             embed.setColor(0x212121)
         return msg.embed(embed);
