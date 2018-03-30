@@ -26,7 +26,7 @@ module.exports = class timeRollCommand extends Command {
         var now = new time.Date();
 
         if(args.zone){
-            var str = args.zone.toLowerCase();
+            var str = args.zone.toLowerCase().trim();
             var TZ = str;
             str = "gmt"+str.substring(str.length-2,str.length);
             if(str.length==3){
