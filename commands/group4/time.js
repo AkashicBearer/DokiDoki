@@ -29,7 +29,7 @@ module.exports = class timeRollCommand extends Command {
             var str = args.zone.toLowerCase();
             var TZ = str;
 
-            if(str.includes('utc')){
+            if(str.includes("utc")){
                 str = str.replace("utc","gmt");
             }
                 if(str.includes("-")){
