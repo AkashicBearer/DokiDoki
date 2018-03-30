@@ -37,6 +37,14 @@ module.exports = class timeRollCommand extends Command {
                     str = str.split('+')[0]+String.fromCharCode(45)+str.split('+')[1];
                 }
             }
+            if(str.toLowerCase().includes("utc")){
+                if(str.includes("-")){
+                    str = str.split('-')[0]+String.fromCharCode(45)+str.split('-')[1];
+                }
+                if(str.includes("+")){
+                    str = str.split('+')[0]+String.fromCharCode(43)+str.split('+')[1];
+                }
+            }
         }
 
         now.setTimezone(str);
