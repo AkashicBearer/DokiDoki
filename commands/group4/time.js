@@ -26,25 +26,19 @@ module.exports = class timeRollCommand extends Command {
         var now = new time.Date();
 
         if(args.zone){
-            var str = args.zone;
+            var str = args.zone.toLowerCase();
             var TZ = str;
 
-            if(str.toLowerCase().includes("gmt")){
+            if(str.includes('utc')){
+                str = str.replace("utc","gmt");
+            }
                 if(str.includes("-")){
                     str = str.split('-')[0]+String.fromCharCode(43)+str.split('-')[1];
                 }
                 if(str.includes("+")){
                     str = str.split('+')[0]+String.fromCharCode(45)+str.split('+')[1];
                 }
-            }
-            if(str.toLowerCase().includes("utc")){
-                if(str.includes("-")){
-                    str = str.split('-')[0]+String.fromCharCode(45)+str.split('-')[1];
-                }
-                if(str.includes("+")){
-                    str = str.split('+')[0]+String.fromCharCode(43)+str.split('+')[1];
-                }
-            }
+            
         }
 
         now.setTimezone(str);
