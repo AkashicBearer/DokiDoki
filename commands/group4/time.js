@@ -29,13 +29,15 @@ module.exports = class timeRollCommand extends Command {
             var str = args.zone.toLowerCase();
             var TZ = str;
             str = "gmt"+str.substring(3,str.length);
-
+            if(str.length==3){
+                str = str+"+0";
+            }
                 if(str.includes("-")){
                     str = str.split('-')[0]+"+"+str.split('-')[1];
                 }else if(str.includes("+")){
                     str = str.split('+')[0]+"-"+str.split('+')[1];
                 }
-            
+
         }
 
         now.setTimezone(str);
@@ -77,9 +79,14 @@ module.exports = class timeRollCommand extends Command {
 
         const embed = new RichEmbed()
             embed.setAuthor(msg.author.username, msg.author.avatarURL)
-            embed.addField("Time", splDate[4], true)
-            embed.addField("Timezone", TZ.toUpperCase(), true)
-            embed.addField("Date", weekday + ", " + month + " " + splDate[2] + ", " + splDate[3])
+            if(str.includes(" ") || str.length!=5){
+                embed.setDescription("You either entered a wrong Timezone Format, or we do't support your timezone yet. \nPlease try again, with UTC or GMT and no spaces")
+            }else{
+                embed.addField("Time", splDate[4], true)
+                embed.addField("Timezone", TZ.toUpperCase(), true)
+                embed.addField("Date", weekday + ", " + month + " " + splDate[2] + ", " + splDate[3])
+                
+            }
             embed.setThumbnail("https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Crystal_Clear_app_clock.svg/1024px-Crystal_Clear_app_clock.svg.png")
             embed.setColor(0x212121)
         return msg.embed(embed);
