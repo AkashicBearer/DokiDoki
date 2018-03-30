@@ -55,7 +55,11 @@ module.exports = class timeRollCommand extends Command {
                     str = "gmt"+zonesDLT[str]; 
                 } 
             }else{
-              str = "gmt"+str.substring(str.length-2,str.length);  
+            if(str.length==6){
+                str = "gmt"+str.substring(str.length-3,str.length);
+            }else{
+              str = "gmt"+str.substring(str.length-2,str.length);   
+            }
               if(str.length==3){
                 str = str+"+0";
               }
