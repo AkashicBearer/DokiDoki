@@ -1,4 +1,5 @@
 const { Command } = require('discord.js-commando');
+const { RichEmbed } = require('discord.js')
 
 module.exports = class PurgeCommand extends Command {
     constructor(client) {
@@ -29,9 +30,15 @@ module.exports = class PurgeCommand extends Command {
 async run(msg, args, ){
     if(msg.member.hasPermission('ADMINISTRATOR', 'MANAGE_MESSAGES')){
     msg.channel.bulkDelete(args.number)
-    msg.channel.send(args.number + " were cleared");
+         const embed = new RichEmbed()
+            embed.setDescription(args.number + " messages were cleared")
+            embed.setColor(0x23ff12)
+        return msg.embed(embed);
     }else{
-        msg.channel.send("You need to be Admin to use this");
+        const embed = new RichEmbed()
+            embed.setDescription("You need to be Admin to use this")
+            embed.setColor(0x23ff12)
+        return msg.embed(embed);
     }
   }
 };
