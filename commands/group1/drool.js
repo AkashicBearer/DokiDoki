@@ -43,7 +43,7 @@ module.exports = class droolCommand extends Command {
             "16": "http://i42.tinypic.com/2vjc5u1.gif",
             "17": "https://78.media.tumblr.com/240fca20dbd69b1b45e2f59bc2ab38a8/tumblr_nrr0bjQzLV1qd1q2so1_540.gif",
             "18": "https://78.media.tumblr.com/7e71d0e26b0249319a619e2746b0091d/tumblr_nvo3ayd78O1rixucfo1_500.gif",
-            "19": "http://gifimage.net/wp-content/uploads/2017/09/anime-drool-gif-2.gif",
+            "19": "https://pa1.narvii.com/6168/2577d875f920a60fbf7a7b6d0c659fa829df07e6_hq.gif",
         };
            const embed = new RichEmbed()
              if(msg.author.id == args.member.id || !args.member){
