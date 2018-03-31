@@ -29,7 +29,7 @@ module.exports = class PurgeCommand extends Command {
 async run(msg, args, ){
     if(msg.member.hasPermission('ADMINISTRATOR', 'MANAGE_MESSAGES')){
     msg.channel.bulkDelete(args.number)
-    msg.channel.send(args.number + "Was cleared");
+    msg.channel.send(args.number + " were cleared");
     }else{
         msg.channel.send("You need to be Admin to use this");
     }
