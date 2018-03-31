@@ -1,6 +1,6 @@
 const { Command } = require('discord.js-commando');
 
-module.exports = class BanCommand extends Command {
+module.exports = class PurgeCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'purge',
@@ -20,7 +20,7 @@ module.exports = class BanCommand extends Command {
                  key: "number",
                  prompt: "How many Messages to Clear?",
                  type: "float",
-                 default: '2'
+                 default: ''
                  }
                   ]
 });
@@ -28,7 +28,7 @@ module.exports = class BanCommand extends Command {
     
 async run(msg, args, ){
     if(msg.member.hasPermission('ADMINISTRATOR', 'MANAGE_MESSAGES')){   
-    args.msg.delete(args.number)
+    args.msg.delete({args.number} )
     msg.channel.send(args.number + "Wascleared");
     }else{
         msg.channel.send("You need to be Admin to use this");
