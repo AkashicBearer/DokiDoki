@@ -14,7 +14,8 @@ module.exports = class BakaCommand extends Command {
 					key: 'member',
 					label: 'user',
 					prompt: 'Who is a Baka?',
-					type: 'member'
+					type: 'member',
+                    default: ''
 				}
 			]
         });
@@ -45,12 +46,16 @@ module.exports = class BakaCommand extends Command {
         };
 
         const embed = new RichEmbed();
-        
-         if(msg.author.id == args.member.id){
-         	embed.setDescription(msg.author + ' is a baka, because they are calling themselves baka')
+         if(args.member){
+            if(msg.author.id == args.member.id){
+                embed.setDescription(msg.author + ' is a baka, because they are calling themselves baka')
+             }else{
+                embed.setDescription(msg.author + ' thinks ' + args.member.user + ' is a baka.')
+             }
          }else{
-         	embed.setDescription(msg.author + ' thinks ' + args.member.user + ' is a baka.')
+            embed.setDescription('Someone has been a real baka.')
          }
+         
          const randm = Math.random();
             embed.setImage(imgbaka[Math.floor(randm * Object.keys(imgbaka).length).toString()])
 
