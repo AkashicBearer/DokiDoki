@@ -27,8 +27,8 @@ module.exports = class BanCommand extends Command {
 }
     
 async run(msg, args, ){
-    if(msg.member.hasPermission('ADMINISTRATOR', MANAGE_MESSAGES)){   
-    args.message.delete(args.number)
+    if(msg.member.hasPermission('ADMINISTRATOR', 'MANAGE_MESSAGES')){   
+    message.delete(args.number)
     msg.channel.send(args.number + "Wascleared");
     }else{
         msg.channel.send("You need to be Admin to use this");
