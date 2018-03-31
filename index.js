@@ -40,6 +40,13 @@ client.registry
 	.on('error', console.error)
 	.on('warn', console.warn)
 	.on('debug', console.log)
+	.on('ready', () => {
+		console.log(`Client ready; logged in as ${client.user.username}#${client.user.discriminator} (${client.user.id})`);
+	  	client.user.setActivity(`with ${client.guilds.size} Servers`);
+	  	//setInterval(() => {
+		//dbl.postStats(client.guilds.size);
+   		 //}, 1800000);
+	})
 
 // Random Shits
 
