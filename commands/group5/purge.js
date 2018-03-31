@@ -4,13 +4,13 @@ module.exports = class BanCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'purge',
-            aliases: ['clear', 'clean', ],
+            aliases: ['clear', 'clean' ],
             group: 'group5',
             memberName: 'purge',
             description: 'purge messages',
             examples: ['{Prefix}purge <number> '],
             guildOnly: true,
-            clientPermissions: ['ADMINISTRATOR', MANAGE_MESSAGES],
+            clientPermissions: ['ADMINISTRATOR', 'MANAGE_MESSAGES'],
             throttling: {
                 usages: 2,
                 duration: 10
