@@ -28,7 +28,7 @@ module.exports = class SayCommand extends Command {
         return this.client.isOwner(msg.author);
     }
   
-    async run(msg,args,  { user, content }) {
+     run(msg,args,  { user, content }) {
         return user.send(content);
         msg.delete()
     }
