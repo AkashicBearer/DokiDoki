@@ -3,7 +3,6 @@ const config = require("./config.json");
 const oneLine = require('common-tags').oneLine;
 const sqlite = require('sqlite');
 const path = require('path');
-const mentionHook = new Discord.WebhookClient("425628880188211212", "SChYDBOMB3rYt2b1_UP_j-KaRQlEkXc6NGti6oBNPlkC4CvWsle8CuS5FKoeTBTuVqTR");
 //const DBL = require("dblapi.js");
 //const dbl = new DBL('process.env.dbl');
 const client = new CommandoClient({
@@ -50,11 +49,5 @@ client.registry
 	})
 
 // Random Shits
-
-client.on("message", (message) => {
-  if (message.author.id === client.user.id || message.author.bot) return;
-  if (message.isMentioned("193021560792154112") || message.mentions.everyone || (message.guild && message.mentions.roles.filter(r => message.guild.member("193021560792154112").roles.has(r.id)).size > 0)) {
-      if (message.author.id === "193021560792154112") return;
-      mentionHook.send(msg.author + "Akashic is Busy Right now!");
 
 client.login(process.env.token);
