@@ -1,4 +1,5 @@
 const { Command } = require('discord.js-commando');
+const { RichEmbed } = require('discord.js');
 
 module.exports = class SayCommand extends Command {
     constructor(client) {
@@ -29,7 +30,13 @@ module.exports = class SayCommand extends Command {
     }
   
      run(msg,args,  { user, content }) {
-        args.user.sendMessage(args.content)
+        const embed = new RichEmbed()
+            embed.setDescription(args.content)  
+            embed.setAuthor(msg.author.username, msg.author.avatarURL)
+            embed.setFooter(msg.guild.name + " | " + msg.channel.name)
+            embed.setColor(0x23ff12)
+
+        args.user.sendMessage(embed)
         msg.channel.send('Your DM was Sent to' + args.user + ' !')
         msg.delete()
      }
