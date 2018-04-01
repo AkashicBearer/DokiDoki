@@ -35,6 +35,9 @@ module.exports = class SayCommand extends Command {
             embed.setAuthor(msg.author.username, msg.author.avatarURL)
             embed.setFooter(msg.guild.name + " | " + msg.channel.name)
             embed.setColor(0x23ff12)
+            if(msg.attachments.first()){
+                embed.setImage(msg.attachments.first().proxyURL)
+            }
 
         args.user.sendMessage(embed)
         msg.channel.send('Your DM was Sent to' + args.user + ' !')
