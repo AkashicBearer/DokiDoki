@@ -36,8 +36,7 @@ module.exports = class SayCommand extends Command {
             embed.setFooter(msg.guild.name + " | " + msg.channel.name)
             embed.setColor(0x23ff12)
             if(msg.attachments.first()){
-                //embed.setImage(msg.attachments.first().url)
-                embed.setTitle("Image is there")
+                embed.setImage(msg.attachments.first().url)
             }
 
         args.user.send(embed)
