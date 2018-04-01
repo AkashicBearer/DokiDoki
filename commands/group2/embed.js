@@ -24,11 +24,12 @@ module.exports = class EmbedCommand extends Command {
 
     run(msg, args) {
         const { text } = args;
+        msg.delete();
         const embed = new RichEmbed()
             .setDescription(text)
             .setAuthor(msg.author.username, msg.author.displayAvatarURL)
             .setColor(0x00AE86)
-            .setTimestamp();
+            .setTimestamp()
         return msg.embed(embed);
     }
 };
