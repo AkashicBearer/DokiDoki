@@ -28,9 +28,11 @@ module.exports = class SayCommand extends Command {
         return this.client.isOwner(msg.author);
     }
   
-    run(msg,args,  { user, content }) {
+    async run(msg,args,  { user, content }) {
         return user.send(content);
         msg.delete()
+    }
+    run(msg, args) {
         return msg.channel.send('Your DM was Sent to' + args.user + ' !')
     }
 };
