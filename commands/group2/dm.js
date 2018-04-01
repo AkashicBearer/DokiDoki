@@ -27,8 +27,9 @@ module.exports = class SayCommand extends Command {
     hasPermission(msg) {
         return this.client.isOwner(msg.author);
     }
-
+  
     run(msg, { user, content }) {
         return user.send(content);
+        msg.delete()
     }
 };
