@@ -29,10 +29,8 @@ module.exports = class SayCommand extends Command {
     }
   
      run(msg,args,  { user, content }) {
-        return user.send(content);
-        msg.delete()
-    }
-    run(msg, args) {
+        return user.send(content)
         msg.channel.send('Your DM was Sent to' + args.user + ' !')
-    }
+        msg.delete()
+     }
 };
