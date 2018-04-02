@@ -31,6 +31,7 @@ module.exports = class UserInfoCommand extends Command {
 		}else{
         	member = msg.channel.members.find('id', msg.author.id);
 		}
+		const user = member.user;
 		var roles = '';
 
 		for(var i = 0; i<member.roles.array().length; i++){
@@ -73,7 +74,7 @@ module.exports = class UserInfoCommand extends Command {
 		var joinStr = weekdays[joinSpl[0]]+', '+months[joinSpl[1]]+' ' + joinSpl[2] + ', ' + joinSpl[3] + ' | '+joinSpl[4] + ' | '+joinSpl[6];
 
 
-        const user = member.user;
+        
 	const embed = new RichEmbed()
 		.setTitle(user.username + ' Userinfo')
 		// Username, nick, joined  (Details)
