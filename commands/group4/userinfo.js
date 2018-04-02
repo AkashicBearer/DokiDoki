@@ -48,7 +48,7 @@ module.exports = class UserInfoCommand extends Command {
 
 		const months = {
             "Jan": "January",
-            "Feb": "Feruary",
+            "Feb": "February",
             "Mar": "March",
             "Apr": "April",
             "May": "May",
@@ -57,6 +57,7 @@ module.exports = class UserInfoCommand extends Command {
             "Aug": "August",
             "Sep": "September",
             "Oct": "October",
+            "Nov": "November",
             "Dec": "December"
         }
 
@@ -85,7 +86,7 @@ module.exports = class UserInfoCommand extends Command {
 		.addField('User Roles: ', roles)
 		//Account 
 		.addBlankField()
-		.addField('Account Created at ' + crtStr, true)
+		.addField('Account Created at ' , crtStr, true)
 		.addField('Joined at ', joinStr, true)
 		.addBlankField()
 		.addField('Activity ', member.presence.status, true)

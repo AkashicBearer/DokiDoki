@@ -88,7 +88,7 @@ module.exports = class timeRollCommand extends Command {
 
         const months = {
             "Jan": "January",
-            "Feb": "Feruary",
+            "Feb": "February",
             "Mar": "March",
             "Apr": "April",
             "May": "May",
@@ -97,6 +97,7 @@ module.exports = class timeRollCommand extends Command {
             "Aug": "August",
             "Sep": "September",
             "Oct": "October",
+            "Nov": "November",
             "Dec": "December"
         }
 
