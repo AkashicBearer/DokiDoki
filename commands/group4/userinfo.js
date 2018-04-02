@@ -41,8 +41,8 @@ module.exports = class UserInfoCommand extends Command {
                 }
 		}
 
-		const crtSpl = user.createdAt.split(' ');
-		const joinSpl = user.joinedAt.split(' ');
+		const crtSpl = user.createdAt.toString().split(' ');
+		const joinSpl = user.joinedAt.toString().split(' ');
 
 		
 
