@@ -34,7 +34,7 @@ module.exports = class UserInfoCommand extends Command {
 		var roles = '';
 
 		for(var i = 0; i<member.roles.array().length; i++){
-			roles = roles + '`' + msg.member.roles.array()[0].name + '`';
+			roles = roles + '`' + msg.member.roles.array()[i].name + '`';
 			if(i+1 < member.roles.array().length){
                     roles=roles+", ";
                 }
@@ -44,17 +44,17 @@ module.exports = class UserInfoCommand extends Command {
 	const embed = new RichEmbed()
 		.setTitle(user.username + ' Userinfo')
 		// Username, nick, joined  (Details)
-		.setDescription(' User info of ' + member.username)
-		.addField('Username', member.username, true )
+		.setDescription(' User info of ' + user.username)
+		.addField('Username', user.username, true )
 		.addField('Nickname: ' , member.nickname, true)
 		.addField('User ID: ', member.id)
 		.addField('User Roles: ', roles)
 		//Account 
-		.addField('User Details', 'Account Create at: ' + member.createdAt)
+		.addField('User Details', 'Account Create at: ' + user.createdAt)
 		.addField('Joined at: ', member.joinedAt)
 		.addField('Activity: ', member.presence.status, true)
 		.addField('Playing: ', member.presence.game ? user.presence.game.name : 'Not Playing Anything', true)
-		.setThumbnail(args.member.avatarURL)
+		.setThumbnail(member.avatarURL)
 	return msg.embed(embed);
 };
 };
