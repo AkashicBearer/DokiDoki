@@ -29,8 +29,8 @@ module.exports = class UserInfoCommand extends Command {
 	const embed = new RichEmbed()
 		embed.setTitle(user.username + ' User info')
 		embed.setDescription(' User info of ' + user.username)
-		embed.addField(`Username: ${user.username}`, `Nickname: ${member.nickname}`, `Joined at: ${member.joinedAt}` false)
-		embed.addField(`User Details`, `Account Create at: ${user.createdAt}`, `Activity: ${user.presence.status}`, `Playing: ${user.presence.game ? user.presence.game.name : 'None'}` false)
+		embed.addField(`Username: ${user.username}`, `Nickname: ${member.nickname}`, `Joined at: ${member.joinedAt}`, false)
+		embed.addField(`User Details`, `Account Create at: ${user.createdAt}`, `Activity: ${user.presence.status}`, `Playing: ${user.presence.game ? user.presence.game.name : 'None'}`, false)
 		embed.setThumbnail(args.member.user.avatarURL)
 		/*		**❯ Member Details**
 			${member.nickname !== null ? ` • Nickname: ${member.nickname}` : ' • No nickname'}
