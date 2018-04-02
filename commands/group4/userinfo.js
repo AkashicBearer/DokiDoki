@@ -17,14 +17,19 @@ module.exports = class UserInfoCommand extends Command {
 					key: 'member',
 					label: 'user',
 					prompt: 'What user would you like to snoop on?',
-					type: 'member'
+					type: 'member',
+					default: ''
 				}
 			]
 		});
 	}
 
 	async run(msg, args) {
-        const member = args.member;
+		if(args.member){
+        	const member = args.member;
+		}else{
+        	const member = msg.author;
+		}
         const user = member.user;
 	const embed = new RichEmbed()
 		.setTitle(user.username + ' Userinfo')
