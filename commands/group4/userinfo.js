@@ -40,6 +40,39 @@ module.exports = class UserInfoCommand extends Command {
                 }
 		}
 
+		const crtSpl = user.createdAt.split(' ');
+		const joinSpl = user.joinedAt.split(' ');
+
+		
+
+		const months = {
+            "Jan": "January",
+            "Feb": "Feruary",
+            "Mar": "March",
+            "Apr": "April",
+            "May": "May",
+            "Jun": "June",
+            "Jul": "July",
+            "Aug": "August",
+            "Sep": "September",
+            "Oct": "October",
+            "Dec": "December"
+        }
+
+        const weekdays = {
+            "Mon": "Monday",
+            "Tue": "Tuesday",
+            "Wed": "Wednesday",
+            "Thu": "Thursday",
+            "Fri": "Friday",
+            "Sat": "Saturday",
+            "Sun": "Sunday"
+        }
+
+        var crtStr = weekdays[crtSpl[0]]+', '+months[crtSpl[1]]+' ' + crtSpl[2] + ', ' + crtSpl[3] + ' | '+crtSpl[4] + ' | '+crtSpl[6];
+		var joinStr = weekdays[joinSpl[0]]+', '+months[joinSpl[1]]+' ' + joinSpl[2] + ', ' + joinSpl[3] + ' | '+joinSpl[4] + ' | '+joinSpl[6];
+
+
         const user = member.user;
 	const embed = new RichEmbed()
 		.setTitle(user.username + ' Userinfo')
@@ -50,10 +83,11 @@ module.exports = class UserInfoCommand extends Command {
 		.addField('User ID: ', member.id)
 		.addField('User Roles: ', roles)
 		//Account 
-		.addField('User Details', 'Account Create at: ' + user.createdAt)
-		.addField('Joined at: ', member.joinedAt)
-		.addField('Activity: ', member.presence.status, true)
-		.addField('Playing: ', member.presence.game ? user.presence.game.name : 'Not Playing Anything', true)
+		.addField('User Details', ' ')
+		.addField('Account Created at ' + crtStr)
+		.addField('Joined at ', joinStr)
+		.addField('Activity ', member.presence.status, true)
+		.addField('Playing ', member.presence.game ? user.presence.game.name : 'Not Playing Anything', true)
 		.setThumbnail(member.avatarURL)
 	return msg.embed(embed);
 };
