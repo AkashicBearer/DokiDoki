@@ -1,5 +1,5 @@
 const { Command } = require('discord.js-commando')
-const { RichEmbed } = require('discord.js');
+const { RichEmbed } = require('discord.js', 'net.dv8tion.jda.core.EmbedBuilder');
 
 module.exports = class UserInfoCommand extends Command {
 	constructor(client) {
