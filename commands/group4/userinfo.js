@@ -31,6 +31,15 @@ module.exports = class UserInfoCommand extends Command {
 		}else{
         	member = msg.channel.members.find('id', msg.author.id);
 		}
+		var roles = '';
+
+		for(var i = 0; i<member.roles.array().length; i++){
+			roles = roles + '`' + msg.member.roles.array()[0].name + '`';
+			if(i+1 < member.roles.array().length){
+                    roles=roles+", ";
+                }
+		}
+
         const user = member.user;
 	const embed = new RichEmbed()
 		.setTitle(user.username + ' Userinfo')
@@ -39,7 +48,7 @@ module.exports = class UserInfoCommand extends Command {
 		.addField('Username', member.username, true )
 		.addField('Nickname: ' , member.nickname, true)
 		.addField('User ID: ', member.id)
-		.addField('User Roles: ', member.roles.map(roles => '\'${roles.name}\'').join(', '))
+		.addField('User Roles: ', roles)
 		//Account 
 		.addField('User Details', 'Account Create at: ' + member.createdAt)
 		.addField('Joined at: ', member.joinedAt)
