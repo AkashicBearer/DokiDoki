@@ -1,5 +1,5 @@
 const { Command } = require('discord.js-commando')
-const { RichEmbed } = require('discord.js', 'net.dv8tion.jda.core.EmbedBuilder');
+const { RichEmbed } = require('discord.js');
 
 module.exports = class UserInfoCommand extends Command {
 	constructor(client) {
@@ -28,9 +28,15 @@ module.exports = class UserInfoCommand extends Command {
         const user = member.user;
 	const embed = new RichEmbed()
 		.setTitle(user.username + ' User info')
+		// Username, nick, joined  (Details)
 		.setDescription(' User info of ' + user.username)
-		.addField(`Username: ${user.username}`, `Nickname: ${member.nickname}`, `Joined at: ${member.joinedAt}`, { "inline": "false" })
-		.addField(`User Details`, `Account Create at: ${user.createdAt}`, `Activity: ${user.presence.status}`, `Playing: ${user.presence.game ? user.presence.game.name : 'None'}`, { "inline": "false" })
+		.addField(`Username: ${user.username}`, true)
+		.addField(`Nickname: ${member.nickname}`, true)
+		.addField(`Joined at: ${member.joinedAt}`, true)
+		//Account 
+		.addField(`User Details`, `Account Create at: ${user.createdAt}`, true)
+		.addField(`Activity: ${user.presence.status}`, true)
+		.addField(`Playing: ${user.presence.game ? user.presence.game.name : 'None'}`, true)
 		.setThumbnail(args.member.user.avatarURL)
 		/*		**❯ Member Details**
 			${member.nickname !== null ? ` • Nickname: ${member.nickname}` : ' • No nickname'}
