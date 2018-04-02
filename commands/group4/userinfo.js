@@ -27,16 +27,17 @@ module.exports = class UserInfoCommand extends Command {
         const member = args.member;
         const user = member.user;
 	const embed = new RichEmbed()
-		.setTitle(user.username + ' User info')
+		.setTitle(user.username + ' Userinfo')
 		// Username, nick, joined  (Details)
 		.setDescription(' User info of ' + user.username)
 		.addField(`Username: `, `${user.username}`, true )
-		.addField(`Nickname: `, `${member.nickname}`, true )
+		.addField(`Nickname: `, `${member.nickname ? member.nickname.name: 'No Nickname Set'}`)
+		.addField('User Roles: ', `${member.roles.map(roles => `\`${roles.name}\``).join(', ')}`, true)
 		//Account 
 		.addField(`User Details`, `Account Create at: ${user.createdAt}`, true)
 		.addField(`Joined at: `, `${member.joinedAt}`, true)
 		.addField(`Activity: `, `${user.presence.status}`, true)
-		.addField(`Playing: `, `${user.presence.game ? user.presence.game.name : 'No Nickname Set'}`, true)
+		.addField(`Playing: `, `${user.presence.game ? user.presence.game.name : 'Not Playing Anything'}`, true)
 		.setThumbnail(args.member.user.avatarURL)
 	return msg.embed(embed);
 };
