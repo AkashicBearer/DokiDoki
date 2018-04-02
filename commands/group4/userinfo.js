@@ -30,14 +30,19 @@ module.exports = class UserInfoCommand extends Command {
 		.setTitle(user.username + ' User info')
 		// Username, nick, joined  (Details)
 		.setDescription(' User info of ' + user.username)
-		.addField(`Username: ${user.username}`)
-		.addField(`Nickname: ${member.nickname}`)
+		.addField(`Username: `, `${user.username}`, true )
+		.addField(`Nickname: `, `${member.nickname}`, true )
 		//Account 
 		.addField(`User Details`, `Account Create at: ${user.createdAt}`, true)
-		.addField(`Joined at: ${member.joinedAt}`)
-		.addField(`Activity: ${user.presence.status}`)
-		.addField(`Playing: ${user.presence.game ? user.presence.game.name : 'No Nickname Set'}`,)
+		.addField(`Joined at: `, `${member.joinedAt}`, true)
+		.addField(`Activity: `, `${user.presence.status}`, true)
+		.addField(`Playing: `, `${user.presence.game ? user.presence.game.name : 'No Nickname Set'}`, true)
 		.setThumbnail(args.member.user.avatarURL)
+	return msg.embed(embed);
+};
+};
+
+// original code
 		/*		**❯ Member Details**
 			${member.nickname !== null ? ` • Nickname: ${member.nickname}` : ' • No nickname'}
 			 • Roles: ${member.roles.map(roles => `\`${roles.name}\``).join(', ')}
@@ -48,6 +53,3 @@ module.exports = class UserInfoCommand extends Command {
 			 • Status: ${user.presence.status}
 			 • Game: ${user.presence.game ? user.presence.game.name : 'None'}
         `);*/
-	return msg.embed(embed);
-};
-};
