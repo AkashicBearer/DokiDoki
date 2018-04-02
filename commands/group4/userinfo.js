@@ -30,15 +30,15 @@ module.exports = class UserInfoCommand extends Command {
 		.setTitle(user.username + ' Userinfo')
 		// Username, nick, joined  (Details)
 		.setDescription(' User info of ' + user.username)
-		.addField(`Username`, `${user.username}`, true )
-		.addField(`Nickname: ${member.nickname}`, true)
-		.addField(`User ID: `, `${user.id}`, true)
-		.addField('User Roles: ', `${member.roles.map(roles => `\`${roles.name}\``).join(', ')}`, true)
+		.addField('Username', user.username, true )
+		.addField('Nickname: ' , member.nickname, true)
+		.addField('User ID: ', user.id)
+		.addField('User Roles: ', member.roles.map(roles => '\'${roles.name}\'').join(', '))
 		//Account 
-		.addField(`User Details`, `Account Create at: ${user.createdAt}`, true)
-		.addField(`Joined at: `, `${member.joinedAt}`, true)
-		.addField(`Activity: `, `${user.presence.status}`, true)
-		.addField(`Playing: `, `${user.presence.game ? user.presence.game.name : 'Not Playing Anything'}`, true)
+		.addField('User Details', 'Account Create at: ' + user.createdAt)
+		.addField('Joined at: ', member.joinedAt)
+		.addField('Activity: ', user.presence.status, true)
+		.addField('Playing: ', user.presence.game ? user.presence.game.name : 'Not Playing Anything', true)
 		.setThumbnail(args.member.user.avatarURL)
 	return msg.embed(embed);
 };
@@ -46,12 +46,12 @@ module.exports = class UserInfoCommand extends Command {
 
 // original code
 		/*		**❯ Member Details**
-			${member.nickname !== null ? ` • Nickname: ${member.nickname}` : ' • No nickname'}
-			 • Roles: ${member.roles.map(roles => `\`${roles.name}\``).join(', ')}
+			${member.nickname !== null ? ' • Nickname: ${member.nickname}' : ' • No nickname'}
+			 • Roles: ${member.roles.map(roles => '\'${roles.name}\'').join(', ')}
 			 • Joined at: ${member.joinedAt}
 
 			**❯ User Details**
 			 • Created at: ${user.createdAt}${user.bot ? '\n • Is a bot account' : ''}
 			 • Status: ${user.presence.status}
 			 • Game: ${user.presence.game ? user.presence.game.name : 'None'}
-        `);*/
+        ');*/
