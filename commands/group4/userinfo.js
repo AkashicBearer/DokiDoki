@@ -25,11 +25,11 @@ module.exports = class UserInfoCommand extends Command {
 	}
 
 	async run(msg, args) {
-		var member = msg.author;
+		var member = msg.author.user;
 		if(args.member){
         	member = args.member;
 		}else{
-        	member = msg.author;
+        	member = msg.author.user;
 		}
         const user = member.user;
 	const embed = new RichEmbed()
