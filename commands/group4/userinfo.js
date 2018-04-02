@@ -79,10 +79,12 @@ module.exports = class UserInfoCommand extends Command {
 	const embed = new RichEmbed()
 		embed.setTitle(user.username + ' Userinfo')
 		// Username, nick, joined  (Details)
-		embed.setDescription(' User info of ' + user.username)
+		//embed.setDescription(' User info of ' + user.username)
 		embed.addField('Username', user.username, true )
 		if(member.nickname){
 			embed.addField('Nickname: ' , member.nickname, true)	
+		}else{
+			embed.addField('Nickname: ' , 'No Nickname set', true)
 		}
 		embed.addField('User ID: ', member.id)
 		embed.addField('User Roles: ', roles)
