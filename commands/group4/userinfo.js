@@ -34,7 +34,7 @@ module.exports = class UserInfoCommand extends Command {
 		var roles = '';
 
 		for(var i = 0; i<member.roles.array().length; i++){
-			roles = roles + '`' + msg.member.roles.array()[i].name + '`';
+			roles = roles + '`' + member.roles.array()[i].name + '`';
 			if(i+1 < member.roles.array().length){
                     roles=roles+", ";
                 }
