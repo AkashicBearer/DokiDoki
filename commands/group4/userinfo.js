@@ -84,9 +84,10 @@ module.exports = class UserInfoCommand extends Command {
 		.addField('User ID: ', member.id)
 		.addField('User Roles: ', roles)
 		//Account 
-		.addField('User Details', ' ')
-		.addField('Account Created at ' + crtStr)
-		.addField('Joined at ', joinStr)
+		.addBlankField()
+		.addField('Account Created at ' + crtStr, true)
+		.addField('Joined at ', joinStr, true)
+		.addBlankField()
 		.addField('Activity ', member.presence.status, true)
 		.addField('Playing ', member.presence.game ? user.presence.game.name : 'Not Playing Anything', true)
 		.setThumbnail(member.avatarURL)
