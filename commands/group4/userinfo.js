@@ -30,7 +30,8 @@ module.exports = class UserInfoCommand extends Command {
 		.setTitle(user.username + ' Userinfo')
 		// Username, nick, joined  (Details)
 		.setDescription(' User info of ' + user.username)
-		.addField(`Username & Nickname: `, `${user.username} ${member.nickname}`, true )
+		.addField(`Username`, `${user.username}`, true )
+		.addField(`Nickname: ${member.nickname}`, true)
 		.addField(`User ID: `, `${user.id}`, true)
 		.addField('User Roles: ', `${member.roles.map(roles => `\`${roles.name}\``).join(', ')}`, true)
 		//Account 
