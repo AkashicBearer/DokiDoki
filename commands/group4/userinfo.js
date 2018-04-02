@@ -77,21 +77,22 @@ module.exports = class UserInfoCommand extends Command {
 
         
 	const embed = new RichEmbed()
-		.setTitle(user.username + ' Userinfo')
+		embed.setTitle(user.username + ' Userinfo')
 		// Username, nick, joined  (Details)
-		.setDescription(' User info of ' + user.username)
-		.addField('Username', user.username, true )
-		.addField('Nickname: ' , member.nickname, true)
-		.addField('User ID: ', member.id)
-		.addField('User Roles: ', roles)
+		embed.setDescription(' User info of ' + user.username)
+		embed.addField('Username', user.username, true )
+		if(member.nickname){
+			embed.addField('Nickname: ' , member.nickname, true)	
+		}
+		embed.addField('User ID: ', member.id)
+		embed.addField('User Roles: ', roles)
 		//Account 
-		.addBlankField()
-		.addField('Account Created at ' , crtStr, true)
-		.addField('Joined at ', joinStr, true)
-		.addBlankField()
-		.addField('Activity ', member.presence.status, true)
-		.addField('Playing ', member.presence.game ? user.presence.game.name : 'Not Playing Anything', true)
-		.setThumbnail(member.avatarURL)
+		embed.addBlankField()
+		embed.addField('Account Created at ' , crtStr)
+		embed.addField('Joined at ', joinStr)
+		embed.addField('Activity ', member.presence.status, true)
+		embed.addField('Playing ', member.presence.game ? user.presence.game.name : 'Not Playing Anything', true)
+		embed.setThumbnail(user.avatarURL)
 	return msg.embed(embed);
 };
 };
