@@ -1,15 +1,15 @@
 const { Command } = require('discord.js-commando')
 const { RichEmbed } = require('discord.js');
 
-module.exports = class UserInfoCommand extends Command {
+module.exports = class guildinfoCommand extends Command {
 	constructor(client) {
 		super(client, {
-			name: 'userinfo',
+			name: 'guildinfo',
 			aliases: ['guild', 'gi'],
 			group: 'group4',
-			memberName: 'userinfo',
-			description: 'Gets information about a user.',
-			examples: ['userinfo @...'],
+			memberName: 'guildinfo',
+			description: 'Gets information about the guild.',
+			examples: ['guildinfo'],
 			guildOnly: true,
 
 		});
