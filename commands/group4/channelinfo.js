@@ -63,7 +63,7 @@ module.exports = class channelinfoCommand extends Command {
 		}
 
 		embed.addBlankField()
-		embed.addField('channel created at ' , crtStr, true)
+		embed.addField('Channel created at ' , crtStr, true)
 	return msg.embed(embed);
 };
 };
