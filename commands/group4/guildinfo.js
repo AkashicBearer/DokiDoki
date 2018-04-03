@@ -61,11 +61,12 @@ module.exports = class guildinfoCommand extends Command {
 		embed.addField('Online Members ', guild.presences.array().length, true)
 		embed.addField('Channel Count ', guild.channels.array().length, true)
 		embed.addField('Role Count ', guild.roles.array().length, true)
-		embed.addField('Region', guild.region, true)
+
 		//Account 
 		embed.addBlankField()
-		embed.addField('Guild created at ' , crtStr)
-		//embed.setThumbnail(guild.icon)
+		embed.addField('Guild created at ' , crtStr, true)
+		embed.addField('Region', guild.region, true)
+		embed.setThumbnail(guild.iconURL)
 	return msg.embed(embed);
 };
 };
