@@ -53,14 +53,14 @@ module.exports = class channelinfoCommand extends Command {
 
         
 	const embed = new RichEmbed()
-		embed.setTitle(channel.name + ' channelinfo')
-		embed.addField('channel Category', channel.parent.name, true)
-		embed.addField('channel Name', channel.name, true)
-		embed.addField('channel ID ', channel.id)
+		embed.setTitle(channel.name + ' Channelinfo')
+		embed.addField('Channel Category', channel.parent.name, true)
+		embed.addField('Channel Name', channel.name, true)
+		embed.addField('Channel ID ', channel.id, true)
+		embed.addField('NSFW: ', channel.nsfw ? 'Yes' : 'No', true)
 		if(channel.topic){
 			embed.addField('Channel Topic ', channel.topic)
 		}
-		embed.addField('NSFF: ', channel.nsfw ? 'Yes' : 'No')
 
 		embed.addBlankField()
 		embed.addField('channel created at ' , crtStr, true)
