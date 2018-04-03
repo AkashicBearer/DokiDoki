@@ -55,7 +55,7 @@ module.exports = class guildinfoCommand extends Command {
 	const embed = new RichEmbed()
 		embed.setTitle(guild.name + ' Guildinfo')
 		embed.addField('Guild Name', guild.name, true)
-		embed.addField('Guild Owner', guld.members.find('id',guild.ownerID).username, true)
+		embed.addField('Guild Owner', guild.members.find('id',guild.ownerID).username, true)
 		embed.addField('Guild ID: ', guild.id, true)
 		embed.addField('Region', guild.region, true)
 		embed.addField('Role Count ', guild.roles.array().length, true)
