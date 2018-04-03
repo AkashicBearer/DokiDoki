@@ -56,7 +56,7 @@ module.exports = class guildinfoCommand extends Command {
 		embed.setTitle(guild.name + ' Guildinfo')
 		embed.addField('Guild Name', guild.name, true)
 		embed.addField('Guild Owner', guild.members.find('id',guild.ownerID).user.username, true)
-		embed.addField('Guild ID: ', guild.id)
+		embed.addField('Guild ID ', guild.id)
 		embed.addField('Member Count ', guild.memberCount, true)
 		embed.addField('Online Members ', guild.presences.array().length, true)
 		embed.addField('Channel Count ', guild.channels.array().length, true)

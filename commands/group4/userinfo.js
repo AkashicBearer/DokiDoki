@@ -86,7 +86,7 @@ module.exports = class UserInfoCommand extends Command {
 		}else{
 			embed.addField('Nickname ' , 'No Nickname set', true)
 		}
-		embed.addField('User ID: ', member.id)
+		embed.addField('User ID ', member.id)
 		embed.addField('User Roles: ', roles)
 		//Account 
 		embed.addBlankField()
