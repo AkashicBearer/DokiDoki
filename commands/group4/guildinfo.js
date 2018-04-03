@@ -64,7 +64,7 @@ module.exports = class guildinfoCommand extends Command {
 		//Account 
 		embed.addBlankField()
 		embed.addField('Guild created at ' , crtStr)
-		embed.setThumbnail(guild.icon)
+		//embed.setThumbnail(guild.icon)
 	return msg.embed(embed);
 };
 };
