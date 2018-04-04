@@ -14,8 +14,9 @@ module.exports = class KanpaiCommand extends Command {
                 {
                 key: 'member',
                 label: 'user',
-                prompt: 'Who to hug?',
-                type: 'member'
+                prompt: 'Cheers! With whom?',
+                type: 'member',
+                default: ''
                 }
             ]
         });

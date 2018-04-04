@@ -24,7 +24,7 @@ module.exports = class cuddleCommand extends Command {
         var imgcuddle = {
             "0": "https://media3.giphy.com/media/143v0Z4767T15e/giphy.gif",
             "1": "https://thumbs.gfycat.com/WellgroomedVapidKitten-max-1mb.gif",
-            "2": "https://i.imgur.com/4j8vYD5.gif",
+            "2": "https://media1.tenor.com/images/26b91d49ece30b8ec732ac5ba3ad8e2d/tenor.gif?itemid=5888683",
             "3": "https://media.giphy.com/media/od5H3PmEG5EVq/giphy.gif",
             "4": "https://pa1.narvii.com/6103/377538d76d83ec7d9d2be32870d43f2ac931a412_hq.gif",
             "5": "http://gifimage.net/wp-content/uploads/2017/09/anime-cuddle-gif.gif",

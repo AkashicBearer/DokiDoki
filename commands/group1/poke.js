@@ -38,7 +38,7 @@ module.exports = class PokeCommand extends Command {
             "13": "https://78.media.tumblr.com/4a6fc26ea70803ca1b2e5eb824aa4a48/tumblr_nkv7kaN4hr1sf82gro1_500.gif",
             "14": "https://i.pinimg.com/originals/2d/64/62/2d6462987a325ad10424c95f40a28483.gif",
             "15": "https://i.pinimg.com/originals/26/65/74/266574c657accd6c7e8452a7b9d9dc47.gif",
-            "16": "http://cloud-3.steamusercontent.com/ugc/511504951419253847/1A6EDA21485B5B86B51EFF37EC9C5281670D5E9C/",
+            "16": "https://78.media.tumblr.com/tumblr_mc7ixcNOf91r3uq66o2_500.gif",
             "17": "http://i.imgur.com/ERBet00.gif",
             "18": "https://media1.tenor.com/images/ce3593d0d5052339cdae55ed0d75e7aa/tenor.gif?itemid=9966199",
             "19": "http://i0.kym-cdn.com/photos/images/original/000/629/628/e85.gif"
