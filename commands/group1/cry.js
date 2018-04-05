@@ -28,7 +28,8 @@ module.exports = class CryCommand extends Command {
             "11": "http://megumi.img.s3.amazonaws.com/tumblr_o5ljgu8pDF1t3uwllo1_500.gif",
             "12": "http://gifimage.net/wp-content/uploads/2017/07/anime-cry-gif-18.gif",
             "13": "https://media.giphy.com/media/ROF8OQvDmxytW/giphy.gif",
-            "14": "https://tenor.com/view/anime-girl-crying-sad-black-gif-4952249"
+            "14": "https://tenor.com/view/anime-girl-crying-sad-black-gif-4952249",
+            "15": "https://media1.tenor.com/images/d5668af606ca4d0332a6507418cabbce/tenor.gif?itemid=4952249"
         };
            const embed = new RichEmbed()
                 embed.setDescription(msg.author + ' is Crying' )  
