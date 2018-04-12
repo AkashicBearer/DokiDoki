@@ -1,5 +1,4 @@
 const { CommandoClient, SQLiteProvider } = require('discord.js-commando');
-const { Client } = require('pg')
 const config = require("./config.json");
 const oneLine = require('common-tags').oneLine;
 const sqlite = require('sqlite');
@@ -51,11 +50,12 @@ client.registry
 
 // Random Shits
 
-client.connect()
+const { Client } = require('pg')
+const client = new Client()
 
-client.query('SELECT $1::text as message', ['Hello world!'], (err, res) => {
-  console.log(err ? err.stack : res.rows[0].message) // Hello World!
-  client.end()
-})
+await client.connect()
 
+const res = await client.query('SELECT $1::text as message', ['Hello world!'])
+console.log(res.rows[0].message) // Hello world!
+await client.end()
 client.login(process.env.token);
