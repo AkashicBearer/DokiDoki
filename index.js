@@ -52,10 +52,12 @@ client.registry
 
 const { pg } = require('pg')
 await pg.connect()
+pg.connect()
 
-const res = await pg.query('SELECT $1::text as message', ['Hello world!'])
-console.log(res.rows[0].message) // Hello world!
-await client.end()
+pg.query('SELECT $1::text as message', ['Hello world!'], (err, res) => {
+  console.log(err ? err.stack : res.rows[0].message) // Hello World!
+  pg.end()
+})
 
 
 client.login(process.env.token);
