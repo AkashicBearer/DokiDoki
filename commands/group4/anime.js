@@ -17,8 +17,7 @@ module.exports = class animeCommand extends Command {
 					key: 'name',
 					label: 'user',
 					prompt: 'Which anime would you like to see?',
-					type: 'string',
-					default: ''
+					type: 'string'
 				}
 			]
 		});
@@ -26,8 +25,8 @@ module.exports = class animeCommand extends Command {
 
 	async run(msg, args) {
  
-// do a quick search 
-	mal.quickSearch('naruto').then(function(results) {
+	var aniname = ''+args.name;
+	mal.quickSearch(aniname).then(function(results) {
         results.anime[0].fetch().then(function(r) {
 
         	const embed = new RichEmbed()
