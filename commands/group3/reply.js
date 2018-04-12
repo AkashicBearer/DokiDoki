@@ -20,6 +20,6 @@ module.exports = class ReplyCommand extends Command {
         msg.channel.awaitMessages(filter, { max: 1, time: 60000, errors: ['time'] })
             .then(collected => {
                 msg.channel.send(collected)
-             }
+             })
             }
 };
