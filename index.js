@@ -50,12 +50,10 @@ client.registry
 
 // Random Shits
 
-const { Client } = require('pg')
-const client = new Client()
+const { pg } = require('pg')
+await pg.connect()
 
-await client.connect()
-
-const res = await client.query('SELECT $1::text as message', ['Hello world!'])
+const res = await pg.query('SELECT $1::text as message', ['Hello world!'])
 console.log(res.rows[0].message) // Hello world!
 await client.end()
-client.login(process.env.token);
+pg.login(process.env.token);
