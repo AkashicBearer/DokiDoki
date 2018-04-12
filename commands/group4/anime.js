@@ -49,7 +49,7 @@ const mal = new MALjs('DokiDokiBot', 'DokiDoki');
 mal.anime.search('naruto')
   .then(result => {
   	var res = result.anime[0];
-  	var img = res.image;
+  	var img = res.image.toString().substring(str.firstIndexOf("'")+1,str.lastIndexOf("'"));
   	var embed = new RichEmbed()
   	embed.addField("Title", res.title,true)
   	embed.addField("English Title", res.english, true)
