@@ -6,11 +6,27 @@ module.exports = class ReplyCommand extends Command {
             name: 'reply',
             group: 'group3',
             memberName: 'reply',
-            description: 'Replies with a Message.'
+            description: 'Replies with a Message.',
+            args: [
+                {
+                    key: 'name',
+                    label: 'user',
+                    prompt: 'Which anime would you like to see?',
+                    type: 'string'
+                }, {
+                    key: 'name2',
+                    label: 'user',
+                    prompt: 'Which anime would you like to see?',
+                    type: 'string'
+                }
+            ]
         });
     }
     async run(msg) {
-        const message = await msg.say('Hi, I\'m awake!');
-        return message.edit('I want to go to bed.');
+        msg.channel.send(args.name)
+        if(args.name == 'y'){
+            msg.channel.send(args.name2)
+        }
+        
     }
 };
