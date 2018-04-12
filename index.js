@@ -12,7 +12,7 @@ const client = new CommandoClient({
     unknownCommandResponse: false,
     owner: ['193021560792154112', '111469545637605376'],
     disableEveryone: true, 
-    connectionString: connectionString,
+    //connectionString: connectionString,
 });
 
 sqlite.open(path.join(__dirname, "settings.sqlite3")).then((db) => {
