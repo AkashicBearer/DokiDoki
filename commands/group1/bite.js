@@ -39,7 +39,7 @@ module.exports = class biteCommand extends Command {
             "14": "http://img1.ak.crunchyroll.com/i/spire1/6992aca5d65cc35994e64d1db60712dc1269709025_full.gif",
             "15": "https://data.whicdn.com/images/81002249/original.gif",
             "16": "http://img1.ak.crunchyroll.com/i/spire3/105470d8f6fc8f277f511aada0e564c21488138818_full.gif",
-            "17": "http://rs767.pbsrc.com/albums/xx320/abdul_dxr/Anime%20GIF/Headbite.gif~c200",
+            "17": "https://i.pinimg.com/originals/a6/77/cc/a677cc2c83974e833144da6fbe15371b.jpg",
             "18": "https://lh3.googleusercontent.com/-wNoe2_Ncky4/UQb5btlzyzI/AAAAAAAAkrk/Mt_C00t5DYw/w500-h300-n/photo.jpg",
             "19": "http://i.imgur.com/fWSIugu.gif"
         };
