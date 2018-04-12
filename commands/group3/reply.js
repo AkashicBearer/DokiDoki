@@ -11,7 +11,10 @@ module.exports = class ReplyCommand extends Command {
     }
 
     async run(msg) {
-        const message = await msg.say('Hi, I\'m awake!');
-        return message.edit('I want to go to bed.');
+        client.on('message', msg => {
+          if (msg.content === 'ping') {
+            msg.reply('Pong!');
+          }
+        });
     }
 };
