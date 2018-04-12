@@ -111,9 +111,9 @@ mal.anime.search(anm)
   	//embed.addField("Link", res.english, true)
 
   	var fromspl = res.start_date.toString().split('-');
-  	var from = months[fromspl[2]] + " " + days[fromspl[1]] + " " + fromspl[0];
+  	var from = months[fromspl[1]] + " " + days[fromspl[2]] + " " + fromspl[0];
   	var tospl = res.end_date.toString().split('-');
-  	var to = tospl[2] + " " + days[tospl[1]] + ", " + tospl[0];
+  	var to = tospl[1] + " " + days[tospl[2]] + ", " + tospl[0];
 
   	embed.setFooter(from + " to " + to)
   	embed.setThumbnail(res.image.toString())
