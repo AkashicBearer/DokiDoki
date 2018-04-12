@@ -34,7 +34,8 @@
     "querystring": "^0.2.0",
     "snekfetch": "^3.6.1",
     "sqlite": "^2.9.1",
-    "time": "0.12.0"
+    "time": "0.12.0",
+    "node-curl": "0.3.3"
   },
   "bugs": {
     "url": "https://github.com/AkashicBearer/DokiDoki/issues"
