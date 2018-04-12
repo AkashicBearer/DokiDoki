@@ -48,15 +48,14 @@ const mal = new MALjs('DokiDokiBot', 'DokiDoki');
 // search my animelist
 mal.anime.search('naruto')
   .then(result => {
-  	var title = result.anime[0].title;
-  	var synopsis = result.anime[0].synopsis;
-  	
+  	var embed = new RichEmbed()
+  	embed.setTitle(result.anime[0].title)
+  	embed.addField("Description", result.anime[0].synopsis)
+   	msg.channel.send(embed)   
   }
 
   ) // contains the json result on success
   .catch(err => console.log(err));
-  embed.setTitle(title)
-  embed.addField("Description", synopsis)
-     	msg.channel.send(embed)    
+   
 }
 };
