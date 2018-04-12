@@ -49,6 +49,7 @@ const mal = new MALjs('DokiDokiBot', 'DokiDoki');
 mal.anime.search('naruto')
   .then(result => 
   	embed.setTitle(result.anime[0].title)
+  	msg.channel.send(embed)
   ) // contains the json result on success
   .catch(err => console.log(err));
        
