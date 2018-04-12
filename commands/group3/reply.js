@@ -10,11 +10,16 @@ module.exports = class ReplyCommand extends Command {
         });
     }
     async run(msg) {
-        this.client.on('message', msg => {
+       /* this.client.on('message', msg => {
           if (msg.content === 'ping') {
             msg.reply('Pong!');
-            return true;
+            
           }
-        });
-    }
+        });*/
+
+        msg.channel.awaitMessages(filter, { max: 1, time: 60000, errors: ['time'] })
+            .then(collected => {
+                msg.channel.send(collected)
+             }
+            }
 };
