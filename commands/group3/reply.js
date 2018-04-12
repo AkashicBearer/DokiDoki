@@ -19,7 +19,7 @@ module.exports = class ReplyCommand extends Command {
 
         msg.channel.awaitMessages(m => m.author.id === msg.author.id, { max: 1, time: 60000, errors: ['time'] })
             .then(collected => {
-                msg.channel.send(collected.first())
+                msg.channel.send(collected.array()[0])
              })
             }
 };
