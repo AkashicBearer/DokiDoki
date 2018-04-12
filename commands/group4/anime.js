@@ -15,9 +15,10 @@ module.exports = class animeCommand extends Command {
 			args: [
 				{
 					key: 'name',
-					label: 'anime',
+					label: 'user',
 					prompt: 'Which anime would you like to see?',
-					type: 'string'
+					type: 'string',
+					default: ''
 				}
 			]
 		});
@@ -26,7 +27,7 @@ module.exports = class animeCommand extends Command {
 	async run(msg, args) {
  
 // do a quick search 
-	mal.quickSearch(args.name).then(function(results) {
+	mal.quickSearch('lelouch').then(function(results) {
     	// access and fetch the first character 
     	results.character[0].fetch().then(function(r) {
         	// access and fetch the first anime 
