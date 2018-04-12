@@ -56,4 +56,6 @@ await pg.connect()
 const res = await pg.query('SELECT $1::text as message', ['Hello world!'])
 console.log(res.rows[0].message) // Hello world!
 await client.end()
-pg.login(process.env.token);
+
+
+client.login(process.env.token);
