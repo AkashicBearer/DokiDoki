@@ -29,9 +29,11 @@ module.exports = class animeCommand extends Command {
 // do a quick search 
 	mal.quickSearch('naruto').then(function(results) {
     	// access and fetch the first character 
-    	results.character[0].fetch().then(function(r) {
+    	console.log(results)
+
+    	//results.character[0].fetch().then(function(r) {
         	// access and fetch the first anime 
-        	r.animeography[0].fetch().then(function(r) {
+        	//r.animeography[0].fetch().then(function(r) {
             console.log(r);
         })
     });
