@@ -14,8 +14,9 @@ module.exports = class PingCommand extends Command {
     }
     async run(msg, args) {
      const embed = new RichEmbed()
-        embed.setTitle('Ping')
-        embed.setDescription(`This Ping is ${this.client.ping})`)
+        embed.setTitle('Client Ping')
+        embed.setDescription(`The Ping is ${this.client.ping}`)
+        embed.setColor(0x23ff12)
         embed.setTimestamp()
      return msg.embed(embed);
     }
