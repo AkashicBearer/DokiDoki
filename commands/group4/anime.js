@@ -48,9 +48,12 @@ const mal = new MALjs('DokiDokiBot', 'DokiDoki');
 // search my animelist
 mal.anime.search('naruto')
   .then(result => {
+  	var res = result.anime[0];
   	var embed = new RichEmbed()
-  	embed.setTitle(result.anime[0].title)
-  	embed.addField("Description", result.anime[0].synopsis)
+  	embed.addField("Title", res.title,true)
+  	embed.addField("English Title", res.english, true)
+  	embed.addField("Description", res.toString().replace(/<.*>/g,' '))
+  	embed.setThumbnail(res.image)
    	msg.channel.send(embed)   
   }
 
