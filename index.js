@@ -1,5 +1,5 @@
 const { CommandoClient, SQLiteProvider } = require('discord.js-commando');
-const postgresql = require('pg');
+const { Client } = require('pg')
 const config = require("./config.json");
 const oneLine = require('common-tags').oneLine;
 const sqlite = require('sqlite');
