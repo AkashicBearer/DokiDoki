@@ -108,12 +108,12 @@ mal.anime.search(anm)
   	embed.addField("Status", res.status, true)
   	embed.addField("Type", res.type, true)
   	embed.addField("Score", res.score+"/10", true)
-  	embed.addField("Link", ""+res.id, true)
+  	embed.addField("Link", "https://myanimelist.net/anime/"+res.id, true)
 
   	var fromspl = res.start_date.toString().split('-');
   	var from = months[fromspl[1]] + " " + days[fromspl[2]] + " " + fromspl[0];
   	var tospl = res.end_date.toString().split('-');
-  	var to = tospl[1] + " " + days[tospl[2]] + ", " + tospl[0];
+  	var to = months[tospl[1]] + " " + days[tospl[2]] + ", " + tospl[0];
 
   	embed.setFooter(from + " to " + to)
   	embed.setThumbnail(res.image.toString())
