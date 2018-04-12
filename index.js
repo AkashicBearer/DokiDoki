@@ -50,7 +50,7 @@ client.registry
 
 // Random Shits
 
-const { pg } = require('pg')
+/*const { pg } = require('pg')
 await pg.connect()
 pg.connect()
 
@@ -58,6 +58,6 @@ pg.query('SELECT $1::text as message', ['Hello world!'], (err, res) => {
   console.log(err ? err.stack : res.rows[0].message) // Hello World!
   pg.end()
 })
-
+*/
 
 client.login(process.env.token);
