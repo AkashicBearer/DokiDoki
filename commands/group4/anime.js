@@ -1,6 +1,7 @@
 const { Command } = require('discord.js-commando')
 const { RichEmbed } = require('discord.js');
 var mal = require('maljs');
+const MALjs = require('MALjs');
 
 module.exports = class animeCommand extends Command {
 	constructor(client) {
@@ -17,7 +18,8 @@ module.exports = class animeCommand extends Command {
 					key: 'name',
 					label: 'user',
 					prompt: 'Which anime would you like to see?',
-					type: 'string'
+					type: 'string',
+					default: ''
 				}
 			]
 		});
@@ -25,19 +27,30 @@ module.exports = class animeCommand extends Command {
 
 	async run(msg, args) {
  
-	var aniname = ''+args.name;
+/*	var aniname = ''+args.name;
 	mal.quickSearch(aniname).then(function(results) {
         results.anime[0].fetch().then(function(r) {
-
+        	var nam = r.sn.replace('_',' ');
         	const embed = new RichEmbed()
-        	embed.setTitle(r.sn)
+        	embed.setAuthor(nam, r.cover)
         	embed.addField("Description", r.description)
         	embed.setThumbnail(r.cover)
 
         	msg.channel.send(embed)
 
    });
-});
+});*/
+
+
+const mal = new MALjs('DokiDokiBot', 'DokiDoki');
+
+// search my animelist
+mal.anime.search('naruto')
+  .then(result => 
+  	const embed = new RichEmbed()
+  	embed.setTitle(result.anime[0].title)
+  ) // contains the json result on success
+  .catch(err => console.log(err));
        
 }
 };
