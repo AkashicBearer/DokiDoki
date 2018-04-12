@@ -1,4 +1,6 @@
 const { CommandoClient, SQLiteProvider } = require('discord.js-commando');
+const { Pool } = require('pg')
+const connectionString = require(process.env.DATABASE_URL)
 const config = require("./config.json");
 const oneLine = require('common-tags').oneLine;
 const sqlite = require('sqlite');
@@ -9,7 +11,8 @@ const client = new CommandoClient({
     commandPrefix: '<',
     unknownCommandResponse: false,
     owner: ['193021560792154112', '111469545637605376'],
-    disableEveryone: true
+    disableEveryone: true, 
+    connectionString: connectionString,
 });
 
 sqlite.open(path.join(__dirname, "settings.sqlite3")).then((db) => {
@@ -49,7 +52,20 @@ client.registry
 	})
 
 // Random Shits
+const pool = new Pool({
+  connectionString: connectionString,
+})
 
+pool.query('SELECT NOW()', (err, res) => {
+  console.log(err, res)
+  pool.end()
+})
+client.connect()
+
+client.query('SELECT NOW()', (err, res) => {
+  console.log(err, res)
+  client.end()
+})
 /*const { pg } = require('pg')
 await pg.connect()
 pg.connect()
