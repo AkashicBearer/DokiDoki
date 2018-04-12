@@ -9,7 +9,6 @@ module.exports = class ReplyCommand extends Command {
             description: 'Replies with a Message.'
         });
     }
-
     async run(msg) {
         const message = await msg.say('Hi, I\'m awake!');
         return message.edit('I want to go to bed.');
