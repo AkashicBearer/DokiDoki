@@ -28,15 +28,16 @@ module.exports = class animeCommand extends Command {
  
 // do a quick search 
 	mal.quickSearch('naruto').then(function(results) {
-    	// access and fetch the first character 
-    	console.log(results[0].mal)
+        results.anime[0].fetch().then(function(r) {
 
-    	//results.character[0].fetch().then(function(r) {
-        	// access and fetch the first anime 
-        	//r.animeography[0].fetch().then(function(r) {
-            console.log(r);
-       // })
-  //  });
+        	const embed = new RichEmbed()
+        	embed.setTitle(r.sn)
+        	embed.addField("Description", r.description)
+        	embed.setThumbnail(r.cover)
+
+        	msg.channel.send(embed)
+
+   });
 });
        
 }
