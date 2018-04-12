@@ -18,8 +18,7 @@ module.exports = class animeCommand extends Command {
 					key: 'name',
 					label: 'user',
 					prompt: 'Which anime would you like to see?',
-					type: 'string',
-					default: ''
+					type: 'string'
 				}
 			]
 		});
@@ -58,10 +57,11 @@ const mal = new MALjs('DokiDokiBot', 'DokiDoki');
             "11": "November",
             "12": "December"
         }
+    var anm = args.name+'';
 
   	var embed = new RichEmbed()
 // search my animelist
-mal.anime.search('naruto')
+mal.anime.search(anm)
   .then(result => {
   	var res = result.anime[0];
   	var embed = new RichEmbed()
