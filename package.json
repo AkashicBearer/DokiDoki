@@ -22,6 +22,7 @@
   "author": "Akashic",
   "license": "ISC",
   "dependencies": {
+    "MALjs": "^0.1.0",
     "bufferutil": "^3.0.3",
     "cheerio": "^1.0.0-rc.2",
     "config.json": "0.0.4",
