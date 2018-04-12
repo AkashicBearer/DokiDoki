@@ -44,18 +44,43 @@ module.exports = class animeCommand extends Command {
 
 const mal = new MALjs('DokiDokiBot', 'DokiDoki');
 
+	const months = {
+            "01": "January",
+            "02": "February",
+            "03": "March",
+            "04": "April",
+            "05": "May",
+            "06": "June",
+            "07": "July",
+            "08": "August",
+            "09": "September",
+            "10": "October",
+            "11": "November",
+            "12": "December"
+        }
+
   	var embed = new RichEmbed()
 // search my animelist
 mal.anime.search('naruto')
   .then(result => {
   	var res = result.anime[0];
-  	var im = res.image.toString();
-  	var img = res.image.toString().substring(im.indexOf("'")+1,im.lastIndexOf("'"));
-  	msg.channel.send(img)
   	var embed = new RichEmbed()
   	embed.addField("Title", res.title,true)
   	embed.addField("English Title", res.english, true)
   	embed.addField("Description", res.synopsis.toString().replace(/<.*>/g,' ').replace(/&#039;/g,"'"))
+
+  	embed.addField("Episodes", res.type, true)
+  	embed.addField("Status", res.status, true)
+  	embed.addField("Type", res.english, true)
+  	embed.addField("Score", res.score+"/10", true)
+  	//embed.addField("Link", res.english, true)
+
+  	var fromspl = res.start_date.toString().split('-');
+  	var from = months[fromspl[2]] + " " + fromspl[1] + " " + fromspl[0];
+  	var tospl = res.end_date.toString().split('-');
+  	var to = months[tospl[2]] + " " + tospl[1] + " " + tospl[0];
+
+  	embed.setFooter(from + " to " + to)
   	embed.setThumbnail(res.image.toString())
    	msg.channel.send(embed)   
   }
