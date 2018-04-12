@@ -108,7 +108,7 @@ mal.anime.search(anm)
   	embed.addField("Status", res.status, true)
   	embed.addField("Type", res.type, true)
   	embed.addField("Score", res.score+"/10", true)
-  	//embed.addField("Link", res.english, true)
+  	embed.addField("Link", ""+res.id, true)
 
   	var fromspl = res.start_date.toString().split('-');
   	var from = months[fromspl[1]] + " " + days[fromspl[2]] + " " + fromspl[0];
