@@ -27,7 +27,7 @@ module.exports = class animeCommand extends Command {
 	async run(msg, args) {
  
 // do a quick search 
-	mal.quickSearch('lelouch').then(function(results) {
+	mal.quickSearch('naruto').then(function(results) {
     	// access and fetch the first character 
     	results.character[0].fetch().then(function(r) {
         	// access and fetch the first anime 
