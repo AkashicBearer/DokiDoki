@@ -51,10 +51,11 @@ mal.anime.search('naruto')
   	var res = result.anime[0];
   	var im = res.image.toString();
   	var img = res.image.toString().substring(im.indexOf("'")+1,im.lastIndexOf("'"));
+  	msg.channel.send(img)
   	var embed = new RichEmbed()
   	embed.addField("Title", res.title,true)
   	embed.addField("English Title", res.english, true)
-  	embed.addField("Description", res.synopsis.toString().replace(/<.*>/g,' '))
+  	embed.addField("Description", res.synopsis.toString().replace(/<.*>/g,' ').replace(/&#039;/g,"'"))
   	embed.setThumbnail(img)
    	msg.channel.send(embed)   
   }
