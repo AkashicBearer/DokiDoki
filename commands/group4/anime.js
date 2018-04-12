@@ -54,7 +54,7 @@ mal.anime.search('naruto')
   	embed.addField("Title", res.title,true)
   	embed.addField("English Title", res.english, true)
   	embed.addField("Description", res.synopsis.toString().replace(/<.*>/g,' '))
-  	embed.setThumbnail(img.toString().substring(1,img.length-2))
+  	embed.setThumbnail(img.toString().substring(0,img.length))
    	msg.channel.send(embed)   
   }
 
