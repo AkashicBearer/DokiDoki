@@ -69,9 +69,9 @@ mal.anime.search(anm)
   	embed.addField("English Title", res.english, true)
   	embed.addField("Description", res.synopsis.toString().replace(/<.*>/g,' ').replace(/&#039;/g,"'"))
 
-  	embed.addField("Episodes", res.type, true)
+  	embed.addField("Episodes", res.episodes, true)
   	embed.addField("Status", res.status, true)
-  	embed.addField("Type", res.english, true)
+  	embed.addField("Type", res.type, true)
   	embed.addField("Score", res.score+"/10", true)
   	//embed.addField("Link", res.english, true)
 
