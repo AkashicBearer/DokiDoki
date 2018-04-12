@@ -30,6 +30,7 @@
     "discord.js": "^11.3.2",
     "discord.js-commando": "github:discordjs/Commando#11.2",
     "dotenv": "^5.0.1",
+    "fs": "0.0.1-security",
     "git-all": "0.0.3",
     "http": "0.0.0",
     "https": "^1.0.0",
