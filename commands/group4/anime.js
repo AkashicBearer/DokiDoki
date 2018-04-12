@@ -35,8 +35,8 @@ module.exports = class animeCommand extends Command {
         	// access and fetch the first anime 
         	//r.animeography[0].fetch().then(function(r) {
             console.log(r);
-        })
-    });
+       // })
+  //  });
 });
        
 }
