@@ -34,7 +34,7 @@ client.registry
     .registerDefaultGroups()
     .registerDefaultCommands({
 	help: false,
-	ping: true,
+	ping: false,
 	prefix: true,
 	eval: true
 })
