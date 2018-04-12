@@ -9,7 +9,6 @@ module.exports = class ReplyCommand extends Command {
             description: 'Replies with a Message.'
         });
     }
-
     async run(msg) {
         client.on('message', msg => {
           if (msg.content === 'ping') {
