@@ -50,7 +50,7 @@ mal.anime.search('naruto')
   .then(result => {
   	var res = result.anime[0];
   	var im = res.image.toString();
-  	var img = res.image.toString().substring(im.firstIndexOf("'")+1,im.lastIndexOf("'"));
+  	var img = res.image.toString().substring(im.indexOf("'")+1,im.lastIndexOf("'"));
   	var embed = new RichEmbed()
   	embed.addField("Title", res.title,true)
   	embed.addField("English Title", res.english, true)
