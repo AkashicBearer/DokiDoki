@@ -1,4 +1,4 @@
-const { CommandoClient, SQLiteProvider } = require('discord.js-commando');
+const { CommandoClient, SQLiteProvider, } = require('discord.js-commando', 'pg');
 const config = require("./config.json");
 const oneLine = require('common-tags').oneLine;
 const sqlite = require('sqlite');
@@ -49,5 +49,12 @@ client.registry
 	})
 
 // Random Shits
+
+client.connect()
+
+client.query('SELECT $1::text as message', ['Hello world!'], (err, res) => {
+  console.log(err ? err.stack : res.rows[0].message) // Hello World!
+  client.end()
+})
 
 client.login(process.env.token);
