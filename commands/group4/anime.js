@@ -44,10 +44,10 @@ module.exports = class animeCommand extends Command {
 
 const mal = new MALjs('DokiDokiBot', 'DokiDoki');
 
+  	const embed = new RichEmbed()
 // search my animelist
 mal.anime.search('naruto')
   .then(result => 
-  	const embed = new RichEmbed()
   	embed.setTitle(result.anime[0].title)
   ) // contains the json result on success
   .catch(err => console.log(err));
