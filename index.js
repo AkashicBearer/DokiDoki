@@ -1,7 +1,7 @@
 const { CommandoClient, SQLiteProvider } = require('discord.js-commando');
-const { Pool } = require('pg')
+/*const { Pool } = require('pg')
 const connectionString = require(process.env.DATABASE_URL)
-const config = require("./config.json");
+const config = require("./config.json");*/
 const oneLine = require('common-tags').oneLine;
 const sqlite = require('sqlite');
 const path = require('path');
@@ -52,7 +52,7 @@ client.registry
 	})
 
 // Random Shits
-const pool = new Pool({
+/*const pool = new Pool({
   connectionString: connectionString,
 })
 
@@ -66,7 +66,7 @@ client.query('SELECT NOW()', (err, res) => {
   console.log(err, res)
   client.end()
 })
-/*const { pg } = require('pg')
+const { pg } = require('pg')
 await pg.connect()
 pg.connect()
 
