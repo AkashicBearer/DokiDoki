@@ -35,6 +35,7 @@
     "https": "^1.0.0",
     "node.js": "0.0.0",
     "querystring": "^0.2.0",
+    "request": "^2.85.0",
     "snekfetch": "^3.6.1",
     "sqlite": "^2.9.1",
     "time": "0.12.0"
