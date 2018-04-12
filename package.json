@@ -31,6 +31,7 @@
     "discord.js-commando": "github:discordjs/Commando#11.2",
     "dotenv": "^5.0.1",
     "git-all": "0.0.3",
+    "http": "0.0.0",
     "node.js": "0.0.0",
     "querystring": "^0.2.0",
     "snekfetch": "^3.6.1",
