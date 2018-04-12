@@ -13,7 +13,7 @@ module.exports = class ReplyCommand extends Command {
         this.client.on('message', msg => {
           if (msg.content === 'ping') {
             msg.reply('Pong!');
-            this.client.off('message');
+            this.client.off;
           }
         });
     }
