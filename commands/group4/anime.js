@@ -44,11 +44,12 @@ module.exports = class animeCommand extends Command {
 
 const mal = new MALjs('DokiDokiBot', 'DokiDoki');
 
-  	const embed = new RichEmbed()
+  	var embed = new RichEmbed()
 // search my animelist
 mal.anime.search('naruto')
   .then(result => {
   	msg.channel.send(result.anime[0].title)
+  	embed.addField("Description", result.anime[0].synopsis)
   }
 
   ) // contains the json result on success
