@@ -10,7 +10,7 @@ module.exports = class ReplyCommand extends Command {
         });
     }
     async run(msg) {
-        client.on('message', msg => {
+        this.client.on('message', msg => {
           if (msg.content === 'ping') {
             msg.reply('Pong!');
           }
