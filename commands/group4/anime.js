@@ -134,10 +134,10 @@ module.exports = class animeCommand extends Command {
 			  	}else{
 			  		if(tospl[0] == "0000"){
 			  			var to = "";
-			  			var from = "Will start airing in " + months[fromspl[1]] + days[fromspl[2]] + ", " + fromspl[0];
+			  			var from = "Will start airing in " + months[fromspl[1]] + days[fromspl[2]] + fromspl[0];
 			  		}else{
-			  			var to = months[tospl[1]]  + days[tospl[2]] + ", " + tospl[0];
-			  			var from = months[fromspl[1]] + days[fromspl[2]] + ", " + fromspl[0] + " to ";
+			  			var to = months[tospl[1]]  + days[tospl[2]] + tospl[0];
+			  			var from = months[fromspl[1]] + days[fromspl[2]] + fromspl[0] + " to ";
 			  		}
 			  	}
 
@@ -200,10 +200,10 @@ module.exports = class animeCommand extends Command {
 					  	}else{
 					  		if(tocspl[0] == "0000"){
 					  			var toc = "";
-					  			var fromc = "Will start airing in " + months[fromcspl[1]] + days[fromcspl[2]] + ", " + fromcspl[0];
+					  			var fromc = "Will start airing in " + months[fromcspl[1]] + days[fromcspl[2]] + fromcspl[0];
 					  		}else{
-					  			var toc = months[tocspl[1]]  + days[tocspl[2]] + ", " + tocspl[0];
-					  			var fromc = months[fromcspl[1]] + days[fromcspl[2]] + ", " + fromcspl[0] + " to ";
+					  			var toc = months[tocspl[1]]  + days[tocspl[2]] + tocspl[0];
+					  			var fromc = months[fromcspl[1]] + days[fromcspl[2]] + fromcspl[0] + " to ";
 					  		}
 					  	}
 
