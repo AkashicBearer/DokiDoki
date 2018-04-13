@@ -145,7 +145,7 @@ module.exports = class animeCommand extends Command {
             .then(collected => {
             		//console.log(parseInt(collected.first().content,10)-1)
                 	var csn = anarr[parseInt(collected.first().content,10)-1]
-                	const engfl = client.emojis.find("name", "flag_gb")
+                	const engfl = this.client.emojis.find("name", "flag_gb")
                 	console.log(csn)
                 	embed.addField("Title", csn.title,true)
 				  		embed.addField("English Title", csn.english + "${engfl}", true)
