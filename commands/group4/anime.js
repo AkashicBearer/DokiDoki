@@ -93,12 +93,11 @@ module.exports = class animeCommand extends Command {
 
 
 	    var anm = args.name+'';
+	    var embed = new RichEmbed()
 
 	// search my animelist
 		mal.anime.search(anm)
 		  .then(result => {
-
-		  	var embed = new RichEmbed()
 		  	if(result.anime.length > 1){
 		  		var titles = "";
 
@@ -108,33 +107,7 @@ module.exports = class animeCommand extends Command {
 		  		}
 		  		embed.setDescription(titles)
 
-		  		var csn = async() => {
-		  			console.log("command is not ded")
-		  			 return await result.anime[inputAn()]
-		  		} 
-
-		  			console.log("command is not ded")
-
-
-			  		embed.addField("Title", csn.title,true)
-				  	embed.addField("English Title", csn.english, true)
-				  	embed.addField("Description", csn.synopsis.toString().replace(/<.*>/g,' ').replace(/&#039;/g,"'"))
-
-				  	embed.addField("Episodes", csn.episodes, true)
-				  	embed.addField("Status", csn.status, true)
-				  	embed.addField("Type", csn.type, true)
-				  	embed.addField("Score", csn.score+"/10", true)
-				  	embed.addField("Link", "https://myanimelist.net/anime/"+csn.id, true)
-
-				  	var fromcspl = csn.start_date.toString().split('-');
-				  	var fromc = months[fromcspl[1]] + " " + days[fromcspl[2]] + " " + fromcspl[0];
-				  	var tocspl = csn.end_date.toString().split('-');
-				  	var toc = months[tocspl[1]] + " " + days[tocspl[2]] + ", " + tocspl[0];
-
-				  	embed.setFooter(fromc + " to " + toc)
-				  	embed.setThumbnail(csn.image.toString())
-
-		  		
+				inputAn(result.anime)
 
 		  	}else {
 		  		var res = result.anime[0];
@@ -167,10 +140,27 @@ module.exports = class animeCommand extends Command {
 		  ) // contains the json result on success
 		  .catch(err => console.log(err));
 	   
-		  function inputAn(){
+		  function inputAn(anarr){
 		  	msg.channel.awaitMessages(m => m.author.id == msg.author.id, { max: 1, time: 30000, errors: ['time'] })
             .then(collected => {
-                	return parseInt(collected,10)
+                	var csn = anarr[parseInt(collected,10)-1]
+                	embed.addField("Title", csn.title,true)
+				  	embed.addField("English Title", csn.english, true)
+				  	embed.addField("Description", csn.synopsis.toString().replace(/<.*>/g,' ').replace(/&#039;/g,"'"))
+
+				  	embed.addField("Episodes", csn.episodes, true)
+				  	embed.addField("Status", csn.status, true)
+				  	embed.addField("Type", csn.type, true)
+				  	embed.addField("Score", csn.score+"/10", true)
+				  	embed.addField("Link", "https://myanimelist.net/anime/"+csn.id, true)
+
+				  	var fromcspl = csn.start_date.toString().split('-');
+				  	var fromc = months[fromcspl[1]] + " " + days[fromcspl[2]] + " " + fromcspl[0];
+				  	var tocspl = csn.end_date.toString().split('-');
+				  	var toc = months[tocspl[1]] + " " + days[tocspl[2]] + ", " + tocspl[0];
+
+				  	embed.setFooter(fromc + " to " + toc)
+				  	embed.setThumbnail(csn.image.toString())
              })
 		  }
 
