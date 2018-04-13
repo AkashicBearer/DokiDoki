@@ -106,15 +106,14 @@ mal.anime.search(anm)
   		var titlenbuff = 0;
   		embed.setTitle("Multiple Anime found");
   		for (var i = 0; i < result.anime.length; i++) {
-  			idbuff = result.anime[i].id;
   			if(firstrun){
   				titles = titles + "**["+ (i+1) + "]** " + result.anime[i].title + "\n";
   				titarr.push(result.anime[i].id)
   				firstrun = false;
   			}
-  			
+  			idbuff = result.anime[i].id;
   			for (var j = 0; j < titarr.length; i++) {
-  				console.log(idbuff + "/" + titarr[j])
+  				console.log(result.anime[i].id + "/" + titarr[j])
   				/*if(idbuff == titarr[j]){
   					msg.channel.send("id same")
   				}else{
