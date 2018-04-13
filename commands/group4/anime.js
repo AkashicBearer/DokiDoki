@@ -139,7 +139,6 @@ mal.anime.search(anm)
   			
   			})
   		}
-  	}
   		embed.setDescription(titles)
   	}else {
   		var res = result.anime[0];
