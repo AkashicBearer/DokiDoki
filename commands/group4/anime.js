@@ -143,10 +143,11 @@ module.exports = class animeCommand extends Command {
 		  function inputAn(anarr){
 		  	msg.channel.awaitMessages(m => m.author.id == msg.author.id, { max: 1, time: 30000, errors: ['time'] })
             .then(collected => {
+            		var embed2 = new RichEmbed()
             		//console.log(parseInt(collected.first().content,10)-1)
                 	var csn = anarr[parseInt(collected.first().content,10)-1]
                 	console.log(csn)
-                	embed.addField("Title", csn.title,true)
+                	embed2.addField("Title", csn.title,true)
                 	var syn = "";
                 	if(csn.synonyms.length > 0){
 			            for(var i = 0; i < csn.synonyms.length; i++){
@@ -157,22 +158,24 @@ module.exports = class animeCommand extends Command {
 			            }
 			        }
 
-				  	embed.addField("Synonyms", syn + " ")
-				  	embed.addField("Description", csn.synopsis.toString().replace(/<.*>/g,' ').replace(/&#039;/g,"'"))
+				  	embed2.addField("Synonyms", syn + " ")
+				  	embed2.addField("Description", csn.synopsis.toString().replace(/<.*>/g,' ').replace(/&#039;/g,"'"))
 
-				  	embed.addField("Episodes", csn.episodes, true)
-				  	embed.addField("Status", csn.status, true)
-				  	embed.addField("Type", csn.type, true)
-				  	embed.addField("Score", csn.score+"/10", true)
-				  	embed.addField("Link", "https://myanimelist.net/anime/"+csn.id, true)
+				  	embed2.addField("Episodes", csn.episodes, true)
+				  	embed2.addField("Status", csn.status, true)
+				  	embed2.addField("Type", csn.type, true)
+				  	embed2.addField("Score", csn.score+"/10", true)
+				  	embed2.addField("Link", "https://myanimelist.net/anime/"+csn.id, true)
 
 				  	var fromcspl = csn.start_date.toString().split('-');
 				  	var fromc = months[fromcspl[1]] + " " + days[fromcspl[2]] + " " + fromcspl[0];
 				  	var tocspl = csn.end_date.toString().split('-');
 				  	var toc = months[tocspl[1]] + " " + days[tocspl[2]] + ", " + tocspl[0];
 
-				  	embed.setFooter(fromc + " to " + toc)
-				  	embed.setThumbnail(csn.image.toString())
+				  	embed2.setFooter(fromc + " to " + toc)
+				  	embed2.setThumbnail(csn.image.toString())
+
+				  	msg.channel.send(embed2)
              })
 		  }
 
