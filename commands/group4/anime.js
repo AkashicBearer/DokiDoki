@@ -102,7 +102,7 @@ mal.anime.search(anm)
   		var titles = "";
   		embed.setTitle("Multiple Anime found")
   		for (var i = 0; i < result.anime.length; i++) {
-  			titles = "["+ (i+1) + "]" + result.anime[i].title + "\n";
+  			titles = titles + "**["+ (i+1) + "]**" + result.anime[i].title + "\n";
   		}
   		embed.setDescription(titles)
   	}else {
