@@ -99,15 +99,26 @@ mal.anime.search(anm)
   .then(result => {
   	var embed = new RichEmbed()
   	if(result.anime.length > 1){
-  		var titles = "```";
+  		var titles = "";
   		var titarr = [];
-  		titles = titles + "Multiple Anime found";
+  		var firstrun = true;
+  		embed.setTitle("Multiple Anime found");
   		for (var i = 0; i < result.anime.length; i++) {
-  			titarr.push(result.anime[i].id)
-  			titles = titles + "**["+ (i+1) + "]** " + result.anime[i].title + "\n";
+  			if(firstrun){
+  				titles = titles + "**["+ (i+1) + "]** " + result.anime[i].title + "\n";
+  				titarr.push(result.anime[i].id)
+  			}
+  			for (var j = 0; j < titarr.length; i++) {
+  				if(result.anime[i].id == result.anime[j].id){
+  					//skip
+  				}else{
+  					titles = titles + "**["+ (i+1) + "]** " + result.anime[i].title + "\n";
+  					titarr.push(result.anime[i].id)
+  				}
+  			}
+  			
   		}
-  		titles = titles + "```"
-  		msg.channel.send(titles)
+  		embed.setDescription(titles)
   	}else {
   		var res = result.anime[0];
   		embed.addField("Title", res.title,true)
