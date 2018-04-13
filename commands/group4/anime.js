@@ -100,51 +100,10 @@ mal.anime.search(anm)
   	var embed = new RichEmbed()
   	if(result.anime.length > 1){
   		var titles = "";
-  		var titarr = [];
-  		var firstrun = true;
-  		var double = false;
-  		var idbuff = "";
-  		var titlenbuff = 0;
+
   		embed.setTitle("Multiple Anime found");
-  		for (var i = 0; i < result.anime.length; i++) {
-  			//console.log(result.anime[i].id)
-  			if(firstrun){
-  				titles = titles + "**["+ (i+1) + "]** " + result.anime[i].title + "\n";
-  				titarr.push(result.anime[i].id)
-  				firstrun = false;
-  			}
-  			/*for (var j = 0; j < titarr.length; i++) {
-  				if(result.anime[i]){
-  					console.log(result.anime.length + " / "+i+ " - " +result.anime[i].id + "/" + titarr[j])
-  				if(result.anime[i].id == titarr[j]){
-  					console.log("id same")
-  				}else{
-  					titles = titles + "**["+ (i+1) + "]** " + result.anime[i].title + "\n";
-  					titarr.push(result.anime[i].id)
-  					console.log("id not same " + titarr.length+ "/"+j)
-  				}
-
-  				}
-  			}*/
-  			titarr.forEach(function(elem){
-  				if(result.anime[i]){
-  					console.log(result.anime.length + " / "+i+ " - " +result.anime[i].id + "/" + elem)
-	  				if(result.anime[i].id == elem){
-	  					double = true;
-	  				}else{
-	  					
-	  				}
-  				}
-  			
-  			})
-  			if(double){
-
-  			}else{
-  				titles = titles + "**["+ (i+1) + "]** " + result.anime[i].title + "\n";
-	  			titarr.push(result.anime[i].id)
-	  			console.log("id not same ")
-	  			double = false;
-  			}
+  		for (var i = 0; i < result.anime.length; i++) {  			
+  			titles = titles + "**["+ (i+1) + "]** " + result.anime[i].title + "\n";
   		}
   		embed.setDescription(titles)
   	}else {
