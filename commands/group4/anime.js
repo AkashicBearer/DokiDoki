@@ -145,11 +145,19 @@ module.exports = class animeCommand extends Command {
             .then(collected => {
             		//console.log(parseInt(collected.first().content,10)-1)
                 	var csn = anarr[parseInt(collected.first().content,10)-1]
-                	const engfl = this.client.emojis.find("name", "flag_gb")
                 	console.log(csn)
                 	embed.addField("Title", csn.title,true)
-				  		embed.addField("English Title", csn.english + "${engfl}", true)
-				  		embed.addField("Synonyms", csn.synonyms + " ")
+                	var syn = "";
+                	if(csn.synonyms.length > 0){
+			            for(var i = 0; i < csn.synonyms.length; i++){
+			                syn = syn+"`"+csn.synonyms[i]+"`";
+			                if(i+1 < csn.synonyms.length){
+			                    syn=syn+", ";
+			                }
+			            }
+			        }
+
+				  	embed.addField("Synonyms", syn + " ")
 				  	embed.addField("Description", csn.synopsis.toString().replace(/<.*>/g,' ').replace(/&#039;/g,"'"))
 
 				  	embed.addField("Episodes", csn.episodes, true)
