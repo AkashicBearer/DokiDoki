@@ -44,51 +44,53 @@ module.exports = class animeCommand extends Command {
 		const mal = new MALjs('DokiDokiBot', 'DokiDoki');
 
 		const months = {
-	            "01": "January",
-	            "02": "February",
-	            "03": "March",
-	            "04": "April",
-	            "05": "May",
-	            "06": "June",
-	            "07": "July",
-	            "08": "August",
-	            "09": "September",
-	            "10": "October",
-	            "11": "November",
-	            "12": "December"
+				"00": "",
+	            "01": "January ",
+	            "02": "February ",
+	            "03": "March ",
+	            "04": "April ",
+	            "05": "May ",
+	            "06": "June ",
+	            "07": "July ",
+	            "08": "August ",
+	            "09": "September ",
+	            "10": "October ",
+	            "11": "November ",
+	            "12": "December "
 	        }
 	     const days = {
-	            "01": "1st",
-	            "02": "2nd",
-	            "03": "3rd",
-	            "04": "4th",
-	            "05": "5th",
-	            "06": "6th",
-	            "07": "7th",
-	            "08": "8th",
-	            "09": "9th",
-	            "10": "10th",
-	            "11": "11th",
-	            "12": "12th",
-	            "13": "13th",
-	            "14": "14th",
-	            "15": "15th",
-	            "16": "16th",
-	            "17": "17th",
-	            "18": "18th",
-	            "19": "19th",
-	            "20": "20th",
-	            "21": "21st",
-	            "22": "22nd",
-	            "23": "23rd",
-	            "24": "24th",
-	            "25": "25th",
-	            "26": "26th",
-	            "27": "27th",
-	            "28": "28th",
-	            "29": "29th",
-	            "30": "30th",
-	            "32": "31st"
+	     		"00": "",
+	            "01": "1st, ",
+	            "02": "2nd, ",
+	            "03": "3rd, ",
+	            "04": "4th, ",
+	            "05": "5th, ",
+	            "06": "6th, ",
+	            "07": "7th, ",
+	            "08": "8th, ",
+	            "09": "9th, ",
+	            "10": "10th, ",
+	            "11": "11th, ",
+	            "12": "12th, ",
+	            "13": "13th, ",
+	            "14": "14th, ",
+	            "15": "15th, ",
+	            "16": "16th, ",
+	            "17": "17th, ",
+	            "18": "18th, ",
+	            "19": "19th, ",
+	            "20": "20th, ",
+	            "21": "21st, ",
+	            "22": "22nd, ",
+	            "23": "23rd, ",
+	            "24": "24th, ",
+	            "25": "25th, ",
+	            "26": "26th, ",
+	            "27": "27th, ",
+	            "28": "28th, ",
+	            "29": "29th, ",
+	            "30": "30th, ",
+	            "32": "31st, "
 	        }
 
 
@@ -124,9 +126,20 @@ module.exports = class animeCommand extends Command {
 			  	embed.addField("Link", "https://myanimelist.net/anime/"+res.id, true)
 
 			  	var fromspl = res.start_date.toString().split('-');
-			  	var from = months[fromspl[1]] + " " + days[fromspl[2]] + " " + fromspl[0];
 			  	var tospl = res.end_date.toString().split('-');
-			  	var to = months[tospl[1]] + " " + days[tospl[2]] + ", " + tospl[0];
+
+			  	if(fromspl[0] == "0000"){
+			  		var from = "No releasedate yet";
+			  		var to = "";
+			  	}else{
+			  		if(tospl[0] == "0000"){
+			  			var to = "";
+			  			var from = "Will start airing in " + months[fromspl[1]] + days[fromspl[2]] + ", " + fromspl[0];
+			  		}else{
+			  			var to = months[tospl[1]]  + days[tospl[2]] + ", " + tospl[0];
+			  			var from = months[fromspl[1]] + days[fromspl[2]] + ", " + fromspl[0] + " to ";
+			  		}
+			  	}
 
 			  	embed.setFooter(from + " to " + to)
 			  	embed.setThumbnail(res.image.toString())
@@ -180,11 +193,23 @@ module.exports = class animeCommand extends Command {
 					  	embed2.addField("Link", "https://myanimelist.net/anime/"+csn.id, true)
 
 					  	var fromcspl = csn.start_date.toString().split('-');
-					  	var fromc = months[fromcspl[1]] + " " + days[fromcspl[2]] + " " + fromcspl[0];
 					  	var tocspl = csn.end_date.toString().split('-');
-					  	var toc = months[tocspl[1]] + " " + days[tocspl[2]] + ", " + tocspl[0];
+					  	if(fromcspl[0] == "0000"){
+					  		var fromc = "No releasedate yet";
+					  		var toc = "";
+					  	}else{
+					  		if(tocspl[0] == "0000"){
+					  			var toc = "";
+					  			var fromc = "Will start airing in " + months[fromcspl[1]] + days[fromcspl[2]] + ", " + fromcspl[0];
+					  		}else{
+					  			var toc = months[tocspl[1]]  + days[tocspl[2]] + ", " + tocspl[0];
+					  			var fromc = months[fromcspl[1]] + days[fromcspl[2]] + ", " + fromcspl[0] + " to ";
+					  		}
+					  	}
 
-					  	embed2.setFooter(fromc + " to " + toc)
+					  	
+
+					  	embed2.setFooter(fromc + toc)
 					  	embed2.setThumbnail(csn.image.toString())
 
 					  	msg.channel.send(embed2)
