@@ -153,7 +153,6 @@ module.exports = class animeCommand extends Command {
             			inputAn(anarr)
             		}else{
             			var embed2 = new RichEmbed()
-	            		
 	                	var csn = anarr[parseInt(collected.first().content,10)-1]
 	                	console.log(csn)
 	                	embed2.addField("Title", csn.title,true)
