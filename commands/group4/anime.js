@@ -147,9 +147,9 @@ module.exports = class animeCommand extends Command {
             .then(collected => {
 
             		if(collected.first().content == 'cancel'){
-            			mgs.channel.send('Command canceled.')
+            			msg.channel.send('Command canceled.')
             		}else if(parseInt(collected.first().content,10)-1 == 'NaN' || parseInt(collected.first().content,10)-1 < 0){
-            			mgs.channel.send('This is not a valid number, please try again.')
+            			msg.channel.send('This is not a valid number, please try again.')
             		}else{
             			var embed2 = new RichEmbed()
 	            		//console.log(parseInt(collected.first().content,10)-1)
