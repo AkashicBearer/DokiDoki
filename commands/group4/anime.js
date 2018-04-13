@@ -125,6 +125,8 @@ mal.anime.search(anm)
 
   				}
   			}*/
+  			for (var j = 0; j < titarr.length; i++) {
+  			}
   			
   		}
   		embed.setDescription(titles)
