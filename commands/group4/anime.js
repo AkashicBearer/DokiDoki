@@ -112,8 +112,8 @@ mal.anime.search(anm)
   				titarr.push(result.anime[i].id)
   				firstrun = false;
   			}
-  			msg.channel.send(titarr.length)
-  			for (var j = 0; j < titlenbuff; i++) {
+  			msg.channel.send(result.anime[].id)
+  			/*for (var j = 0; j < titlenbuff; i++) {
   				if(idbuff == titarr[j]){
   					msg.channel.send("id same")
   				}else{
@@ -121,7 +121,7 @@ mal.anime.search(anm)
   					titles = titles + "**["+ (i+1) + "]** " + result.anime[i].title + "\n";
   					titarr.push(result.anime[i].id)
   				}
-  			}
+  			}*/
   			
   		}
   		embed.setDescription(titles)
