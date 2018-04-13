@@ -128,16 +128,18 @@ mal.anime.search(anm)
   			titarr.forEach(function(elem){
   				if(result.anime[i]){
   					console.log(result.anime.length + " / "+i+ " - " +result.anime[i].id + "/" + elem)
-  				if(result.anime[i].id == elem){
-  					console.log("id same")
-  				}else{
-  					titles = titles + "**["+ (i+1) + "]** " + result.anime[i].title + "\n";
-  					titarr.push(result.anime[i].id)
-  					console.log("id not same ")
+	  				if(result.anime[i].id == elem){
+	  					console.log("id same")
+	  				}else{
+	  					titles = titles + "**["+ (i+1) + "]** " + result.anime[i].title + "\n";
+	  					titarr.push(result.anime[i].id)
+	  					console.log("id not same ")
+	  				}
   				}
-  			})
   			
+  			}
   		}
+  	}
   		embed.setDescription(titles)
   	}else {
   		var res = result.anime[0];
