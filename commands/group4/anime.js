@@ -100,10 +100,10 @@ mal.anime.search(anm)
   	var embed = new RichEmbed()
   	if(result.anime.length > 1){
   		var titles = "```";
-  		var titarr = {};
+  		var titarr = [];
   		titles = titles + "Multiple Anime found";
   		for (var i = 0; i < result.anime.length; i++) {
-  			titarr.push(result.anime[i].id)
+  			titarr.add(result.anime[i].id)
   			titles = titles + "**["+ (i+1) + "]** " + result.anime[i].title + "\n";
   		}
   		titles = titles + "```"
