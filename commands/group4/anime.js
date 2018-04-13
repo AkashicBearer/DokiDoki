@@ -115,7 +115,7 @@ module.exports = class animeCommand extends Command {
 		  		var res = result.anime[0];
 		  		embed.addField("Title", res.title,true)
 			  	embed.addField("English Title", res.english, true)
-			  	embed.addField("Description", res.synopsis.toString().replace(/<.*>/g,' ').replace(/&#039;/g,"'"))
+			  	embed.addField("Description", res.synopsis.toString().replace(/<.*>/g,' ').replace(/&#039;/g,"'").replace(/\[.*\]/g,' '))
 
 			  	embed.addField("Episodes", res.episodes, true)
 			  	embed.addField("Status", res.status, true)
@@ -164,6 +164,10 @@ module.exports = class animeCommand extends Command {
 				                    syn=syn+", ";
 				                }
 				            }
+				        }
+
+				        if(syn == '``'){
+				        	syn = "None";
 				        }
 
 					  	embed2.addField("Synonyms", syn + " ")
