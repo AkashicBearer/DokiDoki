@@ -143,6 +143,7 @@ mal.anime.search(anm)
   				titles = titles + "**["+ (i+1) + "]** " + result.anime[i].title + "\n";
 	  			titarr.push(result.anime[i].id)
 	  			console.log("id not same ")
+	  			double = false;
   			}
   		}
   		embed.setDescription(titles)
