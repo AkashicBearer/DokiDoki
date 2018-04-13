@@ -106,7 +106,7 @@ module.exports = class animeCommand extends Command {
 		  			titles = titles + "**["+ (i+1) + "]** " + result.anime[i].title + "\n";
 		  		}
 
-		  		titles = titles+"\n **Please enter the number of the Anime you want to view** \n**Or** type `cancel` **to cancel the command**"
+		  		titles = titles+"\n**Please enter the number of the Anime you want to view** \n**Or type** `cancel` **to cancel the command**"
 		  		embed.setDescription(titles)
 
 				inputAn(result.anime)
