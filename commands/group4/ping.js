@@ -12,7 +12,7 @@ module.exports = class PingCommand extends Command {
             examples: ['<ping']
         });
     }
-    async run(msg, args) {
+    async run(msg, args, client) {
      const embed = new RichEmbed()
         embed.setAuthor('DokiDoki' + client.user.displayAvatarURL)
         embed.setTitle('Client Ping')
