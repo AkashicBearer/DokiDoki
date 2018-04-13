@@ -108,7 +108,7 @@ module.exports = class animeCommand extends Command {
 		  		}
 		  		embed.setDescription(titles)
 		  		var csn = inputAn(result.anime);
-		  		
+
 		  	}else {
 		  		var res = result.anime[0];
 		  		embed.addField("Title", res.title,true)
@@ -143,7 +143,7 @@ module.exports = class animeCommand extends Command {
 		  function inputAn(anarr){
 		  	msg.channel.awaitMessages(m => m.author.id == msg.author.id, { max: 1, time: 60000, errors: ['time'] })
             .then(collected => {
-                for (var i = 0; i anarr.length; i++) {
+                for (var i = 0; i < anarr.length; i++) {
                 	return anarr[collected.parseInt()-1]
                 }
              })
