@@ -107,7 +107,7 @@ module.exports = class animeCommand extends Command {
 		  			titles = titles + "**["+ (i+1) + "]** " + result.anime[i].title + "\n";
 		  		}
 		  		embed.setDescription(titles)
-		  		var csn = inputAn(result.anime);
+		  		var csn = result.anime[inputAn()];
 
 		  	}else {
 		  		var res = result.anime[0];
@@ -140,11 +140,11 @@ module.exports = class animeCommand extends Command {
 		  ) // contains the json result on success
 		  .catch(err => console.log(err));
 	   
-		  function inputAn(anarr){
-		  	msg.channel.awaitMessages(m => m.author.id == msg.author.id, { max: 1, time: 60000, errors: ['time'] })
+		  function inputAn(){
+		  	msg.channel.awaitMessages(m => m.author.id == msg.author.id, { max: 1, time: 30000, errors: ['time'] })
             .then(collected => {
                 for (var i = 0; i < anarr.length; i++) {
-                	return anarr[collected-1]
+                	return parseInt(collected,10)
                 }
              })
 		  }
