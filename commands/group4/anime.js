@@ -105,7 +105,7 @@ mal.anime.search(anm)
   		var idbuff = "";
   		var titlenbuff = 0;
   		embed.setTitle("Multiple Anime found");
-  		for (var i = 0; i < result.anime.length; i++) {
+  		for (var i = 0; i < result.anime.length-1; i++) {
   			if(firstrun){
   				titles = titles + "**["+ (i+1) + "]** " + result.anime[i].title + "\n";
   				titarr.push(result.anime[i].id)
