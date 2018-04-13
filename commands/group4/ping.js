@@ -14,7 +14,6 @@ module.exports = class PingCommand extends Command {
     }
     async run(msg, args) {
      const embed = new RichEmbed()
-        embed.setThumbnail(this.client.user.displayAvatarURL)
         embed.setAuthor(this.client.user.username)
         embed.setTitle('Client Ping')
         embed.setDescription(`The Ping is ${this.client.ping} ms`)
