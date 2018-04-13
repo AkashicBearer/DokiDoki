@@ -112,7 +112,7 @@ mal.anime.search(anm)
   				titarr.push(result.anime[i].id)
   				firstrun = false;
   			}
-  			for (var j = 0; j < titarr.length; i++) {
+  			/*for (var j = 0; j < titarr.length; i++) {
   				if(result.anime[i]){
   					console.log(result.anime.length + " / "+i+ " - " +result.anime[i].id + "/" + titarr[j])
   				if(result.anime[i].id == titarr[j]){
@@ -123,8 +123,7 @@ mal.anime.search(anm)
   					console.log("id not same " + titarr.length+ "/"+j)
   				}
 
-  				}
-  				/**/
+  				}*/
   			}
   			
   		}
