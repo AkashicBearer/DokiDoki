@@ -123,8 +123,8 @@ mal.anime.search(anm)
   					console.log("id not same " + titarr.length+ "/"+j)
   				}
 
-  				}*/
-  			}
+  				}
+  			}*/
   			
   		}
   		embed.setDescription(titles)
