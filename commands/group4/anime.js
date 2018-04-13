@@ -137,7 +137,7 @@ mal.anime.search(anm)
 	  				}
   				}
   			
-  			}
+  			})
   		}
   	}
   		embed.setDescription(titles)
