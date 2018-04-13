@@ -94,30 +94,41 @@ const mal = new MALjs('DokiDokiBot', 'DokiDoki');
 
     var anm = args.name+'';
 
-  	var embed = new RichEmbed()
 // search my animelist
 mal.anime.search(anm)
   .then(result => {
-  	var res = result.anime[0];
   	var embed = new RichEmbed()
-  	embed.addField("Title", res.title,true)
-  	embed.addField("English Title", res.english, true)
-  	embed.addField("Description", res.synopsis.toString().replace(/<.*>/g,' ').replace(/&#039;/g,"'"))
+  	if(result.anime.length > 1){
+  		embed.setTitle("Multiple Anime found")
+  		for (var i = 0; i < results.anime.length; i++) {
+  			embed.addField("["+(i+1)+"]",results.anime[i].title)
+  		}
+  	}else {
+  		var res = result.anime[0];
+  		embed.addField("Title", res.title,true)
+	  	embed.addField("English Title", res.english, true)
+	  	embed.addField("Description", res.synopsis.toString().replace(/<.*>/g,' ').replace(/&#039;/g,"'"))
 
-  	embed.addField("Episodes", res.episodes, true)
-  	embed.addField("Status", res.status, true)
-  	embed.addField("Type", res.type, true)
-  	embed.addField("Score", res.score+"/10", true)
-  	embed.addField("Link", "https://myanimelist.net/anime/"+res.id, true)
+	  	embed.addField("Episodes", res.episodes, true)
+	  	embed.addField("Status", res.status, true)
+	  	embed.addField("Type", res.type, true)
+	  	embed.addField("Score", res.score+"/10", true)
+	  	embed.addField("Link", "https://myanimelist.net/anime/"+res.id, true)
 
-  	var fromspl = res.start_date.toString().split('-');
-  	var from = months[fromspl[1]] + " " + days[fromspl[2]] + " " + fromspl[0];
-  	var tospl = res.end_date.toString().split('-');
-  	var to = months[tospl[1]] + " " + days[tospl[2]] + ", " + tospl[0];
+	  	var fromspl = res.start_date.toString().split('-');
+	  	var from = months[fromspl[1]] + " " + days[fromspl[2]] + " " + fromspl[0];
+	  	var tospl = res.end_date.toString().split('-');
+	  	var to = months[tospl[1]] + " " + days[tospl[2]] + ", " + tospl[0];
 
-  	embed.setFooter(from + " to " + to)
-  	embed.setThumbnail(res.image.toString())
+	  	embed.setFooter(from + " to " + to)
+	  	embed.setThumbnail(res.image.toString())
+  	}
+
+  	
+  	
+  	
    	msg.channel.send(embed)   
+
   }
 
   ) // contains the json result on success
