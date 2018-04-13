@@ -116,14 +116,16 @@ mal.anime.search(anm)
   			for (var j = 0; j < titarr.length; i++) {
   				if(result.anime[i]){
   					console.log(result.anime.length + " / "+i+ " - " +result.anime[i].id + "/" + titarr[j])
-  				}
-  				/*if(idbuff == titarr[j]){
-  					msg.channel.send("id same")
+  				if(result.anime[i].id == titarr[j]){
+  					console.log("id same")
   				}else{
-  					msg.channel.send("id not same")
+  					console.log("id not same")
   					titles = titles + "**["+ (i+1) + "]** " + result.anime[i].title + "\n";
   					titarr.push(result.anime[i].id)
-  				}*/
+  				}
+
+  				}
+  				/**/
   			}
   			
   		}
