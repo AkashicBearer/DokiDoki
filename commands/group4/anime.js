@@ -106,7 +106,7 @@ module.exports = class animeCommand extends Command {
 		  			titles = titles + "**["+ (i+1) + "]** " + result.anime[i].title + "\n";
 		  		}
 
-		  		titles = titles+"\n **Please enter the number of the Anime you want to view**"
+		  		titles = titles+"\n **Please enter the number of the Anime you want to view** \n**Or** type `cancel` **to cancel the command**"
 		  		embed.setDescription(titles)
 
 				inputAn(result.anime)
@@ -145,7 +145,7 @@ module.exports = class animeCommand extends Command {
 		  function inputAn(anarr){
 		  	msg.channel.awaitMessages(m => m.author.id == msg.author.id, { max: 1, time: 30000, errors: ['time'] })
             .then(collected => {
-
+            		console.log(collected.first().content)
             		if(collected.first().content == 'cancel'){
             			msg.channel.send('Command canceled.')
             		}else if(parseInt(collected.first().content,10)-1 == 'NaN' || parseInt(collected.first().content,10)-1 < 0){
