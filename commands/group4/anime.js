@@ -105,6 +105,8 @@ module.exports = class animeCommand extends Command {
 		  		for (var i = 0; i < result.anime.length; i++) {  			
 		  			titles = titles + "**["+ (i+1) + "]** " + result.anime[i].title + "\n";
 		  		}
+
+		  		titles = titles+"\n **Please enter the number of the Anime you want to view**"
 		  		embed.setDescription(titles)
 
 				inputAn(result.anime)
@@ -138,45 +140,56 @@ module.exports = class animeCommand extends Command {
 		  }
 
 		  ) // contains the json result on success
-		  .catch(err => console.log(err));
+		  .catch(err => msg.channel.send("Something went wrong, please try again."));
 	   
 		  function inputAn(anarr){
 		  	msg.channel.awaitMessages(m => m.author.id == msg.author.id, { max: 1, time: 30000, errors: ['time'] })
             .then(collected => {
-            		var embed2 = new RichEmbed()
-            		//console.log(parseInt(collected.first().content,10)-1)
-                	var csn = anarr[parseInt(collected.first().content,10)-1]
-                	console.log(csn)
-                	embed2.addField("Title", csn.title,true)
-                	var syn = "";
-                	if(csn.synonyms.length > 0){
-			            for(var i = 0; i < csn.synonyms.length; i++){
-			                syn = syn+"`"+csn.synonyms[i]+"`";
-			                if(i+1 < csn.synonyms.length){
-			                    syn=syn+", ";
-			                }
-			            }
-			        }
 
-				  	embed2.addField("Synonyms", syn + " ")
-				  	embed2.addField("Description", csn.synopsis.toString().replace(/<.*>/g,' ').replace(/&#039;/g,"'"))
+            		if(collected.first().content == 'cancel'){
+            			mgs.channel.send('Command canceled.')
+            		}else if(parseInt(collected.first().content,10)-1 == 'NaN' || parseInt(collected.first().content,10)-1 < 0){
+            			mgs.channel.send('This is not a valid number, please try again.')
+            		}else{
+            			var embed2 = new RichEmbed()
+	            		//console.log(parseInt(collected.first().content,10)-1)
+	                	var csn = anarr[parseInt(collected.first().content,10)-1]
+	                	embed2.addField("Title", csn.title,true)
+	                	var syn = "";
+	                	if(csn.synonyms.length > 0){
+				            for(var i = 0; i < csn.synonyms.length; i++){
+				                syn = syn+"`"+csn.synonyms[i]+"`";
+				                if(i+1 < csn.synonyms.length){
+				                    syn=syn+", ";
+				                }
+				            }
+				        }
 
-				  	embed2.addField("Episodes", csn.episodes, true)
-				  	embed2.addField("Status", csn.status, true)
-				  	embed2.addField("Type", csn.type, true)
-				  	embed2.addField("Score", csn.score+"/10", true)
-				  	embed2.addField("Link", "https://myanimelist.net/anime/"+csn.id, true)
+					  	embed2.addField("Synonyms", syn + " ")
+					  	embed2.addField("Description", csn.synopsis.toString().replace(/<.*>/g,' ').replace(/&#039;/g,"'"))
 
-				  	var fromcspl = csn.start_date.toString().split('-');
-				  	var fromc = months[fromcspl[1]] + " " + days[fromcspl[2]] + " " + fromcspl[0];
-				  	var tocspl = csn.end_date.toString().split('-');
-				  	var toc = months[tocspl[1]] + " " + days[tocspl[2]] + ", " + tocspl[0];
+					  	embed2.addField("Episodes", csn.episodes, true)
+					  	embed2.addField("Status", csn.status, true)
+					  	embed2.addField("Type", csn.type, true)
+					  	embed2.addField("Score", csn.score+"/10", true)
+					  	embed2.addField("Link", "https://myanimelist.net/anime/"+csn.id, true)
 
-				  	embed2.setFooter(fromc + " to " + toc)
-				  	embed2.setThumbnail(csn.image.toString())
+					  	var fromcspl = csn.start_date.toString().split('-');
+					  	var fromc = months[fromcspl[1]] + " " + days[fromcspl[2]] + " " + fromcspl[0];
+					  	var tocspl = csn.end_date.toString().split('-');
+					  	var toc = months[tocspl[1]] + " " + days[tocspl[2]] + ", " + tocspl[0];
 
-				  	msg.channel.send(embed2)
-             })
+					  	embed2.setFooter(fromc + " to " + toc)
+					  	embed2.setThumbnail(csn.image.toString())
+
+					  	msg.channel.send(embed2)
+            		}
+
+            		
+            })
+            .catch(function(){
+            	message.channel.send('The Time to reply ran out, please try again.');
+          	})
 		  }
 
 	}
