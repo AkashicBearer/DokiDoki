@@ -147,11 +147,8 @@ module.exports = class animeCommand extends Command {
                 	var csn = anarr[parseInt(collected.first().content,10)-1]
                 	console.log(csn)
                 	embed.addField("Title", csn.title,true)
-                	if(csn.english != ''){
-				  		embed.addField("English Title", csn.english, true)
-                	}else{
-				  		embed.addField("Synonyms", csn.synonyms, true)
-                	}
+				  		embed.addField("English Title", csn.english + " ", true)
+				  		embed.addField("Synonyms", csn.synonyms + " ")
 				  	embed.addField("Description", csn.synopsis.toString().replace(/<.*>/g,' ').replace(/&#039;/g,"'"))
 
 				  	embed.addField("Episodes", csn.episodes, true)
