@@ -99,10 +99,12 @@ mal.anime.search(anm)
   .then(result => {
   	var embed = new RichEmbed()
   	if(result.anime.length > 1){
+  		var titles = "":
   		embed.setTitle("Multiple Anime found")
-  		for (var i = 0; i < results.anime.length; i++) {
-  			embed.addField("["+(i+1)+"]",results.anime[i].title)
+  		for (var i = 0; i < result.anime.length; i++) {
+  			titles = "["+ (i+1) + "]" + result.anime[i].title + "\n";
   		}
+  		embed.setDescription(titles)
   	}else {
   		var res = result.anime[0];
   		embed.addField("Title", res.title,true)
