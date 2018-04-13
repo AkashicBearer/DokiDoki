@@ -119,9 +119,10 @@ mal.anime.search(anm)
   				if(result.anime[i].id == titarr[j]){
   					console.log("id same")
   				}else{
-  					console.log("id not same")
+  					
   					titles = titles + "**["+ (i+1) + "]** " + result.anime[i].title + "\n";
   					titarr.push(result.anime[i].id)
+  					console.log("id not same " + titarr.length)
   				}
 
   				}
