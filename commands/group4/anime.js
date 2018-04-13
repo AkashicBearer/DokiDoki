@@ -114,7 +114,9 @@ mal.anime.search(anm)
   			}
   			idbuff = result.anime[i].id;
   			for (var j = 0; j < titarr.length; i++) {
-  				console.log(result.anime.length + " / "+i+ " - " +result.anime[i].id + "/" + titarr[j])
+  				if(result.anime[i]){
+  					console.log(result.anime.length + " / "+i+ " - " +result.anime[i].id + "/" + titarr[j])
+  				}
   				/*if(idbuff == titarr[j]){
   					msg.channel.send("id same")
   				}else{
