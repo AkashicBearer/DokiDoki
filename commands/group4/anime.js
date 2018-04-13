@@ -112,16 +112,17 @@ mal.anime.search(anm)
   				titarr.push(result.anime[i].id)
   				firstrun = false;
   			}
-  			msg.channel.send(result.anime[i].id)
-  			/*for (var j = 0; j < titlenbuff; i++) {
-  				if(idbuff == titarr[j]){
+  			
+  			for (var j = 0; j < titarr.length; i++) {
+  				msg.channel.send(result.anime[i].id + "/" + titarr[j])
+  				/*if(idbuff == titarr[j]){
   					msg.channel.send("id same")
   				}else{
   					msg.channel.send("id not same")
   					titles = titles + "**["+ (i+1) + "]** " + result.anime[i].title + "\n";
   					titarr.push(result.anime[i].id)
-  				}
-  			}*/
+  				}*/
+  			}
   			
   		}
   		embed.setDescription(titles)
