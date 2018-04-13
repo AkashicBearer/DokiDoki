@@ -166,7 +166,7 @@ module.exports = class animeCommand extends Command {
 				  	var toc = months[tocspl[1]] + " " + days[tocspl[2]] + ", " + tocspl[0];
 
 				  	embed.setFooter(fromc + " to " + toc)
-				  	embed.setThumbnail(csn.image.toString())*/
+				  	embed.setThumbnail(csn.image.toString())
              })
 		  }
 
