@@ -107,7 +107,7 @@ module.exports = class animeCommand extends Command {
 		  			titles = titles + "**["+ (i+1) + "]** " + result.anime[i].title + "\n";
 		  		}
 		  		embed.setDescription(titles)
-		  		var csn = result.anime[inputAn()];
+		  		var csn = await result.anime[inputAn()];
 
 		  		embed.addField("Title", csn.title,true)
 			  	embed.addField("English Title", csn.english, true)
