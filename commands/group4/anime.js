@@ -114,7 +114,7 @@ mal.anime.search(anm)
   			}
   			
   			for (var j = 0; j < titarr.length; i++) {
-  				msg.channel.send(result.anime[i].id + "/" + titarr[j])
+  				console.log(idbuff + "/" + titarr[j])
   				/*if(idbuff == titarr[j]){
   					msg.channel.send("id same")
   				}else{
