@@ -109,6 +109,7 @@ mal.anime.search(anm)
   			if(firstrun){
   				titles = titles + "**["+ (i+1) + "]** " + result.anime[i].title + "\n";
   				titarr.push(result.anime[i].id)
+  				firstrun = false;
   			}
   			for (var j = 0; j < titarr.length; i++) {
   				if(idbuff == titarr[j]){
