@@ -143,9 +143,7 @@ module.exports = class animeCommand extends Command {
 		  function inputAn(){
 		  	msg.channel.awaitMessages(m => m.author.id == msg.author.id, { max: 1, time: 30000, errors: ['time'] })
             .then(collected => {
-                for (var i = 0; i < anarr.length; i++) {
                 	return parseInt(collected,10)
-                }
              })
 		  }
 
