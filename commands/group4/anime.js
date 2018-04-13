@@ -102,6 +102,7 @@ mal.anime.search(anm)
   		var titles = "";
   		var titarr = [];
   		var firstrun = true;
+  		var double = false;
   		var idbuff = "";
   		var titlenbuff = 0;
   		embed.setTitle("Multiple Anime found");
@@ -129,15 +130,20 @@ mal.anime.search(anm)
   				if(result.anime[i]){
   					console.log(result.anime.length + " / "+i+ " - " +result.anime[i].id + "/" + elem)
 	  				if(result.anime[i].id == elem){
-	  					console.log("id same")
+	  					double = true;
 	  				}else{
-	  					titles = titles + "**["+ (i+1) + "]** " + result.anime[i].title + "\n";
-	  					titarr.push(result.anime[i].id)
-	  					console.log("id not same ")
+	  					
 	  				}
   				}
   			
   			})
+  			if(double){
+
+  			}else{
+  				titles = titles + "**["+ (i+1) + "]** " + result.anime[i].title + "\n";
+	  			titarr.push(result.anime[i].id)
+	  			console.log("id not same ")
+  			}
   		}
   		embed.setDescription(titles)
   	}else {
