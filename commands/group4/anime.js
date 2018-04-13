@@ -103,6 +103,7 @@ mal.anime.search(anm)
   		var titarr = [];
   		var firstrun = true;
   		var idbuff = "";
+  		var titlenbuff = 0;
   		embed.setTitle("Multiple Anime found");
   		for (var i = 0; i < result.anime.length; i++) {
   			idbuff = result.anime[i].id;
@@ -111,7 +112,8 @@ mal.anime.search(anm)
   				titarr.push(result.anime[i].id)
   				firstrun = false;
   			}
-  			for (var j = 0; j < titarr.length; i++) {
+  			titlenbuff = titarr.length;
+  			for (var j = 0; j < titlenbuff; i++) {
   				if(idbuff == titarr[j]){
   					//skip
   				}else{
