@@ -109,7 +109,7 @@ module.exports = class animeCommand extends Command {
 		  		embed.setDescription(titles)
 
 		  		async() => {
-
+		  			console.log("command is not ded")
 		  			var csn = await result.anime[inputAn()];
 
 			  		embed.addField("Title", csn.title,true)
