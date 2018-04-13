@@ -112,7 +112,7 @@ mal.anime.search(anm)
   				titarr.push(result.anime[i].id)
   				firstrun = false;
   			}
-  			msg.channel.send(result.anime[].id)
+  			msg.channel.send(result.anime[i].id)
   			/*for (var j = 0; j < titlenbuff; i++) {
   				if(idbuff == titarr[j]){
   					msg.channel.send("id same")
