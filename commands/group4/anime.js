@@ -145,7 +145,8 @@ module.exports = class animeCommand extends Command {
             .then(collected => {
             		//console.log(parseInt(collected.first().content,10)-1)
                 	var csn = anarr[parseInt(collected.first().content,10)-1]
-                	embed.addField("Title", csn.title,true)
+                	console.log(csn)
+                	/*embed.addField("Title", csn.title,true)
 				  	embed.addField("English Title", csn.english, true)
 				  	embed.addField("Description", csn.synopsis.toString().replace(/<.*>/g,' ').replace(/&#039;/g,"'"))
 
@@ -161,7 +162,7 @@ module.exports = class animeCommand extends Command {
 				  	var toc = months[tocspl[1]] + " " + days[tocspl[2]] + ", " + tocspl[0];
 
 				  	embed.setFooter(fromc + " to " + toc)
-				  	embed.setThumbnail(csn.image.toString())
+				  	embed.setThumbnail(csn.image.toString())*/
              })
 		  }
 
