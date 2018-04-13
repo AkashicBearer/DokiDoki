@@ -1,5 +1,6 @@
 const { Command } = require('discord.js-commando');
 const { RichEmbed } = require('discord.js');
+const client = require('./index.js')
 
 module.exports = class PingCommand extends Command {
     constructor(client) {
