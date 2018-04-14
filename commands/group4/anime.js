@@ -183,8 +183,14 @@ module.exports = class animeCommand extends Command {
 				        	syn = "None";
 				        }
 
+				        var desc = csn.synopsis.toString().replace(/<.*>/g,' ').replace(/&#039;/g,"'").replace(/\[.*\]/g,' ');
+				        if(des.length > 1024){
+				        	desc = desc.substring(0,1023).substring(0,desc.lastIndexOf('.'))
+				        }
+
+
 					  	embed2.addField("Synonyms", syn + " ")
-					  	embed2.addField("Description", csn.synopsis.toString().replace(/<.*>/g,' ').replace(/&#039;/g,"'"))
+					  	embed2.addField("Description", desc)
 
 					  	embed2.addField("Episodes", csn.episodes, true)
 					  	embed2.addField("Status", csn.status, true)
