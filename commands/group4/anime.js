@@ -184,7 +184,7 @@ module.exports = class animeCommand extends Command {
 				        }
 
 				        var desc = csn.synopsis.toString().replace(/<.*>/g,' ').replace(/&#039;/g,"'").replace(/\[.*\]/g,' ');
-				        if(des.length > 1024){
+				        if(desc.length > 1024){
 				        	desc = desc.substring(0,1023).substring(0,desc.lastIndexOf('.'))
 				        }
 
