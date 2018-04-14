@@ -168,7 +168,7 @@ module.exports = class animeCommand extends Command {
             			var embed2 = new RichEmbed()
 	                	var csn = anarr[parseInt(collected.first().content,10)-1]
 	                	//console.log(csn)
-	                	embed2.addField("Title", csn.title,true)
+	                	
 	                	var syn = "";
 	                	if(csn.synonyms.length > 0){
 				            for(var i = 0; i < csn.synonyms.length; i++){
@@ -181,17 +181,35 @@ module.exports = class animeCommand extends Command {
 
 				        if(syn == '``'){
 				        	syn = "None";
+				        }else{
+				        	syn = syn.replace(/`/g,'');
+				        }
+
+				        var eng = "";
+				        if(csn.english.length > 0){
+				            for(var i = 0; i < csn.english.length; i++){
+				                eng = eng+"`"+csn.english[i]+"`";
+				                if(i+1 < csn.english.length){
+				                    eng=eng+", ";
+				                }
+				            }
+				        }
+
+				        if(eng == '``'){
+				        	eng = "None";
+				        }else{
+				        	eng = eng.replace(/`/g,'');
 				        }
 
 				        var desc = csn.synopsis.toString().replace(/<.*>/g,' ').replace(/&#039;/g,"'").replace(/\[.*\]/g,' ');
-				        if(desc.length > 1024){
+				        /*if(desc.length > 1024){
 				        	desc = desc.substring(0,1023).substring(0,desc.lastIndexOf('.'))
-				        }
+				        }*/
 
+				        embed2.addField("Title", csn.title,true)
+					  	embed2.setDescription("**Description**\n"+desc)
 
 					  	embed2.addField("Synonyms", syn + " ")
-					  	embed2.addField("Description", desc)
-
 					  	embed2.addField("Episodes", csn.episodes, true)
 					  	embed2.addField("Status", csn.status, true)
 					  	embed2.addField("Type", csn.type, true)
