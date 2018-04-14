@@ -218,7 +218,7 @@ module.exports = class animeCommand extends Command {
             		
             })
             .catch(function(){
-            	message.channel.send('The Time to reply ran out, please try again.');
+            	msg.channel.send('The Time to reply ran out, please try again.');
           	})
 		  }
 
