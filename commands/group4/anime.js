@@ -206,10 +206,12 @@ module.exports = class animeCommand extends Command {
 				        	desc = desc.substring(0,1023).substring(0,desc.lastIndexOf('.'))
 				        }*/
 
-				        embed2.addField("Title", csn.title,true)
+				        embed2.setTitle(csn.title,true)
 					  	embed2.setDescription("**Description**\n"+desc)
 
-					  	embed2.addField("Synonyms", syn + " ")
+					  	
+					  	embed2.addField("English Title", eng + " ",true)
+					  	embed2.addField("Synonyms", syn + " ",true)
 					  	embed2.addField("Episodes", csn.episodes, true)
 					  	embed2.addField("Status", csn.status, true)
 					  	embed2.addField("Type", csn.type, true)
