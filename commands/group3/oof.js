@@ -21,7 +21,7 @@ module.exports = class OofCommand extends Command {
     "8": "https://thumbs.gfycat.com/IdioticEasyInvisiblerail-max-1mb.gif",
     "9": "https://pa1.narvii.com/6209/5ebdaf4c05225af76761caeece8f6edc18ab8c0f_hq.gif",
     "10": "https://data.whicdn.com/images/238358125/original.gif",
-    "11: "https://i.pinimg.com/originals/13/ce/32/13ce32253c5aaa28fd66105ac436ac7f.gif",
+    "11": "https://i.pinimg.com/originals/13/ce/32/13ce32253c5aaa28fd66105ac436ac7f.gif",
     "12": "https://media.giphy.com/media/hiFDKrrP0PaeI/giphy.gif",
     "13": "https://78.media.tumblr.com/3e30fea7762b30c2346a7b51f6b369e3/tumblr_nja620hlMn1qhfir7o1_500.gif",
     "14": "http://i.imgur.com/rctz13o.gif",
