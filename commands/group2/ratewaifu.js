@@ -23,6 +23,6 @@ module.exports = class shipCommand extends Command {
     }
 // SoonTM 
 async run(msg, args) {
-msg.channel.send('SoonTM')
+msg.channel.send('Soon \:tm:')
 }
 };
