@@ -8,7 +8,7 @@ module.exports = class shipCommand extends Command {
             aliases: ['rw'],
             group: 'group2',
             memberName: 'ratewaifu',
-            description: "",
+            description: "Rates your waifu",
             examples: ['<ratewaifu @user'],
 			args: [
 				{
