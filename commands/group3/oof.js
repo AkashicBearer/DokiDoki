@@ -41,7 +41,7 @@ module.exports = class OofCommand extends Command {
           embed.setDescription('Oof')        
           embed.setImage(oof[Math.floor(random * Object.keys(oof).length).toString()])
           embed.setColor(0x23ff12)
-       return msg.embed(embed);
+       return msg.channel.send(embed);
           }
        });
     };
