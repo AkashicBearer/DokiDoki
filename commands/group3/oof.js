@@ -41,6 +41,5 @@ module.exports = class OofCommand extends Command {
           embed.setImage(oof[Math.floor(randm * Object.keys(oof).length).toString()])
           embed.setColor(0x23ff12)
        return msg.embed(embed);
-          }
-}
-);
+          })
+};
