@@ -44,3 +44,5 @@ module.exports = class OofCommand extends Command {
           }
        });
     };
+
+  }
