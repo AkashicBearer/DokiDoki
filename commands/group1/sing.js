@@ -13,7 +13,7 @@ module.exports = class SingCommand extends Command {
     }
     
 async run(msg, args) {
-        var imgSing = {
+        var imgsing = {
             "0": "https://media.giphy.com/media/fgwnNNRRdvmMg/giphy.gif",
             "1":"https://i.pinimg.com/originals/c6/13/44/c6134464259fe9065643b6ad6369b19d.gif",
             "2": "https://media1.tenor.com/images/2b5da971e6b467d1d5fec51d1d4f3f03/tenor.gif?itemid=5434329",
