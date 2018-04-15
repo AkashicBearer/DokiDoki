@@ -35,11 +35,11 @@ module.exports = class OofCommand extends Command {
     }
        this.client.on('message', msg => {
           if (msg.content === 'oof') {
-          const randm = Math.random();
+          var random = Math.random();
           const embed = new RichEmbed();
           embed.setDescription('Oof')        
           embed.setImage(oof[Math.floor(randm * Object.keys(oof).length).toString()])
           embed.setColor(0x23ff12)
        return msg.embed(embed);
-          }
-};
+          })
+       };
