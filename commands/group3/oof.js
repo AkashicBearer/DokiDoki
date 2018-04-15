@@ -35,7 +35,7 @@ module.exports = class OofCommand extends Command {
     "21": "https://media3.giphy.com/media/zHGXhFJCVCbD2/giphy-downsized.gif"
     }
        this.client.on('message', msg => {
-          if (msg.content === 'oof') {
+          if (msg.content.toLowerCase() === 'oof') {
           var random = Math.random();
           const embed = new RichEmbed();
           embed.setDescription('Oof')        
