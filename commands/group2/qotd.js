@@ -8,13 +8,13 @@ module.exports = class qotdCommand extends Command {
             aliases: [],
             group: 'group2',
             memberName: 'qotd',
-            description: 'What message do you want to qotd?',
-          
+            description: 'Sends a quote in a fancy manner. \nUse `-a` to define the Author.\nUse `-f` to define where the Quote is from.',
+            examples: ['<qotd This is my Quote -a Me -f Discord'],
 			args: [
 				{
 					key: 'quote',
 					label: 'quote',
-					prompt: 'What message do you want to qotd? (ID)',
+					prompt: 'What is your quote?',
 					type: 'string'
 				}
 			]
