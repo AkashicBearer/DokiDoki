@@ -44,7 +44,7 @@ module.exports = class googleCommand extends Command {
 		  embed.setTitle("Your search results")
 
 		  for(var i = 0; i < response.items.length; i++){
-		  	embed.addField(response.items[i].title, "[Link]("+response.items[i].link+")", true)
+		  	embed.addField(response.items[i].title.substring(0, response.items[i].title.indexOf(' ',30)), "[Link]("+response.items[i].link+")", true)
 		  }
 
 		  embed.setThumbnail("https://cognitiveseo.com/blog/wp-content/uploads/2017/10/1000px-Google_-G-_Logo.svg_.png")
