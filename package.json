@@ -33,6 +33,7 @@
     "dotenv": "^5.0.1",
     "fs": "0.0.1-security",
     "git-all": "0.0.3",
+    "google-search": "0.0.5",
     "http": "0.0.0",
     "https": "^1.0.0",
     "maljs": "^0.3.0",
