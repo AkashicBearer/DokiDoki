@@ -36,6 +36,7 @@ module.exports = class qotdCommand extends Command {
         embed.setThumbnail("https://img00.deviantart.net/a56c/i/2013/170/3/e/cute_speech_bubble_render_by_klleiachan-d69rv96.png")      
         embed.setTitle("Quote of the day")
         msg.channel.send(embed);
+        msg.delete()
     }
 }
 
