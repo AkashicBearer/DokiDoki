@@ -41,7 +41,7 @@ module.exports = class googleCommand extends Command {
 		 
 		 
 		googleSearch.build({
-		  q: args.query,
+		  q: que,
 		  num: 5, // Number of search results to return between 1 and 10, inclusive 
 		  siteSearch: sit // Restricts results to URLs from a specified site 
 		}, function(error, response) {
