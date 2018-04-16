@@ -29,7 +29,7 @@ module.exports = class googleCommand extends Command {
 		var sit = "";
 		var que = args.query;
 
-		if(que.indexOf('-s wiki')){
+		if(que.indexOf('-s wiki') > 0){
 			sit = "https://www.wikipedia.org/"
 			que = que.substring(0, que.indexOf('-s wiki'))
 		}
