@@ -34,6 +34,8 @@ module.exports = class googleCommand extends Command {
 			que = que.substring(0, que.indexOf('-s wiki'))
 		}
 
+		console.log(sit + " / " + que)
+
 		var googleSearch = new GoogleSearch({
 		  key: 'AIzaSyDbMFIXtCiEDoY26mUBVgN35FlLV9MckKg ',
 		  cx: '016729059967415605183:avz5ft7tbxk'
