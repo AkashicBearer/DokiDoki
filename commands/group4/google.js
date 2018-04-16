@@ -54,7 +54,7 @@ module.exports = class googleCommand extends Command {
 		    	title = title.substring(0, title.indexOf(' ',30));
 		    }
 			console.log(title)
-		  	//embed.addField(title, "[Link]("+response.items[i].link+")", true)
+		  	embed.addField(title, "[Link]("+response.items[i].link+")", true)
 		  }
 
 		  embed.setThumbnail("https://cognitiveseo.com/blog/wp-content/uploads/2017/10/1000px-Google_-G-_Logo.svg_.png")
