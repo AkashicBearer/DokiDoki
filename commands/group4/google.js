@@ -27,9 +27,11 @@ module.exports = class googleCommand extends Command {
 	async run(msg, args) {
 
 		var sit = "";
+		var que = args.query;
 
-		if(args.query.indexOf('-s wiki')){
+		if(que.indexOf('-s wiki')){
 			sit = "https://www.wikipedia.org/"
+			que = que.substring(0, que.indexOf('-s wiki'))
 		}
 
 		var googleSearch = new GoogleSearch({
