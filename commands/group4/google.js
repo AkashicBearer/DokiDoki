@@ -25,6 +25,13 @@ module.exports = class googleCommand extends Command {
 	}
 
 	async run(msg, args) {
+
+		var sit = "";
+
+		if(args.query.indexOf('-s wiki')){
+			sit = "https://www.wikipedia.org/"
+		}
+
 		var googleSearch = new GoogleSearch({
 		  key: 'AIzaSyDbMFIXtCiEDoY26mUBVgN35FlLV9MckKg ',
 		  cx: '016729059967415605183:avz5ft7tbxk'
@@ -34,9 +41,8 @@ module.exports = class googleCommand extends Command {
 		googleSearch.build({
 		  q: args.query,
 		  num: 5, // Number of search results to return between 1 and 10, inclusive 
-		  siteSearch: "" // Restricts results to URLs from a specified site 
+		  siteSearch: sit // Restricts results to URLs from a specified site 
 		}, function(error, response) {
-		  console.log(response);
 		  var embed = new RichEmbed()
 		  embed.setTitle("Your search results")
 
@@ -44,7 +50,7 @@ module.exports = class googleCommand extends Command {
 		  	embed.addField(response.items[i].title, "[Link]("+response.items[i].link+")", true)
 		  }
 
-		  embed.setThumbnail("https://img00.deviantart.net/a230/i/2017/138/0/5/google_chan_by_mnamo415-db9othm.jpg")
+		  embed.setThumbnail("https://cognitiveseo.com/blog/wp-content/uploads/2017/10/1000px-Google_-G-_Logo.svg_.png")
 
 		  msg.channel.send(embed)
 
