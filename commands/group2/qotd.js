@@ -8,8 +8,8 @@ module.exports = class qotdCommand extends Command {
             aliases: [],
             group: 'group2',
             memberName: 'qotd',
-            description: 'Sends a quote in a fancy manner. \nUse `-a` to define the Author.\nUse `-f` to define where the Quote is from.',
-            examples: ['<qotd This is my Quote -a Me -f Discord'],
+            description: "Sends a quote in a fancy manner. \nUse `-a` to define the Author and where it's from.",
+            examples: ['<qotd This is my Quote -a Discord'],
 			args: [
 				{
 					key: 'quote',
@@ -26,11 +26,11 @@ module.exports = class qotdCommand extends Command {
 
         const embed = new RichEmbed()
 
-        if(infos.indexOf('-a')){
-            if(infos.indexOf('-',infos.indexOf('-a')+3) > 0){
-                embed.setAuthor(infos.substring(infos.indexOf('-a')+3, infos.indexOf('-',infos.indexOf('-a')+2)))  
+        if(infos.indexOf('-a ')){
+            if(infos.indexOf('-',infos.indexOf('-a ')+3) > 0){
+                embed.setFooter(infos.substring(infos.indexOf('-a ')+3, infos.indexOf('-',infos.indexOf('-a')+2)))  
             }else{
-                embed.setAuthor(infos.substring(infos.indexOf('-a')+3, infos.length))  
+                embed.setFooter(infos.substring(infos.indexOf('-a ')+3, infos.length))  
             }
         }
 
@@ -39,14 +39,7 @@ module.exports = class qotdCommand extends Command {
         }else{
             embed.setDescription(infos.substring(0,infos.indexOf('-')))
         }
-              
-        if(infos.indexOf('-f')){
-            if(infos.indexOf('-',infos.indexOf('-f')+3) > 0){
-                embed.setFooter(infos.substring(infos.indexOf('-f')+3, infos.indexOf('-',infos.indexOf('-f')+2)))  
-            }else{
-                embed.setFooter(infos.substring(infos.indexOf('-f')+3, infos.length))  
-            }
-        }
+
         embed.setThumbnail("https://img00.deviantart.net/a56c/i/2013/170/3/e/cute_speech_bubble_render_by_klleiachan-d69rv96.png")      
         embed.setTitle("Quote of the day")
         msg.channel.send(embed);
