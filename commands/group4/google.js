@@ -50,7 +50,7 @@ module.exports = class googleCommand extends Command {
 		  for(var i = 0; i < response.items.length; i++){
 		  	var title = response.items[i].title;
 
-		    if(title.length > 30){
+		    if(title.length > 30 && title.indexOf(' ',30) > 0){
 		    	title = title.substring(0, title.indexOf(' ',30));
 		    }
 			console.log(title)
