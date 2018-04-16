@@ -43,15 +43,17 @@ module.exports = class googleCommand extends Command {
 		  var embed = new RichEmbed()
 		  embed.setTitle("Your search results")
 
-		  var title = response.items[i].title;
+		  
 
-		  if(title.length > 30){
-		  	title = title.substring(0, title.indexOf(' ',30));
-		  }
-
-		  console.log(title)
+		  
 
 		  for(var i = 0; i < response.items.length; i++){
+		  	var title = response.items[i].title;
+
+		    if(title.length > 30){
+		    	title = title.substring(0, title.indexOf(' ',30));
+		    }
+			console.log(title)
 		  	embed.addField(title, "[Link]("+response.items[i].link+")", true)
 		  }
 
