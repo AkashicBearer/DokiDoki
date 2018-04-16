@@ -41,8 +41,10 @@ module.exports = class googleCommand extends Command {
 		  embed.setTitle("Your search results")
 
 		  for(var i = 0; i < response.items.length; i++){
-		  	embed.addField(response.items[i].title, "[Link]("+response.items[i].link+")")
+		  	embed.addField(response.items[i].title, "[Link]("+response.items[i].link+")", true)
 		  }
+
+		  embed.setThumbnail("https://img00.deviantart.net/a230/i/2017/138/0/5/google_chan_by_mnamo415-db9othm.jpg")
 
 		  msg.channel.send(embed)
 
