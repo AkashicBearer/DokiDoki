@@ -53,7 +53,7 @@ module.exports = class googleCommand extends Command {
 		    if(title.length > 30 && title.indexOf(' ',30) > 0){
 		    	title = title.substring(0, title.indexOf(' ',30));
 		    }
-			console.log(title)
+
 		  	embed.addField(title, "[Link]("+response.items[i].link+")", true)
 		  }
 
