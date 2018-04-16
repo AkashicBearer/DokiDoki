@@ -34,7 +34,7 @@ module.exports = class OofCommand extends Command {
     "20": "https://i.pinimg.com/originals/fc/d5/46/fcd54616febce4dd570dbab8c893af3e.gif",
     "21": "https://media3.giphy.com/media/zHGXhFJCVCbD2/giphy-downsized.gif"
     }
-       this.client.on('message', msg => {
+ /*      this.client.on('message', msg => {
           if (msg.content.toLowerCase() === 'oof') {
           var random = Math.random();
           const embed = new RichEmbed();
@@ -43,7 +43,7 @@ module.exports = class OofCommand extends Command {
           embed.setColor(0x23ff12)
        return msg.channel.send(embed);
           }
-       });
+       });*/
     };
 
   }
