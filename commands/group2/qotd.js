@@ -27,17 +27,17 @@ module.exports = class qotdCommand extends Command {
         const embed = new RichEmbed()
 
         if(infos.indexOf('-a ')){
-            if(infos.indexOf('-',infos.indexOf('-a ')+3) > 0){
-                embed.setFooter(infos.substring(infos.indexOf('-a ')+3, infos.indexOf('-',infos.indexOf('-a')+2)))  
+            if(infos.indexOf('/-.\s/',infos.indexOf('-a ')+3) > 0){
+                embed.setFooter(infos.substring(infos.indexOf('-a ')+3, infos.indexOf('/-.\s/',infos.indexOf('-a')+2)))  
             }else{
                 embed.setFooter(infos.substring(infos.indexOf('-a ')+3, infos.length))  
             }
         }
 
-        if(infos.indexOf('-') < 0){
+        if(infos.indexOf('/-.\s/') < 0){
             embed.setDescription(infos)
         }else{
-            embed.setDescription(infos.substring(0,infos.indexOf('-')))
+            embed.setDescription(infos.substring(0,infos.indexOf('/-.\s/')))
         }
 
         embed.setThumbnail("https://img00.deviantart.net/a56c/i/2013/170/3/e/cute_speech_bubble_render_by_klleiachan-d69rv96.png")      
