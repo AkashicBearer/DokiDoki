@@ -21,28 +21,34 @@ module.exports = class qotdCommand extends Command {
         });
     }
 	async run(msg, args) {
+        if(msg.member.hasPermission('ADMINISTRATOR', 'MANAGE_MESSAGES')){
+            var infos = args.quote;
 
-        var infos = args.quote;
+            const embed = new RichEmbed()
 
-        const embed = new RichEmbed()
+            if(infos.indexOf('-a ')){
+                    embed.setFooter(infos.substring(infos.indexOf('-a ')+3, infos.length)) 
+                    embed.setDescription(infos.substring(0,infos.indexOf('-a '))) 
+            }else{
+                embed.setDescription(infos)            
+            }
 
-        if(infos.indexOf('-a ')){
-                embed.setFooter(infos.substring(infos.indexOf('-a ')+3, infos.length)) 
-                embed.setDescription(infos.substring(0,infos.indexOf('-a '))) 
+            embed.setThumbnail("https://img00.deviantart.net/a56c/i/2013/170/3/e/cute_speech_bubble_render_by_klleiachan-d69rv96.png")      
+            embed.setTitle("Quote of the day")
+
+            const chann = msg.guild.channels.find('name','qotd');
+            if(chann){
+                chann.sendMessage(embed)
+            }else{
+                msg.channel.send(embed)
+            }
+            msg.delete()
         }else{
-            embed.setDescription(infos)            
+            const embed = new RichEmbed()
+            embed.setDescription("You need to be Admin to use this")
+            embed.setColor(0x23ff12)
+            msg.channel.send(embed);
         }
-
-        embed.setThumbnail("https://img00.deviantart.net/a56c/i/2013/170/3/e/cute_speech_bubble_render_by_klleiachan-d69rv96.png")      
-        embed.setTitle("Quote of the day")
-
-        const chann = msg.guild.channels.find('name','qotd');
-        if(chann){
-            chann.sendMessage(embed)
-        }else{
-            msg.channel.send(embed)
-        }
-        msg.delete()
     }
 }
 
