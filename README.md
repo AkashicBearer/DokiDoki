@@ -511,7 +511,7 @@
   <tr>
     <td>purge {number of messages}</td>
     <td>Deletes a Selected Number of Messages</td>
-    <td>clear</td>
     <td>clear, clean</td>
+    <td>Group5</td>
   </tr>
 </table>
