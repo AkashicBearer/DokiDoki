@@ -18,6 +18,7 @@ module.exports = class InfoCommand extends Command {
 			.addField("My Discord Invite Link", "[Discord Invite Link](https://discordapp.com/api/oauth2/authorize?client_id=385115460397694977&permissions=8&scope=bot)")
          		.addField("My Github Documentation", "[GitHub](https://github.com/AkashicBearer/DokiDoki)")
 			.addField("DokiDoki Support Server", "[Support Server Invite](https://discord.gg/4RNvxJR)")
+			.addField("DokiDoki Website", "[Website](https://akashicbearer.github.io/DokiDoki/index.html)")
 			.addField("Additional Information","DokiDoki Runs on Discird.JS-Commando, Its Current Devs are Akashic Bearer#2305 and Kandrina#1426")
 			.addField("About:" , "DokiDoki was Inspired by some random things that came along the way while I was learning how to manage my servers. DokiDoki was Originally known as DDLC, but it was hacked somewhere along the way and I had to restart from scratch, Now DokiDoki has another developper (kandrine) Who helps me with stuff (since I'm a 馬鹿...). ")
 			.setColor(0x23ff12)
