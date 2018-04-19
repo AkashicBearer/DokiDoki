@@ -19,7 +19,7 @@ module.exports = class InfoCommand extends Command {
 			.addField("DokiDoki Support Server", "[Support Server Invite](https://discord.gg/4RNvxJR)")
 			.addField("Additional Information","DokiDoki Runs on Discird.JS-Commando, Its Current Devs are Akashic Bearer#2305 and Kandrina#1426")
 			.addField("About:" , "DokiDoki was Inspired by some random things that came along the way while I was learning how to manage my servers. DokiDoki was Originally known as DDLC, but it was hacked somewhere along the way and I had to restart from scratch, Now DokiDoki has another developper (kandrine) Who helps me with stuff (since I'm a 馬鹿...). ")
-			.setDescription('My Website [Website](https://akashicbearer.github.io/DokiDoki/index.html)")
+			.setDescription('My Website [Website](https://akashicbearer.github.io/DokiDoki/index.html)')
 			.setColor(0x23ff12)
         return msg.embed(embed);
     }
