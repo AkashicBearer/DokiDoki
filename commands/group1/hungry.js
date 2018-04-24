@@ -31,7 +31,7 @@ module.exports = class hungryCommand extends Command {
             "14": "https://media.giphy.com/media/sp5EbLOzYaM92/giphy.gif",
             "15": "https://shannonathompson.files.wordpress.com/2014/09/55365451-jpg.gif",
             "16": "https://media0.giphy.com/media/10nrJGAmG5xmla/200w.gif",
-            "17": "https://media.giphy.com/media/wwA28OkwCvvgY/giphy.gif",
+            "17": "https://i.gifer.com/ZXFh.gif",
             "18": "https://i.pinimg.com/originals/97/f2/ec/97f2ec8e400571a4c98968a9ca2cc820.gif",
             "19": "https://media1.tenor.com/images/e228666e9ffcb56a7b01c2b6acb00f14/tenor.gif?itemid=9975193",
         };
