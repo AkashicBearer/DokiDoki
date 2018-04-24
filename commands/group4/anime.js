@@ -100,6 +100,7 @@ module.exports = class animeCommand extends Command {
 	// search my animelist
 		mal.anime.search(anm)
 		  .then(result => {
+		  	console.log(result)
 		  	if(result.anime.length > 1){
 		  		var titles = "";
 
@@ -115,45 +116,85 @@ module.exports = class animeCommand extends Command {
 
 		  	}else {
 		  		var res = result.anime[0];
-		  		embed.addField("Title", res.title,true)
-			  	embed.addField("English Title", res.english, true)
-			  	embed.addField("Description", res.synopsis.toString().replace(/<.*>/g,' ').replace(/&#039;/g,"'").replace(/\[.*\]/g,' '))
+		  		var syn = "";
+	                	if(res.synonyms.length > 0){
+				            for(var i = 0; i < res.synonyms.length; i++){
+				                syn = syn+"`"+res.synonyms[i]+"`";
+				                if(i+1 < res.synonyms.length){
+				                    syn=syn+", ";
+				                }
+				            }
+				        }
 
-			  	embed.addField("Episodes", res.episodes, true)
-			  	embed.addField("Status", res.status, true)
-			  	embed.addField("Type", res.type, true)
-			  	embed.addField("Score", res.score+"/10", true)
-			  	embed.addField("Link", "https://myanimelist.net/anime/"+res.id, true)
+				        if(syn == '``'){
+				        	syn = "None";
+				        }else{
+				        	syn = syn.replace(/`/g,'');
+				        }
 
-			  	var fromspl = res.start_date.toString().split('-');
-			  	var tospl = res.end_date.toString().split('-');
+				        var eng = "";
+				        if(res.english.length > 0){
+				            for(var i = 0; i < res.english.length; i++){
+				                eng = eng+"`"+res.english[i]+"`";
+				                if(i+1 < res.english.length){
+				                    eng=eng+", ";
+				                }
+				            }
+				        }
 
-			  	if(fromspl[0] == "0000"){
-			  		var from = "No releasedate yet";
-			  		var to = "";
-			  	}else{
-			  		if(tospl[0] == "0000"){
-			  			var to = "";
-			  			var from = "Will start airing in " + months[fromspl[1]] + days[fromspl[2]] + fromspl[0];
-			  		}else{
-			  			var to = months[tospl[1]]  + days[tospl[2]] + tospl[0];
-			  			var from = months[fromspl[1]] + days[fromspl[2]] + fromspl[0] + " to ";
-			  		}
-			  	}
+				        if(eng == '``'){
+				        	eng = "None";
+				        }else{
+				        	eng = eng.replace(/`/g,'');
+				        }
 
-			  	embed.setFooter(from + " to " + to)
-			  	embed.setThumbnail(res.image.toString())
-		  	}
+				        var desc = res.synopsis.toString().replace(/<.*>/g,' ').replace(/&#039;/g,"'").replace(/\[.*\]/g,' ');
+				        /*if(desc.length > 1024){
+				        	desc = desc.substring(0,1023).substring(0,desc.lastIndexOf('.'))
+				        }*/
 
-		  	
-		  	
-		  	
-		   	msg.channel.send(embed)   
+				        embed.setTitle(res.title,true)
+					  	embed.setDescription("**Description**\n"+desc)
+
+					  	
+					  	embed.addField("English Title", eng + " ",true)
+					  	embed.addField("Synonyms", syn + " ",true)
+					  	embed.addField("Episodes", res.episodes, true)
+					  	embed.addField("Status", res.status, true)
+					  	embed.addField("Type", res.type, true)
+					  	embed.addField("Score", res.score+"/10", true)
+					  	embed.addField("Link", "https://myanimelist.net/anime/"+res.id, true)
+
+					  	var fromcspl = res.start_date.toString().split('-');
+					  	var tocspl = res.end_date.toString().split('-');
+					  	if(fromcspl[0] == "0000"){
+					  		var fromc = "No releasedate yet";
+					  		var toc = "";
+					  	}else{
+					  		if(tocspl[0] == "0000"){
+					  			var toc = "";
+					  			var fromc = "Will start airing in " + months[fromcspl[1]] + days[fromcspl[2]] + fromcspl[0];
+					  		}else{
+					  			var toc = months[tocspl[1]]  + days[tocspl[2]] + tocspl[0];
+					  			var fromc = months[fromcspl[1]] + days[fromcspl[2]] + fromcspl[0] + " to ";
+					  		}
+					  	}
+
+					  	
+
+					  	embed.setFooter(fromc + toc)
+					  	embed.setThumbnail(res.image.toString())
+
+					  	msg.channel.send(embed)
+					  }
 
 		  }
 
 		  ) // contains the json result on success
-		  .catch(err => msg.channel.send("Something went wrong, please try again."));
+		  .catch(err => {
+		  	msg.channel.send("Something went wrong, please try again.")
+		  	console.log(err);
+		  });
 	   
 		  function inputAn(anarr){
 		  	msg.channel.awaitMessages(m => m.author.id == msg.author.id, { max: 1, time: 30000, errors: ['time'] })
