@@ -38,7 +38,7 @@ async run(msg, args) {
         const embed = new RichEmbed()
             embed.setDescription(msg.author + ' Says Yes!')
             const randm = Math.random();
-            mbed.setImage(yes[Math.floor(randm * Object.keys(yes).length).toString()])
+            embed.setImage(yes[Math.floor(randm * Object.keys(yes).length).toString()])
             embed.setColor(0x23ff12)
         return msg.embed(embed);
     }
