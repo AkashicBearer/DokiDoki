@@ -9,7 +9,7 @@ module.exports = class CalcCommand extends Command {
             group: 'group4',
             memberName: 'calc',
             description: 'Calculate Nnumbers',
-            examples: ['Calculate 1+1'],
+            examples: ['<calc 1+1', '<calc 5 cm to inch'],
             guildOnly: true,
             args: [
                 {
