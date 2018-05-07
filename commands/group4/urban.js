@@ -27,7 +27,9 @@ module.exports = class UrbanCommand extends Command {
         let res = await urban(args.text).catch(e => { 
           return msg.channel.send('***Sorry, that word was not found!***');
         });
-        const embed = new RichEmbed()
+
+        if(res){
+          const embed = new RichEmbed()
           embed.setColor('RANDOM') 
           embed.setTitle(res.urbanURL) 
           embed.setDescription(`**Definition of ${res.word}:**\n${res.definition}`)
@@ -51,6 +53,6 @@ module.exports = class UrbanCommand extends Command {
             embed.addField('Tags', tag, true)
           }
         return msg.channel.send(embed);
-      
+        }
       }
 };
