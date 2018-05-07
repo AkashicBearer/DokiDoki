@@ -50,7 +50,6 @@ module.exports = class UrbanCommand extends Command {
               embed.addField('Tags', tag, true)
             }
           return msg.channel.send(embed);
-          }
           })
           .catch(e => { 
             return msg.channel.send('***Sorry, that word was not found!***');
