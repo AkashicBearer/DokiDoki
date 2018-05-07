@@ -8,7 +8,7 @@ module.exports = class translateCommand extends Command {
             aliases: ['t', 'tl'],
             group: 'group4',
             memberName: 'translate',
-            description: 'Translate a Text, or detect the Language',
+            description: 'Translate a Text\nDefine the Input Language with -en for english\nDefine the Output language with +en for english',
             examples: ['translate Hello World +de', 'tl Hallo Welt -de +en', 't Hallo Welt -de'],
             guildOnly: true,
             args: [
