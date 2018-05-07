@@ -24,11 +24,13 @@ module.exports = class UrbanCommand extends Command {
     async run(msg,args) {
         const urban = require('relevant-urban','urban');
         if (!args.text) msg.channel.send(`***Please specify some text!***`);
-        let res = await urban(args.text).catch(e => { 
+        let res = await urban(args.text)
+
+        .catch(e => { 
           return msg.channel.send('***Sorry, that word was not found!***');
         });
 
-        if(res){
+        .then(res => {
           const embed = new RichEmbed()
           embed.setColor('RANDOM') 
           embed.setTitle(res.urbanURL) 
@@ -54,5 +56,7 @@ module.exports = class UrbanCommand extends Command {
           }
         return msg.channel.send(embed);
         }
+        })
+          
       }
 };
