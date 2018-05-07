@@ -1,13 +1,13 @@
 const { Command } = require('discord.js-commando');
 const { RichEmbed } = require('discord.js');
 
-module.exports = class InfoCommand extends Command {
+module.exports = class AboutCommand extends Command {
     constructor(client) {
         super(client, {
-            name: 'info',
-	    aliases: ["about", "invite", "information"],
+            name: 'about',
+	    aliases: ["invite", "information"],
             group: 'group4',
-            memberName: 'info',
+            memberName: 'about',
 	    description: 'Shows Info about the Bot'
         });
     }
