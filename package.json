@@ -69,7 +69,8 @@
     "unzip-response": "2.0.1",
     "url-parse-lax": "1.0.0",
     "google-translate-api":"2.3.0",
-    "google-translate-token":"1.0.0"
+    "google-translate-token":"1.0.0",
+    "weather-js": "^2.0.0"
   },
   "bugs": {
     "url": "https://github.com/AkashicBearer/DokiDoki/issues"
