@@ -62,7 +62,7 @@ async run(msg, args){
                 })   
 
             }else{
-                translate(`${txt}`, {to: 'en'}).then(res => {
+                translate(`${txt}`, {to: `${to}`}}).then(res => {
                     const embed = new RichEmbed()
                     embed.setColor('RANDOM');
                     console.log(res);
