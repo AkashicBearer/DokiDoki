@@ -56,7 +56,20 @@
     "javascript-natural-sort": "0.7.1",
     "seed-random": "2.2.0",
     "tiny-emitter": "2.0.2",
-    "typed-function": "1.0.3"
+    "typed-function": "1.0.3",
+    "create-error-class": "3.0.2",
+    "duplexer3": "0.1.4",
+    "get-stream": "3.0.0",
+    "is-redirect": "1.0.0",
+    "is-retry-allowed": "1.1.0",
+    "is-stream": "1.1.0",
+    "lowercase-keys": "1.0.1",
+    "safe-buffer": "5.1.1",
+    "timed-out": "4.0.1",
+    "unzip-response": "2.0.1",
+    "url-parse-lax": "1.0.0",
+    "google-translate-api":"2.3.0",
+    "google-translate-token":"1.0.0"
   },
   "bugs": {
     "url": "https://github.com/AkashicBearer/DokiDoki/issues"
