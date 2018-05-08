@@ -28,21 +28,21 @@ module.exports = class timeRollCommand extends Command {
         var DLT = true;
 
         const zones= {
-            "hst": "-10",
-            "akst": "-9",
-            "pst": "-8",
-            "mst": "-7",
-            "cst": "-6",
-            "est": "-5"
+            "hst": "-9",
+            "akst": "-8",
+            "pst": "-7",
+            "mst": "-6",
+            "cst": "-5",
+            "est": "-4"
         }
 
         const zonesDLT= {
-            "hst": "-10",
-            "akst": "-9",
-            "pst": "-8",
-            "mst": "-7",
-            "cst": "-6",
-            "est": "-5"
+            "hst": "-9",
+            "akst": "-8",
+            "pst": "-7",
+            "mst": "-6",
+            "cst": "-5",
+            "est": "-4"
         }
 
         if(args.zone){
