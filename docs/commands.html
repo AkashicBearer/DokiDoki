@@ -1,30 +1,46 @@
 <!DOCTYPE html>
+
 <!-- Copyrights Belong to Akashic Bearer-->
+
 <html>
 <head>
     <meta charset="utf-8" />
     <meta name="author" content="Akashic Bearer">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>DokiDoki Commands </title>
+    <title>DokiDoki Website </title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="./css/main.css" />
-    <script src="main.js"></script>
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/commands.css" />
+    <script src="./js/commandshtml.js"></script>
 </head>
 <body >
-    <div class="topbar">
+    <div class="navbar">
         <a href="index.html">Main</a>
         <a class="active" href="commands.html">Commands</a>
         <a href="about.html">About</a>
         <a href="support.html">Support</a>
-            <div class="main">
-                    <img src="./css/logo1.png" alt="DokiDoki" id="title">
-            </div>
+        <a href="something.html">Random</a>
+          <div class="main">
+            <img src="./css/logo1.png" alt="DokiDoki" id="title">
+          </div>
+    </div>
+    <div class="vertical-menu">
+      <div class="tab">
+        <button class="tablinks" onclick="openCom(event, 'devs')">Developpers</button>
+        <button class="tablinks" onclick="openCom(event, 'cgroups')">Command Groups</button>
+        <button class="tablinks" onclick="openCom(event, 'emo')">Emotion Commands</button>
+        <button class="tablinks" onclick="openCom(event, 'fun')">Fun Commands</button>
+        <button class="tablinks" onclick="openCom(event, 'random')">Random Commands</button>
+        <button class="tablinks" onclick="openCom(event, 'util')">Utility Commands</button>
+        <button class="tablinks" onclick="openCom(event, 'admin')">Administration Commands</button>
+        <button class="tablinks" onclick="openCom(event, 'music')">Music Commands</button>
+        <button class="tablinks" onclick="openCom(event, 'xp')">Xp / Currency Commands</button>
+        <button class="tablinks" onclick="openCom(event, 'nsfw')">NSFW Commands</button>
+      </div>
     </div>
     <!--Bot's Stats-->
-    <div class="devs">
+    <div id="devs" class="tabcontent">
   <h1> Current Developpers </h1>
-  
-  <table style="width:100%">
+  <table style="width:100%;">
     <tr>
       <th>Username and Discrim</th>
       <th>ID</th> 
@@ -42,7 +58,7 @@
     </tr>
   </table>
 </div>
-<div class="cgroups">
+<div id="cgroups" class="tabcontent">
   <!-- Command Groups -->
   <h1> Command Groups </h1>
   <table style="width:100%">
@@ -71,19 +87,12 @@
       <td>Administration</td>
     </tr>
   </table>
-  <!-- Note -->
-  <h1> Note: </h1>
-  <table style="width:100%">
-    <tr>
-      <th style="background-color: honeydew;color:black;"> {user} Means the Field is Required </td>
-      <th style="background-color: honeydew;color:black;"> [user] means field is optional 
-    </tr>
-    </table>
+
 </div>
-    <div class="commands">
+    <div id="emo" class="tabcontent">
   <!-- Commands -->
-   <h1> Commands </h1>
-  <table style="width:100%">
+   <h1> Emotion Commands </h1>
+  <table id="emo"style="width:100%">
     <tr>
       <th>Command</th>
       <th>Description</th> 
@@ -334,6 +343,18 @@
       <td></td>
       <td>Group1</td>
     </tr>
+  </table>
+</div>
+
+<div id="fun" class="tabcontent">
+<h1>Fun Commands</h1>
+<table id="fun" style="width:100%;">
+    <tr>
+        <th>Command</th>
+        <th>Description</th> 
+        <th>Aliases</th>
+        <th>Command Group</th>
+      </tr>
       <!-- EightBall -->
     <tr>
       <td>8ball {Question}</td>
@@ -411,6 +432,17 @@
       <td></td>
       <td>Group2</td>
     </tr>
+  </table>
+</div>
+<div id="random" class="tabcontent">
+  <h1>Random Commands</h1>
+  <table id="random" style="width:100%;">
+      <tr>
+          <th>Command</th>
+          <th>Description</th> 
+          <th>Aliases</th>
+          <th>Command Group</th>
+        </tr>
       <!-- Oof -->
     <tr>
       <td>oof</td>
@@ -424,6 +456,18 @@
       <td>similalr to say</td> 
       <td></td>
       <td>Group3</td>
+    </tr>
+  </table>
+</div>
+
+<div id="util" class="tabcontent">
+  <h1>Utility Commands</h1>
+  <table id="util" style="width:100%;">    
+    <tr>
+      <th>Command</th>
+      <th>Description</th> 
+      <th>Aliases</th>
+      <th>Command Group</th>
     </tr>
     <!--- Anime -->
     <tr>
@@ -509,6 +553,18 @@
       <td></td>
       <td>Group4</td>
     </tr>
+  </table>
+</div>
+
+<div id=admin class="tabcontent">
+  <h1>Administration Commands</h1>
+  <table id="admnin" style="width:100%;">
+      <tr>
+          <th>Command</th>
+          <th>Description</th> 
+          <th>Aliases</th>
+          <th>Command Group</th>
+        </tr>
         <!--- ban -->
     <tr>
       <td>ban {user}</td>
@@ -532,8 +588,45 @@
     </tr>
   </table>
 </div>
-<div class="footer">
-        <p>Website Coded By Akashic Bearer Copyrights 2018</p>
-    </div>
+<div id="xp" class="tabcontent">
+    <table id="xp" style="width:100%;">
+        <tr>
+            <th>Command</th>
+            <th>Description</th> 
+            <th>Aliases</th>
+            <th>Command Group</th>
+          </tr>
+          <!---  -->
+      <tr><td>Not yet Available!</td></tr>
+    </table>
+</div>
+
+<div id="nsfw" class="tabcontent">
+    <table id="nsfw" style="width:100%;">
+        <tr>
+            <th>Command</th>
+            <th>Description</th> 
+            <th>Aliases</th>
+            <th>Command Group</th>
+          </tr>
+          <!---  -->
+      <tr><td>Not yet Available!</td></tr>
+    </table>
+</div>
+
+<div id="music" class="tabcontent">
+    <table id="music" style="width:100%;">
+        <tr>
+            <th>Command</th>
+            <th>Description</th> 
+            <th>Aliases</th>
+            <th>Command Group</th>
+          </tr>
+          <!---  -->
+      <tr><td>Not yet Available!</td></tr>
+    </table>
+</div>
+
+</div>
 </body>
 </html>
