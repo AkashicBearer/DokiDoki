@@ -34,9 +34,9 @@ module.exports = class LewdtCommand extends Command {
         };
            const embed = new RichEmbed()
                 if(!args.member){
-                    embed.setDescription(msg.author + ' Thinks this is Lewd!' )  
+                    embed.setDescription(msg.author + ' thinks this is Lewd!' )  
                 }else{
-                    embed.setDescription(msg.author + ' thinks ' + args.member + 'is too lewd.')  
+                    embed.setDescription(msg.author + ' thinks ' + args.member + ' is too lewd.')  
                 }
                 const randm = Math.random();
                 embed.setImage(imglewd[Math.floor(randm * Object.keys(imglewd).length).toString()])

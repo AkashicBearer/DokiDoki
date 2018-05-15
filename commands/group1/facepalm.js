@@ -8,7 +8,7 @@ module.exports = class FacepalmCommand extends Command {
             aliases: ['fp'],
             group: 'group1',
             memberName: 'facepalm',
-            description: 'Facepalm....'
+            description: 'Facepalm..'
         });
     }
 	async run(msg) {
@@ -34,7 +34,7 @@ module.exports = class FacepalmCommand extends Command {
             };
 
         const embed = new RichEmbed()
-          embed.setDescription(msg.author + ' facepalm....')
+          embed.setDescription('Facepalm..')
           const randm = Math.random();
 
             embed.setImage(imgfp[Math.floor(randm * Object.keys(imgfp).length).toString()])

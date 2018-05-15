@@ -36,7 +36,7 @@ module.exports = class laughCommand extends Command {
             };
 
         const embed = new RichEmbed()
-          embed.setDescription(msg.author + 'is laughing')
+          embed.setDescription(msg.author + ' is laughing')
           const randm = Math.random();
 
                 embed.setImage(imglol[Math.floor(randm * Object.keys(imglol).length).toString()])

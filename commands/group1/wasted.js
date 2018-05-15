@@ -13,7 +13,7 @@ module.exports = class WastedCommand extends Command {
 				{
 					key: 'member',
 					label: 'user',
-					prompt: 'Who Commited Suicide?',
+					prompt: 'Who to kill?',
 					type: 'member',
                     default: ''
 				}
@@ -37,9 +37,9 @@ async run(msg, args) {
 
         const embed = new RichEmbed()
          if(msg.author.id == args.member.id || !args.member){
-         	embed.setDescription(msg.author + 'Killed Themselves')
+         	embed.setDescription(msg.author + ' killed Themselves')
          }else{
-         	embed.setDescription(msg.author + ' Killed ' + args.member.user)
+         	embed.setDescription(msg.author + ' killed ' + args.member.user)
          }
             const randm = Math.random();
 

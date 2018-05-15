@@ -8,7 +8,7 @@ module.exports = class CryCommand extends Command {
             aliases: ['waa'],
             group: 'group1',
             memberName: 'cry',
-            description: 'Cry'
+            description: 'You cry'
         });
     }
 
@@ -33,7 +33,7 @@ module.exports = class CryCommand extends Command {
             "16": "https://media.tenor.com/images/e5ecdb82f6374a64d99503f30407f78e/tenor.gif"
         };
            const embed = new RichEmbed()
-                embed.setDescription(msg.author + ' is Crying' )  
+                embed.setDescription(msg.author + ' is crying' )  
                 const randm = Math.random();
 
                 embed.setImage(imgcry[Math.floor(randm * Object.keys(imgcry).length).toString()])

@@ -36,7 +36,7 @@ module.exports = class BlushCommand extends Command {
             "19": "https://i.imgur.com/hl1ee7x.gif",
         };
            const embed = new RichEmbed()
-                embed.setDescription(msg.author + ' is Blushing')  
+                embed.setDescription(msg.author + ' is blushing')  
                 const randm = Math.random();
                 embed.setImage(imglewd[Math.floor(randm * Object.keys(imglewd).length).toString()])
                 embed.setColor(0x23ff12)

@@ -31,7 +31,7 @@ async run(msg, args) {
         };
 
         const embed = new RichEmbed()
-            embed.setDescription(msg.author + 'Nico Nico Nii!')
+            embed.setDescription('Nico Nico Nii!')
             const randm = Math.random();
 
                 embed.setImage(imgnico[Math.floor(randm * Object.keys(imgnico).length).toString()])

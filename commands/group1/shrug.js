@@ -32,7 +32,7 @@ async run(msg, args) {
         };
 
         const embed = new RichEmbed()
-            embed.setDescription(msg.author + 'is Shrugging')
+            embed.setDescription(msg.author + 'is shrugging')
             const randm = Math.random();
 
                 embed.setImage(imgshrug[Math.floor(randm * Object.keys(imgshrug).length).toString()])

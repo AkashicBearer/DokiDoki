@@ -47,7 +47,7 @@ async run(msg, args) {
         };
 
         const embed = new RichEmbed()
-            embed.setDescription(msg.author + ' Highfives ' + args.member.user)
+            embed.setDescription(msg.author + ' highfives ' + args.member.user)
             const randm = Math.random();
 
                 embed.setImage(imghf[Math.floor(randm * Object.keys(imghf).length).toString()])
