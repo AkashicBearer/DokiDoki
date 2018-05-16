@@ -13,7 +13,7 @@
     <script src="./js/commandshtml.js"></script>
 </head>
 <body >
-    <div class="navbar">
+    <div id="navbar">
         <a href="index.html">Main</a>
         <a class="active" href="commands.html">Commands</a>
         <a href="about.html">About</a>
@@ -39,7 +39,6 @@
     </div>
     <!--Bot's Stats-->
     <div id="devs" class="tabcontent">
-  <h1> Current Developpers </h1>
   <table style="width:100%;">
     <tr>
       <th>Username and Discrim</th>
@@ -60,7 +59,6 @@
 </div>
 <div id="cgroups" class="tabcontent">
   <!-- Command Groups -->
-  <h1> Command Groups </h1>
   <table style="width:100%">
     <tr>
       <th>Command Group</th>
@@ -91,7 +89,6 @@
 </div>
     <div id="emo" class="tabcontent">
   <!-- Commands -->
-   <h1> Emotion Commands </h1>
   <table id="emo"style="width:100%">
     <tr>
       <th>Command</th>
@@ -106,6 +103,27 @@
       <td></td>
       <td>Group1</td>
     </tr>
+     <!-- barf -->
+     <tr>
+        <td>barf</td>
+        <td>Sends a barf GIF</td> 
+        <td></td>
+        <td>Group1</td>
+      </tr>
+       <!-- Beg -->
+    <tr>
+        <td>beg {user}</td>
+        <td>Beg a User</td> 
+        <td></td>
+        <td>Group1</td>
+      </tr>
+       <!-- Birb -->
+    <tr>
+        <td>birb</td>
+        <td>Sends a Birhb GIF</td> 
+        <td></td>
+        <td>Group1</td>
+      </tr>
     <!-- Bite-->
     <tr>
       <td>bite {user}</td>
@@ -113,6 +131,13 @@
       <td></td>
       <td>Group1</td>
     </tr>
+     <!-- Blush -->
+     <tr>
+        <td>blush</td>
+        <td>Sends a Blush GIF</td> 
+        <td></td>
+        <td>Group1</td>
+      </tr>
     <!-- confused -->
     <tr>
       <td>confused</td>
@@ -141,6 +166,13 @@
       <td></td>
       <td>Group1</td>
     </tr>
+     <!-- Disgust -->
+     <tr>
+        <td>disgust</td>
+        <td>Sends a Disgusted GIF</td> 
+        <td></td>
+        <td>Group1</td>
+      </tr>
     <!-- Droll -->
     <tr>
       <td>drool</td>
@@ -175,6 +207,13 @@
       <td></td>
       <td>Group1</td>
     </tr>
+     <!-- Hungry -->
+     <tr>
+        <td>8hungry</td>
+        <td>Sends a Hungry GIF</td> 
+        <td></td>
+        <td>Group1</td>
+      </tr>
       <!-- Kanpai -->
     <tr>
       <td>kanpai</td>
@@ -224,6 +263,13 @@
       <td></td>
       <td>Group1</td>
     </tr>
+     <!-- No -->
+     <tr>
+        <td>no</td>
+        <td>Sends a No GIF</td> 
+        <td></td>
+        <td>Group1</td>
+      </tr>
       <!-- Nom -->
     <tr>
       <td>Nom</td>
@@ -235,7 +281,7 @@
     <tr>
       <td>Nya</td>
       <td>Sends a Neko</td> 
-      <td></td>
+      <td>neko</td>
       <td>Group1</td>
     </tr>
       <!-- Ohayo -->
@@ -273,13 +319,34 @@
       <td></td>
       <td>Group1</td>
     </tr>
+     <!-- Punch -->
+     <tr>
+        <td>punch {user}</td>
+        <td>Punch Someone</td> 
+        <td></td>
+        <td>Group1</td>
+      </tr>
       <!-- Rage -->
     <tr>
       <td>rage</td>
-      <td>Sends a Rage gif</td> 
+      <td>Sends a Rage GIF</td> 
       <td></td>
       <td>Group1</td>
     </tr>
+     <!-- Scared -->
+     <tr>
+        <td>scared</td>
+        <td>Sends a Scared GIF</td> 
+        <td></td>
+        <td>Group1</td>
+      </tr>
+       <!-- Scary -->
+    <tr>
+        <td>scary</td>
+        <td>Sends a Scary GIF</td> 
+        <td></td>
+        <td>Group1</td>
+      </tr>
       <!-- Shock -->
     <tr>
       <td>shock</td>
@@ -294,6 +361,13 @@
       <td></td>
       <td>Group1</td>
     </tr>
+     <!-- Sigh -->
+     <tr>
+        <td>Sigh</td>
+        <td>Sends a Sigh GIF</td> 
+        <td></td>
+        <td>Group1</td>
+      </tr>
       <!-- Sing -->
     <tr>
       <td>sing</td>
@@ -343,11 +417,25 @@
       <td></td>
       <td>Group1</td>
     </tr>
+     <!-- yawn -->
+    <tr>
+      <td>yawn</td>
+      <td>Sends a Yawn GIF</td> 
+      <td></td>
+      <td>Group1</td>
+    </tr>
+     <!-- yes -->
+     <tr>
+        <td>yes</td>
+        <td>Sends a yes GIF</td> 
+        <td></td>
+        <td>Group1</td>
+      </tr>
   </table>
 </div>
 
+
 <div id="fun" class="tabcontent">
-<h1>Fun Commands</h1>
 <table id="fun" style="width:100%;">
     <tr>
         <th>Command</th>
@@ -434,8 +522,9 @@
     </tr>
   </table>
 </div>
+
+
 <div id="random" class="tabcontent">
-  <h1>Random Commands</h1>
   <table id="random" style="width:100%;">
       <tr>
           <th>Command</th>
@@ -460,8 +549,8 @@
   </table>
 </div>
 
+
 <div id="util" class="tabcontent">
-  <h1>Utility Commands</h1>
   <table id="util" style="width:100%;">    
     <tr>
       <th>Command</th>
@@ -490,6 +579,13 @@
       <td>bugreport, report, br</td>
       <td>Group4</td>
     </tr>
+    <!--- calc -->
+      <tr>
+        <td>calc {number and Operation}</td>
+        <td>Calculate Stuff</td>
+        <td>calculate</td>
+        <td>Group4</td>
+      </tr>
       <!--- channel -->
     <tr>
       <td>channelinfo {#Channel}</td>
@@ -532,6 +628,13 @@
       <td></td>
       <td>Group4</td>
     </tr>
+        <!--- stats -->
+    <tr>
+        <td>stats</td>
+        <td>Shows the stats of the bot</td>
+        <td>info</td>
+        <td>Group4</td>
+      </tr>
         <!--- suggest -->
     <tr>
       <td>suggest {text}</td>
@@ -546,6 +649,20 @@
       <td></td>
       <td>Group4</td>
     </tr>
+        <!--- translate -->
+    <tr>
+        <td>translate {text} [Language]</td>
+        <td>Translate Gven Text/Word to Given Language</td>
+        <td>t</td>
+        <td>Group4</td>
+      </tr>
+        <!--- urban -->
+    <tr>
+        <td>urban {word}</td>
+        <td>Search Stuff on Urban/td>
+        <td>ub</td>
+        <td>Group4</td>
+        </tr>
         <!--- userinfo -->
     <tr>
       <td>userinfo {user}</td>
@@ -553,11 +670,18 @@
       <td></td>
       <td>Group4</td>
     </tr>
+         <!--- weather -->
+    <tr>
+        <td>weather {city}</td>
+        <td>Check weather for a city</td>
+        <td></td>
+        <td>Group4</td>
+      </tr>
   </table>
 </div>
 
+
 <div id=admin class="tabcontent">
-  <h1>Administration Commands</h1>
   <table id="admnin" style="width:100%;">
       <tr>
           <th>Command</th>
