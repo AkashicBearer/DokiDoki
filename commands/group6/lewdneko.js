@@ -18,7 +18,7 @@ module.exports = class LewdNekoCommand extends Command {
   async run(message, msg, neko) {
     let {body} = await superagent
     .get(`https://nekos.life/api/lewd/neko`);
-    if (!message.channel.nsfw) return message.reply("You can use this command only on nsfw channels!");
+    if (!message.channel.nsfw) return message.reply("You can use this command only in a **NSFW** Channel");
   
     const embed = new RichEmbed()
         embed.setColor("RANDOM")
