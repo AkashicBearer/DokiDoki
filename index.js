@@ -30,7 +30,7 @@ client.registry
         ['group3', 'Random'],
 	['group4', 'Util'],
 	['group5', 'Administration'],
-	['group5', 'NSFW'],
+	['group6', 'NSFW'],
 ])	
 // Console.Log and other stuff -.-
     .registerDefaultGroups()
