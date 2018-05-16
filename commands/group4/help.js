@@ -79,6 +79,17 @@ module.exports = class HelpCommand extends Command {
                 }
             }
         }
+        
+        const grp6c = commands.findAll('groupID','group6');
+        var grp6 = "";
+        if(grp1c.length > 0){
+            for(var i = 0; i < grp6c.length; i++){
+                grp6=grp6+"`"+grp6c[i].name+"`";
+                if(i+1 < grp6c.length){
+                    grp6=grp6+", ";
+                }
+            }
+        }
 
         const embed = new RichEmbed()
                 if(commands.find('name',args.command)){
@@ -124,6 +135,9 @@ module.exports = class HelpCommand extends Command {
                     }
                     if(grp5c.length > 0){
                         embed.addField(groups.find('id','group5').name+"",grp5+" ")
+                    }
+                    if(grp6c.length > 0){
+                        embed.addField(groups.find('id','group6').name+"",grp6+" ")
                     }
                 }
                 
