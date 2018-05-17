@@ -11,18 +11,28 @@ module.exports = class NyaCommand extends Command {
             aliases: ['neko'],
             group: 'group1',
             memberName: 'nya',
-            description: 'Sends a neko',
+            description: 'Sends a Neko \nUse -g for Neko GIF',
+            examples:['<nya', '<nya -g', '<neko', '<neko -g']
 
         });
     }
+
     async run(message, msg, neko) {
-        let {body} = await superagent
-        .get(`https://nekos.life/api/neko`);
-      
+        if(msg.indexOf("-g")){
+        const {body} = await superagent
+        .get(`https://nekos.life/api/v2/img/neko`);
         const embed = new RichEmbed()
             embed.setColor("RANDOM")
-            embed.setTitle("Have a Neko")
-            embed.setImage(body.neko)
+            embed.setTitle("Have a Neko!")
+            embed.setImage(body.url)
         message.channel.send(embed);
-    }
+        }else{
+        const {body} = await superagent 
+        .get('https://nekos.life/api/v2/img/ngif')
+            const embed1 = new RichEmbed()
+                embed1.setColor("RANDOM")
+                embed1.setTitle("Have a Neko GIF")
+                embed1.setImage(body.url)
+            message.channel.send(embed1);
+    }}
 };
