@@ -29,7 +29,7 @@ module.exports = class EroCommand extends Command {
         message.channel.send(embed5);
     }
 
-    else if(msg.indexOf("-eron") == false){
+    else if(msg.indexOf("-neko") == false){
         const {body} = await superagent
         .get(`https://nekos.life/api/v2/img/eron`);
         if (!message.channel.nsfw) return message.reply("You can only use this comand in a NSFW Channel");
