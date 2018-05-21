@@ -30,8 +30,8 @@ module.exports = class statsCommand extends Command {
         embed.addField(`Memory usage:`,`${Math.round(used * 100) / 100}MB` ,true)
         embed.addField(`Uptime:`,`${days}:${hours}:${mins}:${realTotalSecs}` ,true)
         embed.addField('Node and Library',` Node: ${process.version} discord.js` ,true)
-        embed.addField(`Patform`,`${os.platform}`, true)
-        embed.addField('Servers, Users',`On ${this.client.guilds.size} servers, with a total of ${this.client.users.size} users.`)
+        embed.addField(`Platform`,`${os.platform}`, true)
+        embed.addField('Status',`On ${this.client.guilds.size} servers, with a total of ${this.client.users.size} users and ${this.client.channels.size} Channels.`)
             code: 'AsciiDoc'
         return msg.embed(embed);
     }
