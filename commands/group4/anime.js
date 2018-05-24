@@ -41,7 +41,7 @@ module.exports = class animeCommand extends Command {
 });*/
 
 
-		const mal = new MALjs('DokiDokiBot', 'DokiDoki');
+		const mal = new MALjs('DokiDokiBot', '5VqppzlXmmmG');
 
 		const months = {
 				"00": "",
