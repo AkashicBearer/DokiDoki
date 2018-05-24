@@ -42,12 +42,12 @@ module.exports = class googleCommand extends Command {
 		}, function(error, response) {
 		  var embed = new RichEmbed()
 		  embed.setTitle("Your search results")
-
+		  console.log(response)
 		  
 
 		  
 
-		  for(var i = 0; i < response.items.length; i++){
+		  /*for(var i = 0; i < response.items.length; i++){
 		  	var title = response.items[i].title;
 
 		    if(title.length > 30 && title.indexOf(' ',30) > 0){
@@ -55,7 +55,7 @@ module.exports = class googleCommand extends Command {
 		    }
 
 		  	embed.addField(title, "[Link]("+response.items[i].link+")", true)
-		  }
+		  }*/
 
 		  embed.setThumbnail("https://cognitiveseo.com/blog/wp-content/uploads/2017/10/1000px-Google_-G-_Logo.svg_.png")
 
