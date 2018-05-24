@@ -25,7 +25,7 @@ module.exports = class mangaCommand extends Command {
 	}
 
 	async run(msg, args) {
- 		const mal = new MALjs('DokiDokiBot', '5VqppzlXmmmG');
+ 		const mal = new MALjs('DokiDokiBot', 'DokiDoki');
 
 		const months = {
 				"00": "",
