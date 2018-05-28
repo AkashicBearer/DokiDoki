@@ -1,5 +1,7 @@
 const { Command } = require('discord.js-commando');
 const { RichEmbed } = require('discord.js');
+const neko = require("nekos.life");
+const superagent = require("superagent");
 
 module.exports = class PatCommand extends Command {
     constructor(client) {
@@ -8,70 +10,36 @@ module.exports = class PatCommand extends Command {
             aliases: [],
             group: 'group1',
             memberName: 'pat',
-            description: 'Who do you want to pat?',
-          
-			args: [
-				{
-					key: 'member',
-					label: 'user',
-					prompt: 'Who to pat?',
-					type: 'member'
-				}
-			]
+            description: 'Have a pat',
+            args:[
+                {
+                    key: 'member',
+                    prompt: 'Which user do you want to pat?',
+                    type: 'string',
+                }
+            ]
         });
     }
-	async run(msg, args) {
-		const member = args.member;
-        const user = member.user;
-        var imgpat = {
-            "0": "https://thumbs.gfycat.com/BlankGiftedBurro-max-1mb.gif",
-            "1":"https://media1.tenor.com/images/1e92c03121c0bd6688d17eef8d275ea7/tenor.gif?itemid=9920853",
-            "2": "https://media.tenor.com/images/f79a9ec48bde0e592e55447b17ecfbad/tenor.gif",
-            "3": "https://uploads.disquscdn.com/images/995470f2fc3d0d20003d8a6fdab47a54cdade9111389dfdaa2f6751e15f0da51.gif",
-            "4": "http://gifimage.net/wp-content/uploads/2017/09/anime-pat-gif-2.gif",
-            "5": "http://gifimage.net/wp-content/uploads/2017/09/anime-pat-gif-4.gif",
-            "6": "https://giffiles.alphacoders.com/248/2482.gif",
-            "7": "https://data.whicdn.com/images/297125597/original.gif",
-            "8": "https://i.imgur.com/TPqMPka.gif",
-            "9": "http://gifimage.net/wp-content/uploads/2017/09/anime-pat-gif-8.gif",
-            "10": "https://68.media.tumblr.com/584a3894e3483eed23d1afaf1f6f9347/tumblr_ok1oplyzSF1r0tp5lo1_500.gif",
-            "11": "https://i.pinimg.com/originals/8b/42/6c/8b426c9bedc37054cd7e73925fa10da5.gif",
-            "12": "https://78.media.tumblr.com/364e5ba769517c4295a218dcb81c0602/tumblr_mp0yr2VHQQ1rvdjx0o1_1280.gif",
-            "13": "https://i.pinimg.com/originals/7b/b4/04/7bb404a3fd5376fa3b539407904a5291.gif",
-            "14": "https://pa1.narvii.com/6279/f72997893c952a02e6ef1732ecf98e61ef57863a_hq.gif",
-            "15": "https://media1.tenor.com/images/183ff4514cbe90609e3f286adaa3d0b4/tenor.gif?itemid=5518321",
-            "16": "https://pa1.narvii.com/6401/e11bc915114f632da1d2cc70716b7cb86478c130_hq.gif",
-            "17": "https://pa1.narvii.com/6401/9629e80dbe24f32a009ac51ee633a32dfbe1773f_hq.gif",
-	        "18": "http://pa1.narvii.com/6451/a2ed84c9d486fff04ce6769b2e365baf1bba4d6a_hq.gif",
-            "19": "https://media.giphy.com/media/orTEq4sOCrGUDXzOPW/giphy.gif",
-            "20": "https://cdn.discordapp.com/attachments/363833124288987139/431591315705430018/pat-rJavp1KVM.gif",
-            "21": "https://78.media.tumblr.com/7c08464d160758bb7c38a61b185333d6/tumblr_osfzz0JMiJ1wrb3z2o1_540.gif",
-            "22": "https://i.pinimg.com/originals/11/97/86/119786f6d928dfbd8aa7fd6d2c474150.gif"
-        };
-
+	async run(msg, args, neko) { 
         var imgselfpat = {
-            "0": "https://pa1.narvii.com/6401/655b40f33530a90101682ee74c5fa12a673df749_hq.gif",
-            "1": "https://i.redd.it/2ohfjanym13z.gif",
-            "2": "https://i.imgur.com/65yP14R.gif",
-            "3": "https://pa1.narvii.com/5790/0556780a813c3f6d93b0b178187bca7cec5b68dd_hq.gif",
-            "4": "http://i.imgur.com/uacfoA9.gif"
+            "1": "https://pa1.narvii.com/6401/655b40f33530a90101682ee74c5fa12a673df749_hq.gif",
+            "2": "https://i.redd.it/2ohfjanym13z.gif",
+            "3": "https://i.imgur.com/65yP14R.gif",
+            "4": "https://pa1.narvii.com/5790/0556780a813c3f6d93b0b178187bca7cec5b68dd_hq.gif",
+            "5": "http://i.imgur.com/uacfoA9.gif"
         };
-        const embed = new RichEmbed()
-         if(msg.author.id == args.member.id){
-            embed.setDescription(msg.author + ' pats.. their own head.. everyone needs a little bit of love sometimes ')
-            const randm = Math.random();
-
-                embed.setImage(imgselfpat[Math.floor(randm * Object.keys(imgselfpat).length).toString()])
-
-         }else{
-            embed.setDescription(msg.author + ' pats ' + args.member.user)
-            const randm = Math.random();
-
-                embed.setImage(imgpat[Math.floor(randm * Object.keys(imgpat).length).toString()])
-
-         }
-            
-            embed.setColor(0x23ff12)
-        return msg.embed(embed);
-    }
+    const {body} = await superagent 
+        .get('https://nekos.life/api/v2/img/pat')
+    const embed = new RichEmbed()
+    if(msg.author.id == args.member.id){
+       embed.setDescription(msg.author + ' pats.. their own head.. everyone needs a little bit of love sometimes ')
+       const randm = Math.random();
+       embed.setImage(imgselfpat[Math.floor(randm * Object.keys(imgselfpat).length).toString()])
+    }else{
+        embed.setDescription(msg.author + ' is Patting ' + args.member)
+        embed.setImage(body.url)
+        }
+       embed.setColor("RANDOM")
+   return msg.channel.send(embed);
+}
 };
