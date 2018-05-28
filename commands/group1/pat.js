@@ -21,12 +21,12 @@ module.exports = class PatCommand extends Command {
         });
     }
 	async run(msg, args, neko) { 
-        var imgselfpat = {
-            "1": "https://pa1.narvii.com/6401/655b40f33530a90101682ee74c5fa12a673df749_hq.gif",
-            "2": "https://i.redd.it/2ohfjanym13z.gif",
-            "3": "https://i.imgur.com/65yP14R.gif",
-            "4": "https://pa1.narvii.com/5790/0556780a813c3f6d93b0b178187bca7cec5b68dd_hq.gif",
-            "5": "http://i.imgur.com/uacfoA9.gif"
+       var imgselfpat = {
+            "0": "https://pa1.narvii.com/6401/655b40f33530a90101682ee74c5fa12a673df749_hq.gif",
+            "1": "https://i.redd.it/2ohfjanym13z.gif",
+            "2": "https://i.imgur.com/65yP14R.gif",
+            "3": "https://pa1.narvii.com/5790/0556780a813c3f6d93b0b178187bca7cec5b68dd_hq.gif",
+            "4": "http://i.imgur.com/uacfoA9.gif"
         };
     const {body} = await superagent 
         .get('https://nekos.life/api/v2/img/pat')
