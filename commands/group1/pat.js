@@ -31,7 +31,7 @@ module.exports = class PatCommand extends Command {
     const {body} = await superagent 
         .get('https://nekos.life/api/v2/img/pat')
     const embed = new RichEmbed()
-    if(msg.author.id == args.member.id){
+    if(msg.author == args.member){
        embed.setDescription(msg.author + ' pats.. their own head.. everyone needs a little bit of love sometimes ')
        const randm = Math.random();
        embed.setImage(imgselfpat[Math.floor(randm * Object.keys(imgselfpat).length).toString()])
