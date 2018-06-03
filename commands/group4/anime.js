@@ -1,9 +1,8 @@
 const { Command } = require('discord.js-commando')
 const { RichEmbed } = require('discord.js');
-var mal = require('maljs');
-const MALjs = require('MALjs');
+var kitsu = require('node-kitsu')
 
-module.exports = class animeCommand extends Command {
+module.exports = class animenCommand extends Command {
 	constructor(client) {
 		super(client, {
 			name: 'anime',
@@ -76,177 +75,108 @@ module.exports = class animeCommand extends Command {
 	            "32": "31st, "
 	        }
 
-	    const malScraper = require('mal-scraper')
 	    var anm = args.name+'';
 	    var embed = new RichEmbed()
 	    var embedst2 = new RichEmbed()
 	    var embed2 = new RichEmbed()
 
 
-	    mal.quickSearch(anm)
+	    kitsu.searchAnime(anm, 0)
 		  .then(result => {
-		  	console.log(result)
-		  	console.log(result.anime[0].mal)
-		  	if(result.anime.length > 1){
-		  		var titles = "";
-		  		var titles2 = "";
-		  		embed.setTitle("Multiple Anime found");
-		  		embedst2.setTitle("Multiple Anime found");
-		  		if(result.anime.length < 30){
-		  			for (var i = 0; i < result.anime.length; i++) {  			
-			  			titles = titles + "**["+ (i+1) + "]** " + result.anime[i].sn.replace(/\_/g," ") + "\n";
-			  		}
+		  	//console.log(result[0])
+		   		var titles = "";
+		   		var titles2 = "";
+		   		embed.setTitle("Multiple Anime found");
+		   			for (var i = 0; i < result.length; i++) {  			
+			   			titles = titles + "**["+ (i+1) + "]** " + result[i].attributes.canonicalTitle + "\n";
+			   		}
 
-			  		titles = titles+"\n**Please enter the number of the Anime you want to view** \n**Or type** `cancel` **to cancel the command**"
-			  		embed.setDescription(titles)
+			   		titles = titles+"\n**Please enter the number of the Anime you want to view** \n**Or type** `cancel` **to cancel the command**"
+			   		embed.setDescription(titles)
 
-			  		msg.channel.send(embed)
-		  		}else{
-		  			for (var i = 0; i < 30; i++) {  			
-			  			titles = titles + "**["+ (i+1) + "]** " + result.anime[i].sn.replace(/\_/g," ") + "\n";
-			  		}
-
-			  		titles = titles+"\n**Please enter the number of the Anime you want to view** \n**Or type** `cancel` **to cancel the command**"
-			  		embed.setDescription(titles)
-
-			  		msg.channel.send(embed)
-
-			  		for (var i = 30; i < result.anime.length; i++) {  			
-			  			titles2 = titles2 + "**["+ (i+1) + "]** " + result.anime[i].sn.replace(/\_/g," ") + "\n";
-			  		}
-
-			  		titles2 = titles2+"\n**Please enter the number of the Anime you want to view** \n**Or type** `cancel` **to cancel the command**"
-			  		embedst2.setDescription(titles2)
-
-			  		msg.channel.send(embedst2)
-		  		}
+			   		msg.channel.send(embed)
 		  		
-				inputAn(result.anime)
+				inputAn(result)
+		   }
 
-		  	}else {
-		  		var embed2 = new RichEmbed()
-	                	result.anime[0].fetch()
-	                	.then(csn => {
-	                		embed2.setTitle(csn.title)
-		                	embed2.setDescription(csn.description)
-		                	embed2.setThumbnail(csn.cover)
-		                	
-		                	
+		   ) // contains the json result on success
+		   .catch(err => {
+		   	msg.channel.send("Something went wrong, please try again.")
+		   	console.log(err);
+		   });
 
-							malScraper.getInfoFromName(csn.title)
-							  .then(res => {
-							  	embed2.addField("English Title", res.englishTitle, true)
-							  	embed2.addField("Japanese Title", res.japaneseTitle, true)
-							  	embed2.addField("Synonyms", res.synonyms, true)
-							  	embed2.addField("Episodes", res.episodes, true)
-							  	embed2.addField("Type", res.type, true)
-							  	embed2.addField("Status", res.status, true)
-							  	embed2.addField("Source", res.source, true)
-							  	embed2.setFooter(res.aired)
 
-							  	var genres = "`"
-							  	for (var i = 0; i < res.genres.length; i++) {
-							  		genres = genres + res.genres[i] + "`";
-							  		if(i+1 < res.genres.length){
-							  			genres = genres + ", `"
-							  		}
-							  	}
-							  	embed2.addField("Genres", genres)
-							  	embed2.addField("Rating", res.rating)
-							  	embed2.addField("Link", "https://myanimelist.net/"+csn.path)
-							  	embed2.addField("Ranked", "#"+csn.ranked, true)
-		                		embed2.addField("Score", csn.score, true)
 
-								msg.channel.send(embed2)
-							  })
-							  .catch(err => {
-							  	console.log(err)
-							  })
 
+		   function inputAn(anarr){
+
+		   	msg.channel.awaitMessages(m => m.author.id == msg.author.id, { max: 1, time: 30000, errors: ['time'] })
+             .then(collected => {
+             		if(collected.first().content == 'cancel'){
+             			msg.channel.send('Command canceled.')
+             		}else if(parseInt(collected.first().content,10)-1 == 'NaN' || parseInt(collected.first().content,10)-1 < 0){
+             			msg.channel.send('This is not a valid number, please try again.')
+             			inputAn(anarr)
+             		}else{
+             			var embed2 = new RichEmbed()
+	                 	var ani = anarr[parseInt(collected.first().content,10)-1]
+	                 		var atts = ani.attributes
+	                 		//console.log(ani)
+	                 		embed2.setTitle(atts.canonicalTitle)
+		                 	embed2.setDescription(atts.synopsis)
+		                 	if(atts.posterImage){
+			                 	embed2.setImage(atts.posterImage.medium)
+		                 	}
+		                 	if(atts.coverImage){
+			                 	embed2.setImage(atts.coverImage.large)
+		                 	}
 							
-	                	})
-	                	.catch(err => {
-	                		console.log(err)
-	                	})
-			}
-
-		  }
-
-		  ) // contains the json result on success
-		  .catch(err => {
-		  	msg.channel.send("Something went wrong, please try again.")
-		  	console.log(err);
-		  });
-
-
-
-
-		  function inputAn(anarr){
-
-		  	msg.channel.awaitMessages(m => m.author.id == msg.author.id, { max: 1, time: 30000, errors: ['time'] })
-            .then(collected => {
-            		console.log(collected.first().content)
-            		if(collected.first().content == 'cancel'){
-            			msg.channel.send('Command canceled.')
-            		}else if(parseInt(collected.first().content,10)-1 == 'NaN' || parseInt(collected.first().content,10)-1 < 0){
-            			msg.channel.send('This is not a valid number, please try again.')
-            			inputAn(anarr)
-            		}else{
-            			var embed2 = new RichEmbed()
-	                	anarr[parseInt(collected.first().content,10)-1].fetch()
-	                	.then(csn => {
-	                		console.log(csn)
-	                		embed2.setTitle(csn.title)
-		                	embed2.setDescription(csn.description)
-		                	embed2.setThumbnail(csn.cover)
-		                	
-		                	
-
-							malScraper.getInfoFromName(csn.title)
-							  .then(res => {
-							  	console.log(res)
-							  	embed2.addField("English Title", res.englishTitle, true)
-							  	embed2.addField("Japanese Title", res.japaneseTitle, true)
-							  	embed2.addField("Synonyms", res.synonyms, true)
-							  	embed2.addField("Episodes", res.episodes, true)
-							  	embed2.addField("Type", res.type, true)
-							  	embed2.addField("Status", res.status, true)
-							  	embed2.addField("Source", res.source, true)
-							  	embed2.setFooter(res.aired)
-
-							  	var genres = "`"
-							  	for (var i = 0; i < res.genres.length; i++) {
-							  		genres = genres + res.genres[i] + "`";
-							  		if(i+1 < res.genres.length){
-							  			genres = genres + ", `"
-							  		}
-							  	}
-							  	embed2.addField("Genres", genres)
-							  	embed2.addField("Rating", res.rating)
-							  	embed2.addField("Link", "https://myanimelist.net/"+csn.path)
-							  	embed2.addField("Ranked", "#"+csn.ranked, true)
-		                		embed2.addField("Score", csn.score, true)
-
-								msg.channel.send(embed2)
-							  })
-							  .catch(err => {
-							  	console.log(err)
-							  })
-
-							
-	                	})
-	                	.catch(err => {
-	                		console.log(err)
-	                	})
-
-
-	                }
+		                 	if(atts.titles.en){
+		 						embed2.addField("English Title", atts.titles.en, true)
+		                 	}
+							if(atts.titles.ja_jp){
+								embed2.addField("Japanese Title", atts.titles.ja_jp, true)
+							}
+							if(atts.abbreviatedTitles){
+								if(atts.abbreviatedTitles.length > 0){
+									embed2.addField("Synonyms", atts.abbreviatedTitles, true)
+								}
+							}
+							if(atts.episodeCount && atts.episodeLength){
+								embed2.addField("Episodes", atts.episodeCount + " á " + atts.episodeLength + " minutes", true)
+		 					}else if(atts.episodeCount){
+		 						embed2.addField("Episodes", atts.episodeCount, true)
+		 					}
+		 					embed2.addField("Type", atts.showType, true)
+		 					embed2.addField("Status", atts.status, true)
+		 					if(atts.ageRating){
+		 						embed2.addField("Age Restrictions", atts.ageRating + " " + atts.ageRatingGuide)
+		 					}
+		 					if(ani.links){
+		 						embed2.addField("Link", ani.links.self)
+		 					}
+		 					embed2.addField("Popularity Rank", "#"+atts.popularityRank, true)
+		 					if(atts.averageRating){
+		 						embed2.addField("Rating Rank", "#"+atts.ratingRank, true)
+		                 		embed2.addField("Rating", atts.averageRating, true)
+		 					}
+		 					
+		                 	if(atts.startDate && atts.endDate){
+		 						embed2.setFooter(atts.startDate + " to " + atts.endDate)
+		                 	}else if(atts.startDate && !atts.endDate){
+		                 		embed2.setFooter(atts.startDate)
+		                 	}else{
+		                 		embed2.setFooter(atts.tba)
+		                 	}
+		 					msg.channel.send(embed2)
+	                 }
  
-		  })
-          .catch(err => {
-          	console.log(err)
+		   })
+           .catch(err => {
+           	msg.channel.send("Something went wrong, please try again. \nIf it still doesn't work, please send a bug report with the `bug` command, include the command you used and the Anime you searched for.")
+           	console.log(err)
           })
-		}
+		 }
 	}
 
 }

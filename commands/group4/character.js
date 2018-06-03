@@ -1,6 +1,6 @@
 const { Command } = require('discord.js-commando')
 const { RichEmbed } = require('discord.js');
-var mal = require('maljs');
+var kitsu = require('node-kitsu')
 
 module.exports = class characterCommand extends Command {
 	constructor(client) {
@@ -24,6 +24,7 @@ module.exports = class characterCommand extends Command {
 	}
 
 	async run(msg, args) {
+
 		const months = {
 				"00": "",
 	            "01": "January ",
@@ -74,179 +75,75 @@ module.exports = class characterCommand extends Command {
 	            "32": "31st, "
 	        }
 
-
 	    var anm = args.name+'';
 	    var embed = new RichEmbed()
 	    var embedst2 = new RichEmbed()
+	    var embed2 = new RichEmbed()
 
-	    mal.quickSearch(anm)
-	    .then(result => {
-	    	if(result.character.length > 1){
-	    		var titles = "";
-		  		var titles2 = "";
-		  		embed.setTitle("Multiple Characters found");
-		  		embedst2.setTitle("Multiple Characters found");
-		  		if(result.character.length < 30){
-		  			for (var i = 0; i < result.character.length; i++) {  			
-			  			titles = titles + "**["+ (i+1) + "]** " + result.character[i].sn.replace(/\_/g," ") + "\n";
-			  		}
 
-			  		titles = titles+"\n**Please enter the number of the character you want to view** \n**Or type** `cancel` **to cancel the command**"
-			  		embed.setDescription(titles)
+	    kitsu.findCharacter(anm, 0)
+		  .then(result => {
+		  	console.log(result[0])
+		   		var titles = "";
+		   		var titles2 = "";
+		   		embed.setTitle("Multiple Characters found");
+		   			for (var i = 0; i < result.length; i++) {  			
+			   			titles = titles + "**["+ (i+1) + "]** " + result[i].attributes.name + "\n";
+			   		}
 
-			  		msg.channel.send(embed)
-		  		}else{
-		  			for (var i = 0; i < 30; i++) {  			
-			  			titles = titles + "**["+ (i+1) + "]** " + result.character[i].sn.replace(/\_/g," ") + "\n";
-			  		}
+			   		titles = titles+"\n**Please enter the number of the Character you want to view** \n**Or type** `cancel` **to cancel the command**"
+			   		embed.setDescription(titles)
 
-			  		titles = titles+"\n**Please enter the number of the character you want to view** \n**Or type** `cancel` **to cancel the command**"
-			  		embed.setDescription(titles)
-
-			  		msg.channel.send(embed)
-
-			  		for (var i = 30; i < result.character.length; i++) {  			
-			  			titles2 = titles2 + "**["+ (i+1) + "]** " + result.character[i].sn.replace(/\_/g," ") + "\n";
-			  		}
-
-			  		titles2 = titles2+"\n**Please enter the number of the character you want to view** \n**Or type** `cancel` **to cancel the command**"
-			  		embedst2.setDescription(titles2)
-
-			  		msg.channel.send(embedst2)
-		  		}
+			   		msg.channel.send(embed)
 		  		
-				inputAn(result.character)
+				inputAn(result)
+		   }
 
-		  	}else {
-		  		result.character[0].fetch().then(res => {
-		  			console.log(res)
-		  			embed.setTitle(res.sn.replace(/\_/g," "))
-
-		  			//if(res.pictures[0]){
-			  			//var thum = res.pictures[0];
-			  			//thum = thum.substring(thum.indexOf("https",2),thum.length)
-			  			embed.setThumbnail(res.cover)
-		  			//}
-		  			var desc = res.description.replace(/\&quot\;/g,'"').replace(/\&apos\;/g,"'");
-		  			if(desc.length > 2048){
-				        desc = desc.substring(0,2047).substring(0,desc.lastIndexOf('.'))
-				    }
-		  			embed.setDescription(desc)
-		  			embed.addField("Link", "https://myanimelist.net/"+res.path)
-
-
-		  			if(res.mangaography.length > 0){
-		  				var mangas = "";
-		  				for (var i = 0; i < res.mangaography.length; i++) {
-		  					if(i+1 < res.mangaography.length){
-		  						if(res.mangaography[i].sn != res.mangaography[i+1].sn){
-			  						mangas = mangas + "`" + res.mangaography[i].sn.replace(/\_/g," ") + "`";
-			  						mangas = mangas + ", ";
-			  					}
-		  					}else{
-		  						mangas = mangas + "`" + res.mangaography[i].sn.replace(/\_/g," ") + "`";
-		  					}
-		  				}
-		  				embed.addField("Manga", mangas)
-		  			}
-
-
-		  			if(res.animeography.length > 0){
-		  				var animes = "";
-		  				for (var i = 0; i < res.animeography.length; i++) {
-		  					if(i+1 < res.animeography.length){
-		  						if(res.animeography[i].sn != res.animeography[i+1].sn){
-			  						animes = animes + "`" + res.animeography[i].sn.replace(/\_/g," ") + "`";
-			  						animes = animes + ", ";
-			  					}
-		  					}else{
-		  						animes = animes + "`" + res.animeography[i].sn.replace(/\_/g," ") + "`";
-		  					}
-		  				}
-
-		  				embed.addField("Anime", animes)
-		  			}
-
-		  			msg.channel.send(embed)
-		  		})
-	    	}
-	    })
-	    .catch(err => {
-	    	console.log(err)
-	    	msg.channel.send("Something went wrong!")
-	    })
+		   ) // contains the json result on success
+		   .catch(err => {
+		   	msg.channel.send("Something went wrong, please try again.")
+		   	console.log(err);
+		   });
 
 
 
-	    function inputAn(anarr){
-		  	msg.channel.awaitMessages(m => m.author.id == msg.author.id, { max: 1, time: 30000, errors: ['time'] })
-            .then(collected => {
-            	if(collected.first().content == 'cancel'){
-        			msg.channel.send('Command canceled.')
-        		}else if(parseInt(collected.first().content,10)-1 == 'NaN' || parseInt(collected.first().content,10)-1 < 0){
-        			msg.channel.send('This is not a valid number, please try again.')
-        			inputAn(anarr)
-        		}else{
-        			var embed2 = new RichEmbed()
-                	anarr[parseInt(collected.first().content,10)-1].fetch().then(res => {
-                		embed2.setTitle(res.sn.replace(/\_/g," "))
 
-		  			//if(res.pictures[0]){
-			  			//var thum = res.pictures[0];
-			  			//thum = thum.substring(thum.indexOf("https",2),thum.length)
-			  			embed2.setThumbnail(res.cover)
-		  			//}
+		   function inputAn(anarr){
 
-		  			var desc = res.description.replace(/\&quot\;/g,'"').replace(/\&apos\;/g,"'");
-		  			if(desc.length > 2048){
-				        desc = desc.substring(0,2047).substring(0,desc.lastIndexOf('.'))
-				    }
-		  			embed2.setDescription(desc)
-		  			embed2.addField("Link", "https://myanimelist.net/"+res.path)
+		   	msg.channel.awaitMessages(m => m.author.id == msg.author.id, { max: 1, time: 30000, errors: ['time'] })
+             .then(collected => {
+             		if(collected.first().content == 'cancel'){
+             			msg.channel.send('Command canceled.')
+             		}else if(parseInt(collected.first().content,10)-1 == 'NaN' || parseInt(collected.first().content,10)-1 < 0){
+             			msg.channel.send('This is not a valid number, please try again.')
+             			inputAn(anarr)
+             		}else{
+             			var embed2 = new RichEmbed()
+	                 	var ani = anarr[parseInt(collected.first().content,10)-1]
+	                 		var atts = ani.attributes
+	                 		embed2.setTitle(atts.name)
+	                 		if(atts.description){
+	                 			embed2.setDescription(atts.description.replace(/\<br\/\>/g, "\n").replace(/\<span\sclass\=\"spoiler\"\>.*\<\/span\>/g, ""))	
+	                 		}
+		                 	embed2.setThumbnail(atts.image.original)
+		                 	embed2.setImage(atts.image.original)
 
+		                 	if(atts.names.en){
+		 						embed2.addField("English Name", atts.names.en, true)
+		                 	}
+		                 	if(atts.names.ja_jp){
+								embed2.addField("Japanese Name", atts.names.ja_jp, true)
+							}
+		 					msg.channel.send(embed2)
+	                 }
+ 
+		   })
+           .catch(err => {
 
-		  			if(res.mangaography.length > 0){
-		  				var mangas = "";
-		  				for (var i = 0; i < res.mangaography.length; i++) {
-		  					if(i+1 < res.mangaography.length){
-		  						if(res.mangaography[i].sn != res.mangaography[i+1].sn){
-			  						mangas = mangas + "`" + res.mangaography[i].sn.replace(/\_/g," ") + "`";
-			  						mangas = mangas + ", ";
-			  					}
-		  					}else{
-		  						mangas = mangas + "`" + res.mangaography[i].sn.replace(/\_/g," ") + "`";
-		  					}
-		  				}
-		  				embed2.addField("Manga", mangas)
-		  			}
-
-
-		  			if(res.animeography.length > 0){
-		  				var animes = "";
-		  				for (var i = 0; i < res.animeography.length; i++) {
-		  					if(i+1 < res.animeography.length){
-		  						if(res.animeography[i].sn != res.animeography[i+1].sn){
-			  						animes = animes + "`" + res.animeography[i].sn.replace(/\_/g," ") + "`";
-			  						animes = animes + ", ";
-			  					}
-		  					}else{
-		  						animes = animes + "`" + res.animeography[i].sn.replace(/\_/g," ") + "`";
-		  					}
-		  				}
-
-		  				embed2.addField("Anime", animes)
-		  			}
-
-		  			msg.channel.send(embed2)
-
-	            })
-                .catch()
-                }
-            })
-            .catch(err => {
-            	console.log(err)
-            	msg.channel.send('The Time to reply ran out, please try again.');
-            })
-		}
+           	msg.channel.send("Something went wrong, please try again. \nIf it still doesn't work, please send a bug report with the `bug` command, include the command you used and the Character you searched for.")
+           	console.log(err)
+          })
+		 }
 	}
+
 }
