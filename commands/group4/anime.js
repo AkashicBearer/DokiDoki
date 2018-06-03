@@ -152,9 +152,7 @@ module.exports = class animenCommand extends Command {
 		 					if(atts.ageRating){
 		 						embed2.addField("Age Restrictions", atts.ageRating + " " + atts.ageRatingGuide)
 		 					}
-		 					if(ani.links){
-		 						embed2.addField("Link", ani.links.self)
-		 					}
+		 					
 		 					embed2.addField("Popularity Rank", "#"+atts.popularityRank, true)
 		 					if(atts.averageRating){
 		 						embed2.addField("Rating Rank", "#"+atts.ratingRank, true)
