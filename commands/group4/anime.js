@@ -125,7 +125,7 @@ module.exports = class animenCommand extends Command {
 	                 		embed2.setTitle(atts.canonicalTitle)
 		                 	embed2.setDescription(atts.synopsis)
 		                 	if(atts.posterImage){
-			                 	embed2.setImage(atts.posterImage.medium)
+			                 	embed2.setThumbnail(atts.posterImage.medium)
 		                 	}
 		                 	if(atts.coverImage){
 			                 	embed2.setImage(atts.coverImage.large)
