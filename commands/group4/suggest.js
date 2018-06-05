@@ -27,7 +27,7 @@ module.exports = class SuggestCommand extends Command {
         embed.setDescription(args.text)
         embed.setFooter(msg.guild.name + "")
         embed.setTimestamp()
-      const chann = this.client.guilds.find("name", "Doki Doki Server").channels.find('name','suggestions');
+      const chann = this.client.guilds.get('389111570162122752').channels.find('name','suggestions');
       chann.sendMessage(embed);
       msg.channel.send('Your Suggestion was sent!');
     }
