@@ -26,41 +26,30 @@ module.exports = class googleCommand extends Command {
 
 	async run(msg, args) {
 
-		var sit = "";
-		var que = args.query;
-
-		var googleSearch = new GoogleSearch({
-		  key: 'AIzaSyDbMFIXtCiEDoY26mUBVgN35FlLV9MckKg ',
-		  cx: '016729059967415605183:avz5ft7tbxk'
-		});
+		var google = require('google')
 		 
+		google.resultsPerPage = 6
+		var nextCounter = 0
+		var quer = args.query
+
+		var embed = new RichEmbed()
 		 
-		googleSearch.build({
-		  q: que,
-		  num: 5, // Number of search results to return between 1 and 10, inclusive 
-		  siteSearch: sit // Restricts results to URLs from a specified site 
-		}, function(error, response) {
-		  var embed = new RichEmbed()
-		  embed.setTitle("Your search results")
-		  console.log(response)
-		  
+		google(quer, function (err, res){
+		  if (err) console.error(err)
 
-		  
-
-		  /*for(var i = 0; i < response.items.length; i++){
-		  	var title = response.items[i].title;
-
-		    if(title.length > 30 && title.indexOf(' ',30) > 0){
-		    	title = title.substring(0, title.indexOf(' ',30));
-		    }
-
-		  	embed.addField(title, "[Link]("+response.items[i].link+")", true)
-		  }*/
-
+		  embed.setTitle("Google Search for " + quer)
 		  embed.setThumbnail("https://cognitiveseo.com/blog/wp-content/uploads/2017/10/1000px-Google_-G-_Logo.svg_.png")
+		 
+		  for (var i = 0; i < res.links.length; ++i) {
+		    var link = res.links[i];
+		    if(link.title && link.href && link.description){
+		    	embed.addField(link.title, link.description+"\n"+"[More]("+link.href+")\n")
+		    }
+		  }
 
-		  msg.channel.send(embed)
+		msg.channel.send(embed)
+		})
 
-		});
+
 	}
 }

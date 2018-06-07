@@ -40,6 +40,7 @@
     "fs": "0.0.1-security",
     "get-stream": "3.0.0",
     "git-all": "0.0.3",
+    "google": "^2.1.0",
     "google-search": "0.0.5",
     "google-translate-api": "2.3.0",
     "google-translate-token": "1.0.0",
