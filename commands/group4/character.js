@@ -123,7 +123,11 @@ module.exports = class characterCommand extends Command {
 	                 		var atts = ani.attributes
 	                 		embed2.setTitle(atts.name)
 	                 		if(atts.description){
-	                 			embed2.setDescription(atts.description.replace(/\<br\/\>/g, "\n").replace(/\<span\sclass\=\"spoiler\"\>(.|[\n\r])*\<\/span\>/g, ""))	
+	                 			var des = atts.description.replace(/\<br\/\>/g, "\n").replace(/\<span\sclass\=\"spoiler\"\>(.|[\n\r])*\<\/span\>/g, "")
+	                 			if(des.length > 2048){
+	                 				des = des.substring(0,2048).substring(0,des.lastIndexOf(".")+1)
+	                 			}
+	                 			embed2.setDescription(des)	
 	                 		}
 		                 	embed2.setThumbnail(atts.image.original)
 		                 	embed2.setImage(atts.image.original)
