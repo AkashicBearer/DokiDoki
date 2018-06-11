@@ -9,6 +9,9 @@ const client = new CommandoClient({
     owner: ['193021560792154112', '111469545637605376'],
     disableEveryone: true,      
 });
+sqlite.open(path.join(__dirname, "settings.sqlite3")).then((db) => {
+    client.setProvider(new SQLiteProvider(db));
+});
 client.registry
     .registerDefaultTypes()
     .registerGroups([
@@ -48,4 +51,4 @@ client.registry
       return channel1.sendMessage(leaveembed)
     client.user.setActivity(`With ${client.guilds.size} Servers\~`)
   });
-client.login(proccess.env.token);
+client.login(process.env.token);
