@@ -1,27 +1,14 @@
 const { CommandoClient, SQLiteProvider } = require('discord.js-commando');
-/*
-const { Pool } = require('pg')
-const connectionString = require(process.env.DATABASE_URL)
-*/
+const { RichEmbed } = require('discord.js');
 const oneLine = require('common-tags').oneLine;
 const sqlite = require('sqlite');
 const path = require('path');
-//const DBL = require("dblapi.js");
-//const dbl = new DBL('process.env.dbl');
 const client = new CommandoClient({
     commandPrefix: '<',
     unknownCommandResponse: false,
     owner: ['193021560792154112', '111469545637605376'],
-    disableEveryone: true, 
-    //connectionString: connectionString,
+    disableEveryone: true,      
 });
-
-sqlite.open(path.join(__dirname, "settings.sqlite3")).then((db) => {
-    client.setProvider(new SQLiteProvider(db));
-});
-
-// Command Groups
-
 client.registry
     .registerDefaultTypes()
     .registerGroups([
@@ -29,30 +16,36 @@ client.registry
         ['group2', 'Fun'],
         ['group3', 'Random'],
 	['group4', 'Util'],
-	['group5', 'Administration'],
+        ['group5', 'Administration'],
 	['group6', 'NSFW'],
 ])	
-// Console.Log and other stuff -.-
-    .registerDefaultGroups()
-    .registerDefaultCommands({
-	help: false,
-	ping: false,
-	prefix: true,
-	eval: true
-})
-    .registerCommandsIn(path.join(__dirname, 'commands'));
-  client	 
-	.on('error', console.error)
-	.on('warn', console.warn)
-	.on('debug', console.log)
-	.on('ready', () => {
-		console.log(`Client ready; logged in as ${client.user.username}#${client.user.discriminator} (${client.user.id})`);
+     .registerDefaultGroups()
+     .registerDefaultCommands({help: false, ping: false, prefix: true, eval: true})
+     .registerCommandsIn(path.join(__dirname, 'commands'));
+	   client.on('error', console.error)
+	   client.on('warn', console.warn)
+	   client.on('debug', console.log)
+	   client.on('ready', () => {
+		    console.log(`Client ready; logged in as ${client.user.username}#${client.user.discriminator} (${client.user.id})`);
 	  	client.user.setActivity(`with ${client.guilds.size} Servers`);
-	  	//setInterval(() => {
-		//dbl.postStats(client.guilds.size);
-   		 //}, 1800000);
 	})
 
-// Random Shits
+  client.on("guildCreate", guildCreate => {
+    const channel1 = client.guilds.find("name", "DokiDoki Support").channels.find('name','server-join-leave');
+      const joinembed = new RichEmbed()
+            joinembed.setDescription(`Ive Joined the guild ${guildCreate.name} \n Guild ID: ${guildCreate.id}`)
+            joinembed.addField('Information', `The Guild has ${guildCreate.memberCount} Members and ${guildCreate.channels.array().length} Channels\~!`)
+            joinembed.setThumbnail(guildCreate.iconURL)
+      return channel1.sendMessage(joinembed)
+    client.user.setActivity(`With ${client.guilds.size} Servers\~`)
+  });
 
-client.login(process.env.token);
+  client.on("guildDelete", guildDelete => {
+      const channel1 = client.guilds.find("name", "DokiDoki Support").channels.find('name','server-join-leave');
+        const leaveembed = new RichEmbed()
+            leaveembed.setDescription(`Ive Left the guild ${guildDelete.name}\n Guild ID: ${guildDelete.id}`)
+            leaveembed.setThumbnail(guildDelete.iconURL)
+      return channel1.sendMessage(leaveembed)
+    client.user.setActivity(`With ${client.guilds.size} Servers\~`)
+  });
+client.login("NDM1OTAxMzA1MDMwOTY3MzA2.DbfuvQ.3JzYScaasu1l8vc9Ijk3lmDD_Vk");
