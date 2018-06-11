@@ -32,23 +32,37 @@ client.registry
 		    console.log(`Client ready; logged in as ${client.user.username}#${client.user.discriminator} (${client.user.id})`);
 	  	client.user.setActivity(`with ${client.guilds.size} Servers`);
 	})
+// Guild Join / Leave 
+  client.on("guildCreate", (guildCreate) => { 
+      client.user.setPresence({ game: { name: `With ${client.guilds.size} Servers!` }, status: 'online' })
 
-  client.on("guildCreate", guildCreate => {
-    const channel1 = client.guilds.find("name", "DokiDoki Support").channels.find('name','server-join-leave');
+      const channel1 = client.guilds.find("name", "DokiDoki Support").channels.find('name','server-join-leave');
       const joinembed = new RichEmbed()
-            joinembed.setDescription(`Ive Joined the guild ${guildCreate.name} \n Guild ID: ${guildCreate.id}`)
-            joinembed.addField('Information', `The Guild has ${guildCreate.memberCount} Members and ${guildCreate.channels.array().length} Channels\~!`)
+            joinembed.setAuthor(client.user.username + ' Joined the Guild')
+            joinembed.setDescription(`${guildCreate.name}`)
+            joinembed.addField(`Guild ID` , `${guildCreate.id}`)
+            joinembed.addField('Member Count', `${guildCreate.memberCount}`, true)
+            joinembed.addField('Channel Count ' , ` ${guildCreate.channels.array().length}`, true)
+            joinembed.addField('Server Owner ', guildCreate.owner)
             joinembed.setThumbnail(guildCreate.iconURL)
-      return channel1.sendMessage(joinembed)
-    client.user.setActivity(`With ${client.guilds.size} Servers\~`)
+            joinembed.setColor(`RANDOM`)
+            joinembed.setFooter(client.user.username + ' \(' + client.user.id + '\)')
+       channel1.sendMessage(joinembed)
   });
+  client.on("guildDelete", (guildDelete) => {
+      client.user.setPresence({ game: { name: `With ${client.guilds.size} Servers!` }, status: 'online' })
 
-  client.on("guildDelete", guildDelete => {
       const channel1 = client.guilds.find("name", "DokiDoki Support").channels.find('name','server-join-leave');
         const leaveembed = new RichEmbed()
-            leaveembed.setDescription(`Ive Left the guild ${guildDelete.name}\n Guild ID: ${guildDelete.id}`)
+            leaveembed.setAuthor(client.user.username + ' Left the Guild')
+            leaveembed.setDescription(`${guildDelete.name}`)
+            leaveembed.addField(`Guild ID` , `${guildDelete.id}`)
+            leaveembed.addField('Server Owner: ', guildDelete.owner)
             leaveembed.setThumbnail(guildDelete.iconURL)
-      return channel1.sendMessage(leaveembed)
-    client.user.setActivity(`With ${client.guilds.size} Servers\~`)
+            leaveembed.setColor(`RANDOM`)
+            leaveembed.setFooter(client.user.username + client.user.id)
+       channel1.sendMessage(leaveembed)
   });
+
+//Login 
 client.login(process.env.token);
