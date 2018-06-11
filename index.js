@@ -48,4 +48,4 @@ client.registry
       return channel1.sendMessage(leaveembed)
     client.user.setActivity(`With ${client.guilds.size} Servers\~`)
   });
-client.login("NDM1OTAxMzA1MDMwOTY3MzA2.DbfuvQ.3JzYScaasu1l8vc9Ijk3lmDD_Vk");
+client.login(proccess.env.token);
