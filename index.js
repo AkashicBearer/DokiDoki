@@ -43,11 +43,12 @@ client.registry
             joinembed.addField(`Guild ID` , `${guildCreate.id}`)
             joinembed.addField('Member Count', `${guildCreate.memberCount}`, true)
             joinembed.addField('Channel Count ' , ` ${guildCreate.channels.array().length}`, true)
-            joinembed.addField('Server Owner ', guildCreate.owner)
+            var jownerTag = guildCreate.members.get(guildCreate.ownerID).user.username+"#"+guildCreate.members.get(guildCreate.ownerID).user.discriminator+" ("+guildCreate.ownerID+")"
+           joinembed.addField('Server Owner ', jownerTag)
             joinembed.setThumbnail(guildCreate.iconURL)
-            joinembed.setColor(`RANDOM`)
+            joinembed.setColor(`#00FF00`)
             joinembed.setFooter(client.user.username + ' \(' + client.user.id + '\)')
-       channel1.sendMessage(joinembed)
+       channel1.send(joinembed)
   });
   client.on("guildDelete", (guildDelete) => {
       client.user.setPresence({ game: { name: `With ${client.guilds.size} Servers!` }, status: 'online' })
@@ -57,11 +58,12 @@ client.registry
             leaveembed.setAuthor(client.user.username + ' Left the Guild')
             leaveembed.setDescription(`${guildDelete.name}`)
             leaveembed.addField(`Guild ID` , `${guildDelete.id}`)
-            leaveembed.addField('Server Owner: ', guildDelete.owner)
+            var lownerTag = guildDelete.members.get(guildDelete.ownerID).user.username+"#"+guildDelete.members.get(guildDelete.ownerID).user.discriminator+" ("+guildDelete.ownerID+")"      
+            leaveembed.addField('Server Owner: ', lownerTag)
             leaveembed.setThumbnail(guildDelete.iconURL)
-            leaveembed.setColor(`RANDOM`)
-            leaveembed.setFooter(client.user.username + client.user.id)
-       channel1.sendMessage(leaveembed)
+            leaveembed.setColor(`#FF0000`)
+            leaveembed.setFooter(client.user.username + ' \(' + client.user.id + '\)')
+       channel1.send(leaveembed)
   });
 
 //Login 
