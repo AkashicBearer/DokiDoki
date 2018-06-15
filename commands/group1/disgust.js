@@ -15,7 +15,7 @@ module.exports = class disgustCommand extends Command {
                 label: 'user',
                 prompt: 'Who to kiss?',
                 type: 'member'.
-                default:''
+                default: ''
                 }
             ]
         });
