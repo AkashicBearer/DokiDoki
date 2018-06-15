@@ -9,13 +9,13 @@ module.exports = class disgustCommand extends Command {
             group: 'group1',
             memberName: 'disgust',
             description: 'Sends a disgust',
-            args: [
+             args: [
                 {
-                key: 'member',
-                label: 'user',
-                prompt: 'Who to kiss?',
-                type: 'member'.
-                default: ''
+                    key: 'member',
+                    label: 'user',
+                    prompt: 'Who do you want to beg?',
+                    type: 'member',
+                    default: ''
                 }
             ]
         });
