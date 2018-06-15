@@ -36,7 +36,7 @@ module.exports = class disgustCommand extends Command {
             "19":"https://78.media.tumblr.com/e3655a14de33c12b0d058e94f2927cbd/tumblr_o531psWIV21ufw8o4o1_500.gif",
         };
            const embed = new RichEmbed()
-                if(msg.author.id == args.member.id || !args.member){
+                if(msg.author.id == args.member.user.id || !args.member){
                     embed.setDescription(msg.author + ' is disgusted.')
                 }else{
                     embed.setDescription(msg.author + ' is disgusted by ' + args.member + '.')
