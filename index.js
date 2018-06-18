@@ -67,6 +67,7 @@ client.registry
   });
 
   client.on("message", (message) => {
+    if (message.author.bot) return;
     var phrases = [
     '>,< ', '💢 Baka! Stop Flipping the tables!', 'Here we go again~', 'Dont Flip the tables, they are expensive!', 'Owww~!', 'Baka!! Baka!!',
     'Didnt I Tell you to stop flipping the tables?', '💢', 'Please Stop flipping the poor tables...', 'Why are you flipping the table?',
