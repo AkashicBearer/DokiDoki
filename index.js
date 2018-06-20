@@ -66,26 +66,6 @@ client.registry
        channel1.send(leaveembed)
   });
 
-  client.on("message", (message) => {
-    if (message.author.bot) return;
-    var phrases = [
-    '>,< ', '💢 Baka! Stop Flipping the tables!', 'Here we go again~', 'Dont Flip the tables, they are expensive!', 'Owww~!', 'Baka!! Baka!!',
-    'Didnt I Tell you to stop flipping the tables?', '💢', 'Please Stop flipping the poor tables...', 'Why are you flipping the table?',
-    'Calm down Baka!', '💢 Stop! >,<', 'Im Getting tired of this...', 'Ultimate Unflipping Table Technique!', '**sigh**', ' ', '(╯°□°）╯︵ ┻━┻',
-    '💢💢💢', '💢BAKA!💢', 'I quit...'
-    ];
-    var tableflip = [
-    '(╯°□°）╯︵ ┻━┻',
-    '(╯‵□′)╯︵┻━┻',
-    '◡ ヽ(`Д´)ﾉ ┻━┻',
-    '(╯°Д°）╯︵ /(.□ . )',
-    '┻━┻︵╰(‵□′)╯︵┻━┻'
-    ];
-    var random = Math.floor(Math.random() * phrases.length);
-  if (tableflip.includes(message.content)){
-     message.channel.send('┬─┬﻿ ノ( ゜-゜ノ) ' + phrases[random]);
-    }
-  })
 // Table Unflip 
 // Code Based on Hitori bot unflip table event,
 // Credits to @Kami#5253 for inspiration :3
