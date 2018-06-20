@@ -12,7 +12,7 @@ module.exports = class DanbooruCommand extends Command {
             group: 'group6',
             memberName: 'danbooru',
             description: 'Search Danbooru for Images \nRatings can be: safe, questionable, or explicit',
-            argsType: 'multiple',
+            examples: ['<danbooru neko safe', '<danbooru neko explicit', '<danbooru neko questionable'],
             args:[
                 {
                     key: 'item',
