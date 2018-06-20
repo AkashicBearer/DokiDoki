@@ -86,7 +86,9 @@ client.registry
      message.channel.send('┬─┬﻿ ノ( ゜-゜ノ) ' + phrases[random]);
     }
   })
-// Table Unflip z
+// Table Unflip 
+// Code Based on Hitori bot unflip table event,
+// Credits to @Kami#5253 for inspiration :3
 client.on("message", (message) => {
   if(message.author.bot) return!
   var phrases = [
