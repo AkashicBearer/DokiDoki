@@ -30,6 +30,7 @@
     "create-error-class": "3.0.2",
     "curl": "^0.1.4",
     "dblapi.js": "^1.2.0",
+    "danbooru": "^3.0.7",
     "decimal.js": "9.0.1",
     "discord.js": "^11.3.2",
     "discord.js-commando": "^0.10.0",
