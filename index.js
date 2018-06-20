@@ -89,6 +89,9 @@ client.registry
 // Table Unflip 
 // Code Based on Hitori bot unflip table event,
 // Credits to @Kami#5253 for inspiration :3
+
+
+
 client.on("message", (message) => {
   if(message.author.bot) return!
   var phrases = [
@@ -101,10 +104,10 @@ client.on("message", (message) => {
   var tf = [
     '(╯°□°）╯︵ ┻━┻', '(╯‵□′)╯︵┻━┻', '◡ ヽ(`Д´)ﾉ ┻━┻', '(╯°Д°）╯︵ /(.□ . )', '┻━┻︵╰(‵□′)╯︵┻━┻', 'ミ(ノ￣^￣)ノ≡≡≡≡≡━┳━☆()￣□￣)/', '(ﾉ≧∇≦)ﾉ ﾐ ┸┸)`νﾟ)･;’.',
     '⌒┫ ┻ ┣ ⌒┻☆)ﾟ⊿ﾟ)ﾉWTF!', '(ノ｀m´)ノ ~┻━┻ (/o＼)', '(ﾉ｀A”)ﾉ ⌒┫ ┻ ┣ ┳☆(x x)', '.::･┻┻☆()ﾟOﾟ)', 'ﾐ┻┻(ﾉ>｡<)ﾉ', '(ﾉ≧∇≦)ﾉ ﾐ ┸━┸', '(╯ರ ~ ರ）╯︵ ┻━┻',
-    '(ﾉ´･ω･)ﾉ ﾐ ┸━┸', '(ノಥ,_｣ಥ)ノ彡┻━┻', '┻━┻ ︵﻿ ¯\(ツ)/¯ ︵ ┻━┻', ''
+    '(ﾉ´･ω･)ﾉ ﾐ ┸━┸', '(ノಥ,_｣ಥ)ノ彡┻━┻', '┻━┻ ︵ ¯\(ツ)/¯ ︵ ┻━┻', ''
   ];
   var tableunflip = [
-    '┣ﾍ(≧∇≦ﾍ)… (≧∇≦)/┳━┳', 'ヘ(´° □°)ヘ┳━┳', '(ヘ･_･)ヘ┳━┳', '┬──┬﻿ ¯\_(ツ)','┬──┬ ノ( ゜-゜ノ)','┣ﾍ(^▽^ﾍ)Ξ(ﾟ▽ﾟ*)ﾉ┳━┳'
+    '┣ﾍ(≧∇≦ﾍ)… (≧∇≦)/┳━┳', 'ヘ(´° □°)ヘ┳━┳', '(ヘ･_･)ヘ┳━┳', '┬──┬ ¯\_(ツ)','┬──┬ ノ( ゜-゜ノ)','┣ﾍ(^▽^ﾍ)Ξ(ﾟ▽ﾟ*)ﾉ┳━┳'
   ];
   var random = Math.floor(Math.random() * phrases.length);
   var unflip = Math.floor(Math.random() * tableunflip.length);
