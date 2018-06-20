@@ -1,4 +1,4 @@
-const { Command } = require('discord.js-commando');
+/* const { Command } = require('discord.js-commando');
 const { RichEmbed } = require('discord.js');
 const https = require('https');
 const Danbooru = require('danbooru');
@@ -55,3 +55,4 @@ if (!msg.channel.nsfw) return msg.reply("You can only use this comand in a NSFW 
 })
 }
 }
+*/ 
