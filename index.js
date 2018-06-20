@@ -86,7 +86,35 @@ client.registry
      message.channel.send('┬─┬﻿ ノ( ゜-゜ノ) ' + phrases[random]);
     }
   })
-
+// Table Unflip z
+client.on("message", (message) => {
+  if(message.author.bot) return!
+  var phrases = [
+    '>,< ', '💢 Baka! Stop Flipping the tables!', 'Here we go again~', 'Dont Flip the tables, they are expensive!', 'Owww~!', 'Baka!! Baka!!',
+    'Didnt I Tell you to stop flipping the tables?', '💢', 'Please Stop flipping the poor tables...', 'Why are you flipping the table?',
+    'Calm down Baka!', '💢 Stop! >,<', 'Im Getting tired of this...', 'Ultimate Unflipping Table Technique!', '**sigh**', ' ', '(╯°□°）╯︵ ┻━┻',
+    '💢💢💢', '💢BAKA!💢', 'I quit...', 'Roses are red,violets are blue and if you don\'t stop I will flip you', 'Error: 404 Table not Found',
+    'Monika should open Doki Doki Flipping Club for people like you...', ''
+    ];
+  var tf = [
+    '(╯°□°）╯︵ ┻━┻', '(╯‵□′)╯︵┻━┻', '◡ ヽ(`Д´)ﾉ ┻━┻', '(╯°Д°）╯︵ /(.□ . )', '┻━┻︵╰(‵□′)╯︵┻━┻', 'ミ(ノ￣^￣)ノ≡≡≡≡≡━┳━☆()￣□￣)/', '(ﾉ≧∇≦)ﾉ ﾐ ┸┸)`νﾟ)･;’.',
+    '⌒┫ ┻ ┣ ⌒┻☆)ﾟ⊿ﾟ)ﾉWTF!', '(ノ｀m´)ノ ~┻━┻ (/o＼)', '(ﾉ｀A”)ﾉ ⌒┫ ┻ ┣ ┳☆(x x)', '.::･┻┻☆()ﾟOﾟ)', 'ﾐ┻┻(ﾉ>｡<)ﾉ', '(ﾉ≧∇≦)ﾉ ﾐ ┸━┸', '(╯ರ ~ ರ）╯︵ ┻━┻',
+    '(ﾉ´･ω･)ﾉ ﾐ ┸━┸', '(ノಥ,_｣ಥ)ノ彡┻━┻', '┻━┻ ︵﻿ ¯\(ツ)/¯ ︵ ┻━┻', ''
+  ];
+  var tableunflip = [
+    '┣ﾍ(≧∇≦ﾍ)… (≧∇≦)/┳━┳', 'ヘ(´° □°)ヘ┳━┳', '(ヘ･_･)ヘ┳━┳', '┬──┬﻿ ¯\_(ツ)','┬──┬ ノ( ゜-゜ノ)','┣ﾍ(^▽^ﾍ)Ξ(ﾟ▽ﾟ*)ﾉ┳━┳'
+  ];
+  var random = Math.floor(Math.random() * phrases.length);
+  var unflip = Math.floor(Math.random() * tableunflip.length);
+  
+  for (var i = 0; i < tf.length; i++) {
+  if (message.content.includes(tf[i])) {
+     message.channel.send(tableunflip[unflip] + ' ' + phrases[random]);
+  break;
+  }
+  break;
+  }
+});
 
 //Login 
 client.login(process.env.token);
