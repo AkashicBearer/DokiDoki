@@ -13,6 +13,10 @@ module.exports = class DanbooruCommand extends Command {
             memberName: 'danbooru',
             description: 'Search Danbooru for Images \nRatings can be: safe, questionable, or explicit',
             examples: ['<danbooru neko safe', '<danbooru neko explicit', '<danbooru neko questionable'],
+            throttling: {
+                usages: 2,
+                duration: 1
+            },
             args:[
                 {
                     key: 'item',
