@@ -70,8 +70,8 @@ client.registry
 // Code Based on Hitori bot unflip table event,
 // Credits to @Kami#5253 for inspiration :3
 
-
-
+ // temprarily commented out until we can enable and disable this depending on server 
+/*
 client.on("message", (message) => {
   if(message.author.bot) return;
   var phrases = [
@@ -100,6 +100,7 @@ client.on("message", (message) => {
   break;
   }
 });
+*/
 
 //Login 
 client.login(process.env.token);
