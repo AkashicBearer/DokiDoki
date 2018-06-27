@@ -18,8 +18,10 @@ module.exports = class WhyCommand extends Command {
 	const {body} = await superagent 
         .get('https://nekos.life/api/v2/why')
         const embed = new RichEmbed()
-	        embed.setTitle('Random Fact~')
-            embed.setDescription(`${body.why}`)
+	        embed.setTitle('Random Question~')
+            console.log()
+            embed.setDescription(body.why.charAt(0).toUpperCase() + body.why.slice(1))
+            embed.setThumbnail('http://pngimg.com/uploads/question_mark/question_mark_PNG126.png')
             embed.setColor('RANDOM')
         return msg.embed(embed);
 	}

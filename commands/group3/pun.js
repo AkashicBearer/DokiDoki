@@ -6,7 +6,7 @@ module.exports = class PunCommand extends Command {
         super(client, {
             name: 'pun',
             aliases: ['joke'],
-            group: 'group2',
+            group: 'group3',
             memberName: 'pun',
             description: 'Sends a pun'
         });
