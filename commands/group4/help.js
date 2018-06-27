@@ -79,7 +79,7 @@ module.exports = class HelpCommand extends Command {
                 }
             }
         }
-        
+
         const grp6c = commands.findAll('groupID','group6');
         var grp6 = "";
         if(grp1c.length > 0){
@@ -87,6 +87,17 @@ module.exports = class HelpCommand extends Command {
                 grp6=grp6+"`"+grp6c[i].name+"`";
                 if(i+1 < grp6c.length){
                     grp6=grp6+", ";
+                }
+            }
+        }
+
+        const ownerg = commands.findAll('groupID','owner');
+        var owner = "";
+        if(grp1c.length > 0){
+            for(var i = 0; i < ownerg.length; i++){
+                owner=owner+"`"+ownerg[i].name+"`";
+                if(i+1 < ownerg.length){
+                    owner=owner+", ";
                 }
             }
         }
@@ -139,6 +150,10 @@ module.exports = class HelpCommand extends Command {
                     if(grp6c.length > 0){
                         embed.addField(groups.find('id','group6').name+"",grp6+" ")
                     }
+                    if(this.client.isOwner(msg.author)){
+                    if(owner.length > 0){
+                        embed.addField(groups.find('id','owner').name+"",owner+" ")
+                    }}
                 }
                 
             embed.setColor(0x23ff12)
