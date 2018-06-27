@@ -15,12 +15,11 @@ module.exports = class WhyCommand extends Command {
         });
     }
 	async run(msg, args, neko) { 
-	const body = await superagent 
+	const {body} = await superagent 
         .get('https://nekos.life/api/v2/why')
         const embed = new RichEmbed()
-	        embed.setTitle('Random Question~')
-            embed.setThumbnail('http://pngimg.com/uploads/question_mark/question_mark_PNG126.png')
-            embed.setDescription(body.why.charAt(0).toUpperCase()+body.why.slice(1))
+	        embed.setTitle('Random Fact~')
+            embed.setDescription(`${body.why}`)
             embed.setColor('RANDOM')
         return msg.embed(embed);
 	}
