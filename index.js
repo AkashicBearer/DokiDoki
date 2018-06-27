@@ -21,6 +21,8 @@ client.registry
 	['group4', 'Util'],
         ['group5', 'Administration'],
 	['group6', 'NSFW'],
+	['owner', 'Owner Commands'],
+
 ])	
      .registerDefaultGroups()
      .registerDefaultCommands({help: false, ping: false, prefix: true, eval: true})
