@@ -18,6 +18,7 @@ module.exports = class LewdKemoCommand extends Command {
     if (!message.channel.nsfw) return message.reply("You can only use this comand in a NSFW Channel");
 	superagent.get('https://nekos.life/api/v2/img/lewdkemo')
         .then(body => {
+            body = body.body
         const embed = new RichEmbed()
 	        embed.setTitle('Have some Kemo!')
             embed.setImage(body.url)

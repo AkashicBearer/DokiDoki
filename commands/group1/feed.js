@@ -23,6 +23,7 @@ module.exports = class FeedCommand extends Command {
 	async run(msg, args, neko) { 
     superagent.get('https://nekos.life/api/v2/img/feed')
         .then(body => {
+            body = body.body
             const embed = new RichEmbed()
             embed.setDescription(msg.author + ' feeds ' + args.member)
             embed.setImage(body.url)

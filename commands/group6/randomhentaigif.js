@@ -18,6 +18,7 @@ module.exports = class TrapCommand extends Command {
     if (!message.channel.nsfw) return message.reply("You can only use this comand in a NSFW Channel");
 	superagent.get('https://nekos.life/api/v2/img/Random_hentai_gif')
         .then(body => {
+            body = body.body
         const embed = new RichEmbed()
 	        embed.setTitle('Have a random Hentai GIF!')
             embed.setImage(body.url)

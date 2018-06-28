@@ -18,6 +18,7 @@ module.exports = class RandomNSFWAvatarCommand extends Command {
     if (!message.channel.nsfw) return message.reply("You can only use this comand in a NSFW Channel");
 	superagent.get('https://nekos.life/api/v2/img/nsfw_avatar')
         .then(body => {
+            body = body.body
         const embed = new RichEmbed()
 	        embed.setTitle('Here is your radom NSFW Avatar!')
             embed.setImage(body.url)

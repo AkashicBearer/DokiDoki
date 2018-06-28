@@ -22,6 +22,7 @@ module.exports = class EroCommand extends Command {
 
         superagent.get('https://nekos.life/api/v2/img/eroyuri')
         .then(body => {
+            body = body.body
             if (!message.channel.nsfw) return message.reply("You can only use this comand in a NSFW Channel");
             const embed5 = new RichEmbed()
                 embed5.setColor("RANDOM")
@@ -37,6 +38,7 @@ module.exports = class EroCommand extends Command {
     else if(msg.indexOf("-neko") == false){
         superagent.get('https://nekos.life/api/v2/img/eron')
         .then(body => {
+            body = body.body
         if (!message.channel.nsfw) return message.reply("You can only use this comand in a NSFW Channel");
         const embed1 = new RichEmbed()
             embed1.setColor("RANDOM")
@@ -52,6 +54,7 @@ module.exports = class EroCommand extends Command {
     else if(msg.indexOf("-feet") == false){
         superagent.get('https://nekos.life/api/v2/img/erofeet')
         .then(body => {
+            body = body.body
         if (!message.channel.nsfw) return message.reply("You can only use this comand in a NSFW Channel");
         const embed2 = new RichEmbed()
             embed2.setColor("RANDOM")
@@ -67,6 +70,7 @@ module.exports = class EroCommand extends Command {
     else if(msg.indexOf("-holo") == false){
         superagent.get('https://nekos.life/api/v2/img/holoero')
         .then(body => {
+            body = body.body
         if (!message.channel.nsfw) return message.reply("You can only use this comand in a NSFW Channel");
         const embed3 = new RichEmbed()
             embed3.setColor("RANDOM")
@@ -82,6 +86,7 @@ module.exports = class EroCommand extends Command {
     else if(msg.indexOf("-kitsune") == false){
         superagent.get('https://nekos.life/api/v2/img/erok')
         .then(body => {
+            body = body.body
         if (!message.channel.nsfw) return message.reply("You can only use this comand in a NSFW Channel");
         const embed4 = new RichEmbed()
             embed4.setColor("RANDOM")
@@ -95,6 +100,7 @@ module.exports = class EroCommand extends Command {
     }else{
     superagent.get('https://nekos.life/api/v2/img/ero')
         .then(body => {
+            body = body.body
     if (!message.channel.nsfw) return message.reply("You can only use this comand in a NSFW Channel");
         const embed = new RichEmbed()
             embed.setColor("RANDOM")

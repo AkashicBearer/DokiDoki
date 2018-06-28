@@ -21,6 +21,7 @@ module.exports = class NyaCommand extends Command {
         if(msg.indexOf("-g")){
             superagent.get('https://nekos.life/api/v2/img/neko')
         .then(body => {
+            body = body.body
             const embed = new RichEmbed()
             embed.setDescription("Have a Neko!")
             embed.setImage(body.url)
@@ -33,6 +34,7 @@ module.exports = class NyaCommand extends Command {
         }else{
             superagent.get('https://nekos.life/api/v2/img/ngif')
         .then(body => {
+            body = body.body
             const embed = new RichEmbed()
             embed.setDescription("Have a Neko GIF!")
             embed.setImage(body.url)

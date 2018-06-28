@@ -25,6 +25,7 @@ module.exports = class kissCommand extends Command {
     async run(msg, args, neko) { 
         superagent.get('https://nekos.life/api/v2/img/kiss')
         .then(body => {
+            body = body.body
             const embed = new RichEmbed()
             embed.setDescription(msg.author + ' kisses ' + args.member)
             embed.setImage(body.url)

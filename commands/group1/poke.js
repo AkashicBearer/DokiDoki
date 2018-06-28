@@ -23,6 +23,7 @@ module.exports = class PokeCommand extends Command {
 	async run(msg, args, neko) { 
     superagent.get('https://nekos.life/api/v2/img/poke')
         .then(body => {
+            body = body.body
             const embed = new RichEmbed()
             embed.setDescription(msg.author + ' pokes ' + args.member)
             embed.setImage(body.url)

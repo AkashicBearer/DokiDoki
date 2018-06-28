@@ -24,6 +24,7 @@ module.exports = class CuddleCommand extends Command {
     
    superagent.get('https://nekos.life/api/v2/img/cuddle')
         .then(body => {
+            body = body.body
             const embed = new RichEmbed()
             embed.setDescription(msg.author + ' cuddles ' + args.member)
             embed.setImage(body.url)

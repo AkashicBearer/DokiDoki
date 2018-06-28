@@ -20,6 +20,7 @@ module.exports = class LewdNekoCommand extends Command {
     if(msg.indexOf("-g")){
     superagent.get('https://nekos.life/api/v2/img/neko')
         .then(body => {
+            body = body.body
     if (!message.channel.nsfw) return message.reply("You can use this command only on nsfw channels!");
     const embed = new RichEmbed()
         embed.setColor("RANDOM")
@@ -33,6 +34,7 @@ module.exports = class LewdNekoCommand extends Command {
     }else{
     superagent.get('https://nekos.life/api/v2/img/nsfw_neko_gif')
         .then(body => {
+            body = body.body
     if (!message.channel.nsfw) return message.reply("You can only use this comand in a NSFW Channel");
         const embed1 = new RichEmbed()
             embed1.setColor("RANDOM")

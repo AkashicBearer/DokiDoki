@@ -23,6 +23,7 @@ module.exports = class SlapCommand extends Command {
 	async run(msg, args, neko) { 
     superagent.get('https://nekos.life/api/v2/img/slap')
         .then(body => {
+            body = body.body
             const embed = new RichEmbed()
             embed.setDescription(msg.author + ' slaps ' + args.member)
             embed.setImage(body.url)

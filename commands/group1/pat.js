@@ -31,6 +31,7 @@ module.exports = class PatCommand extends Command {
 
         superagent.get('https://nekos.life/api/v2/img/pat')
         .then(body => {
+            body = body.body
             const embed = new RichEmbed()
            if(msg.author == args.member){
                embed.setDescription(msg.author + ' pats.. their own head.. everyone needs a little bit of love sometimes ')
