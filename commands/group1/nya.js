@@ -19,20 +19,28 @@ module.exports = class NyaCommand extends Command {
 
     async run(message, msg, neko) {
         if(msg.indexOf("-g")){
-        const {body} = await superagent
-        .get(`https://nekos.life/api/v2/img/neko`);
-        const embed = new RichEmbed()
-            embed.setColor("RANDOM")
-            embed.setTitle("Have a Neko!")
+            superagent.get('https://nekos.life/api/v2/img/neko')
+        .then(body => {
+            const embed = new RichEmbed()
+            embed.setDescription("Have a Neko!")
             embed.setImage(body.url)
-        message.channel.send(embed);
+            embed.setColor('RANDOM')
+             return msg.embed(embed);
+        })
+        .catch(err => {
+            msg.channel.send("The image-API is currently down, plese try again later \nOr try to help us get to 200 Servers so we can upgrade our API!")
+        })
         }else{
-        const {body} = await superagent 
-        .get('https://nekos.life/api/v2/img/ngif')
-            const embed1 = new RichEmbed()
-                embed1.setColor("RANDOM")
-                embed1.setTitle("Have a Neko GIF")
-                embed1.setImage(body.url)
-            message.channel.send(embed1);
+            superagent.get('https://nekos.life/api/v2/img/ngif')
+        .then(body => {
+            const embed = new RichEmbed()
+            embed.setDescription("Have a Neko GIF!")
+            embed.setImage(body.url)
+            embed.setColor('RANDOM')
+             return msg.embed(embed);
+        })
+        .catch(err => {
+            msg.channel.send("The gif-API is currently down, plese try again later \nOr try to help us get to 200 Servers so we can upgrade our API!")
+        })
     }}
 };

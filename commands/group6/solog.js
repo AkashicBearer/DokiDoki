@@ -16,12 +16,16 @@ module.exports = class SologCommand extends Command {
     }
 	async run(message, args, neko) { 
     if (!message.channel.nsfw) return message.reply("You can only use this comand in a NSFW Channel");
-	const {body} = await superagent 
-        .get('https://nekos.life/api/v2/img/solog')
+	superagent.get('https://nekos.life/api/v2/img/solog')
+        .then(body => {
         const embed = new RichEmbed()
 	        embed.setTitle('Have some Solog!')
             embed.setImage(body.url)
             embed.setColor('RANDOM')
         message.channel.send(embed);
+        })
+        .catch(err => {
+            msg.channel.send("The image-API is currently down, plese try again later \nOr try to help us get to 200 Servers so we can upgrade our API!")
+        })
 	}
 };
