@@ -26,7 +26,7 @@ module.exports = class NyaCommand extends Command {
             embed.setDescription("Have a Neko!")
             embed.setImage(body.url)
             embed.setColor('RANDOM')
-             return msg.embed(embed);
+             message.channel.send(embed);
         })
         .catch(err => {
             console.log(err)
@@ -40,7 +40,7 @@ module.exports = class NyaCommand extends Command {
             embed.setDescription("Have a Neko GIF!")
             embed.setImage(body.url)
             embed.setColor('RANDOM')
-             return msg.embed(embed);
+             message.channel.send(embed);
         })
         .catch(err => {
             msg.channel.send("The gif-API is currently down, plese try again later \nOr try to help us get to 200 Servers so we can upgrade our API!")
