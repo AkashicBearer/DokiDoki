@@ -33,7 +33,7 @@ module.exports = class ExecCommand extends Command {
 	async run(msg, args) {
 		function clean(text) {
   			if (typeof(text) === "string")
-   				 return text.replace(/`/g, "`" + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
+   				 return text.replace(/`/g,  '`' + String.fromCharCode(8203)).replace(/@/g, "@" + String.fromCharCode(8203));
   				else return text;
   			}
   		try {
@@ -44,8 +44,9 @@ module.exports = class ExecCommand extends Command {
         	evaled = require("util").inspect(evaled);
 				const embed1 = new RichEmbed()
 					embed1.setAuthor(this.client.user.username , this.client.user.avatarURL)
-					embed1.setDescription(`Code: \`\`\` ${args.code}\`\`\``)
-					embed1.addField(`Result:`, `\`\`\` ${clean(evaled)}\`\`\``)
+					embed1.setTitle('Executing Code requested by: ' + msg.author.username)
+					embed1.setDescription(`Code: \`\`\`js\n${args.code}\`\`\``)
+					embed1.addField(`Result:`, `\`\`\`js\n${clean(evaled)}\`\`\``)
 					.setColor('RANDOM')
 				msg.channel.send(embed1);
 
