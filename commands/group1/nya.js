@@ -29,6 +29,7 @@ module.exports = class NyaCommand extends Command {
              return msg.embed(embed);
         })
         .catch(err => {
+            console.log(err)
             message.channel.send("The image-API is currently down, plese try again later \nOr try to help us get to 200 Servers so we can upgrade our API!")
         })
         }else{
