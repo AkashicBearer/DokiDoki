@@ -1,0 +1,44 @@
+{
+  "name": "DokiDoki",
+  "scripts": {
+  },
+  "env": {
+    "BUILDPACK_URL": {
+      "required": true
+    },
+    "db": {
+      "required": true
+    },
+    "dbhost": {
+      "required": true
+    },
+    "mal": {
+      "required": true
+    },
+    "password": {
+      "required": true
+    },
+    "token": {
+      "required": true
+    },
+    "user": {
+      "required": true
+    }
+  },
+  "formation": {
+    "web": {
+      "quantity": 1
+    },
+    "worker": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+    "heroku-postgresql"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/nodejs"
+    }
+  ]
+}
