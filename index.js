@@ -12,15 +12,6 @@ const client = new CommandoClient({
 ,    disableEveryone: true,      
 });
 const usersOnCooldown = new Set();
-  const { Pool } = require ('pg');
-  const pool = new Pool({ connectionString: process.env.DATABASE_URL, 
-       port: 5432, 
-       host: process.env.poolhost, 
-       database: process.env.pool, 
-       user: process.env.user, 
-       password: process.env.password, 
-       ssl: true, 
-}); 
 sqlite.open(path.join(__dirname, "settings.sqlite3")).then((db) => {
     client.setProvider(new SQLiteProvider(db));
 });
@@ -123,7 +114,15 @@ client.on("message", (message) => {
 if (!usersOnCooldown.has(message.author.id)){
   if (message.author.bot) return;
   if (message.channel.type === "dm") return;     
-    
+  const { Pool } = require ('pg');
+  const pool = new Pool({ connectionString: process.env.DATABASE_URL, 
+       port: 5432, 
+       host: process.env.poolhost, 
+       database: process.env.pool, 
+       user: process.env.user, 
+       password: process.env.password, 
+       ssl: true, 
+}); 
   pool.connect()
   .then(client => {
     return client.query('SELECT * FROM xp')
