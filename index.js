@@ -3,12 +3,24 @@ const { RichEmbed } = require('discord.js');
 const oneLine = require('common-tags').oneLine;
 const sqlite = require('sqlite');
 const path = require('path');
+const dotenv = require('dotenv');
+dotenv.config();
 const client = new CommandoClient({
-    commandPrefix: '<',
+    commandPrefix: '<<',
     unknownCommandResponse: false,
-    owner: ['193021560792154112', '111469545637605376'],
-    disableEveryone: true,      
+    owner: ['193021560792154112', '111469545637605376']
+,    disableEveryone: true,      
 });
+const usersOnCooldown = new Set();
+  const { Pool } = require ('pg');
+  const pool = new Pool({ connectionString: process.env.DATABASE_URL, 
+       port: 5432, 
+       host: process.env.poolhost, 
+       database: process.env.pool, 
+       user: process.env.user, 
+       password: process.env.password, 
+       ssl: true, 
+}); 
 sqlite.open(path.join(__dirname, "settings.sqlite3")).then((db) => {
     client.setProvider(new SQLiteProvider(db));
 });
@@ -22,6 +34,9 @@ client.registry
         ['group5', 'Administration'],
 	['group6', 'NSFW'],
 	['owner', 'Owner Commands'],
+	['xp', 'XP Commands '],
+        ['settings', 'Settings'],
+	['games', 'Games'],
 
 ])	
      .registerDefaultGroups()
@@ -103,6 +118,63 @@ client.on("message", (message) => {
   }
 });
 */
+
+client.on("message", (message) => {
+if (!usersOnCooldown.has(message.author.id)){
+  if (message.author.bot) return;
+  if (message.channel.type === "dm") return;     
+    
+  pool.connect()
+  .then(client => {
+    return client.query('SELECT * FROM xp')
+      .then(res => {
+        client.release()
+      })
+      .catch(err => {
+        client.release()
+        console.log(err.stack)
+      })
+  })
+  let xpgen, level;
+  pool.query(`SELECT * FROM xp WHERE userid = '${message.author.id}'`,(err, result) => {
+  if (!result.rows[0]){
+    level = 1;
+    pool.query(`INSERT INTO xp(userid, username, xp, level, arcanium, points, xpboost, arcboost, hp, advhp, dmg) VALUES('${message.author.id}','${message.author.username}', 0, ${level}, 50, 10, 0, 0, 100, 100, 10)`)
+  }else{
+    let level = result.rows[0].level
+    let arcanium = result.rows[0].arcanium
+    let points = result.rows[0].points
+    let hp = result.rows[0].hp
+    let curhp = result.rows[0].advhp
+    let dmg = result.rows[0].dmg
+    if (result.rows[0].xp >= process.env["Level_" + (level + 1) + "_xp_cap"]){
+  pool.query(`UPDATE xp SET level = ${level + 1}, arcanium = ${arcanium + 50}, points = '${points + 10}', hp = '${hp + 100}', advhp = '${curhp + 100}', dmg = ${dmg + 10} WHERE userid='${message.author.id}'`)
+      const embed3 = new RichEmbed()
+        embed3.setAuthor(client.user.username, client.user.avatarURL)
+        embed3.setTitle(message.author.username + ' has leveled Up!')
+        embed3.setThumbnail(message.author.avatarURL)
+        let addhp = 100;
+        let arcrew = 50;
+        let addpoint = 10;
+        embed3.setDescription(`Congratulations! You Have Leveled up to level ${result.rows[0].level+1}!\n Reward: ${addhp} HP, ${addpoint} points and ${arcrew} Arcanium`)
+    embed3.setColor('RANDOM')
+      message.channel.send(embed3);
+    }
+    const xpgen = Math.round(Math.random() * 10) * 3
+     let xp = result.rows[0].xp;
+    pool.query(`UPDATE xp SET xp = ${xp + xpgen} WHERE userid = '${message.author.id}'`)
+  }
+  pool.end(err => {
+  if(err) throw err; 
+  })
+});
+
+usersOnCooldown.add(message.author.id);
+  setTimeout(() => {
+     usersOnCooldown.delete(message.author.id);
+  }, 60000);
+}
+});
 
 //Login 
 client.login(process.env.token);
