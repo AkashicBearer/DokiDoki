@@ -6,7 +6,7 @@ const path = require('path');
 const dotenv = require('dotenv');
 dotenv.config();
 const client = new CommandoClient({
-    commandPrefix: '<<',
+    commandPrefix: '<',
     unknownCommandResponse: false,
     owner: ['193021560792154112', '111469545637605376']
 ,    disableEveryone: true,      
