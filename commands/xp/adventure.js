@@ -63,7 +63,7 @@ if (msg.author.bot) return;
 
 
                             const mob_hp = Math.round(Math.floor(lvl) * basehp * 10)
-                            const mob_dmg =  Math.round((Math.random() * Math.floor(lvl)) / (0.2 * lvl) * (1 * mobdmg))
+                            const mob_dmg =  Math.round((Math.random() * Math.floor(lvl)) / (0.5 * lvl) * (2.5 * mobdmg))
 
                             pool.query(`UPDATE xp SET mob_hp2 = '${mob_hp}',mobbasehp = '${mob_hp}', mob_name = '${result1.rows[0].mob_name}'  WHERE userid = '${msg.author.id}'`)
                             pool.end(err => {
@@ -83,7 +83,7 @@ if (msg.author.bot) return;
                             var hp = result.rows[0].advhp - mob_dmg
 
                             console.log(basehp + "/" + result.rows[0].mob_hp2+ "/" + mobhp)
-                            const advarc = Math.round(((Math.round(Math.random() * 15))* lvl + arcboost))
+                            const advarc = Math.round(((Math.round(Math.random() * 15))* lvl) + arcboost * 0.005)
                             const advxp = Math.round(((Math.round(Math.random() *10))* lvl  + arcboost)) 
 
                             pool.query(`UPDATE xp SET mob_hp2 = ${mobhp}, advhp = '${hp}' WHERE userid = '${msg.author.id}'`)
