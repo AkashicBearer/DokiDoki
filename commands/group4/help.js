@@ -82,7 +82,7 @@ module.exports = class HelpCommand extends Command {
 
         const grp6c = commands.findAll('groupID','group6');
         var grp6 = "";
-        if(grp1c.length > 0){
+        if(grp6c.length > 0){
             for(var i = 0; i < grp6c.length; i++){
                 grp6=grp6+"`"+grp6c[i].name+"`";
                 if(i+1 < grp6c.length){
@@ -93,11 +93,44 @@ module.exports = class HelpCommand extends Command {
 
         const ownerg = commands.findAll('groupID','owner');
         var owner = "";
-        if(grp1c.length > 0){
+        if(ownerg.length > 0){
             for(var i = 0; i < ownerg.length; i++){
                 owner=owner+"`"+ownerg[i].name+"`";
                 if(i+1 < ownerg.length){
                     owner=owner+", ";
+                }
+            }
+        }
+
+        const settg = commands.findAll('groupID','settings');
+        var sett = "";
+        if(settg.length > 0){
+            for(var i = 0; i < settg.length; i++){
+                sett=sett+"`"+settg[i].name+"`";
+                if(i+1 < settg.length){
+                    sett=sett+", ";
+                }
+            }
+        }
+
+        const xp = commands.findAll('groupID','xp');
+        var xps = "";
+        if(xp.length > 0){
+            for(var i = 0; i < xp.length; i++){
+                xps=xps+"`"+xp[i].name+"`";
+                if(i+1 < xp.length){
+                    xps=xps+", ";
+                }
+            }
+        }
+
+        const game = commands.findAll('groupID','games');
+        var games = "";
+        if(game.length > 0){
+            for(var i = 0; i < game.length; i++){
+                games=games+"`"+game[i].name+"`";
+                if(i+1 < game.length){
+                    games=games+", ";
                 }
             }
         }
@@ -150,8 +183,17 @@ module.exports = class HelpCommand extends Command {
                     if(grp6c.length > 0){
                         embed.addField(groups.find('id','group6').name+"",grp6+" ")
                     }
+                    if(game.length > 0){
+                        embed.addField(groups.find('id','games').name+"",games+" ")
+                    }
+                    if(xp.length > 0){
+                        embed.addField(groups.find('id','xp').name+"",xps+" ")
+                    }
+                    if(settg.length > 0){
+                        embed.addField(groups.find('id','settings').name+"",sett+" ")
+                    }
                     if(this.client.isOwner(msg.author)){
-                    if(owner.length > 0){
+                    if(ownerg.length > 0){
                         embed.addField(groups.find('id','owner').name+"",owner+" ")
                     }}
                 }
