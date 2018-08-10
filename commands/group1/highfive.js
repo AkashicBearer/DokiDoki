@@ -6,7 +6,7 @@ module.exports = class HighFiveCommand extends Command {
         super(client, {
             name: 'highfive',
 			aliases: ['hf'],
-            group: 'group1',
+            group: 'emo',
             memberName: 'highfive',
             description: 'Highfive someone',			
 			args: [

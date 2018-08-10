@@ -5,7 +5,7 @@ module.exports = class BanCommand extends Command {
         super(client, {
             name: 'ban',
             aliases: ['ban', 'bean', 'banuser'],
-            group: 'group5',
+            group: 'admin',
             memberName: 'ban',
             description: 'Bans a User',
             examples: ['{Prefix}Ban @User#0000'],

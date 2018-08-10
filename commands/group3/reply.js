@@ -4,7 +4,7 @@ module.exports = class ReplyCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'reply',
-            group: 'group3',
+            group: 'random',
             memberName: 'reply',
             description: 'Replies with a Message.'
         });

@@ -8,7 +8,7 @@ module.exports = class PokeCommand extends Command {
         super(client, {
             name: 'poke',
             aliases: [],
-            group: 'group1',
+            group: 'emo',
             memberName: 'poke',
             description: 'Have a poke',
             args:[

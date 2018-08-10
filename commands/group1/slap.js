@@ -8,7 +8,7 @@ module.exports = class SlapCommand extends Command {
         super(client, {
             name: 'slap',
             aliases: [],
-            group: 'group1',
+            group: 'emo',
             memberName: 'slap',
             description: 'Have a slap',
             args:[

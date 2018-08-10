@@ -9,7 +9,7 @@ module.exports = class FeetgCommand extends Command {
         super(client, {
             name: 'feetg',
             aliases: [],
-            group: 'group6',
+            group: 'nsfw',
             memberName: 'feetg',
             description: 'Have some feetg',
         });

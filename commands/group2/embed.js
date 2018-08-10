@@ -6,7 +6,7 @@ module.exports = class EmbedCommand extends Command {
         super(client, {
             name: 'embed',
             aliases: [],
-            group: 'group2',
+            group: 'fun',
             memberName: 'embed',
             description: 'Embeds the text you provide.',
             examples: ['embed Embeds are cool.'],

@@ -6,7 +6,7 @@ module.exports = class confusedCommand extends Command {
       super(client, {
             name: 'confused',
             aliases: ['huh'],
-            group: 'group1',
+            group: 'emo',
             memberName: 'confused',
             description: 'You are confused', 
         });

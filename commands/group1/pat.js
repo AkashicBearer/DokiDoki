@@ -8,7 +8,7 @@ module.exports = class PatCommand extends Command {
         super(client, {
             name: 'pat',
             aliases: [],
-            group: 'group1',
+            group: 'emo',
             memberName: 'pat',
             description: 'Have a pat',
             args:[

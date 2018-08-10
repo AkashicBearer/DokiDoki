@@ -9,7 +9,7 @@ module.exports = class FutanariCommand extends Command {
         super(client, {
             name: 'futanari',
             aliases: [],
-            group: 'group6',
+            group: 'nsfw',
             memberName: 'futanari',
             description: 'Have some futanari',
         });

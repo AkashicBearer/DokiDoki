@@ -8,7 +8,7 @@ module.exports = class FeedCommand extends Command {
         super(client, {
             name: 'feed',
             aliases: [],
-            group: 'group1',
+            group: 'emo',
             memberName: 'feed',
             description: 'Feed someone\~',
             args:[

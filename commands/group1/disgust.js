@@ -1,4 +1,4 @@
-const { Command } = require('discord.js-commando');
+emoconst { Command } = require('discord.js-commando');
 const { RichEmbed } = require('discord.js');
 
 module.exports = class disgustCommand extends Command {
@@ -6,7 +6,7 @@ module.exports = class disgustCommand extends Command {
       super(client, {
             name: 'disgust',
             aliases: [],
-            group: 'group1',
+            group: 'emo',
             memberName: 'disgust',
             description: 'Sends a disgust',
              args: [

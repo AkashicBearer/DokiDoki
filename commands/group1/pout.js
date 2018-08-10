@@ -6,7 +6,7 @@ module.exports = class PoutCommand extends Command {
       super(client, {
             name: 'pout',
             aliases: [],
-            group: 'group1',
+            group: 'emo',
             memberName: 'pout',
             description: 'Sends a pout'
         });

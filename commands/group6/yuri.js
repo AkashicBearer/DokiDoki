@@ -9,7 +9,7 @@ module.exports = class YuriCommand extends Command {
         super(client, {
             name: 'yuri',
             aliases: [],
-            group: 'group6',
+            group: 'nsfw',
             memberName: 'yuri',
             description: 'Have some yuri',
         });

@@ -9,7 +9,7 @@ module.exports = class LewdKemoCommand extends Command {
         super(client, {
             name: 'lewdkemo',
             aliases: ['lk'],
-            group: 'group6',
+            group: 'nsfw',
             memberName: 'lewdkemo',
             description: 'Have some lewd kemo',
         });

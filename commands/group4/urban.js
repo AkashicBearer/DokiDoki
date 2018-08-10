@@ -6,7 +6,7 @@ module.exports = class UrbanCommand extends Command {
         super(client, {
             name: 'urban',
             aliases: ['ub'],
-            group: 'group4',
+            group: 'util',
             memberName: 'urban',
             description: 'Search Something on Urban',
             examples: ['{prifix}urban [text]'],

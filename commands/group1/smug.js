@@ -6,7 +6,7 @@ module.exports = class SmugtCommand extends Command {
       super(client, {
             name: 'smug',
             aliases: [],
-            group: 'group1',
+            group: 'emo',
             memberName: 'smug',
             description: 'Sends a Smug'
         });

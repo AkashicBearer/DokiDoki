@@ -6,7 +6,7 @@ module.exports = class BlushCommand extends Command {
       super(client, {
             name: 'blush',
             aliases: [],
-            group: 'group1',
+            group: 'emo',
             memberName: 'blush',
             description: 'Sends a Blush GIF'
         });

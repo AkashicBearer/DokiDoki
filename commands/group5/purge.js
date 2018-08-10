@@ -6,7 +6,7 @@ module.exports = class PurgeCommand extends Command {
         super(client, {
             name: 'purge',
             aliases: ['clear', 'clean' ],
-            group: 'group5',
+            group: 'admin',
             memberName: 'purge',
             description: 'purge messages',
             examples: ['{Prefix}purge <number> '],

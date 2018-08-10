@@ -9,7 +9,7 @@ module.exports = class RandomAvatarCommand extends Command {
         super(client, {
             name: 'randomavatar',
             aliases: ['ra'],
-            group: 'group3',
+            group: 'random',
             memberName: 'randomavatar',
             description: 'Sends a Random Avatar Image',
         });

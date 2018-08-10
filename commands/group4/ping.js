@@ -6,7 +6,7 @@ module.exports = class PingCommand extends Command {
         super(client, {
             name: 'ping',
             aliases: ['p'],
-            group: 'group4',
+            group: 'util',
             memberName: 'ping',
             description: 'Ping the Server',
             examples: ['<ping']

@@ -6,7 +6,7 @@ module.exports = class yawnCommand extends Command {
       super(client, {
             name: 'yawn',
             aliases: [],
-            group: 'group1',
+            group: 'emo',
             memberName: 'yawn',
             description: 'Sends a yawn'
         });

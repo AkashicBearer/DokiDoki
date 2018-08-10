@@ -9,7 +9,7 @@ module.exports = class LewdKitsuneCommand extends Command {
         super(client, {
             name: 'lewdkitsune',
             aliases: ['lkit'],
-            group: 'group6',
+            group: 'nsfw',
             memberName: 'lewdkitsune',
             description: 'Have a Lewd Kitsune',
         });

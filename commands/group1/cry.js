@@ -6,7 +6,7 @@ module.exports = class CryCommand extends Command {
       super(client, {
             name: 'cry',
             aliases: ['waa'],
-            group: 'group1',
+            group: 'emo',
             memberName: 'cry',
             description: 'You cry'
         });

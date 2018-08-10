@@ -6,7 +6,7 @@ module.exports = class SuggestCommand extends Command {
         super(client, {
             name: 'suggest',
             aliases: ['sug', 'sc'],
-            group: 'group4',
+            group: 'util',
             memberName: 'suggest',
             description: 'Sends a Suggestion to the Bots Server',
             examples: ['<suggest A Currency System', '<suggest More Images for commands'],

@@ -6,7 +6,7 @@ module.exports = class BakaCommand extends Command {
         super(client, {
             name: 'baka',
             aliases: [],
-            group: 'group1',
+            group: 'emo',
             memberName: 'baka',
             description: 'Mentions a User who is a Baka',
 			args: [

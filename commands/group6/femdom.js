@@ -9,7 +9,7 @@ module.exports = class FemdomCommand extends Command {
         super(client, {
             name: 'femdom',
             aliases: [],
-            group: 'group6',
+            group: 'nsfw',
             memberName: 'femdom',
             description: 'Have some Femdom',
         });

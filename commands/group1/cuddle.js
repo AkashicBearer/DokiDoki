@@ -1,4 +1,4 @@
-const { Command } = require('discord.js-commando');
+emoconst { Command } = require('discord.js-commando');
 const { RichEmbed } = require('discord.js');
 const neko = require("nekos.life");
 const superagent = require("superagent");
@@ -8,7 +8,7 @@ module.exports = class CuddleCommand extends Command {
         super(client, {
             name: 'cuddle',
             aliases: [],
-            group: 'group1',
+            group: 'emo',
             memberName: 'cuddle',
             description: 'Have a cuddle',
             args:[

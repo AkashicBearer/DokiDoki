@@ -5,7 +5,7 @@ module.exports = class StareCommand extends Command {
     constructor(client) {
       super(client, {
             name: 'stare',
-            group: 'group1',
+            group: 'emo',
             aliases: ['glare'],
             memberName: 'stare',
             description: 'Stare at a User',

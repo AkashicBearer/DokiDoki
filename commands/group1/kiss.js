@@ -9,7 +9,7 @@ module.exports = class kissCommand extends Command {
         super(client, {
             name: 'kiss',
             aliases: ['chu'],
-            group: 'group1',
+            group: 'emo',
             memberName: 'kiss',
             description: 'Who do you want to kiss?',
             args: [

@@ -9,7 +9,7 @@ module.exports = class WhyCommand extends Command {
         super(client, {
             name: 'why',
             aliases: [],
-            group: 'group3',
+            group: 'random',
             memberName: 'why',
             description: 'why?',
         });

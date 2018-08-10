@@ -6,7 +6,7 @@ module.exports = class begCommand extends Command {
       super(client, {
             name: 'beg',
             aliases: [],
-            group: 'group1',
+            group: 'emo',
             memberName: 'beg',
             description: 'You beg',
         

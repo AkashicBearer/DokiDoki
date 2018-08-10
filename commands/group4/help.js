@@ -6,7 +6,7 @@ module.exports = class HelpCommand extends Command {
         super(client, {
             name: 'help',
             aliases: ['commands'],
-            group: 'group4',
+            group: 'util',
             memberName: 'help',
             description: 'Shows commands of the Bot',
             args: [
@@ -23,7 +23,7 @@ module.exports = class HelpCommand extends Command {
         const groups = this.client.registry.groups;
         const commands = this.client.registry.findCommands();
 
-        const grp1c = commands.findAll('groupID','group1');
+        const grp1c = commands.findAll('groupID','emo');
         var grp1 = "";
         if(grp1c.length > 0){
             for(var i = 0; i < grp1c.length; i++){
@@ -35,7 +35,7 @@ module.exports = class HelpCommand extends Command {
         }
 
 
-        const grp2c = commands.findAll('groupID','group2');
+        const grp2c = commands.findAll('groupID','fun');
         var grp2 = "";
         if(grp2c.length > 0){
             for(var i = 0; i < grp2c.length; i++){
@@ -46,7 +46,7 @@ module.exports = class HelpCommand extends Command {
             }
         }
 
-        const grp3c = commands.findAll('groupID','group3');
+        const grp3c = commands.findAll('groupID','random');
         var grp3 = "";
         if(grp3c.length > 0){
            for(var i = 0; i < grp3c.length; i++){
@@ -58,7 +58,7 @@ module.exports = class HelpCommand extends Command {
         }
             
 
-        const grp4c = commands.findAll('groupID','group4');
+        const grp4c = commands.findAll('groupID','util');
         var grp4 = "";
         if(grp1c.length > 0){
             for(var i = 0; i < grp4c.length; i++){
@@ -69,7 +69,7 @@ module.exports = class HelpCommand extends Command {
             }
         }
 
-        const grp5c = commands.findAll('groupID','group5');
+        const grp5c = commands.findAll('groupID','admin');
         var grp5 = "";
         if(grp1c.length > 0){
             for(var i = 0; i < grp5c.length; i++){
@@ -80,7 +80,7 @@ module.exports = class HelpCommand extends Command {
             }
         }
 
-        const grp6c = commands.findAll('groupID','group6');
+        const grp6c = commands.findAll('groupID','nsfw');
         var grp6 = "";
         if(grp6c.length > 0){
             for(var i = 0; i < grp6c.length; i++){
@@ -166,22 +166,22 @@ module.exports = class HelpCommand extends Command {
 
                     embed.setTitle('DokiDoki Commands')
                     if(grp1c.length > 0){
-                        embed.addField(groups.find('id','group1').name+"",grp1+" ")
+                        embed.addField(groups.find('id','emo').name+"",grp1+" ")
                     }
                     if(grp2c.length > 0){
-                        embed.addField(groups.find('id','group2').name+"",grp2+" ")
+                        embed.addField(groups.find('id','fun').name+"",grp2+" ")
                     }
                     if(grp3c.length > 0){
-                        embed.addField(groups.find('id','group3').name+"",grp3+" ")
+                        embed.addField(groups.find('id','random').name+"",grp3+" ")
                     }
                     if(grp4c.length > 0){
-                        embed.addField(groups.find('id','group4').name+"",grp4+" ")
+                        embed.addField(groups.find('id','util').name+"",grp4+" ")
                     }
                     if(grp5c.length > 0){
-                        embed.addField(groups.find('id','group5').name+"",grp5+" ")
+                        embed.addField(groups.find('id','admin').name+"",grp5+" ")
                     }
                     if(grp6c.length > 0){
-                        embed.addField(groups.find('id','group6').name+"",grp6+" ")
+                        embed.addField(groups.find('id','nsfw').name+"",grp6+" ")
                     }
                     if(game.length > 0){
                         embed.addField(groups.find('id','games').name+"",games+" ")

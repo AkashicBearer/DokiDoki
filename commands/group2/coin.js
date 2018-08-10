@@ -6,7 +6,7 @@ module.exports = class CoinFlipCommand extends Command {
         super(client, {
             name: 'coin',
             aliases: ['flip', 'coinflip', 'flipcoin'],
-            group: 'group2',
+            group: 'fun',
             memberName: 'coin',
             description: 'Flips a coin',
             throttling: {

@@ -9,7 +9,7 @@ module.exports = class RandomNSFWAvatarCommand extends Command {
         super(client, {
             name: 'randomnsfwavatar',
             aliases: ['rnsfwa'],
-            group: 'group6',
+            group: 'nsfw',
             memberName: 'randomnsfwavatar',
             description: 'Get a Random NSFW Avatar',
         });

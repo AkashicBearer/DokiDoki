@@ -6,7 +6,7 @@ module.exports = class laughCommand extends Command {
         super(client, {
             name: 'laugh',
             aliases: ['lol'],
-            group: 'group1',
+            group: 'emo',
             memberName: 'laugh',
             description: 'Sends a laughing gif'
         });

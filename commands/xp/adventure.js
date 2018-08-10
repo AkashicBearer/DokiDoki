@@ -23,16 +23,6 @@ if (msg.author.bot) return;
         let { Pool } = require ('pg');    
         let pool = new Pool({ connectionString: process.env.DATABASE_URL, port: 5432, host: process.env.dbhost, database: process.env.db, user: process.env.user, password: process.env.password, ssl: true, });  
         pool.connect()
-        .then(client => {   
-            return client.query('SELECT * FROM xp')
-            .then(res => {
-                client.release()
-            })
-            .catch(err => {
-                client.release()
-                console.log(err.stack)
-            })
-        })
 
         pool.query(`Select * FROM xp WHERE userid ='${msg.author.id}'`,(err, result) => {
             
@@ -45,7 +35,7 @@ if (msg.author.bot) return;
                 const arcb = arcboost / 100;
 
 
-                const lvlreq = 25
+                const lvlreq = 2
                 const lvl = level / 4;
 
 
@@ -62,13 +52,12 @@ if (msg.author.bot) return;
                             let mobdmg = result1.rows[0].mob_dmg
 
 
-                            const mob_hp = Math.round(Math.floor(lvl) * basehp * 10)
-                            const mob_dmg =  Math.round((Math.random() * Math.floor(lvl)) / (0.5 * lvl) * (2.5 * mobdmg))
+                            const mob_hp = Math.round(Math.floor(lvl) * basehp * 15)
+                            const mob_dmg =  Math.round((Math.random() * Math.floor(lvl)) / (0.5 * lvl) * (5 * mobdmg))
 
                             pool.query(`UPDATE xp SET mob_hp2 = '${mob_hp}',mobbasehp = '${mob_hp}', mob_name = '${result1.rows[0].mob_name}'  WHERE userid = '${msg.author.id}'`)
                             pool.end(err => {
                                 if(err) throw err; 
-                                console.log("BBEND")
                                 })
                             })
 
@@ -83,8 +72,8 @@ if (msg.author.bot) return;
                             var hp = result.rows[0].advhp - mob_dmg
 
                             console.log(basehp + "/" + result.rows[0].mob_hp2+ "/" + mobhp)
-                            const advarc = Math.round(((Math.round(Math.random() * 15))* lvl) + arcboost * 0.005)
-                            const advxp = Math.round(((Math.round(Math.random() *10))* lvl  + arcboost)) 
+                            const advarc = Math.round(((Math.round(1 * 15))* lvl) + arcboost * 0.005)
+                            const advxp = Math.round(((Math.round(0.5 *10))* lvl  + arcboost)) 
 
                             pool.query(`UPDATE xp SET mob_hp2 = ${mobhp}, advhp = '${hp}' WHERE userid = '${msg.author.id}'`)
                             
@@ -111,7 +100,6 @@ if (msg.author.bot) return;
                             }
                             pool.end(err => {
                                 if(err) throw err; 
-                                console.log("BBEND")
                                 })
                             })
                         }

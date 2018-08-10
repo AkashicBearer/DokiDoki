@@ -6,7 +6,7 @@ module.exports = class NyaCommand extends Command {
         super(client, {
             name: 'shock',
             aliases: ['omg'],
-            group: 'group1',
+            group: 'emo',
             memberName: 'shock',
             description: 'Replies with a shock.'
         });

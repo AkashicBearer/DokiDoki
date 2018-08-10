@@ -6,7 +6,7 @@ module.exports = class birbCommand extends Command {
       super(client, {
             name: 'birb',
             aliases: [],
-            group: 'group1',
+            group: 'emo',
             memberName: 'birb',
             description: 'Sends a birb'
         });

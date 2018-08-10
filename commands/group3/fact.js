@@ -9,7 +9,7 @@ module.exports = class FactCommand extends Command {
         super(client, {
             name: 'fact',
             aliases: [],
-            group: 'group3',
+            group: 'random',
             memberName: 'fact',
             description: 'Sends a Random fact',
         });

@@ -6,7 +6,7 @@ module.exports = class NameCommand extends Command {
         super(client, {
             name: 'nico',
             aliases: [],
-            group: 'group1',
+            group: 'emo',
             memberName: 'nico',
             description: 'Nic Nico Nii!!',
         });

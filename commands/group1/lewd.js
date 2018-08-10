@@ -6,7 +6,7 @@ module.exports = class LewdtCommand extends Command {
       super(client, {
             name: 'lewd',
             aliases: [],
-            group: 'group1',
+            group: 'emo',
             memberName: 'lewd',
             description: 'T-to Lewd...',
             args: [

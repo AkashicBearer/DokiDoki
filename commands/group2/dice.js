@@ -6,7 +6,7 @@ module.exports = class DiceRollCommand extends Command {
         super(client, {
             name: 'dice',
             aliases: ['roll', 'rolldice', 'diceroll', 'rd'],
-            group: 'group2',
+            group: 'fun',
             memberName: 'dice',
             description: 'Rolls a Dice with provided sides.',
             examples: ['<rd', '<rd 124'],

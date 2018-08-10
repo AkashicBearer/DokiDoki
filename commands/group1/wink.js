@@ -6,7 +6,7 @@ module.exports = class winkCommand extends Command {
       super(client, {
             name: 'wink',
             aliases: [],
-            group: 'group1',
+            group: 'emo',
             memberName: 'wink',
             description: 'You wink',
         

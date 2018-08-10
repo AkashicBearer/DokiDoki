@@ -9,7 +9,7 @@ module.exports = class EroCommand extends Command {
         super(client, {
             name: 'ero',
             aliases: [],
-            group: 'group6',
+            group: 'nsfw',
             memberName: 'ero',
             description: 'Sends Erotic stuff',
             examples: ["<ero","ero -yuri", "<ero -feet","<ero -neko","<ero -holo","<ero -kitsune"]

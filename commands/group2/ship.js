@@ -6,7 +6,7 @@ module.exports = class shipCommand extends Command {
         super(client, {
             name: 'ship',
             aliases: ['pair', 'couple'],
-            group: 'group2',
+            group: 'fun',
             memberName: 'ship',
             description: "Mention two Members to ship them. \nMention one member to randoly ship them with another member. \nDon't mention anyone to randomly ship yourself.",
             examples: ['<ship @User1 @User2', '<ship @User', '<ship'],

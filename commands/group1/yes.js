@@ -6,7 +6,7 @@ module.exports = class YesCommand extends Command {
         super(client, {
             name: 'yes',
             aliases: [],
-            group: 'group1',
+            group: 'emo',
             memberName: 'yes',
             description: 'Sends a yes GIF',
         });

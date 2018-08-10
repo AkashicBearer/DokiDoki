@@ -9,7 +9,7 @@ module.exports = class TrapCommand extends Command {
         super(client, {
             name: 'trap',
             aliases: [],
-            group: 'group6',
+            group: 'nsfw',
             memberName: 'trap',
             description: 'Have a trap',
         });

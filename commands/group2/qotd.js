@@ -6,7 +6,7 @@ module.exports = class qotdCommand extends Command {
         super(client, {
             name: 'qotd',
             aliases: [],
-            group: 'group2',
+            group: 'fun',
             memberName: 'qotd',
             description: "Sends a quote in a fancy manner. \nUse `-a` to define the Author and where it's from.",
             examples: ['<qotd This is my Quote -a Discord'],

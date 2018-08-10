@@ -6,7 +6,7 @@ module.exports = class sighCommand extends Command {
       super(client, {
             name: 'sigh',
             aliases: [],
-            group: 'group1',
+            group: 'emo',
             memberName: 'sigh',
             description: 'Sends a sigh'
         });

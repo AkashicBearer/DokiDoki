@@ -18,17 +18,16 @@ sqlite.open(path.join(__dirname, "settings.sqlite3")).then((db) => {
 client.registry
     .registerDefaultTypes()
     .registerGroups([
-        ['group1', 'Emotions'],
-        ['group2', 'Fun'],
-        ['group3', 'Random'],
-	['group4', 'Util'],
-        ['group5', 'Administration'],
-	['group6', 'NSFW'],
-	['owner', 'Owner Commands'],
-	['xp', 'XP Commands '],
+        ['emo', 'Emotions'],
+        ['fun', 'Fun'],
+        ['random', 'Random'],
+	      ['util', 'Util'],
+        ['admin', 'Administration'],
+	      ['nsfw', 'NSFW'],
+      	['owner', 'Owner Commands'],
+      	['xp', 'XP Commands '],
         ['settings', 'Settings'],
-	['games', 'Games'],
-
+	      ['games', 'Games'],
 ])	
      .registerDefaultGroups()
      .registerDefaultCommands({help: false, ping: false, prefix: true, eval: true})
@@ -159,7 +158,7 @@ if (!usersOnCooldown.has(message.author.id)){
     embed3.setColor('RANDOM')
       message.channel.send(embed3);
     }
-    const xpgen = Math.round(Math.random() * 10) * 3
+    const xpgen = 2
      let xp = result.rows[0].xp;
     pool.query(`UPDATE xp SET xp = ${xp + xpgen} WHERE userid = '${message.author.id}'`)
   }

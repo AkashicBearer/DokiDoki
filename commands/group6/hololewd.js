@@ -9,7 +9,7 @@ module.exports = class HoloLewdCommand extends Command {
         super(client, {
             name: 'hololewd',
             aliases: ['hl'],
-            group: 'group6',
+            group: 'nsfw',
             memberName: 'hololewd',
             description: 'Have a lewd Holo',
         });

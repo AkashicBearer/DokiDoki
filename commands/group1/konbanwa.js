@@ -6,7 +6,7 @@ module.exports = class konbanwaCommand extends Command {
       super(client, {
             name: 'konbanwa',
             aliases: ['kon'],
-            group: 'group1',
+            group: 'emo',
             memberName: 'konbanwa',
             description: 'Konbanwa!',
         

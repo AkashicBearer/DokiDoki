@@ -6,7 +6,7 @@ module.exports = class hungryCommand extends Command {
       super(client, {
             name: 'hungry',
             aliases: [],
-            group: 'group1',
+            group: 'emo',
             memberName: 'hungry',
             description: 'Sends a hungry gif'
         });

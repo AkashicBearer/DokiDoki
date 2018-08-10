@@ -8,7 +8,7 @@ module.exports = class googleCommand extends Command {
 		super(client, {
 			name: 'google',
 			aliases: ['search'],
-			group: 'group4',
+			group: 'util',
 			memberName: 'google',
 			description: 'Shows the first 5 results on Google',
 			examples: ['google Anime'],

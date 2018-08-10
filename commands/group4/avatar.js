@@ -6,7 +6,7 @@ module.exports = class avatarCommand extends Command {
 		super(client, {
 			name: 'avatar',
 			aliases: ['picture', 'pic'],
-			group: 'group4',
+			group: 'util',
 			memberName: 'avatar',
 			description: 'Shows a Users Avatar.',
 			examples: ['avatar @...'],

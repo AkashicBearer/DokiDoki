@@ -29,16 +29,6 @@ async run(msg , args){
   const { Pool } = require ('pg');    
   const pool = new Pool({ connectionString: process.env.DATABASE_URL, port: 5432, host: process.env.dbhost, database: process.env.db, user: process.env.user, password: process.env.password, ssl: true, });  
   pool.connect()
-  .then(client => {
-    return client.query('SELECT * FROM xp')
-      .then(res => {
-        client.release()
-      })
-      .catch(err => {
-        client.release()
-        console.log(err.stack)
-      })
-  })
   let xp, level;
       if(msg.author.id == args.user.id || !args.user){
       pool.query(`SELECT xp, level, arcanium, hp, advhp, timezone FROM xp WHERE userid ='${msg.author.id}'`,(err, result) => {
@@ -77,12 +67,11 @@ async run(msg , args){
       let curhp = result.rows[0].advhp;
       let level = result.rows[0].level;
       let timezone = result.rows[0].timezone
-      console.log(hp + "/" + curhp)
     const embed = new RichEmbed();
         embed.setAuthor(this.client.user.username , this.client.user.avatarURL)
         embed.setTitle(args.user.user.username + '\'s Profile:')
         embed.setThumbnail(args.user.user.avatarURL)
-        embed.addField('Current HP', `${hp}/${curhp}`)
+        embed.addField('Current HP', `${curhp}/${hp}`)
         embed.addField('Level: ', result.rows[0].level, true)
         embed.addField('Current XP: ', result.rows[0].xp, true)
         embed.addField('Balance: ', `${result.rows[0].arcanium} Arcanium!`)

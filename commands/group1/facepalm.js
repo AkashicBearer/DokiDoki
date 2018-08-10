@@ -6,7 +6,7 @@ module.exports = class FacepalmCommand extends Command {
         super(client, {
             name: 'facepalm',
             aliases: ['fp'],
-            group: 'group1',
+            group: 'emo',
             memberName: 'facepalm',
             description: 'Facepalm..'
         });

@@ -9,7 +9,7 @@ module.exports = class LewdNekoCommand extends Command {
         super(client, {
             name: 'lewdneko',
             aliases: ['ln'],
-            group: 'group6',
+            group: 'nsfw',
             memberName: 'lewdneko',
             description: 'Sends a NSFW Neko use -g for gif',
             examples: ["<ln -g", "<ln"]

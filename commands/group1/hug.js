@@ -8,7 +8,7 @@ module.exports = class HugCommand extends Command {
         super(client, {
             name: 'hug',
             aliases: [],
-            group: 'group1',
+            group: 'emo',
             memberName: 'hug',
             description: 'Have a hug',
             args:[

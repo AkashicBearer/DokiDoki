@@ -7,7 +7,7 @@ module.exports = class characterCommand extends Command {
 		super(client, {
 			name: 'character',
 			aliases: ['char'],
-			group: 'group4',
+			group: 'util',
 			memberName: 'character',
 			description: 'Shows a character.',
 			examples: ['character Name'],

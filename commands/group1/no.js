@@ -6,7 +6,7 @@ module.exports = class NoCommand extends Command {
         super(client, {
             name: 'no',
             aliases: [],
-            group: 'group1',
+            group: 'emo',
             memberName: 'no',
             description: 'Sends a No GIF'
         });

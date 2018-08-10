@@ -23,16 +23,6 @@ async run(msg,){
   const { Pool } = require ('pg');    
   const pool = new Pool({ connectionString: process.env.DATABASE_URL, port: 5432, host: process.env.dbhost, database: process.env.db, user: process.env.user, password: process.env.password, ssl: true, });  
   pool.connect()
-  .then(client => {
-    return client.query('SELECT * FROM xp')
-      .then(res => {
-        client.release()
-      })
-      .catch(err => {
-        client.release()
-        console.log(err.stack)
-      })
-  })
  
   pool.query(`Select * FROM xp WHERE userid ='${msg.author.id}'`,(err, result) => {    
     let level = result.rows[0].level
@@ -41,7 +31,7 @@ async run(msg,){
     let arc = result.rows[0].arcanium
     var curhp = result.rows[0].hp - result.rows[0].advhp;
     var price = 250
-    var lvlreq = 25
+    var lvlreq = 2
 
     if(result.rows[0].arcanium >= 250 && level >= lvlreq){
     	pool.query(`UPDATE xp SET arcanium = '${arc - price}', advhp = '${result.rows[0].hp}' WHERE userid = '${msg.author.id}'`)

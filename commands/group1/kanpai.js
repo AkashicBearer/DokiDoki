@@ -6,7 +6,7 @@ module.exports = class KanpaiCommand extends Command {
         super(client, {
             name: 'kanpai',
             aliases: ['cheers'],
-            group: 'group1',
+            group: 'emo',
             memberName: 'kanpai',
             description: 'Cheers!',
           

@@ -5,7 +5,7 @@ module.exports = class OofCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'oof',
-            group: 'group3',
+            group: 'random',
             memberName: 'oof',
             description: 'sends a oof'
         });

@@ -6,7 +6,7 @@ module.exports = class biteCommand extends Command {
         super(client, {
             name: 'bite',
             aliases: [],
-            group: 'group1',
+            group: 'emo',
             memberName: 'bite',
             description: 'Who do you want to bite?',
           

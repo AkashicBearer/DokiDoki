@@ -6,7 +6,7 @@ module.exports = class TimerCommand extends Command {
 		super(client, {
 			name: 'timer',
 			aliases: ['remind'],
-			group: 'group4',
+			group: 'util',
 			memberName: 'timer',
 			description: 'Sets a Timer',
 			examples: ['timer 100'],

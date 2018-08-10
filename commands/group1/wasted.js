@@ -6,7 +6,7 @@ module.exports = class WastedCommand extends Command {
         super(client, {
             name: 'wasted',
             aliases: [],
-            group: 'group1',
+            group: 'emo',
             memberName: 'wasted',
             description: 'You commit Suicide...',
 			args: [

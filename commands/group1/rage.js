@@ -6,7 +6,7 @@ module.exports = class rageCommand extends Command {
       super(client, {
             name: 'rage',
             aliases: ['mad', 'angry'],
-            group: 'group1',
+            group: 'emo',
             memberName: 'rage',
             description: 'You are mad',
         

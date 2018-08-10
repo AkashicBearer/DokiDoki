@@ -9,7 +9,7 @@ module.exports = class TrapCommand extends Command {
         super(client, {
             name: 'hentaigif',
             aliases: ['rhg'],
-            group: 'group6',
+            group: 'nsfw',
             memberName: 'hentaigif',
             description: 'Have a random Hentai GIF',
         });

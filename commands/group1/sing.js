@@ -6,7 +6,7 @@ module.exports = class SingCommand extends Command {
         super(client, {
             name: 'sing',
             aliases: [],
-            group: 'group1',
+            group: 'emo',
             memberName: 'sing',
             description: 'Sing'
         });

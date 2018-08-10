@@ -9,7 +9,7 @@ module.exports = class NyaCommand extends Command {
         super(client, {
             name: 'nya',
             aliases: ['neko'],
-            group: 'group1',
+            group: 'emo',
             memberName: 'nya',
             description: 'Sends a Neko \nUse -g for Neko GIF',
             examples:['<nya', '<nya -g', '<neko', '<neko -g']

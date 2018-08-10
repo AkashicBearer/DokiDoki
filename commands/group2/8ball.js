@@ -6,7 +6,7 @@ module.exports = class EightBalllCommand extends Command {
         super(client, {
             name: '8ball',
             aliases: ['eightball', '8b'],
-            group: 'group2',
+            group: 'fun',
             memberName: '8ball',
             description: 'Ask the magical and wise 8Ball a Question ',
             throttling: {

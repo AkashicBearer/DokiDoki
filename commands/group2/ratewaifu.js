@@ -6,7 +6,7 @@ module.exports = class shipCommand extends Command {
         super(client, {
             name: 'ratewaifu',
             aliases: ['rw'],
-            group: 'group2',
+            group: 'fun',
             memberName: 'ratewaifu',
             description: "Rates your waifu",
             examples: ['<ratewaifu @user'],

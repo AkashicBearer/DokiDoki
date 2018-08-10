@@ -6,7 +6,7 @@ module.exports = class ShrugCommand extends Command {
         super(client, {
             name: 'shrug',
             aliases: [],
-            group: 'group1',
+            group: 'emo',
             memberName: 'shrug',
             description: 'Sends a Shrug'
 });

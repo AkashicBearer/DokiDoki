@@ -6,7 +6,7 @@ module.exports = class HappyCommand extends Command {
       super(client, {
             name: 'happy',
             aliases: ['joy'],
-            group: 'group1',
+            group: 'emo',
             memberName: 'happy',
             description: 'happy'
         });

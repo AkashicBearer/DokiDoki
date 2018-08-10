@@ -9,7 +9,7 @@ module.exports = class SologCommand extends Command {
         super(client, {
             name: 'solog',
             aliases: [],
-            group: 'group6',
+            group: 'nsfw',
             memberName: 'solog',
             description: 'Have some solog',
         });

@@ -7,7 +7,7 @@ module.exports = class mangaCommand extends Command {
 		super(client, {
 			name: 'manga',
 			aliases: ['man'],
-			group: 'group4',
+			group: 'util',
 			memberName: 'manga',
 			description: 'Shows a manga.',
 			examples: ['manga Name'],

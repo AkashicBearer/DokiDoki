@@ -6,7 +6,7 @@ module.exports = class punchCommand extends Command {
         super(client, {
             name: 'punch',
             aliases: [],
-            group: 'group1',
+            group: 'emo',
             memberName: 'punch',
             description: 'Who do you want to punch?',
           

@@ -5,7 +5,7 @@ module.exports = class SayCommand extends Command {
         super(client, {
             name: 'say',
             aliases: ['s', 'said', 'speak', 'sayd'],
-            group: 'group2',
+            group: 'fun',
             memberName: 'say',
             description: 'Replies with the text you provide.',
             examples: ['say Hi there!'],
