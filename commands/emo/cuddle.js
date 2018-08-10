@@ -1,4 +1,4 @@
-emoconst { Command } = require('discord.js-commando');
+const { Command } = require('discord.js-commando');
 const { RichEmbed } = require('discord.js');
 const neko = require("nekos.life");
 const superagent = require("superagent");
