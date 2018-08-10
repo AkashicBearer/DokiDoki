@@ -14,7 +14,7 @@ module.exports = class TimezoneCommand extends Command {
             args: [
             {
                 key: 'timezone',
-                prompt: 'Which user would you like to check?',
+                prompt: 'Which timezone to set?',
                 type: 'string'
             },
             ]
