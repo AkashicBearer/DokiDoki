@@ -108,7 +108,8 @@ client.on("message", (message) => {
   }
 });
 */
-/*
+
+
 client.on("message", (message) => {
 if (!usersOnCooldown.has(message.author.id)){
   if (message.author.bot) return;
@@ -121,7 +122,7 @@ if (!usersOnCooldown.has(message.author.id)){
       database: process.env.db, 
       user: process.env.user, 
       password: process.env.password, 
-      ssl: true, 
+      ssl: require, 
     });  
       pool.connect()
 
@@ -165,6 +166,6 @@ usersOnCooldown.add(message.author.id);
   }, 60000);
 }
 });
-*/
+
 //Login 
 client.login(process.env.token);
