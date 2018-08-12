@@ -114,12 +114,12 @@ if (!usersOnCooldown.has(message.author.id)){
   if (message.author.bot) return;
   if (message.channel.type === "dm") return;     
   const { Pool } = require ('pg');
-  const pool = new Pool({ connectionString: `postgres://u85vuvgcbrtttj:p6d459bec0e27b0fc1634bf0854f13ded289fd35cffb43650b430a41fd598d34e@ec2-18-204-146-65.compute-1.amazonaws.com:5432/dd1d039kqpbbb2`,
-      /* port: 5432, 
+  const pool = new Pool({ connectionString: proccess.env.DATABASE_URL,
+       port: 5432, 
        host: process.env.dbhost, 
-       database: process.env.pool, 
+       database: process.env.db, 
        user: process.env.user, 
-       password: process.env.password, */
+       password: process.env.password, 
        ssl: true, 
 }); 
   pool.connect()
