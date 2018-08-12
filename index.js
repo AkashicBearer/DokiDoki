@@ -116,12 +116,12 @@ if (!usersOnCooldown.has(message.author.id)){
   if (message.channel.type === "dm") return;
     let { Pool } = require ('pg');    
     let pool = new Pool({ 
-      connectionString: `jdbc:postgresql://${process.env.dbhost}:5432/${process.env.db}?sslmode=require&user=${process.env.user}&password=${process.env.password}`, 
-      port: 5432, 
+      connectionString: process.env.DATABASE_URL, 
+      /*port: 5432, 
       host: process.env.dbhost, 
       database: process.env.db, 
       user: process.env.user, 
-      password: process.env.password, 
+      password: process.env.password, */
       ssl: require, 
     });  
       pool.connect()
