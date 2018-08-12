@@ -21,7 +21,7 @@ client.registry
         ['emo', 'Emotions'],
         ['fun', 'Fun'],
         ['random', 'Random'],
-	      ['util', 'Util'],
+	      ['utilisation', 'Util'],
         ['admin', 'Administration'],
 	      ['nsfw', 'NSFW'],
       	['owner', 'Owner Commands'],

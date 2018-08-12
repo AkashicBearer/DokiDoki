@@ -7,7 +7,7 @@ module.exports = class animenCommand extends Command {
 		super(client, {
 			name: 'anime',
 			aliases: ['an'],
-			group: 'util',
+			group: 'utilisation',
 			memberName: 'anime',
 			description: 'Shows an anime.',
 			examples: ['anime Name'],

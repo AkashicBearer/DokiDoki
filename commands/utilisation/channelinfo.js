@@ -6,7 +6,7 @@ module.exports = class channelinfoCommand extends Command {
 		super(client, {
 			name: 'channelinfo',
 			aliases: ['channel', 'ci'],
-			group: 'util',
+			group: 'utilisation',
 			memberName: 'channelinfo',
 			description: 'Gets information about the channel.',
 			examples: ['channelinfo'],

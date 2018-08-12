@@ -6,7 +6,7 @@ module.exports = class CalcCommand extends Command {
         super(client, {
             name: 'calc',
             aliases: ['calculate'],
-            group: 'util',
+            group: 'utilisation',
             memberName: 'calc',
             description: 'Calculate Nnumbers',
             examples: ['<calc 1+1', '<calc 5 cm to inch'],

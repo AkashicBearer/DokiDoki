@@ -6,7 +6,7 @@ module.exports = class translateCommand extends Command {
         super(client, {
             name: 'translate',
             aliases: ['t', 'tl'],
-            group: 'util',
+            group: 'utilisation',
             memberName: 'translate',
             description: 'Translate a Text\nDefine the Input Language with -en for english\nDefine the Output language with +en for english',
             examples: ['translate Hello World +de', 'tl Hallo Welt -de +en', 't Hallo Welt -de'],

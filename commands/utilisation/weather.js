@@ -7,7 +7,7 @@ module.exports = class WeatherCommand extends Command {
         super(client, {
             name: 'weather',
             aliases: ['temp'],
-            group: 'util',
+            group: 'utilisation',
             memberName: 'weather',
             description: 'Search the Weather for your location',
             examples: ['{prifix}weather [location]'],

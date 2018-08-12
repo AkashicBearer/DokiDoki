@@ -6,7 +6,7 @@ module.exports = class timeRollCommand extends Command {
         super(client, {
             name: 'time',
             aliases: [],
-            group: 'util',
+            group: 'utilisation',
             memberName: 'time',
             description: 'Shows the Time for the given Timezone \n Currently only UTC and GMT are supprted',
             examples: ['<time', '<time gmt+2', '<time UTC-2'],
