@@ -35,7 +35,7 @@ if (msg.author.bot) return;
                 const arcb = arcboost / 100;
 
 
-                const lvlreq = 2
+                const lvlreq = 1
                 const lvl = level / 4;
 
 
@@ -71,7 +71,6 @@ if (msg.author.bot) return;
                             let rew = result1.rows[0].mob_rew;
                             var hp = result.rows[0].advhp - mob_dmg
 
-                            console.log(basehp + "/" + result.rows[0].mob_hp2+ "/" + mobhp)
                             const advarc = Math.round(((Math.round(1 * 15))* lvl) + arcboost * 0.005)
                             const advxp = Math.round(((Math.round(0.5 *10))* lvl  + arcboost)) 
 

@@ -39,8 +39,6 @@ module.exports = class hangmanCommand extends Command {
 
         var guesses = guessin
         var wowi = "`"+word+"`"
-        console.log(guessin + "/" + guesses + "/" + word + "/" + wowi)
-
         const embed = new RichEmbed()
         embed.setAuthor(msg.author.username, msg.author.avatarURL)
         embed.setTitle("Hangman")
@@ -73,7 +71,6 @@ module.exports = class hangmanCommand extends Command {
                     
                     guesses = guessin
                     guessed = guessed + mes.content.toUpperCase() + " "
-                    console.log(guessin + "/" + guesses + "/" + word + "/" + wowi)
                     if(guesses.substring(1,guesses.length-1) == word.toUpperCase()){
                         
                         win()

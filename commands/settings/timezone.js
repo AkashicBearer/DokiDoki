@@ -28,19 +28,10 @@ async run(msg, args){
   const { Pool } = require ('pg');    
   const pool = new Pool({ connectionString: process.env.DATABASE_URL, port: 5432, host: process.env.dbhost, database: process.env.db, user: process.env.user, password: process.env.password, ssl: true, });  
   pool.connect()
-  .then(client => {
-    return client.query('SELECT * FROM xp')
-      .then(res => {
-        client.release()
-      })
-      .catch(err => {
-        client.release()
-        console.log(err.stack)
-      })
-  }) 
+
   const em = new RichEmbed()   
   pool.query(`SELECT timezone FROM xp WHERE userid = '${msg.author.id}'`,(err, result) => {
- for (var i = 0; i < validtz.length; i++){    
+   for (var i = 0; i < validtz.length; i++){    
     if(args.timezone == validtz[i] || args.timezone == validtz[i].toUpperCase()) {
       pool.query(`UPDATE xp SET timezone = '${args.timezone}' WHERE userid ='${msg.author.id}'`)
       if (err) throw err;
@@ -53,9 +44,7 @@ async run(msg, args){
           if(err) throw err; 
         })  
       return msg.channel.send(embed);
-    } else {
-      //console.log(args.timezone + " / " + validtz[i])
-      
+    } else {      
         em.setAuthor(this.client.user.username , this.client.user.avatarURL)
         em.setTitle('Please Specify a Valid Timezone!')
         em.setDescription('Example: gmt+0')

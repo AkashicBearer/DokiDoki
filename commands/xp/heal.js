@@ -31,7 +31,7 @@ async run(msg,){
     let arc = result.rows[0].arcanium
     var curhp = result.rows[0].hp - result.rows[0].advhp;
     var price = 250
-    var lvlreq = 2
+    var lvlreq = 1
 
     if(result.rows[0].arcanium >= 250 && level >= lvlreq){
     	pool.query(`UPDATE xp SET arcanium = '${arc - price}', advhp = '${result.rows[0].hp}' WHERE userid = '${msg.author.id}'`)

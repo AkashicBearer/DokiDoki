@@ -23,16 +23,6 @@ if (msg.author.bot) return;
   const { Pool } = require ('pg');    
   const pool = new Pool({ connectionString: process.env.DATABASE_URL, port: 5432, host: process.env.dbhost, database: process.env.db, user: process.env.user, password: process.env.password, ssl: true, });  
   pool.connect()
-  .then(client => {
-    return client.query('SELECT * FROM xp')
-      .then(res => {
-        client.release()
-      })
-      .catch(err => {
-        client.release()
-        console.log(err.stack)
-      })
-  })
   pool.query(`Select xpboost, arcboost, points, username FROM xp WHERE userid ='${msg.author.id}'`,(err, result) => {
     let points = result.rows[0].points
     let arcboost = result.rows[0].arcboost / 100
