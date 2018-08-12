@@ -117,11 +117,6 @@ if (!usersOnCooldown.has(message.author.id)){
     let { Pool } = require ('pg');    
     let pool = new Pool({ 
       connectionString: process.env.DATABASE_URL, 
-      /*port: 5432, 
-      host: process.env.dbhost, 
-      database: process.env.db, 
-      user: process.env.user, 
-      password: process.env.password, */
       ssl: require, 
     });  
       pool.connect()
@@ -155,7 +150,7 @@ if (!usersOnCooldown.has(message.author.id)){
      let xp = result.rows[0].xp;
     pool.query(`UPDATE xp SET xp = ${xp + xpgen} WHERE userid = '${message.author.id}'`)
   }
-  pool.end(err => {
+  pool.releae(err => {
   if(err) throw err; 
   })
 });

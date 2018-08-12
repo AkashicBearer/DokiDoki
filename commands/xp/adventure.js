@@ -21,7 +21,9 @@ module.exports = class AdventureCommand extends Command {
 async run(msg, args) {
 if (msg.author.bot) return;
         let { Pool } = require ('pg');    
-        let pool = new Pool({ connectionString: process.env.DATABASE_URL, port: 5432, host: process.env.dbhost, database: process.env.db, user: process.env.user, password: process.env.password, ssl: require, });  
+        let pool = new Pool({ 
+            connectionString: process.env.DATABASE_URL, 
+            ssl: require, });  
         pool.connect()
 
         pool.query(`Select * FROM xp WHERE userid ='${msg.author.id}'`,(err, result) => {
