@@ -108,7 +108,7 @@ client.on("message", (message) => {
   }
 });
 */
-
+/*
 client.on("message", (message) => {
 if (!usersOnCooldown.has(message.author.id)){
   if (message.author.bot) return;
@@ -165,6 +165,6 @@ usersOnCooldown.add(message.author.id);
   }, 60000);
 }
 });
-
+*/
 //Login 
 client.login(process.env.token);
