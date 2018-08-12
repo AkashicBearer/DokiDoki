@@ -24,10 +24,22 @@ async run(msg, args){
   const usersOnCooldown = new Set();
 
   if (!usersOnCooldown.has(msg.author.id)){
-  const { Pool } = require ('pg');    
-  const pool = new Pool({ connectionString: process.env.DATABASE_URL, port: 5432, host: process.env.dbhost, database: process.env.db, user: process.env.user, password: process.env.password, ssl: true, });  
-  pool.connect()
-
+    let { Pool } = require ('pg');    
+    let pool = new Pool({ 
+      connectionString: process.env.DATABASE_URL, 
+      ssl: require, 
+    });  
+      pool.connect()
+        .then(client => {
+    return client.query('SELECT * FROM xp')
+      .then(res => {
+        client.release()
+      })
+      .catch(err => {
+        client.release()
+        console.log(err.stack)
+      })
+  })
   let arcanium;
     pool.query(`Select arcanium FROM xp WHERE userid ='${msg.author.id}'`,(err, result) => {
     let daily = Math.floor(Math.random() *100) 

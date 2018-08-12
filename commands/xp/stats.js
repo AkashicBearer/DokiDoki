@@ -26,9 +26,22 @@ module.exports = class StatsCommand extends Command {
 
 async run(msg , args){
   if(msg.author.bot) return;
-  const { Pool } = require ('pg');    
-  const pool = new Pool({ connectionString: process.env.DATABASE_URL, port: 5432, host: process.env.dbhost, database: process.env.db, user: process.env.user, password: process.env.password, ssl: true, });  
-  pool.connect()
+    let { Pool } = require ('pg');    
+    let pool = new Pool({ 
+      connectionString: process.env.DATABASE_URL, 
+      ssl: require, 
+    });  
+      pool.connect()
+        .then(client => {
+    return client.query('SELECT * FROM xp')
+      .then(res => {
+        client.release()
+      })
+      .catch(err => {
+        client.release()
+        console.log(err.stack)
+      })
+  })
   let xp, level;
       if(msg.author.id == args.user.id || !args.user){
         pool.query(`SELECT xp, level, arcanium, hp, advhp, timezone FROM xp WHERE userid ='${msg.author.id}'`,(err, result) => {

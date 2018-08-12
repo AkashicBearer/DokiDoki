@@ -16,19 +16,22 @@ module.exports = class StatsCommand extends Command {
     }
 
  async run(msg, args){
-   const { Pool } = require ('pg');    
-   const pool = new Pool({ connectionString: process.env.DATABASE_URL, port: 5432, host: process.env.dbhost, database: process.env.db, user: process.env.user, password: process.env.password, ssl: true, });  
-   pool.connect()
-   .then(client => {
-     return client.query('SELECT * FROM xp')
-       .then(res => {
-         client.release()
-       })
-       .catch(err => {
-         client.release()
-         console.log(err.stack)
-       })
-   })
+    let { Pool } = require ('pg');    
+    let pool = new Pool({ 
+      connectionString: process.env.DATABASE_URL, 
+      ssl: require, 
+    });  
+      pool.connect()
+        .then(client => {
+    return client.query('SELECT * FROM xp')
+      .then(res => {
+        client.release()
+      })
+      .catch(err => {
+        client.release()
+        console.log(err.stack)
+      })
+  })
    pool.query(`SELECT userid,level,xp,username FROM xp ORDER BY level DESC, xp DESC LIMIT 10`, (err, result) => {
      let lb = "";
      let rank = 1;

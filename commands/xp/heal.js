@@ -20,10 +20,22 @@ module.exports = class HealCommand extends Command {
 async run(msg,){
   if (msg.author.bot) return;
 
-  const { Pool } = require ('pg');    
-  const pool = new Pool({ connectionString: process.env.DATABASE_URL, port: 5432, host: process.env.dbhost, database: process.env.db, user: process.env.user, password: process.env.password, ssl: true, });  
-  pool.connect()
- 
+    let { Pool } = require ('pg');    
+    let pool = new Pool({ 
+      connectionString: process.env.DATABASE_URL, 
+      ssl: require, 
+    });  
+      pool.connect()
+        .then(client => {
+    return client.query('SELECT * FROM xp')
+      .then(res => {
+        client.release()
+      })
+      .catch(err => {
+        client.release()
+        console.log(err.stack)
+      })
+  })
   pool.query(`Select * FROM xp WHERE userid ='${msg.author.id}'`,(err, result) => {    
     let level = result.rows[0].level
     let maxhp = result.rows[0].advhp
