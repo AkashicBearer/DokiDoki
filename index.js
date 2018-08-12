@@ -114,7 +114,7 @@ if (!usersOnCooldown.has(message.author.id)){
   if (message.author.bot) return;
   if (message.channel.type === "dm") return;     
   const { Pool } = require ('pg');
-  const pool = new Pool({ connectionString: process.env.HEROKU_POSTGRESQL_GREEN_URL, 
+  const pool = new Pool({ connectionString: process.env.DATABASE_URL, 
        port: 5432, 
        host: process.env.dbhost, 
        database: process.env.pool, 
