@@ -21,7 +21,7 @@ module.exports = class RankCommand extends Command {
 async run(msg, args){
   if (msg.author.bot) return;
     const { Pool } = require ('pg');    
-  const pool = new Pool({ connectionString: process.env.DATABASE_URL, port: 5432, host: process.env.dbhost, database: process.env.db, user: process.env.user, password: process.env.password, ssl: true, });  
+  const pool = new Pool({ connectionString: process.env.HEROKU_POSTGRESQL_GREEN_URL, port: 5432, host: process.env.dbhost, database: process.env.db, user: process.env.user, password: process.env.password, ssl: true, });  
   pool.connect()
   .then(client => {
     return client.query('SELECT * FROM xp')

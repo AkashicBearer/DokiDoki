@@ -21,7 +21,7 @@ module.exports = class AttributeCommand extends Command {
 async run(msg, args) {
 if (msg.author.bot) return;
   const { Pool } = require ('pg');    
-  const pool = new Pool({ connectionString: process.env.DATABASE_URL, port: 5432, host: process.env.dbhost, database: process.env.db, user: process.env.user, password: process.env.password, ssl: true, });  
+  const pool = new Pool({ connectionString: process.env.HEROKU_POSTGRESQL_GREEN_URL, port: 5432, host: process.env.dbhost, database: process.env.db, user: process.env.user, password: process.env.password, ssl: true, });  
   pool.connect()
   pool.query(`Select xpboost, arcboost, points, username FROM xp WHERE userid ='${msg.author.id}'`,(err, result) => {
     let points = result.rows[0].points
