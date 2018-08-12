@@ -26,7 +26,7 @@ async run(msg, args){
     "hst","akst","pst","mst","cst","est","ust","gmt+0","gmt+1","gmt+2","gmt+3","gmt+4","gmt+5","gmt+6","gmt+7","gmt+8","gmt+9","gmt+10","gmt+11","gmt+12","gmt-0","gmt-1","gmt-2","gmt-3","gmt-4","gmt-5","gmt-6","gmt-7","gmt-8","gmt-9","gmt-10","gmt-11","gmt-12"
   ]
   const { Pool } = require ('pg');    
-  const pool = new Pool({ connectionString: process.env.HEROKU_POSTGRESQL_GREEN_URL, port: 5432, host: process.env.dbhost, database: process.env.db, user: process.env.user, password: process.env.password, ssl: true, });  
+  const pool = new Pool({ connectionString: process.env.DATABASE_URL, port: 5432, host: process.env.dbhost, database: process.env.db, user: process.env.user, password: process.env.password, ssl: true, });  
   pool.connect()
 
   const em = new RichEmbed()   

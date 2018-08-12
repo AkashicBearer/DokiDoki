@@ -113,26 +113,18 @@ client.on("message", (message) => {
 if (!usersOnCooldown.has(message.author.id)){
   if (message.author.bot) return;
   if (message.channel.type === "dm") return;
-  const { Pool } = require ('pg');    
-  const pool = new Pool({ connectionString: process.env.DATABASE_URL, 
-       port: 5432, 
-       host: process.env.dbhost, 
-       database: process.env.db, 
-       user: process.env.user, 
-       password: process.env.password, 
-       ssl: true, 
-      });  
-  pool.connect()
-  .then(client => {
-    return client.query('SELECT * FROM xp')
-      .then(res => {
-        client.release()
-      })
-      .catch(err => {
-        client.release()
-        console.log(err.stack)
-      })
-  })
+    let { Pool } = require ('pg');    
+    let pool = new Pool({ 
+      connectionString: `jdbc:postgresql://${process.env.dbhost}:5432/${process.env.db}?sslmode=require&user=${process.env.user}&password=${process.env.password}`, 
+      port: 5432, 
+      host: process.env.dbhost, 
+      database: process.env.db, 
+      user: process.env.user, 
+      password: process.env.password, 
+      ssl: true, 
+    });  
+      pool.connect()
+
   let xpgen, level;
   pool.query(`SELECT * FROM xp WHERE userid = '${message.author.id}'`,(err, result) => {
   if (!result.rows[0]){

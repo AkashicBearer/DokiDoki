@@ -17,7 +17,7 @@ module.exports = class StatsCommand extends Command {
 
   async run(msg, args){
   const { Pool } = require ('pg');    
-  const pool = new Pool({ connectionString: process.env.HEROKU_POSTGRESQL_GREEN_URL, port: 5432, host: process.env.dbhost, database: process.env.db, user: process.env.user, password: process.env.password, ssl: true, });  
+  const pool = new Pool({ connectionString: process.env.DATABASE_URL, port: 5432, host: process.env.dbhost, database: process.env.db, user: process.env.user, password: process.env.password, ssl: true, });  
   pool.connect()
 
    pool.query(`SELECT userid, username, arcanium FROM xp ORDER BY arcanium DESC LIMIT 10`, (err, result) => {

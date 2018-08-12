@@ -25,7 +25,7 @@ module.exports = class prefixCommand extends Command {
 
     async run(msg, args){
           const { Pool } = require ('pg');    
-          const pool = new Pool({ connectionString: process.env.HEROKU_POSTGRESQL_GREEN_URL, 
+          const pool = new Pool({ connectionString: process.env.DATABASE_URL, 
                port: 5432, 
                host: process.env.dbhost, 
                database: process.env.db, 
