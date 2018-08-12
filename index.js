@@ -123,10 +123,20 @@ if (!usersOnCooldown.has(message.author.id)){
        ssl: true, 
 }); 
   pool.connect()
+  .then(client => {
+    return client.query('SELECT * FROM xp')
+      .then(res => {
+        client.release()
+      })
+      .catch(err => {
+        client.release()
+        console.log(err.stack)
+      })
+  })
 
   let xpgen, level;
   pool.query(`SELECT * FROM xp WHERE userid = '${message.author.id}'`,(err, result) => {
-  if (!result.rows[0]){
+  if (!result.rows[0].xp){
     level = 1;
     pool.query(`INSERT INTO xp(userid, username, xp, level, arcanium, points, xpboost, arcboost, hp, advhp, dmg) VALUES('${message.author.id}','${message.author.username}', 0, ${level}, 50, 10, 0, 0, 100, 100, 10)`)
   }else{
