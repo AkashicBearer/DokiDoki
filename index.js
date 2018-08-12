@@ -114,7 +114,7 @@ if (!usersOnCooldown.has(message.author.id)){
   if (message.author.bot) return;
   if (message.channel.type === "dm") return;     
   const { Pool } = require ('pg');
-  const pool = new Pool({ connectionString: process.env.HEROKU_POSTGRESQL_GREEN_URLL, 
+  const pool = new Pool({ connectionString: process.env.HEROKU_POSTGRESQL_GREEN_URL, 
        port: 5432, 
        host: process.env.poolhost, 
        database: process.env.pool, 
@@ -123,16 +123,7 @@ if (!usersOnCooldown.has(message.author.id)){
        ssl: true, 
 }); 
   pool.connect()
-  .then(client => {
-    return client.query('SELECT * FROM xp')
-      .then(res => {
-        client.release()
-      })
-      .catch(err => {
-        client.release()
-        console.log(err.stack)
-      })
-  })
+
   let xpgen, level;
   pool.query(`SELECT * FROM xp WHERE userid = '${message.author.id}'`,(err, result) => {
   if (!result.rows[0]){
