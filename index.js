@@ -116,7 +116,7 @@ if (!usersOnCooldown.has(message.author.id)){
   const { Pool } = require ('pg');
   const pool = new Pool({ connectionString: process.env.HEROKU_POSTGRESQL_GREEN_URL, 
        port: 5432, 
-       host: process.env.poolhost, 
+       host: process.env.dbhost, 
        database: process.env.pool, 
        user: process.env.user, 
        password: process.env.password, 
