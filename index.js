@@ -112,16 +112,16 @@ client.on("message", (message) => {
 client.on("message", (message) => {
 if (!usersOnCooldown.has(message.author.id)){
   if (message.author.bot) return;
-  if (message.channel.type === "dm") return;     
-  const { Pool } = require ('pg');
-  const pool = new Pool({ connectionString: process.env.DATABASE_URL,
+  if (message.channel.type === "dm") return;
+  const { Pool } = require ('pg');    
+  const pool = new Pool({ connectionString: process.env.DATABASE_URL, 
        port: 5432, 
        host: process.env.dbhost, 
        database: process.env.db, 
        user: process.env.user, 
        password: process.env.password, 
        ssl: true, 
-}); 
+      });  
   pool.connect()
   .then(client => {
     return client.query('SELECT * FROM xp')
@@ -133,10 +133,9 @@ if (!usersOnCooldown.has(message.author.id)){
         console.log(err.stack)
       })
   })
-
   let xpgen, level;
   pool.query(`SELECT * FROM xp WHERE userid = '${message.author.id}'`,(err, result) => {
-  if (!result.rows[0].xp){
+  if (!result.rows[0]){
     level = 1;
     pool.query(`INSERT INTO xp(userid, username, xp, level, arcanium, points, xpboost, arcboost, hp, advhp, dmg) VALUES('${message.author.id}','${message.author.username}', 0, ${level}, 50, 10, 0, 0, 100, 100, 10)`)
   }else{
