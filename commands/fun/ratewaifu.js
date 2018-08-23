@@ -30,16 +30,16 @@ async run(msg, args) {
         if(rate <= 30){
             rating = `${args.user} is Shitty waifu material \n\nWaifu Rating: **${rate}%**`;
         }
-        if(rate <= 50){
+        if(rate <= 50 && rate > 30){
             rating = `${args.user} isnt very good Waifu Material \n\nWaifu Rating: **${rate}%**`;
         }
         if(rate > 50 && rate <75){
             rating = `${args.user} is acceptable Waifu Material \n\nWaifu Rating: **${rate}%**l`;
         }
-        if(rate >- 75){
+        if(rate >= 75 && rate < 90){
             rating = `${args.user} is good Waifu Material \n\nWaifu Rating: **${rate}%**`;
         }
-        if(rate >= 90){
+        if(rate >= 90 && rate < 95){
             rating = `${args.user} is an Elite waifu Material!\n\nWaifu Rating: **${rate}%** `;
         }
         if(rate >= 95){
