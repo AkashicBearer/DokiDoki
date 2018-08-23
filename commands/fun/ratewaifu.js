@@ -6,7 +6,7 @@ module.exports = class RateWaifuCommand extends Command {
         super(client, {
             name: 'ratewaifu',
             aliases: ['rw'],
-            group: 'group2',
+            group: 'fun',
             memberName: 'ratewaifu',
             description: "Rates your waifu",
             examples: ['<ratewaifu @user'],
@@ -24,7 +24,7 @@ module.exports = class RateWaifuCommand extends Command {
 async run(msg, args) {
   if(!args.user){
 	  msg.channel.send("Please Mention a User or Put a Name");
-  }else {	
+  } else {	
     var rate = (Math.random()*100).toFixed(2);
     var rating = "";
         if(rate <= 30){
