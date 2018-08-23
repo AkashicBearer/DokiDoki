@@ -73,8 +73,8 @@ if (msg.author.bot) return;
                             let rew = result1.rows[0].mob_rew;
                             var hp = result.rows[0].advhp - mob_dmg
 
-                            const advarc = Math.round(((Math.round(1 * 15))* lvl) + arcboost * 0.005)
-                            const advxp = Math.round(((Math.round(0.5 *10))* lvl  + arcboost)) 
+                            const advarc = Math.round(((Math.round(Math.random( +1 * 15))* lvl) + arcboost * 0.005)
+                            const advxp = Math.round(((Math.round(Math.random( +1) *10))* lvl  + arcboost)) 
 
                             pool.query(`UPDATE xp SET mob_hp2 = ${mobhp}, advhp = '${hp}' WHERE userid = '${msg.author.id}'`)
                             
