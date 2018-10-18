@@ -1,4 +1,4 @@
-let { Command } = require('discord.js-commando');
+/*let { Command } = require('discord.js-commando');
 let { RichEmbed } = require('discord.js');
 
 module.exports = class AdventureCommand extends Command {
@@ -117,3 +117,4 @@ if (msg.author.bot) return;
         })
     }
 }
+*/
