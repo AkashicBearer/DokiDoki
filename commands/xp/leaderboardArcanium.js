@@ -1,4 +1,4 @@
-const { Command } = require('discord.js-commando');
+/*const { Command } = require('discord.js-commando');
 const { RichEmbed } = require('discord.js');
 const dotenv = require('dotenv');
 dotenv.config();
@@ -52,3 +52,4 @@ module.exports = class StatsCommand extends Command {
  })
 }
 }
+*/
