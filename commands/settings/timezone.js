@@ -1,4 +1,4 @@
-const { Command } = require('discord.js-commando');
+/*const { Command } = require('discord.js-commando');
 const { RichEmbed } = require('discord.js');
 
 
@@ -59,3 +59,4 @@ async run(msg, args){
     });
   };
 };
+*/
