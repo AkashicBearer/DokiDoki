@@ -1,4 +1,4 @@
-const { Command } = require('discord.js-commando');
+/*const { Command } = require('discord.js-commando');
 const { RichEmbed } = require('discord.js');
 
 module.exports = class AttributeCommand extends Command {
@@ -45,3 +45,4 @@ if (msg.author.bot) return;
     });
    }
   }
+*/
