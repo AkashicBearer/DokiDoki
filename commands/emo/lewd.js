@@ -1,58 +1,46 @@
 const { Command } = require('discord.js-commando');
 const { RichEmbed } = require('discord.js');
-const neko = require("nekos.life");
-const superagent = require("superagent");
-const send = require("quick.hook");
 
-module.exports = class LewdCommand extends Command {
+module.exports = class LewdtCommand extends Command {
     constructor(client) {
-        super(client, {
+      super(client, {
             name: 'lewd',
             aliases: [],
             group: 'emo',
             memberName: 'lewd',
-            description: 'Mentions a User who is being lewd',
+            description: 'T-to Lewd...',
             args: [
                 {
                     key: 'member',
+                    label: 'user',
                     prompt: 'Who is being lewd?',
                     type: 'member',
                     default: ''
-                },
-                {
-                    key: 'stuff',
-                    prompt: 'What would u like to say?',
-                    type: 'string',
-                    default: '',
-                    validate: stuff => {
-                        if (stuff.length < 201) return true;
-                        return 'Message Content is above 200 characters';
-                    }
                 }
             ]
         });
     }
-async run(msg, args, neko) {
-        superagent.get('https://nekos.life/api/v2/img/lewd')
-        .then(body => {
-            body = body.body
-        const lewd = new RichEmbed()
-            if(msg.author.id == args.member.id){
-                lewd.setAuthor(`${msg.author.username} thinks they are being too lewd!`)
-            }else if(!args.member){
-                lewd.setAuthor(`Someone is being too lewd!!!`)
-            } else {
-                lewd.setAuthor(`${msg.author.username} thinks ${args.member.user.username} is being too lewd!`)
-            }
-                    
-            lewd.setDescription(args.stuff)
-            lewd.setImage(body.url)
-            lewd.setColor(0x23ff12)
-            lewd.setFooter(`Powered by Nekos.Life`)
-        msg.channel.send(lewd)
-        })
-        .catch(err => {
-            msg.channel.send("The gif-API is currently down, plese try again later \nOr try to help us get to 200 Servers so we can upgrade our API!")
-        })
-    }   
-};
+
+	async run(msg, args) {
+        var imglewd = {
+            "0": "https://media1.tenor.com/images/aae2940763e3af82279a705bd16d40ca/tenor.gif?itemid=8681419",
+            "1": "https://i.imgur.com/75DgmLA.gif",
+            "2": "https://media.giphy.com/media/13rb0irBhpZ076/giphy.gif",
+            "3": "https://pa1.narvii.com/5739/19db0112ec582cf8c287ee87f3b9db90c6dc40dd_hq.gif",
+            "4": "https://i.imgur.com/qknrvCO.gif?noredirect",
+            "5": "https://media.giphy.com/media/12lLTU2L0CIufC/giphy.gif",
+            "6": "http://i0.kym-cdn.com/photos/images/newsfeed/000/786/305/7db.gif",
+            "7": "http://i.stack.imgur.com/MKMpFm.jpg",
+        };
+           const embed = new RichEmbed()
+                if(!args.member){
+                    embed.setDescription(msg.author + ' thinks this is Lewd!' )  
+                }else{
+                    embed.setDescription(msg.author + ' thinks ' + args.member + ' is too lewd.')  
+                }
+                const randm = Math.random();
+                embed.setImage(imglewd[Math.floor(randm * Object.keys(imglewd).length).toString()])
+                embed.setColor(0x23ff12)
+            return msg.embed(embed);
+        }
+	};
