@@ -23,9 +23,10 @@ module.exports = class NyaCommand extends Command {
         .then(body => {
             body = body.body
             const embed = new RichEmbed()
-            embed.setDescription("Have a Neko!")
+            embed.setTitle("Have a random Neko!")
             embed.setImage(body.url)
             embed.setColor('RANDOM')
+            embed.setFooter(`Powered by Nekos.Life`)
              message.channel.send(embed);
         })
         .catch(err => {
@@ -37,9 +38,10 @@ module.exports = class NyaCommand extends Command {
         .then(body => {
             body = body.body
             const embed = new RichEmbed()
-            embed.setDescription("Have a Neko GIF!")
+            embed.setTitle("Have a Random Neko GIF!")
             embed.setImage(body.url)
             embed.setColor('RANDOM')
+            embed.setFooter(`Powered by Nekos.Life`)
              message.channel.send(embed);
         })
         .catch(err => {
