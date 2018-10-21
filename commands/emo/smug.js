@@ -1,47 +1,55 @@
 const { Command } = require('discord.js-commando');
 const { RichEmbed } = require('discord.js');
+const neko = require("nekos.life");
+const superagent = require("superagent");
+const send = require("quick.hook");
 
-module.exports = class SmugtCommand extends Command {
+module.exports = class SmugCommand extends Command {
     constructor(client) {
-      super(client, {
+        super(client, {
             name: 'smug',
             aliases: [],
             group: 'emo',
             memberName: 'smug',
-            description: 'Sends a Smug'
+            description: 'Smug at a user.',
+            args: [
+                {
+                    key: 'member',
+                    prompt: 'Who to Smug at?',
+                    type: 'member',
+                },
+                {
+                    key: 'stuff',
+                    prompt: 'What would u like to say?',
+                    type: 'string',
+                    default: '',
+                    validate: stuff => {
+                        if (stuff.length < 201) return true;
+                        return 'Message Content is above 200 characters';
+                    }
+                }
+            ]
         });
     }
-
-	async run(msg, args) {
-        var imgsmug = {
-            "0": "http://i0.kym-cdn.com/photos/images/original/001/087/562/93c.gif",
-            "1": "http://i0.kym-cdn.com/photos/images/newsfeed/001/161/167/eda.gif",
-            "2": "http://gifimage.net/wp-content/uploads/2017/08/smug-anime-gif.gif",
-            "3": "https://media1.tenor.com/images/906bbc85a7820f68a7fc658aeeceb069/tenor.gif?itemid=10195728",
-            "4": "http://i0.kym-cdn.com/photos/images/newsfeed/000/928/760/db8.gif",
-            "5": "https://thumbs.gfycat.com/AccurateSafeAfricanparadiseflycatcher-max-1mb.gif",
-            "6": "https://78.media.tumblr.com/34afa029cc966cc0f97505d9135fcbf2/tumblr_p5hr85vavD1tjqw6so7_r1_500.gif",
-            "7": "https://i.imgur.com/S4vTLpP.gif",
-            "8": "https://i.redd.it/hyvzf96bmxsy.gif",
-            "9": "https://78.media.tumblr.com/ca60f46082218e87f9fb1995c6e6d182/tumblr_oebt000Z6Q1te3l73o3_540.gif",
-            "10": "https://pa1.narvii.com/6373/48b105a2145d1773200c74b45795d1d9263b0109_hq.gif",
- /*IS*/     "11": "https://3.bp.blogspot.com/-Sm00lk6JVAc/V4P5d3sxGqI/AAAAAAAAhAU/q6XhRoKNcMguVOeXrp1VYJPKtRYbFS5PACKgB/s1600/Omake%2BGif%2BAnime%2B-%2BLove%2BLive%2521%2BSunshine%2521%2521%2B-%2BEpisode%2B2%2B-%2BDia%2BSmug.gif",
-            "12": "https://media1.tenor.com/images/1fe93596a8a0f84078b936305b319c55/tenor.gif?itemid=6194051",
-            "13": "https://78.media.tumblr.com/9dcd24a0f7e50412e3151d64f388b87d/tumblr_nf7g7zFpqM1t7ugwjo1_500.gif",
-            "14": "http://pa1.narvii.com/6058/0a3815a11d02e09fc5e83c1d3b67d304c3581091_hq.gif",
-            "15": "https://thumbs.gfycat.com/DescriptiveSmartKitty-max-1mb.gif",
-            "16": "http://images6.fanpop.com/image/photos/36400000/Gintama-image-gintama-36462581-500-282.gif",
-            "17": "https://78.media.tumblr.com/924d5e0c521d63bc28b6cf5c31937494/tumblr_nu6xskk0Wc1reorefo1_500.gif",
-            "18": "https://68.media.tumblr.com/254c921a2e7138bb20d3c28a0ec27102/tumblr_omo6hwUkUJ1shmkc9o1_r2_540.gif",
-            "19": "http://i0.kym-cdn.com/photos/images/newsfeed/000/928/963/ab3.gif",
-        };
-           const embed = new RichEmbed()
-                embed.setDescription(msg.author + ' is Smugging' )  
-                const randm = Math.random();
-
-                    embed.setImage(imgsmug[Math.floor(randm * Object.keys(imgsmug).length).toString()])
-
-                embed.setColor(0x23ff12)
-            return msg.embed(embed);
-        }
-	};
+async run(msg, args, neko) {
+        superagent.get('https://nekos.life/api/v2/img/smug')
+        .then(body => {
+            body = body.body
+        const smug = new RichEmbed()
+            if(msg.author.id == args.member.id || !args.member.id){
+                smug.setAuthor(`${msg.author.username} is Smugging`)
+            }else {
+                smug.setAuthor(`${msg.author.username} is Smugging at ${args.member.user.username}!`)
+            }
+                    
+            smug.setDescription(args.stuff)
+            smug.setImage(body.url)
+            smug.setColor(0x23ff12)
+            smug.setFooter(`Powered by Nekos.Life`)
+        msg.channel.send(smug)
+        })
+        .catch(err => {
+            msg.channel.send("The gif-API is currently down, plese try again later \nOr try to help us get to 200 Servers so we can upgrade our API!")
+        })
+    }   
+};
