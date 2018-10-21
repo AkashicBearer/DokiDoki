@@ -2,6 +2,7 @@ const { Command } = require('discord.js-commando');
 const { RichEmbed } = require('discord.js');
 const neko = require("nekos.life");
 const superagent = require("superagent");
+const send = require("quick.hook");
 
 module.exports = class FeedCommand extends Command {
     constructor(client) {
@@ -10,28 +11,45 @@ module.exports = class FeedCommand extends Command {
             aliases: [],
             group: 'emo',
             memberName: 'feed',
-            description: 'Feed someone\~',
-            args:[
+            description: 'Feed a user.',
+            args: [
                 {
                     key: 'member',
-                    prompt: 'Which user do you want to feed?',
+                    prompt: 'Who to feed?',
+                    type: 'member',
+                },
+                {
+                    key: 'stuff',
+                    prompt: 'What would u like to say?',
                     type: 'string',
+                    default: '',
+                    validate: stuff => {
+                        if (stuff.length < 201) return true;
+                        return 'Message Content is above 200 characters';
+                    }
                 }
             ]
         });
     }
-	async run(msg, args, neko) { 
-    superagent.get('https://nekos.life/api/v2/img/feed')
+async run(msg, args, neko) {
+        superagent.get('https://nekos.life/api/v2/img/feed')
         .then(body => {
             body = body.body
-            const embed = new RichEmbed()
-            embed.setDescription(msg.author + ' feeds ' + args.member)
-            embed.setImage(body.url)
-            embed.setColor('RANDOM')
-             return msg.embed(embed);
+        const feed = new RichEmbed()
+            if(msg.author.id == args.member.id || !args.member.id){
+                feed.setAuthor(`${msg.author.username} is feading themselves?!`)
+            }else {
+                feed.setAuthor(`${msg.author.username} is feeding  ${args.member.user.username}!`)
+            }
+                    
+            feed.setDescription(args.stuff)
+            feed.setImage(body.url)
+            feed.setColor(0x23ff12)
+            feed.setFooter(`Powered by Nekos.Life`)
+        msg.channel.send(feed)
         })
         .catch(err => {
             msg.channel.send("The gif-API is currently down, plese try again later \nOr try to help us get to 200 Servers so we can upgrade our API!")
         })
-    }
+    }   
 };
