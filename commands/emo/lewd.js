@@ -33,23 +33,23 @@ module.exports = class LewdCommand extends Command {
         });
     }
 async run(msg, args, neko) {
-        superagent.get('https://nekos.life/api/v2/img/baka')
+        superagent.get('https://nekos.life/api/v2/img/lewd')
         .then(body => {
             body = body.body
-        const baka = new RichEmbed()
+        const lewd = new RichEmbed()
             if(msg.author.id == args.member.id){
-                baka.setAuthor(`${msg.author.username} thinks they are being too lewd!`)
+                lewd.setAuthor(`${msg.author.username} thinks they are being too lewd!`)
             }else if(!args.member){
-                baka.setAuthor(`Someone is being too lewd!!!`)
+                lewd.setAuthor(`Someone is being too lewd!!!`)
             } else {
-                baka.setAuthor(`${msg.author.username} thinks ${args.member.user.username} is being too lewd!`)
+                lewd.setAuthor(`${msg.author.username} thinks ${args.member.user.username} is being too lewd!`)
             }
                     
-            baka.setDescription(args.stuff)
-            baka.setImage(body.url)
-            baka.setColor(0x23ff12)
-            baka.setFooter(`Powered by Nekos.Life`)
-        msg.channel.send(baka)
+            lewd.setDescription(args.stuff)
+            lewd.setImage(body.url)
+            lewd.setColor(0x23ff12)
+            lewd.setFooter(`Powered by Nekos.Life`)
+        msg.channel.send(lewd)
         })
         .catch(err => {
             msg.channel.send("The gif-API is currently down, plese try again later \nOr try to help us get to 200 Servers so we can upgrade our API!")
