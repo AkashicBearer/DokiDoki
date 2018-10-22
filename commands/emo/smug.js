@@ -17,6 +17,7 @@ module.exports = class SmugCommand extends Command {
                     key: 'member',
                     prompt: 'Who to Smug at?',
                     type: 'member',
+                    default: '',
                 },
                 {
                     key: 'stuff',
@@ -36,9 +37,7 @@ async run(msg, args, neko) {
         .then(body => {
             body = body.body
         const smug = new RichEmbed()
-            if(msg.author.id == args.member.id || !args.member.id){
-                smug.setAuthor(`${msg.author.username} is Smugging`)
-            }else if(!args.member){
+            if(!args.member){
                 smug.setAuhor(`${msg.author.username} is Smugging.`)
             }else {
                 smug.setAuthor(`${msg.author.username} is Smugging at ${args.member.user.username}!`)
