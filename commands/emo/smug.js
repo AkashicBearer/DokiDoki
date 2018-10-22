@@ -38,6 +38,8 @@ async run(msg, args, neko) {
         const smug = new RichEmbed()
             if(msg.author.id == args.member.id || !args.member.id){
                 smug.setAuthor(`${msg.author.username} is Smugging`)
+            }else if(!args.member){
+                smug.setAuhor(`${msg.author.username} is Smugging.`)
             }else {
                 smug.setAuthor(`${msg.author.username} is Smugging at ${args.member.user.username}!`)
             }
