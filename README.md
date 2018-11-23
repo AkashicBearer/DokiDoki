@@ -8,11 +8,17 @@
 </a>
 <!-- Needs more Info.... -->
 <h1> Doki Doki Bot </h1>
-<p>Welcome to the Github Docs of DokiDoki. This Bot is coded in DiscordJS/Commando. the Default prefix is < All Commands will use Default prefix, unless the guild has a custom Prefix. Ex: <pat @user or if Custom prefix: !pat @user</p> 
+<p>
+  
+  Welcome to the DokiDoki Discord Bot GitHub page, here you can find the source code of the bot and help for some commands, You can use <help on Discord to view all the commands available and !help [command] to view help for a command. 
+  
+  This Project was started back in February last year, at the time the bot only had a few commands and ran of off my old Desktop which i used as a server. Today the bot has good amount of commands that can satisfy a persons normal need, and commands are still being developped and will be added as the bot grows and I get better at coding. So far the bot has about 50 or so commands, each command has its own unique use and works so far. Any bugs that are found are to be reported on the discord server or on github directly by creating a issue. 
+
+***Note: Xp & Currency Systems are currently down until I can find a new database. That means that bot settings are offline also.***
+</p> 
 
 
-<h1> Current Developpers </h1>
-
+<h1> Developpers </h1>
 <table style="width:100%">
   <tr>
     <th>Username and Discrim</th>
@@ -30,43 +36,39 @@
     <td>Developper</td>
   </tr>
 </table>
+
 <!-- Command Groups -->
+
 <h1> Command Groups </h1>
 <table style="width:100%">
   <tr>
-    <th>Command Group</th>
-    <th>Coomand Group Name</th>
+    <th>Group</th>
+    <th>Group Name</th>
   </tr>
   <tr>
-    <td>Group1</td>
+    <td>emo</td>
     <td>Emotions</td>
   </tr>
   <tr>
-    <td>Group2</td>
+    <td>fun</td>
     <td>Fun</td>
   </tr>
   <tr>
-    <td>Group3</td>
+    <td>random</td>
     <td>Random</td>
   </tr>
   <tr>
-    <td>Group4</td>
+    <td>util</td>
     <td>Utility</td>
   </tr>
   <tr>
-    <td>Group5</td>
+    <td>admin</td>
     <td>Administration</td>
   </tr>
 </table>
-<!-- Note -->
-<h5> Note: </h5>
-<table style="width:100%">
-  <tr>
-    <td> {user} Means the Field is Required </td>
-    <td> [user] means field is optional 
-  </tr>
-  </table>
+
 <!-- Commands -->
+
  <h1> Commands </h1>
 <table style="width:100%">
   <tr>
