@@ -29,7 +29,7 @@ module.exports = class statsCommand extends Command {
         embed.addField(`Memory usage:`,`${Math.round(used * 100) / 100}MB` ,true)
         embed.addField(`Uptime:`,`${days}:${hours}:${mins}:${realTotalSecs}` ,true)
         embed.addField('Node and Library',` Node: ${process.version} discord.js` ,true)
-        embed.addField(`Patform`,`${os.platform}`, true)
+        embed.addField(`Platform`,`${os.platform}`, true)
         embed.addField('Servers, Users',`On ${this.client.guilds.size} servers, with a total of ${this.client.users.size} users.`)
         embed.addField("My Discord Invite Link", "[Discord Invite Link](https://discordapp.com/api/oauth2/authorize?client_id=385115460397694977&permissions=8&scope=bot)")
         embed.addField("DokiDoki Support Server", "[Support Server Invite](https://discord.gg/4RNvxJR)")
