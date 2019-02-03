@@ -31,7 +31,7 @@ module.exports = class NyaCommand extends Command {
         })
         .catch(err => {
             console.log(err)
-            message.channel.send("The image-API is currently down, plese try again later \nOr try to help us get to 200 Servers so we can upgrade our API!")
+            msg.channel.send("The gif-API is currently down, plese try again later \n")
         })
         }else{
             superagent.get('https://nekos.life/api/v2/img/ngif')
@@ -45,7 +45,7 @@ module.exports = class NyaCommand extends Command {
              message.channel.send(embed);
         })
         .catch(err => {
-            msg.channel.send("The gif-API is currently down, plese try again later \nOr try to help us get to 200 Servers so we can upgrade our API!")
+            msg.channel.send("The gif-API is currently down, plese try again later \n")
         })
     }}
 };
