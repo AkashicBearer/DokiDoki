@@ -52,7 +52,7 @@ async run(msg, args, neko) {
         msg.channel.send(baka)
         })
         .catch(err => {
-            msg.channel.send("The gif-API is currently down, plese try again later \nOr try to help us get to 200 Servers so we can upgrade our API!")
+            msg.channel.send("The gif-API is currently down, plese try again later \n")
         })
     }	
 };
