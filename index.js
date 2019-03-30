@@ -9,7 +9,7 @@ const MySQLProvider = require('discord.js-commando-mysqlprovider');
 
 const doki = new CommandoClient({ // as of 23/02/19 client will be known as doki
     // only works in this file?
-    commandPrefix: '/>', //prefix
+    commandPrefix: '<', //prefix
     unknownCommandResponse: false,
     owner: ['193021560792154112', '111469545637605376'],
     disableEveryone: true, 
