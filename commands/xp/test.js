@@ -1,4 +1,4 @@
-let { Command } = require('discord.js-commando');
+/*let { Command } = require('discord.js-commando');
 let { RichEmbed } = require('discord.js');
 
 module.exports = class TestCommand extends Command {
@@ -54,3 +54,4 @@ const connection  = mysql.createPool({
 })
 }
 }
+*/
