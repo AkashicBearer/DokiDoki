@@ -1,4 +1,4 @@
-const { Command } = require('discord.js-commando');
+/*const { Command } = require('discord.js-commando');
 const util = require('util');
 const { RichEmbed, discord }= require('discord.js');
 const tags = require('common-tags');
@@ -58,4 +58,4 @@ module.exports = class ExecCommand extends Command {
 			msg.channel.send(embed2);
 		}
 }
-}
+}*/

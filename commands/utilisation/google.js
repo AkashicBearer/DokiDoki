@@ -3,7 +3,7 @@ const { RichEmbed } = require('discord.js');
 var GoogleSearch = require('google-search');
 
 
-module.exports = class googleCommand extends Command {
+module.exports = class GoogleCommand extends Command {
 	constructor(client) {
 		super(client, {
 			name: 'google',
@@ -24,7 +24,7 @@ module.exports = class googleCommand extends Command {
 		});
 	}
 
-	async run(msg, args) {
+	async run(message, args) {
 
 		var google = require('google')
 		 
@@ -47,7 +47,7 @@ module.exports = class googleCommand extends Command {
 		    }
 		  }
 
-		msg.channel.send(embed)
+		message.channel.send(embed)
 		})
 
 

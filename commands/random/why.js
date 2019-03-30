@@ -11,18 +11,23 @@ module.exports = class WhyCommand extends Command {
             aliases: [],
             group: 'random',
             memberName: 'why',
-            description: 'why?',
+            description: 'Sends a Random Question',
         });
     }
-	async run(msg, args, neko) { 
-	const {body} = await superagent 
-        .get('https://nekos.life/api/v2/why')
-        const embed = new RichEmbed()
-	        embed.setTitle('Random Question~')
-            console.log()
-            embed.setDescription(body.why.charAt(0).toUpperCase() + body.why.slice(1))
-            embed.setThumbnail('http://pngimg.com/uploads/question_mark/question_mark_PNG126.png')
-            embed.setColor('RANDOM')
-        return msg.embed(embed);
+	async run(message, args, neko) { 
+        if (message.author.bot) return;
+        superagent.get(`https://nekos.life/api/v2/why`).then(body => {
+            body = body.body
+        
+            const factEmbed = new RichEmbed()
+                .setTitle('Random Fact')
+                .setDescription(body.why.charAt(0).toUpperCase() + body.why.slice(1))
+                .setThumbnail('https://cdn.shopify.com/s/files/1/0185/5092/products/symbols-0143.png?v=1369543490')
+                .setColor('RANDOM')  
+            message.channel.send(factEmbed)
+        }).catch(err => { 
+            console.log(err)
+            message.channel.send(`Sorry the API is currently eperiencing problems...`)
+        })
 	}
 };

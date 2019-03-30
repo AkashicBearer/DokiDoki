@@ -15,43 +15,33 @@ module.exports = class channelinfoCommand extends Command {
 		});
 	}
 
-	async run(msg, args) {
-		var channel = msg.channel;
-
-
-		const crtSpl = channel.createdAt.toString().split(' ');
-
-		
-
-		const months = {
-            "Jan": "January",
-            "Feb": "February",
-            "Mar": "March",
-            "Apr": "April",
-            "May": "May",
-            "Jun": "June",
-            "Jul": "July",
-            "Aug": "August",
-            "Sep": "September",
-            "Oct": "October",
-            "Nov": "November",
-            "Dec": "December"
-        }
-
-        const weekdays = {
-            "Mon": "Monday",
-            "Tue": "Tuesday",
-            "Wed": "Wednesday",
-            "Thu": "Thursday",
-            "Fri": "Friday",
-            "Sat": "Saturday",
-            "Sun": "Sunday"
-        }
-
-        var crtStr = weekdays[crtSpl[0]]+', '+months[crtSpl[1]]+' ' + crtSpl[2] + ', ' + crtSpl[3] + ' | '+crtSpl[4] + ' | '+crtSpl[6];
-		
-
-        
+async run(message, args) {
+	var channel = message.channel;
+	const crtSpl = channel.createdAt.toString().split(' ');
+	const months = {
+        "Jan": "January",
+        "Feb": "February",
+        "Mar": "March",
+        "Apr": "April",
+        "May": "May",
+        "Jun": "June",
+        "Jul": "July",
+        "Aug": "August",
+        "Sep": "September",
+        "Oct": "October",
+        "Nov": "November",
+        "Dec": "December"
+    }
+    const weekdays = {
+        "Mon": "Monday",
+        "Tue": "Tuesday",
+        "Wed": "Wednesday",
+        "Thu": "Thursday",
+        "Fri": "Friday",
+        "Sat": "Saturday",
+        "Sun": "Sunday"
+    }
+    var crtStr = weekdays[crtSpl[0]]+', '+months[crtSpl[1]]+' ' + crtSpl[2] + ', ' + crtSpl[3] + ' | '+crtSpl[4] + ' | '+crtSpl[6];
 	const embed = new RichEmbed()
 		embed.setTitle(channel.name + ' Channelinfo')
 		embed.addField('Channel Category', channel.parent.name, true)
@@ -64,7 +54,7 @@ module.exports = class channelinfoCommand extends Command {
 
 		embed.addBlankField()
 		embed.addField('Channel created at ' , crtStr, true)
-	return msg.embed(embed);
+	 message.embed(embed);
 };
 };
 

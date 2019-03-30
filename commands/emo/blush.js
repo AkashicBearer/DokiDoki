@@ -12,7 +12,7 @@ module.exports = class BlushCommand extends Command {
         });
     }
 
-	async run(msg, args) {
+	async run(message, args) {
         var imglewd = {
             "0": "https://media1.tenor.com/images/1bb57bb553ea96c150ab167e145f9a66/tenor.gif?itemid=4964136",
             "1": "https://media1.tenor.com/images/9eba52d0506b552b7ef6a1981c0cfcff/tenor.gif?itemid=8680309",
@@ -36,10 +36,10 @@ module.exports = class BlushCommand extends Command {
             "19": "https://i.imgur.com/hl1ee7x.gif",
         };
            const embed = new RichEmbed()
-                embed.setDescription(msg.author + ' is blushing')  
+                embed.setDescription(message.author + ' is blushing')  
                 const randm = Math.random();
                 embed.setImage(imglewd[Math.floor(randm * Object.keys(imglewd).length).toString()])
                 embed.setColor(0x23ff12)
-            return msg.embed(embed);
+            return message.embed(embed);
         }
 	};

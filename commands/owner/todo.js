@@ -21,20 +21,20 @@ module.exports = class todoCommand extends Command {
         });
     }
 
-        hasPermission(msg) {
-        return this.client.isOwner(msg.author);
+        hasPermission(message) {
+        return this.client.isOwner(message.author);
     }
 
 
-    async run(msg, args) {
+    async run(message, args) {
+        const chann = this.client.guilds.get('389111570162122752').channels.find('name','todo');
         const embed = new RichEmbed()
-        embed.setAuthor(msg.author.tag, msg.author.avatarURL)
-        embed.setTitle('ToDo')
-        embed.setDescription(args.text)
-        embed.setFooter(msg.guild.name + "")
-        embed.setTimestamp()
-      const chann = this.client.guilds.get('389111570162122752').channels.find('name','todo');
+            .setAuthor(message.author.tag, message.author.avatarURL)
+            .setTitle('ToDo')
+            .setDescription(args.text)
+            .setFooter(message.guild.name + "")
+            .setTimestamp()
       chann.send(embed);
-      msg.channel.send('Added to ToDo list!!');
+      message.channel.send('Added to ToDo list!!');
     }
 };

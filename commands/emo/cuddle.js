@@ -31,25 +31,25 @@ module.exports = class CuddleCommand extends Command {
             ]
         });
     }
-async run(msg, args, neko) {
+async run(message, args, neko) {
         superagent.get('https://nekos.life/api/v2/img/cuddle')
         .then(body => {
             body = body.body
         const cuddle = new RichEmbed()
-            if(msg.author.id == args.member.id){
-                cuddle.setAuthor(`${msg.author.username} is cuddling themselves?!`)
+            if(message.author.id == args.member.id){
+                cuddle.setAuthor(`${message.author.username} is cuddling themselves?!`)
             }else {
-                cuddle.setAuthor(`${msg.author.username} is cuddling ${args.member.user.username}!`)
+                cuddle.setAuthor(`${message.author.username} is cuddling ${args.member.user.username}!`)
             }
                     
             cuddle.setDescription(args.stuff)
             cuddle.setImage(body.url)
             cuddle.setColor(0x23ff12)
             cuddle.setFooter(`Powered by Nekos.Life`)
-        msg.channel.send(cuddle)
+        message.channel.send(cuddle)
         })
         .catch(err => {
-            msg.channel.send("The gif-API is currently down, plese try again later \n")
+            message.channel.send("The gif-API is currently down, plese try again later \n")
         })
     }   
 };

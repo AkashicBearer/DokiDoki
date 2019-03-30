@@ -2,28 +2,28 @@ const { Command } = require('discord.js-commando')
 const { RichEmbed } = require('discord.js');
 var kitsu = require('node-kitsu')
 
-module.exports = class MangaSearchCommand extends Command {
+module.exports = class AnimeSearchCommand extends Command {
 	constructor(client) {
 		super(client, {
-			name: 'manga',
-			aliases: ['man'],
+			name: 'anime',
+			aliases: ['an'],
 			group: 'utilisation',
-			memberName: 'manga',
-			description: 'Shows a manga.',
-			examples: ['manga Name'],
+			memberName: 'anime',
+			description: 'Shows an anime.',
+			examples: ['anime Name'],
 
 			args: [
 				{
 					key: 'name',
 					label: 'user',
-					prompt: 'Which manga would you like to see?',
+					prompt: 'Which anime would you like to see?',
 					type: 'string'
 				}
 			]
 		});
 	}
 
-	async run(message, args) {
+	async run(msg, args) {
 
 		const months = {
 				"00": "",
@@ -81,27 +81,27 @@ module.exports = class MangaSearchCommand extends Command {
 	    var embed2 = new RichEmbed()
 
 
-	    kitsu.searchManga(anm, 0)
+	    kitsu.searchAnime(anm, 0)
 		  .then(result => {
 		  	//console.log(result[0])
 		   		var titles = "";
 		   		var titles2 = "";
-		   		embed.setTitle("Multiple Manga found");
+		   		embed.setTitle("Multiple Anime found");
 		   			for (var i = 0; i < result.length; i++) {  			
 			   			titles = titles + "**["+ (i+1) + "]** " + result[i].attributes.canonicalTitle + "\n";
 			   		}
 
-			   		titles = titles+"\n**Please enter the number of the Manga you want to view** \n**Or type** `cancel` **to cancel the command**"
+			   		titles = titles+"\n**Please enter the number of the Anime you want to view** \n**Or type** `cancel` **to cancel the command**"
 			   		embed.setDescription(titles)
 
-			   		message.channel.send(embed)
+			   		msg.channel.send(embed)
 		  		
 				inputAn(result)
 		   }
 
 		   ) // contains the json result on success
 		   .catch(err => {
-		   	message.channel.send("Something went wrong, please try again.")
+		   	msg.channel.send("Something went wrong, please try again.")
 		   	console.log(err);
 		   });
 
@@ -110,47 +110,49 @@ module.exports = class MangaSearchCommand extends Command {
 
 		   function inputAn(anarr){
 
-		   	message.channel.awaitMessages(m => m.author.id == message.author.id, { max: 1, time: 30000, errors: ['time'] })
+		   	msg.channel.awaitMessages(m => m.author.id == msg.author.id, { max: 1, time: 30000, errors: ['time'] })
              .then(collected => {
              		if(collected.first().content == 'cancel'){
-             			message.channel.send('Command canceled.')
+             			msg.channel.send('Command canceled.')
              		}else if(parseInt(collected.first().content,10)-1 == 'NaN' || parseInt(collected.first().content,10)-1 < 0){
-             			message.channel.send('This is not a valid number, please try again.')
+             			msg.channel.send('This is not a valid number, please try again.')
              			inputAn(anarr)
              		}else{
              			var embed2 = new RichEmbed()
 	                 	var ani = anarr[parseInt(collected.first().content,10)-1]
 	                 		var atts = ani.attributes
-	                 		console.log(ani)
+	                 		//console.log(ani)
 	                 		embed2.setTitle(atts.canonicalTitle)
 		                 	embed2.setDescription(atts.synopsis)
 		                 	if(atts.posterImage){
 			                 	embed2.setThumbnail(atts.posterImage.medium)
 		                 	}
-							if(atts.coverImage){
+		                 	if(atts.coverImage){
 			                 	embed2.setImage(atts.coverImage.large)
 		                 	}
+							
 		                 	if(atts.titles.en){
 		 						embed2.addField("English Title", atts.titles.en, true)
 		                 	}
-		                 	if(atts.titles.ja_jp){
+							if(atts.titles.ja_jp){
 								embed2.addField("Japanese Title", atts.titles.ja_jp, true)
 							}
 							if(atts.abbreviatedTitles){
-								embed2.addField("Synonyms", atts.abbreviatedTitles, true)
+								if(atts.abbreviatedTitles.length > 0){
+									embed2.addField("Synonyms", atts.abbreviatedTitles, true)
+								}
 							}
-							if(atts.chapterCount){
-								embed2.addField("Chapters", atts.chapterCount, true)
+							if(atts.episodeCount && atts.episodeLength){
+								embed2.addField("Episodes", atts.episodeCount + " á " + atts.episodeLength + " minutes", true)
+		 					}else if(atts.episodeCount){
+		 						embed2.addField("Episodes", atts.episodeCount, true)
 		 					}
-		 					if(atts.mangaType){
-		 						embed2.addField("Type", atts.mangaType, true)
-		 					}else{
-		 						embed2.addField("Type", ani.type, true)
-		 					}
+		 					embed2.addField("Type", atts.showType, true)
 		 					embed2.addField("Status", atts.status, true)
 		 					if(atts.ageRating){
 		 						embed2.addField("Age Restrictions", atts.ageRating + " " + atts.ageRatingGuide)
 		 					}
+		 					
 		 					embed2.addField("Popularity Rank", "#"+atts.popularityRank, true)
 		 					if(atts.averageRating){
 		 						embed2.addField("Rating Rank", "#"+atts.ratingRank, true)
@@ -164,15 +166,12 @@ module.exports = class MangaSearchCommand extends Command {
 		                 	}else{
 		                 		embed2.setFooter(atts.tba)
 		                 	}
-
-
-		 					message.channel.send(embed2)
+		 					msg.channel.send(embed2)
 	                 }
  
 		   })
            .catch(err => {
-
-           	message.channel.send("Something went wrong, please try again. \nIf it still doesn't work, please send a bug report with the `bug` command, include the command you used and the Manga you searched for.")
+           	msg.channel.send("Something went wrong, please try again. \nIf it still doesn't work, please send a bug report with the `bug` command, include the command you used and the Anime you searched for.")
            	console.log(err)
           })
 		 }

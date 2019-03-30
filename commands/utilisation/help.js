@@ -137,7 +137,7 @@ module.exports = class HelpCommand extends Command {
 
         const embed = new RichEmbed()
                 if(commands.find('name',args.command)){
-                    const cmd = this.client.registry.findCommands().find('name', args.command);
+                    const cmd = this.client.registry.findCommands().find(command => command.name, args.command);
                     embed.setTitle("Help for " + cmd.name)
                     embed.addField("Description", cmd.description+" ")
                     var aliass = "";
@@ -166,35 +166,35 @@ module.exports = class HelpCommand extends Command {
 
                     embed.setTitle('DokiDoki Commands')
                     if(grp1c.length > 0){
-                        embed.addField(groups.find('id','emo').name+"",grp1+" ")
+                        embed.addField(groups.find(group => group.id === 'emo').name+"",grp1+" ")
                     }
                     if(grp2c.length > 0){
-                        embed.addField(groups.find('id','fun').name+"",grp2+" ")
+                        embed.addField(groups.find(group => group.id === 'fun').name+"",grp2+" ")
                     }
                     if(grp3c.length > 0){
-                        embed.addField(groups.find('id','random').name+"",grp3+" ")
+                        embed.addField(groups.find(group => group.id === 'random').name+"",grp3+" ")
                     }
                     if(grp4c.length > 0){
-                        embed.addField(groups.find('id','util').name+"",grp4+" ")
+                        embed.addField(groups.find(group => group.id === 'util').name+"",grp4+" ")
                     }
                     if(grp5c.length > 0){
-                        embed.addField(groups.find('id','admin').name+"",grp5+" ")
+                        embed.addField(groups.find(group => group.id === 'admin').name+"",grp5+" ")
                     }
                     if(grp6c.length > 0){
-                        embed.addField(groups.find('id','nsfw').name+"",grp6+" ")
+                        embed.addField(groups.find(group => group.id === 'nsfw').name+"",grp6+" ")
                     }
                     if(game.length > 0){
-                        embed.addField(groups.find('id','games').name+"",games+" ")
+                        embed.addField(groups.find(group => group.id === 'games').name+"",games+" ")
                     }
                     if(xp.length > 0){
-                        embed.addField(groups.find('id','xp').name+"",xps+" ")
+                        embed.addField(groups.find(group => group.id === 'xp').name+"",xps+" ")
                     }
                     if(settg.length > 0){
-                        embed.addField(groups.find('id','settings').name+"",sett+" ")
+                        embed.addField(groups.find(group => group.id === 'settings').name+"",sett+" ")
                     }
                     if(this.client.isOwner(msg.author)){
                     if(ownerg.length > 0){
-                        embed.addField(groups.find('id','owner').name+"",owner+" ")
+                        embed.addField(groups.find(group => group.id === 'owner').name+"",owner+" ")
                     }}
                 }
                 

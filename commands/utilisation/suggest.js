@@ -20,15 +20,15 @@ module.exports = class SuggestCommand extends Command {
             ]
         });
     }
-    async run(msg, args) {
-        const embed = new RichEmbed()
-        embed.setAuthor(msg.author.tag + " ( ${msg.author.id} )", msg.author.avatarURL)
-        embed.setTitle('Suggestion')
-        embed.setDescription(args.text)
-        embed.setFooter(msg.guild.name + "")
-        embed.setTimestamp()
+    async run(message, args) {
+        const SuggestEmbed = new RichEmbed()
+            .setAuthor(message.author.tag +  `( ${message.author.id} )`, message.author.avatarURL)
+            .setTitle('Suggestion')
+            .setDescription(args.text)
+            .setFooter(message.guild.name + "")
+            .setTimestamp()
       const chann = this.client.guilds.get('389111570162122752').channels.find('name','suggestions');
-      chann.send(embed);
-      msg.channel.send('Your Suggestion was sent!');
+      chann.send(SuggestEmbed);
+      message.channel.send('Your Suggestion was sent!');
     }
 };

@@ -1,3 +1,4 @@
+/* 
 const { Command } = require('discord.js-commando');
 const { RichEmbed } = require('discord.js');
 const dotenv = require('dotenv');
@@ -54,3 +55,4 @@ async run(msg, args){
   });
  };
 };
+*/

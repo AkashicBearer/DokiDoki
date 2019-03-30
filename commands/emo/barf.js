@@ -12,7 +12,7 @@ module.exports = class barfCommand extends Command {
         });
     }
 
-	async run(msg, args) {
+	async run(message, args) {
         var imgbarf = {
             "0":"https://i.gifer.com/RNwv.gif",
             "1":"https://img.4plebs.org/boards/pol/image/1440/78/1440784849350.gif",
@@ -36,12 +36,12 @@ module.exports = class barfCommand extends Command {
             "19":"http://i0.kym-cdn.com/photos/images/newsfeed/001/198/340/428.gif",
         };
            const embed = new RichEmbed()
-                embed.setDescription(msg.author + ' is barfing' )  
+                embed.setDescription(message.author + ' is barfing' )  
                 const randm = Math.random();
 
                     embed.setImage(imgbarf[Math.floor(randm * Object.keys(imgbarf).length).toString()])
 
                 embed.setColor(0x23ff12)
-            return msg.embed(embed);
+            return message.embed(embed);
         }
 	};

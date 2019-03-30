@@ -11,16 +11,21 @@ module.exports = class RandomAvatarCommand extends Command {
             aliases: ['ra'],
             group: 'random',
             memberName: 'randomavatar',
-            description: 'Sends a Random Avatar Image',
+            description: 'Sends a Random Avatar',
         });
     }
-	async run(msg, args, neko) { 
-	const {body} = await superagent 
-        .get('https://nekos.life/api/v2/img/avatar')
-        const embed = new RichEmbed()
-	        embed.setTitle('Here is your Random Avatar')
-            embed.setImage(body.url)
-            embed.setColor('RANDOM')
-        return msg.embed(embed);
+	async run(message, args, neko) { 
+        if (message.author.bot) return;
+        superagent.get(`https://nekos.life/api/v2/img/avatar`).then(body => {
+            body = body.body
+        
+            const RandomAvatarEmbed = new RichEmbed()
+                .setImage(body.url)                
+                .setColor('RANDOM')  
+            message.channel.send(RandomAvatarEmbed)
+        }).catch(err => { 
+            console.log(err)
+            message.channel.send(`Sorry the API is currently eperiencing problems...`)
+        })
 	}
 };

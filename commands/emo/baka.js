@@ -32,27 +32,27 @@ module.exports = class BakaCommand extends Command {
 			]
         });
     }
-async run(msg, args, neko) {
+async run(message, args, neko) {
         superagent.get('https://nekos.life/api/v2/img/baka')
         .then(body => {
             body = body.body
         const baka = new RichEmbed()
-            if(msg.author.id == args.member.id){
-                baka.setAuthor(`${msg.author.username} thinks they are a baka!`)
+            if(message.author.id == args.member.id){
+                baka.setAuthor(`${message.author.username} thinks they are a baka!`)
             }else if(!args.member){
                 baka.setAuthor(`Someone is being a Baka!`)
             } else {
-                baka.setAuthor(`${msg.author.username} thinks ${args.member.user.username} is a baka!`)
+                baka.setAuthor(`${message.author.username} thinks ${args.member.user.username} is a baka!`)
             }
                     
             baka.setDescription(args.stuff)
             baka.setImage(body.url)
             baka.setColor(0x23ff12)
             baka.setFooter(`Powered by Nekos.Life`)
-        msg.channel.send(baka)
+        message.channel.send(baka)
         })
         .catch(err => {
-            msg.channel.send("The gif-API is currently down, plese try again later \n")
+            message.channel.send("The gif-API is currently down, plese try again later \n")
         })
     }	
 };

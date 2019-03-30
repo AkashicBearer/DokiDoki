@@ -24,14 +24,14 @@ if (message.channel.type === "dm") return;
 if (msg.author.bot) return;
 
 var mysql = require('mysql');
-const pool  = mysql.createPool({
+const connection  = mysql.createPool({
       host: "www.dokidoki.xyz",
       user: "root",
       port: 3306,
       password: "",
       database: "dokidoki", 
 }) 	
-  pool.getConnection(function(err, connection) { 
+  connection.getConnection(function(err, connection) { 
     if (err) {
         console.log("ERROR: " + err);
         throw err;
@@ -44,7 +44,7 @@ const pool  = mysql.createPool({
           msg.channel.send(test) 
       })
   
-    pool.end(function(err) {
+    connection.end(function(err) {
             if (err) {
         console.log("ERROR: " + err);
         throw err;

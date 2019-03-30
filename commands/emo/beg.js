@@ -22,7 +22,7 @@ module.exports = class begCommand extends Command {
         });
     }
 
-	async run(msg, args) {
+	async run(message, args) {
         var imgbeg = {
             "0": "https://pa1.narvii.com/6150/68b31f28d8f44d1cfa766e2a096a4cf61e974409_hq.gif",
             "1": "https://media1.tenor.com/images/bc62805926570acc77df7ee6fd36cf6e/tenor.gif?itemid=4555931",
@@ -46,16 +46,16 @@ module.exports = class begCommand extends Command {
             "19": "http://image.blingee.com/images14/content/output/2007/9/8/167045857_2c75a9a6.gif",
         };
            const embed = new RichEmbed()
-             if(msg.author.id == args.member.id || !args.member){
-                embed.setDescription(msg.author + ' is begging!')
+             if(message.author.id == args.member.id || !args.member){
+                embed.setDescription(message.author + ' is begging!')
              }else{
-                embed.setDescription(msg.author + ' is begging ' + args.member + '!')  
+                embed.setDescription(message.author + ' is begging ' + args.member + '!')  
              }
                 const randm = Math.random();
 
                     embed.setImage(imgbeg[Math.floor(randm * Object.keys(imgbeg).length).toString()])
 
                 embed.setColor(0x23ff12)
-            return msg.embed(embed);
+            return message.embed(embed);
         }
 	};

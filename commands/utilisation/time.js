@@ -1,7 +1,9 @@
+// package installation problem on windows (for me) will add package manually later.. 
+/*
 const { Command } = require('discord.js-commando')
 const { RichEmbed } = require('discord.js');
 
-module.exports = class timeRollCommand extends Command {
+module.exports = class TimeCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'time',
@@ -21,7 +23,7 @@ module.exports = class timeRollCommand extends Command {
             ]
         });
     }
-    async run(msg, args) {
+    async run(message, args) {
 
         const embed = new RichEmbed()
         var time = require('time');
@@ -86,7 +88,7 @@ module.exports = class timeRollCommand extends Command {
                     console.log(err.stack)
                   })
               })
-               pool.query(`SELECT xp, level, arcanium, timezone FROM xp WHERE userid ='${msg.author.id}'`,(err, result) => {
+               pool.query(`SELECT xp, level, arcanium, timezone FROM xp WHERE userid ='${message.author.id}'`,(err, result) => {
                     let timezone = result.rows[0].timezone
                     if(!timezone){
                         TZ = "GMT"
@@ -154,7 +156,7 @@ module.exports = class timeRollCommand extends Command {
             const month = months[splDate[1]];
             const weekday = weekdays[splDate[0]];
 
-            embed.setAuthor(msg.author.username, msg.author.avatarURL)
+            embed.setAuthor(message.author.username, message.author.avatarURL)
             embed.addField("Time", splDate[4], true)
              if(args.zone){
                 embed.addField("Timezone", str.toUpperCase(), true)
@@ -166,9 +168,10 @@ module.exports = class timeRollCommand extends Command {
             embed.setThumbnail("https://upload.wikimedia.org/wikipedia/commons/thumb/8/8f/Crystal_Clear_app_clock.svg/1024px-Crystal_Clear_app_clock.svg.png")
             embed.setColor(0x212121)
 
-            return msg.embed(embed);
+            return message.embed(embed);
         }
     }
 
 };
 
+*/

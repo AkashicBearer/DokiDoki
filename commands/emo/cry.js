@@ -12,7 +12,7 @@ module.exports = class CryCommand extends Command {
         });
     }
 
-	async run(msg, args) {
+	async run(message, args) {
         var imgcry = {
             "0": "https://im-01.gifer.com/3ju8.gif",
             "1": "http://gifimage.net/wp-content/uploads/2017/07/anime-cry-gif-29.gif",
@@ -33,12 +33,12 @@ module.exports = class CryCommand extends Command {
             "16": "https://media.tenor.com/images/e5ecdb82f6374a64d99503f30407f78e/tenor.gif"
         };
            const embed = new RichEmbed()
-                embed.setDescription(msg.author + ' is crying' )  
+                embed.setDescription(message.author + ' is crying' )  
                 const randm = Math.random();
 
                 embed.setImage(imgcry[Math.floor(randm * Object.keys(imgcry).length).toString()])
 
              embed.setColor(0x23ff12)
-            return msg.embed(embed);
+            return message.embed(embed);
         }
 	};

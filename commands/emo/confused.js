@@ -12,7 +12,7 @@ module.exports = class confusedCommand extends Command {
         });
     }
 
-	async run(msg, args) {
+	async run(message, args) {
         var imgconfused = {
             "0": "https://media1.tenor.com/images/e765e06eb21f7bdd41eb6605222c4f60/tenor.gif?itemid=6014356",
             "1": "http://gifimage.net/wp-content/uploads/2017/09/anime-confused-gif-9.gif",
@@ -36,12 +36,12 @@ module.exports = class confusedCommand extends Command {
             "19": "https://media.giphy.com/media/10E0y3sVPdnGus/giphy.gif"
         };
            const embed = new RichEmbed()
-                embed.setDescription(msg.author + ' is confused')  
+                embed.setDescription(message.author + ' is confused')  
                 const randm = Math.random();
 
                 embed.setImage(imgconfused[Math.floor(randm * Object.keys(imgconfused).length).toString()])
 
           embed.setColor(0x23ff12)
-            return msg.embed(embed);
+            return message.embed(embed);
         }
 	};

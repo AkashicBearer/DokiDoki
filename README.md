@@ -6,6 +6,9 @@
   <img src="https://discordbots.org/api/widget/owner/385115460397694977.svg?noavatar=false"/> 
 </a>
 <!-- Needs more Info.... -->
+
+<h1> CURRENTLY UNDERGOING RECODE <h1>
+
 <h1> Doki Doki Bot </h1>
 <p>
   

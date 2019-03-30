@@ -21,9 +21,9 @@ module.exports = class UrbanCommand extends Command {
             ]
         });
     }     
-    async run(msg,args) {
+    async run(message,args) {
         const urban = require('relevant-urban','urban');
-        if (!args.text) msg.channel.send(`***Please specify some text!***`);
+        if (!args.text) message.channel.send(`***Please specify some text!***`);
         urban(args.text)
           .then(res => {
             const embed = new RichEmbed()
@@ -49,10 +49,10 @@ module.exports = class UrbanCommand extends Command {
             if(res.tags.length > 0){
               embed.addField('Tags', tag, true)
             }
-          return msg.channel.send(embed);
+          return message.channel.send(embed);
           })
           .catch(e => { 
-            return msg.channel.send('***Sorry, that word was not found!***');
+            return message.channel.send('***Sorry, that word was not found!***');
           });
 
         

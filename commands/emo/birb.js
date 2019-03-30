@@ -12,7 +12,7 @@ module.exports = class birbCommand extends Command {
         });
     }
 
-	async run(msg, args) {
+	async run(message, args) {
         var imgbirb = {
             "0":"https://data.whicdn.com/images/259242568/original.gif",
             "1":"https://media.giphy.com/media/bWAAYrgpzGIBq/source.gif",
@@ -43,6 +43,6 @@ module.exports = class birbCommand extends Command {
                     embed.setImage(imgbirb[Math.floor(randm * Object.keys(imgbirb).length).toString()])
 
                 embed.setColor(0x23ff12)
-            return msg.embed(embed);
+            return message.embed(embed);
         }
 	};

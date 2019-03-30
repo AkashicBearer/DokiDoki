@@ -2,21 +2,21 @@ const { Command } = require('discord.js-commando')
 const { RichEmbed } = require('discord.js');
 var kitsu = require('node-kitsu')
 
-module.exports = class MangaSearchCommand extends Command {
+module.exports = class AnimeCharacterSearchCommand extends Command {
 	constructor(client) {
 		super(client, {
-			name: 'manga',
-			aliases: ['man'],
+			name: 'character',
+			aliases: ['char','anichar'],
 			group: 'utilisation',
-			memberName: 'manga',
-			description: 'Shows a manga.',
-			examples: ['manga Name'],
+			memberName: 'character',
+			description: 'Shows a character.',
+			examples: ['character Name'],
 
 			args: [
 				{
 					key: 'name',
 					label: 'user',
-					prompt: 'Which manga would you like to see?',
+					prompt: 'Which character would you like to see?',
 					type: 'string'
 				}
 			]
@@ -76,25 +76,25 @@ module.exports = class MangaSearchCommand extends Command {
 	        }
 
 	    var anm = args.name+'';
-	    var embed = new RichEmbed()
+	    var CharEmbed = new RichEmbed()
 	    var embedst2 = new RichEmbed()
-	    var embed2 = new RichEmbed()
+	    var CharEmbedPart2 = new RichEmbed()
 
 
-	    kitsu.searchManga(anm, 0)
+	    kitsu.findCharacter(anm, 0)
 		  .then(result => {
-		  	//console.log(result[0])
+		  	console.log(result[0])
 		   		var titles = "";
 		   		var titles2 = "";
-		   		embed.setTitle("Multiple Manga found");
+		   		CharEmbed.setTitle("Multiple Characters found");
 		   			for (var i = 0; i < result.length; i++) {  			
-			   			titles = titles + "**["+ (i+1) + "]** " + result[i].attributes.canonicalTitle + "\n";
+			   			titles = titles + "**["+ (i+1) + "]** " + result[i].attributes.name + "\n";
 			   		}
 
-			   		titles = titles+"\n**Please enter the number of the Manga you want to view** \n**Or type** `cancel` **to cancel the command**"
-			   		embed.setDescription(titles)
+			   		titles = titles+"\n**Please enter the number of the Character you want to view** \n**Or type** `cancel` **to cancel the command**"
+			   		CharEmbed.setDescription(titles)
 
-			   		message.channel.send(embed)
+			   		message.channel.send(CharEmbed)
 		  		
 				inputAn(result)
 		   }
@@ -118,61 +118,33 @@ module.exports = class MangaSearchCommand extends Command {
              			message.channel.send('This is not a valid number, please try again.')
              			inputAn(anarr)
              		}else{
-             			var embed2 = new RichEmbed()
+             			var CharEmbedPart2 = new RichEmbed()
 	                 	var ani = anarr[parseInt(collected.first().content,10)-1]
 	                 		var atts = ani.attributes
-	                 		console.log(ani)
-	                 		embed2.setTitle(atts.canonicalTitle)
-		                 	embed2.setDescription(atts.synopsis)
-		                 	if(atts.posterImage){
-			                 	embed2.setThumbnail(atts.posterImage.medium)
-		                 	}
-							if(atts.coverImage){
-			                 	embed2.setImage(atts.coverImage.large)
-		                 	}
-		                 	if(atts.titles.en){
-		 						embed2.addField("English Title", atts.titles.en, true)
-		                 	}
-		                 	if(atts.titles.ja_jp){
-								embed2.addField("Japanese Title", atts.titles.ja_jp, true)
-							}
-							if(atts.abbreviatedTitles){
-								embed2.addField("Synonyms", atts.abbreviatedTitles, true)
-							}
-							if(atts.chapterCount){
-								embed2.addField("Chapters", atts.chapterCount, true)
-		 					}
-		 					if(atts.mangaType){
-		 						embed2.addField("Type", atts.mangaType, true)
-		 					}else{
-		 						embed2.addField("Type", ani.type, true)
-		 					}
-		 					embed2.addField("Status", atts.status, true)
-		 					if(atts.ageRating){
-		 						embed2.addField("Age Restrictions", atts.ageRating + " " + atts.ageRatingGuide)
-		 					}
-		 					embed2.addField("Popularity Rank", "#"+atts.popularityRank, true)
-		 					if(atts.averageRating){
-		 						embed2.addField("Rating Rank", "#"+atts.ratingRank, true)
-		                 		embed2.addField("Rating", atts.averageRating, true)
-		 					}
-		 					
-		                 	if(atts.startDate && atts.endDate){
-		 						embed2.setFooter(atts.startDate + " to " + atts.endDate)
-		                 	}else if(atts.startDate && !atts.endDate){
-		                 		embed2.setFooter(atts.startDate)
-		                 	}else{
-		                 		embed2.setFooter(atts.tba)
-		                 	}
+	                 		CharEmbedPart2.setTitle(atts.name)
+	                 		if(atts.description){
+	                 			var des = atts.description.replace(/\<br\/\>/g, "\n").replace(/\<span\sclass\=\"spoiler\"\>(.|[\n\r])*\<\/span\>/g, "")
+	                 			if(des.length > 2048){
+	                 				des = des.substring(0,2048).substring(0,des.lastIndexOf(".")+1)
+	                 			}
+	                 			CharEmbedPart2.setDescription(des)	
+	                 		}
+		                 	CharEmbedPart2.setThumbnail(atts.image.original)
+		                 	CharEmbedPart2.setImage(atts.image.original)
 
-
-		 					message.channel.send(embed2)
+		                 	if(atts.names.en){
+                                CharEmbedPart2.addField("English Name", atts.names.en, true)
+		                 	}
+		                 	if(atts.names.ja_jp){
+								CharEmbedPart2.addField("Japanese Name", atts.names.ja_jp, true)
+							}
+		 					message.channel.send(CharEmbedPart2)
 	                 }
  
 		   })
            .catch(err => {
 
-           	message.channel.send("Something went wrong, please try again. \nIf it still doesn't work, please send a bug report with the `bug` command, include the command you used and the Manga you searched for.")
+           	message.channel.send("Something went wrong, please try again. \nIf it still doesn't work, please send a bug report with the `bug` command, include the command you used and the Character you searched for.")
            	console.log(err)
           })
 		 }

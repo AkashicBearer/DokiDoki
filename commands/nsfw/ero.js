@@ -16,9 +16,9 @@ module.exports = class EroCommand extends Command {
         });
     }
 
-  async run(message, msg, neko) {
+  async run(message, neko) {
 
-    if(msg.indexOf("-yuri") == false){
+    if(message.indexOf("-yuri") == false){
 
         superagent.get('https://nekos.life/api/v2/img/eroyuri')
         .then(body => {
@@ -31,11 +31,11 @@ module.exports = class EroCommand extends Command {
             message.channel.send(embed5);
         })
         .catch(err => {
-            msg.channel.send("The image-API is currently down, plese try again later \nOr try to help us get to 200 Servers so we can upgrade our API!")
+            message.channel.send("The image-API is currently down, plese try again later \nOr try to help us get to 200 Servers so we can upgrade our API!")
         })
     }
 
-    else if(msg.indexOf("-neko") == false){
+    else if(message.indexOf("-neko") == false){
         superagent.get('https://nekos.life/api/v2/img/eron')
         .then(body => {
             body = body.body
@@ -47,11 +47,11 @@ module.exports = class EroCommand extends Command {
         message.channel.send(embed1);
         })
         .catch(err => {
-            msg.channel.send("The image-API is currently down, plese try again later \nOr try to help us get to 200 Servers so we can upgrade our API!")
+            message.channel.send("The image-API is currently down, plese try again later \nOr try to help us get to 200 Servers so we can upgrade our API!")
         })
     }
 
-    else if(msg.indexOf("-feet") == false){
+    else if(message.indexOf("-feet") == false){
         superagent.get('https://nekos.life/api/v2/img/erofeet')
         .then(body => {
             body = body.body
@@ -63,11 +63,11 @@ module.exports = class EroCommand extends Command {
         message.channel.send(embed2);
         })
         .catch(err => {
-            msg.channel.send("The image-API is currently down, plese try again later \nOr try to help us get to 200 Servers so we can upgrade our API!")
+            message.channel.send("The image-API is currently down, plese try again later \nOr try to help us get to 200 Servers so we can upgrade our API!")
         })
     }
     
-    else if(msg.indexOf("-holo") == false){
+    else if(message.indexOf("-holo") == false){
         superagent.get('https://nekos.life/api/v2/img/holoero')
         .then(body => {
             body = body.body
@@ -79,11 +79,11 @@ module.exports = class EroCommand extends Command {
         message.channel.send(embed3);
         })
         .catch(err => {
-            msg.channel.send("The image-API is currently down, plese try again later \nOr try to help us get to 200 Servers so we can upgrade our API!")
+            message.channel.send("The image-API is currently down, plese try again later \nOr try to help us get to 200 Servers so we can upgrade our API!")
         })
     }
     
-    else if(msg.indexOf("-kitsune") == false){
+    else if(message.indexOf("-kitsune") == false){
         superagent.get('https://nekos.life/api/v2/img/erok')
         .then(body => {
             body = body.body
@@ -95,7 +95,7 @@ module.exports = class EroCommand extends Command {
         message.channel.send(embed4);
          })
         .catch(err => {
-            msg.channel.send("The image-API is currently down, plese try again later \nOr try to help us get to 200 Servers so we can upgrade our API!")
+            message.channel.send("The image-API is currently down, plese try again later \nOr try to help us get to 200 Servers so we can upgrade our API!")
         })
     }else{
     superagent.get('https://nekos.life/api/v2/img/ero')
@@ -109,7 +109,7 @@ module.exports = class EroCommand extends Command {
         message.channel.send(embed);
          })
         .catch(err => {
-            msg.channel.send("The image-API is currently down, plese try again later \nOr try to help us get to 200 Servers so we can upgrade our API!")
+            message.channel.send("The image-API is currently down, plese try again later \nOr try to help us get to 200 Servers so we can upgrade our API!")
         })
     }
 };

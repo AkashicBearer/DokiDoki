@@ -21,7 +21,7 @@ module.exports = class disgustCommand extends Command {
         });
     }
 
-	async run(msg, args) {
+	async run(message, args) {
         var imgdisgust = {
             "0":"https://78.media.tumblr.com/08f6cf89768d698c73d50d9174f922d0/tumblr_inline_n3hxreyKaJ1s85pmj.gif",
             "1":"https://78.media.tumblr.com/15efde8ca82fe6451cd828e87eed0cc4/tumblr_nt5lna7u8w1rwoscmo1_540.gif",
@@ -45,16 +45,16 @@ module.exports = class disgustCommand extends Command {
             "19":"https://78.media.tumblr.com/e3655a14de33c12b0d058e94f2927cbd/tumblr_o531psWIV21ufw8o4o1_500.gif",
         };
            const embed = new RichEmbed()
-                if(msg.author.id == args.member.id || !args.member){
-                    embed.setDescription(msg.author + ' is disgusted.')
+                if(message.author.id == args.member.id || !args.member){
+                    embed.setDescription(message.author + ' is disgusted.')
                 }else{
-                    embed.setDescription(msg.author + ' is disgusted by ' + args.member + '.')
+                    embed.setDescription(message.author + ' is disgusted by ' + args.member + '.')
                 } 
                 const randm = Math.random();
 
                     embed.setImage(imgdisgust[Math.floor(randm * Object.keys(imgdisgust).length).toString()])
 
                 embed.setColor(0x23ff12)
-            return msg.embed(embed);
+            return message.embed(embed);
         }
 	};

@@ -12,7 +12,7 @@ module.exports = class danceCommand extends Command {
         });
     }
 
-	async run(msg, args) {
+	async run(message, args) {
         var imgdance = {
             "0": "http://gifimage.net/wp-content/uploads/2017/09/anime-gif-dance-6.gif",
             "1": "https://media.tenor.com/images/5f4a923689e868c41038636bde585987/tenor.gif",
@@ -36,12 +36,12 @@ module.exports = class danceCommand extends Command {
             "19": "https://cdn64.picsart.com/189798505001201.gif?r1024x1024"
         };
            const embed = new RichEmbed()
-                embed.setDescription(msg.author + ' is dancing')  
+                embed.setDescription(message.author + ' is dancing')  
                 const randm = Math.random();
 
                     embed.setImage(imgdance[Math.floor(randm * Object.keys(imgdance).length).toString()])
 
                 embed.setColor(0x23ff12)
-            return msg.embed(embed);
+            return message.embed(embed);
         }
 	};

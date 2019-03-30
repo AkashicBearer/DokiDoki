@@ -8,19 +8,20 @@ module.exports = class PingCommand extends Command {
             aliases: ['p'],
             group: 'utilisation',
             memberName: 'ping',
-            description: 'Ping the Server',
+            description: 'See the bots Ping',
             examples: ['<ping']
         });
     }
-    async run(msg, args) {
+async run(message, args) {
+    if (message.author.bot) return;
     const time = new Date();
-    const embed = new RichEmbed()
-        embed.setAuthor(this.client.user.username + ' Pong!')
-        embed.addField(`The Client Ping is `, `${Math.round(this.client.ping)}ms`)
-        embed.addField(`The message round-trip took `, time - msg.createdAt+'ms')
-        embed.setThumbnail('https://emojipedia-us.s3.amazonaws.com/thumbs/160/emoji-one/44/table-tennis-paddle-and-ball_1f3d3.png')
-        embed.setColor(0x23ff12)
-        embed.setTimestamp()
-     return msg.embed(embed);
+    const PingEmbed = new RichEmbed()
+        .setAuthor(this.client.user.username + ' Pong!')
+        .addField(`The Client Ping is `, `${Math.round(this.client.ping)}ms`, true)
+        .addField(`The message round-trip took `, time - message.createdAt+'ms', true)
+        .setThumbnail('https://emojipedia-us.s3.amazonaws.com/thumbs/160/emoji-one/44/table-tennis-paddle-and-ball_1f3d3.png')
+        .setColor(0x23ff12)
+        .setTimestamp()
+    message.channel.send(PingEmbed);
     }
 };

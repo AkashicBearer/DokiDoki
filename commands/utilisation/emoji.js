@@ -22,14 +22,14 @@ module.exports = class emojiCommand extends Command {
 		});
 	}
 
-	async run(msg, args) {
-		const embed = new RichEmbed()
+	async run(message, args) {
+		const EmoteEmbed = new RichEmbed()
 			var mes = args.moji;
 			if(/\<a?\:.+\:[0-9]+\>/.test(mes)){
 				var mojiName = mes.substring(mes.indexOf(":")+1, mes.lastIndexOf(":"))
 				var mojiID = mes.substring(1,mes.length-1).substring(mes.lastIndexOf(":"),mes.length)
-	            console.log(mes)
-	            console.log(mojiName)
+	            //console.log(mes)
+	            //console.log(mojiName)
 	            //console.log(mes.charAt(1))
 
 	            if(mes.charAt(1) == 'a'){
@@ -37,10 +37,10 @@ module.exports = class emojiCommand extends Command {
 	            }else{
 	            	var link = "https://cdn.discordapp.com/emojis/"+mojiID+".png"
 	            }
-	            embed.setTitle(mojiName)
-	            embed.setImage(link)
-	            embed.setFooter("ID: " + mojiID)
-	            msg.channel.send(embed)
+	            EmoteEmbed.setTitle(mojiName)
+	            EmoteEmbed.setImage(link)
+	            EmoteEmbed.setFooter("ID: " + mojiID)
+	            message.channel.send(EmoteEmbed)
 			}else{
 				const moo = require('twemoji')
 
@@ -48,13 +48,10 @@ module.exports = class emojiCommand extends Command {
 				  args.moji,
 				  function(icon, options, variant) {
 				    var moj = options.base +  options.size + "/" + icon + options.ext;
-				    embed.setImage(moj)
+				    EmoteEmbed.setImage(moj)
 				  }
 				)
-				msg.channel.send(embed)
-			}
-
-            
-       
-}
+				message.channel.send(EmoteEmbed)
+			}  
+    }
 };

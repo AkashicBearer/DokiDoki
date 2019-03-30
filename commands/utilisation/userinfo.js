@@ -24,12 +24,12 @@ module.exports = class UserInfoCommand extends Command {
 		});
 	}
 
-	async run(msg, args) {
-		var member = msg.channel.members.find('id', msg.author.id);
+	async run(message, args) {
+		var member = message.channel.members.find('id', message.author.id);
 		if(args.member){
         	member = args.member;
 		}else{
-        	member = msg.channel.members.find('id', msg.author.id);
+        	member = message.channel.members.find('id', message.author.id);
 		}
 		const user = member.user;
 		var roles = '';
@@ -76,37 +76,22 @@ module.exports = class UserInfoCommand extends Command {
 
 
         
-	const embed = new RichEmbed()
-		embed.setTitle(user.username + ' Userinfo')
-		// Username, nick, joined  (Details)
+	const UserinfoEmbed = new RichEmbed()
+        UserinfoEmbed.setTitle(user.username + ' Userinfo')
 		//embed.setDescription(' User info of ' + user.username)
-		embed.addField('Username', user.username, true )
+		UserinfoEmbed.addField('Username', user.username, true )
 		if(member.nickname){
-			embed.addField('Nickname ' , member.nickname, true)	
+			UserinfoEmbed.addField('Nickname ' , member.nickname, true)	
 		}else{
-			embed.addField('Nickname ' , 'No Nickname set', true)
+			UserinfoEmbed.addField('Nickname ' , 'No Nickname set', true)
 		}
-		embed.addField('User ID ', member.id)
-		embed.addField('User Roles: ', roles)
-		//Account 
-		embed.addBlankField()
-		embed.addField('Account Created at ' , crtStr)
-		embed.addField('Joined at ', joinStr)
-		embed.addField('Activity ', member.presence.status, true)
-		embed.addField('Playing ', member.presence.game ? user.presence.game.name : 'Not Playing Anything', true)
-		embed.setThumbnail(user.avatarURL)
-	return msg.embed(embed);
+		UserinfoEmbed.addField('User ID ', member.id)
+		UserinfoEmbed.addField('Account Created at ' , crtStr)
+		UserinfoEmbed.addField('Joined at ', joinStr)
+		UserinfoEmbed.addField('Activity ', member.presence.status, true)
+        UserinfoEmbed.addField('Playing ', member.presence.game ? user.presence.game.name : 'Not Playing Anything', true)
+        UserinfoEmbed.addField('User Roles: ', roles)
+		UserinfoEmbed.setThumbnail(user.avatarURL)
+	message.channel.send(UserinfoEmbed);
 };
 };
-
-// original code
-		/*		**❯ Member Details**
-			${member.nickname !== null ? ' • Nickname: ${member.nickname}' : ' • No nickname'}
-			 • Roles: ${member.roles.map(roles => '\'${roles.name}\'').join(', ')}
-			 • Joined at: ${member.joinedAt}
-
-			**❯ User Details**
-			 • Created at: ${user.createdAt}${user.bot ? '\n • Is a bot account' : ''}
-			 • Status: ${user.presence.status}
-			 • Game: ${user.presence.game ? user.presence.game.name : 'None'}
-        ');*/

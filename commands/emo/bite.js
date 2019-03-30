@@ -20,7 +20,7 @@ module.exports = class biteCommand extends Command {
 			]
         });
     }
-	async run(msg, args) {
+	async run(message, args) {
         var imgbite = {
             "0": "https://media.giphy.com/media/OqQOwXiCyJAmA/giphy.gif",
             "1": "http://gifimage.net/wp-content/uploads/2017/09/anime-bite-gif.gif",
@@ -46,17 +46,17 @@ module.exports = class biteCommand extends Command {
 
         
         const embed = new RichEmbed()
-         if(msg.author.id == args.member.id){
-            embed.setDescription(msg.author + ' bites.. themselves.. seems like someone needs some love. ')
+         if(message.author.id == args.member.id){
+            embed.setDescription(message.author + ' bites.. themselves.. seems like someone needs some love. ')
             }else{
-            embed.setDescription(msg.author + ' bites ' + args.member.user)
+            embed.setDescription(message.author + ' bites ' + args.member.user)
             }
             const randm = Math.random();
 
             embed.setImage(imgbite[Math.floor(randm * Object.keys(imgbite).length).toString()])
 
          embed.setColor(0x23ff12)
-        return msg.embed(embed);
+        return message.embed(embed);
     }
 	
 };

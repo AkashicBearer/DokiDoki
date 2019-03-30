@@ -14,24 +14,24 @@ module.exports = class guildlistidCommand extends Command {
         })    
     }
 
-   	hasPermission(msg) {
-        return this.client.isOwner(msg.author);
+   	hasPermission(message) {
+        return this.client.isOwner(message.author);
     }
 
-async run(msg){
+async run(message){
     const gds = this.client.guilds.findAll('available',true);
     var gdsl = "";
     for(var i = 0; i < gds.length; i++){
 		gdsl = gdsl + gds[i].name+", \n";
 	};    
 
-    const embed = new RichEmbed();
-    	embed.setAuthor(this.client.user.username , this.client.user.avatarURL)
-    	embed.setTitle('Guild List')
-    	embed.setDescription(`${gdsl}`)
-    	embed.addField(`Total Guild Count:`, `${this.client.guilds.size}`, true)
-    	embed.setColor('RANDOM');
-    	embed.setFooter('DokiDoki Server List!')
-    return msg.channel.send(embed);
+    const embed = new RichEmbed()
+    	.setAuthor(this.client.user.username , this.client.user.avatarURL)
+    	.setTitle('Guild List')
+    	.setDescription(`${gdsl}`)
+    	.addField(`Total Guild Count:`, `${this.client.guilds.size}`, true)
+    	.setColor('RANDOM')
+    	.setFooter('DokiDoki Server List!')
+    message.channel.send(embed);
 	}
 }
