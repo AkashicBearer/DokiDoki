@@ -7,7 +7,7 @@
     "main": "index.js",
     "homepage": "https://github.com/AkashicBearer/DokiDoki#readme",
     "engines": {
-        "node": "8.x",
+        "node": "10.x",
         "npm": "*"
     },
     "scripts": {
@@ -26,7 +26,7 @@
         "bufferutil": "^4.0.1",
         "create-error-class": "^3.0.2",
         "dblapi.js": "^2.3.0",
-        "discord.js": "^11.4.2",
+        "discord.js": "11.5.1",
         "discord.js-commando": "^0.10.0",
         "discord.js-commando-mysqlprovider": "^0.1.0",
         "dotenv": "^6.2.0",
@@ -46,7 +46,7 @@
         "nekos.life": "^2.0.4",
         "node-fetch": "^2.3.0",
         "node-kitsu": "^1.1.1",
-        "node.js": "0.0.0",
+        "node.js": "10.16.3",
         "oakdex-pokedex": "^0.4.5",
         "oakdex-pokedex-sprites": "0.0.1",
         "os": "^0.1.1",
