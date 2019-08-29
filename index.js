@@ -10,7 +10,7 @@ dotenv.config();
 const client = new CommandoClient({
     commandPrefix: '/>',
     unknownCommandResponse: false,
-    owner: ['193021560792154112', '111469545637605376'],
+    owner: ['193021560792154112'],
     disableEveryone: true, 
 });
 
