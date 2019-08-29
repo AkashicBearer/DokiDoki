@@ -16,7 +16,6 @@
   
   This Project was started back in February last year, at the time the bot only had a few commands and ran of off my old Desktop which i used as a server. Today the bot has good amount of commands that can satisfy a persons normal need, and commands are still being developped and will be added as the bot grows and I get better at coding. So far the bot has about 50 or so commands, each command has its own unique use and works so far. Any bugs that are found are to be reported on the discord server or on github directly by creating a issue. 
   
- Current Developpers are AkashicBearer#2305 (193021560792154112) & Kandrina#1426 (111469545637605376).
 
 ***Note: Xp & Currency Systems are currently down until I can find a new database. That means that bot settings are offline also.***
 </p> 
