@@ -5,7 +5,7 @@ module.exports = class ClearCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'clear',
-            aliases: ['clean', 'purge'],
+            aliases: ['clean'],
             group: 'admin',
             memberName: 'clear',
             description: 'Deletes messages from a channel.',
