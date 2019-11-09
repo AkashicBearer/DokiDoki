@@ -19,6 +19,7 @@ module.exports = class HelpCommand extends Command {
             ]
         });
     }
+    
     async run(msg, args) {
         const groups = this.client.registry.groups;
         const commands = this.client.registry.findCommands();
@@ -91,17 +92,6 @@ module.exports = class HelpCommand extends Command {
             }
         }
 
-        const ownerg = commands.findAll('groupID','owner');
-        var owner = "";
-        if(ownerg.length > 0){
-            for(var i = 0; i < ownerg.length; i++){
-                owner=owner+"`"+ownerg[i].name+"`";
-                if(i+1 < ownerg.length){
-                    owner=owner+", ";
-                }
-            }
-        }
-
         const settg = commands.findAll('groupID','settings');
         var sett = "";
         if(settg.length > 0){
@@ -163,7 +153,6 @@ module.exports = class HelpCommand extends Command {
                     }
                 
                 }else{
-
                     embed.setTitle('DokiDoki Commands')
                     if(grp1c.length > 0){
                         embed.addField(groups.find(group => group.id === 'emo').name+"",grp1+" ")
@@ -192,14 +181,8 @@ module.exports = class HelpCommand extends Command {
                     if(settg.length > 0){
                         embed.addField(groups.find(group => group.id === 'settings').name+"",sett+" ")
                     }
-                    if(this.client.isOwner(msg.author)){
-                    if(ownerg.length > 0){
-                        embed.addField(groups.find(group => group.id === 'owner').name+"",owner+" ")
-                    }}
                 }
-                
             embed.setColor(0x23ff12)
         return msg.embed(embed);
     }
-
 };

@@ -39,7 +39,7 @@ async run(msg, args, neko) {
             if(msg.author.id == args.member.id || !args.member.id){
                 slap.setAuthor(`${msg.author.username} is slapging themselves?!`)
             }else {
-                slap.setAuthor(`${msg.author.username} is slapging ${args.member.user.username}!`)
+                slap.setAuthor(`${msg.author.username} is slaping ${args.member.user.username}!`)
             }
                     
             slap.setDescription(args.stuff)

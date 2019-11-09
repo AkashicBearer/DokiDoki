@@ -33,7 +33,7 @@ module.exports = class BotStatsCommand extends Command {
             .addField(`Platform`,`${os.platform}`, true)
             .addField('Servers, Users',`On ${this.client.guilds.size} servers, with a total of ${this.client.users.size} users.`)
             .addField("My Discord Invite Link", "[Discord Invite Link](https://discordapp.com/api/oauth2/authorize?client_id=385115460397694977&permissions=8&scope=bot)", true)
-            .addField("DokiDoki Support Server", "[Support Server Invite](https://discord.gg/4RNvxJR)", true)
+            .addField("DokiDoki Support Server", "[Support Server Invite](https://discord.gg/gjv2SZU)", true)
                 code: 'AsciiDoc'
         message.channel.send(StatusEmbed);
     }

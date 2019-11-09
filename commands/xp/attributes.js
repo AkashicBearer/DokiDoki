@@ -1,48 +1,80 @@
-/*const { Command } = require('discord.js-commando');
+const { Command } = require('discord.js-commando');
 const { RichEmbed } = require('discord.js');
+const mysql = require("mysql");
+const db = mysql.createPool({
+    connectionLimit: 100,
+    host: process.env.host,
+    port: "3306",
+    user: process.env.user,
+    password: process.env.password, 
+    database: process.env.database,
+})
 
-module.exports = class AttributeCommand extends Command {
+module.exports = class AttributesCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'attributes',
-            aliases: ['attri',],
+            aliases: ['attri', 'atrb'],
             group: 'xp',
             memberName: 'attributes',
-            description: 'Check your Atrributes!',
-            examples: ['<attributes'],
+			description: 'Checck your Attributes',
             throttling: {
                 usages: 1,
-                duration: 30,
+                duration: 15,
             }
         })    
+	}
+	
+	async run(message) {
+		let author = message.author
+
+		db.getConnection(function(err, connection) {
+
+            if (err) {
+                console.error('error connecting: ' + err.stack);
+                return;
+            }
+
+			connection.query(`SELECT * FROM Users WHERE UserID="${author.id}"`, (err, results) => {
+
+                if (err) throw err;
+
+                if(!results[0]){
+	
+                    const noUser = new RichEmbed()
+                        .setTitle(`Sorry ${author.username} but you dont have a profile.`)
+                        .setDescription(`Please create an account with [prefix]register`)
+                        .setThumbnail(author.avatarURL)
+                        .setFooter(`Attribute System v1 & Arcanium v0.0.1`)
+                        .setColor("RED")
+                    message.channel.send(noUser)
+
+                } else {
+
+                    const UData = JSON.parse(results[0].Stats)
+
+                    const attribs = UData.Attributes
+
+                    const AttrEmbed = new RichEmbed()
+                        .setTitle(`${author.username}'s Attributes`)
+                        //.setDescription(`All your current Attributes, numbers in [] are the current effects`)
+                        .addField(`Strength`, `${attribs.Str} [+${(attribs.Str / 100).toFixed(2)} DMG]`)
+                        .addField(`Accuracy`, `${attribs.Acc} [+${(attribs.Acc / 150).toFixed(2)} ACC]`,true)
+                        .addField(`Intelligence`, `${attribs.Int} [+${(attribs.Int / 100).toFixed(2)} M.DMG]`,true)
+                        .addField(`Vitality`, `${attribs.Vit} [+${(attribs.Vit / 25).toFixed(2)} HP]`,true)
+                        .addField(`Resistance`, `${attribs.Res} [+${(attribs.Res / 75).toFixed(2)} RES]`,true)
+                        .addField(`XPBoost`, `${attribs.XPB} [+${attribs.XPB / 100}% XP]`,true)
+                        .addField(`Arcanium Boost`, `${attribs.ArcmB} [${attribs.ArcmB / 100}% Arcanium]`,true)
+                        .setThumbnail(author.avatarURL)
+                        .setFooter(`Attribute System v1 & Arcanium v0.0.1`)
+                        .setColor("RANDOM")
+                    message.channel.send(AttrEmbed)
+
+                }
+            })
+
+            connection.release()
+            
+        })
     }
-
-
-async run(msg, args) {
-if (msg.author.bot) return;
-  const { Pool } = require ('pg');    
-    let pool = new Pool({ 
-      connectionString: process.env.DATABASE_URL, 
-      ssl: require, 
-    });  
-  pool.query(`Select xpboost, arcboost, points, username FROM xp WHERE userid ='${msg.author.id}'`,(err, result) => {
-    let points = result.rows[0].points
-    let arcboost = result.rows[0].arcboost / 100
-    let xpboost = result.rows[0].xpboost / 100
-    let username = result.rows[0].username;
-
-     const embed = new RichEmbed()
-        .setAuthor(this.client.user.username, this.client.user.avatarURL)
-        .setTitle(username + '\` Attributes!')
-        .addField('Xp Boost', `${xpboost}% `, true)
-        .addField('Arcanium Boost', `${arcboost}%`, true)
-        .setColor('GREEN')
-        .setThumbnail(msg.author.avatarURL)
-    msg.channel.send(embed);
-    pool.end(err => {
-    if(err) throw err; 
-     });
-    });
-   }
-  }
-*/
+}

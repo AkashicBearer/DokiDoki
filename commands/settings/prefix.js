@@ -1,72 +1,105 @@
-/* 
 const { Command } = require('discord.js-commando');
 const { RichEmbed } = require('discord.js');
+const mysql = require("mysql");
+const db = mysql.createPool({
+    connectionLimit: 100,
+    host: process.env.host,
+    port: "3306",
+    user: process.env.user,
+    password: process.env.password,
+    database: process.env.database,
+});
 
 
-module.exports = class prefixCommand extends Command {
+module.exports = class PrefixCommand extends Command {
     constructor(client) {
         super(client, {
-            name: 'prefix',
-            aliases: [],
+            name: 'prefix2',
+            aliases: [`setprefix`],
             group: 'settings',
-            memberName: 'prefix',
-            description: 'Sets the prefix for the Server (Admin command)',
-            examples: ['<prefix +'],
-            UserPermissions: ['ADMINISTRATOR'],
+            memberName: 'prefix2',
+            description: 'Get Guild Prefix or change it',
             args: [
-            {
-                key: 'pref',
-                prompt: 'Which user would you like to check?',
-                type: 'string'
+                {
+                    key: 'pref',
+                    prompt: 'What prefix would you like to set?',
+                    type: 'string',
+					max: 15,
+					default: ''
+                }
+            ],
+            throttling: {
+                usages: 1,
+                duration: 15,
             }
-            ]
-        })    
+        });
     }
+	async run(message, args) { 
 
-    async run(msg, args){
-          const { Pool } = require ('pg');    
-          const pool = new Pool({ connectionString: process.env.DATABASE_URL, 
-               port: 5432, 
-               host: process.env.dbhost, 
-               database: process.env.db, 
-               user: process.env.user, 
-               password: process.env.password, 
-               ssl: true, 
-              });  
-          pool.connect()
-          .then(client => {
-            return client.query('SELECT * FROM settings')
-              .then(res => {
-                client.release()
-              })
-              .catch(err => {
-                client.release()
-                console.log(err.stack)
-              })
-          })
-
-          pool.query(`SELECT guildid, prefix FROM settings WHERE guildid = '${msg.guild.id}'`,(err, result) => {
-          if (!result.rows[0]){
-            pool.query(`INSERT INTO settings(guildid, prefix, guildname) VALUES('${msg.guild.id}', '${args.pref}', '${msg.guild.name}')`)
-          }else{
-            pool.query(`UPDATE settings SET prefix = '${args.pref}' WHERE guildid='${msg.guild.id}'`)
-          }
-
-          
-          pool.end(err => {
-            if(err) throw err; 
-          })
-
-          })
-          var embed = new RichEmbed()
-          embed.setTitle("Prefix set!")
-          embed.setDescription("My prefix was set to " + args.pref)
-          embed.setFooter("Make sure to join my Support server if you ever forget the new prefix")
-          embed.setColor('RANDOM')
-          embed.setThumbnail(msg.guild.iconURL)
-          msg.channel.send(embed)
-
+        let pref = args.pref
         
+        db.getConnection(function (err, connection) {
+
+            if (err) {
+               console.error('error connecting: ' + err.stack);
+               return;
+           }   
+
+            connection.query(`SELECT * FROM settings WHERE guild = "${message.guild.id}"`, async (err, results) => {
+
+                if(err) throw err;
+                
+                let GetPrefix = JSON.parse(results[0].settings)
+
+                if(!results[0]){
+
+                    let prefset = {"prefix":"<"}
+
+                    connection.query(`INSERT INTO settings(guild, settings) VALUES(${message.guild.id},${JSON.stringify(prefset)})`)
+
+                    const NewDataEmbed = new RichEmbed()
+                        .setTitle(`Data Updated`)
+                        .setDescription(`Guild has been added to database, please use command again to set prefix`)
+                        .setColor("GREEN")
+                        .setThumbnail(message.guild.iconURL)
+                    message.channel.send(NewDataEmbed)
+
+                } else {
+
+                    let Prefix = GetPrefix.prefix
+
+                    if (!pref) {
+
+                        const CurrentPrefixEmbed = new RichEmbed()
+                            .setTitle(`Current Prefix`)
+                            .setDescription(`The Prefix for this guild is ${Prefix}`)
+                            .setColor("GREEN")
+                            .setThumbnail(message.guild.iconURL)
+                        message.channel.send(CurrentPrefixEmbed)
+
+
+                    } else {
+
+                        Prefix=pref
+
+                        let nPrefix = GetPrefix.prefix
+
+                        const CurrentPrefixEmbed = new RichEmbed()
+                            .setTitle(`New Prefix`)
+                            .setDescription(`The Prefix for this guild is now ${nPrefix}`)
+                            .setColor("RANDOM")
+                            .setThumbnail(message.guild.iconURL)
+                        message.channel.send(CurrentPrefixEmbed)
+
+                    }
+
+                    connection.query(`UPDATE settings SET settings='${JSON.stringify(GetPrefix)}' WHERE guild ='${message.guild.id}'`)
+
+                }
+            })
+
+            connection.release()
+
+        })
     }
 }
-*/
