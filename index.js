@@ -68,7 +68,7 @@ client.on('ready', async () => {
 
         client.user.setPresence({game: { name: randstat }, status: "online"})
 
-    }, 30)
+    }, 10000)
 
     db.getConnection(function(err, connection) {
 
