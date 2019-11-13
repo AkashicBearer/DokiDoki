@@ -60,7 +60,7 @@ client.on('ready', async () => {
         return a = client.user.id
     }
 
-    var status = [`with ${client.guilds.size} guilds`, `v0.0.7b`, `do you want some coffee?`, `with ${client.users.size} users!`, `Next Update when?`, "<help for help",`sharing the love`]
+    var status = [`with ${client.guilds.size} guilds`, `v0.0.8aa`, `do you want some coffee?`, `with ${client.users.size} users!`, `Next Update when?`, "<help for help",`sharing the love`, 'who will reach the tower?', 'RPG System [WIP]']
 
     setInterval(function() {
 
@@ -68,7 +68,7 @@ client.on('ready', async () => {
 
         client.user.setPresence({game: { name: randstat }, status: "online"})
 
-    }, 15000)
+    }, 20000)
 
     db.getConnection(function(err, connection) {
 
