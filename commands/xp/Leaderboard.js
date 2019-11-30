@@ -14,10 +14,10 @@ module.exports = class LeaderboardCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'leaderboard',
-            aliases: ['lb', 'lead', 'top'],
+            aliases: ['lb', 'lead', 'top', 'top10'],
             group: 'xp',
             memberName: 'leaderboard',
-            description: 'Train to gain random attributes',
+            description: 'Shows the current top 10 players',
             args: [
                 {
                     key: 'lbtype',
@@ -51,15 +51,15 @@ module.exports = class LeaderboardCommand extends Command {
 
                 if(lbtype == "xp" || lbtype == "xp".toUpperCase()) {
 
-                    return query = `SELECT UserID, JSON_EXTRACT(Stats, '$.XP') AS LBXP, JSON_EXTRACT(Stats, '$.Level') AS LBLV FROM Users ORDER BY LBXP DESC`
+                    return query = `SELECT UserID, JSON_EXTRACT(Stats, '$.XP') AS LBXP, JSON_EXTRACT(Stats, '$.Level') AS LBLV, JSON_EXTRACT(Stats, '$.Name') AS NAME FROM Users ORDER BY LBXP DESC LIMIT 10`
                 
                 } else if (lbtype == "arc" || lbtype == "arc".toUpperCase()) {
 
-                    return query = `SELECT UserID, JSON_EXTRACT(Stats, '$.Arcanium') AS Arc FROM Users ORDER BY Arc DESC`
+                    return query = `SELECT UserID, JSON_EXTRACT(Stats, '$.Arcanium') AS Arc, JSON_EXTRACT(Stats, '$.Name') AS NAME FROM Users ORDER BY Arc DESC LIMIT 10`
 
                 } else {
 
-                    return query = `SELECT UserID, JSON_EXTRACT(Stats, '$.XP') AS LBXP, JSON_EXTRACT(Stats, '$.Level') AS LBLV FROM Users ORDER BY LBXP DESC`
+                    return query = `SELECT UserID, JSON_EXTRACT(Stats, '$.XP') AS LBXP, JSON_EXTRACT(Stats, '$.Level') AS LBLV, JSON_EXTRACT(Stats, '$.Name') AS NAME FROM Users ORDER BY LBXP DESC LIMIT 10`
 
                 }
             }
@@ -83,11 +83,13 @@ module.exports = class LeaderboardCommand extends Command {
 
                     if(lbtype == "xp" || lbtype == "xp".toUpperCase() || !lbtype) {
 
+                        console.log(results)
+
                         for (let i = 0; i < results.length; i++){
 
-                            const user = await that.fetchUser(results[i].UserID);
+                            //const user = await that.fetchUser(results[i].UserID);
 
-                            lb += `*${rank ++}*.  ${user.tag} - **Lv.${results[i].LBLV}** \n`;
+                            lb += `*${rank ++}*. ${results[i].NAME.Name /*user.tag*/} - **Lv.${results[i].LBLV}** \n`;
 
                         }
 
@@ -95,9 +97,9 @@ module.exports = class LeaderboardCommand extends Command {
 
                         for (let i = 0; i < results.length; i++){
 
-                            const user = await that.fetchUser(results[i].UserID);
+                            //const user = await that.fetchUser(results[i].UserID);
 
-                            lb += `*${rank ++}*.  ${user.tag} - **${results[i].Arc} Arcanium** \n`;
+                            lb += `*${rank ++}*.  ${results[i].NAME.Name/*user.tag*/} - **${results[i].Arc} Arcanium** \n`;
 
                         }
 
@@ -105,6 +107,7 @@ module.exports = class LeaderboardCommand extends Command {
 
                     const lbembed = new RichEmbed()
                         lbembed.addField('Current Top 10: ', lb)
+                        lbembed.setFooter(`Lb v1 Arcanium v1`)
                         lbembed.setColor('RANDOM')
                     message.channel.send(lbembed);
                 })
