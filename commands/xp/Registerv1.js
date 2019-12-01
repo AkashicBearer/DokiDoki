@@ -141,11 +141,39 @@ module.exports = class RegisterCommand extends Command {
 							"AuthorityClass": "Mortal"
 						},
 						}
+
+						const Rewards = {
+							"Starter": {
+								"Status": "Unclaimed",
+								"LevelReq": 5,
+								"Rewards": {
+									"XP": 100,
+									"Arcanium": 1000
+								}
+							},
+							"Begginer": {
+								"Status": "Unclaimed",
+								"LevelReq": 15,
+								"Rewards": {
+									"XP": 250,
+									"Arcanium": 2000
+								}
+							},
+							"Adventurer": {
+								"Status": "Unclaimed",
+								"LevelReq": 45,
+								"Rewards": {
+									"XP": 500,
+									"Arcanium": 5000
+								}
+							}
+
+						}
 						
 
 						let jsonData = JSON.stringify(UserData)
 
-					connection.query(`INSERT INTO Users(UserID, Stats, Battle, Inventory) VALUES('${author.id}','${jsonData}','','')`)
+					connection.query(`INSERT INTO Users(UserID, Stats, Rewards, Inventory, Battle) VALUES('${author.id}','${jsonData}','${JSON.stringify(Rewards)}','','')`)
 					
 					const RegisteredEmbed = new RichEmbed()
 						.setTitle(`Welcome ${author.username} to the world of Arcanium!`)
