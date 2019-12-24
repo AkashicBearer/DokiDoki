@@ -80,8 +80,8 @@ module.exports = class AdventureCommand extends Command {
 
                                     const MD = JSON.parse(Mobs[0].MobsStats)
 
-                                    let M_HP = Math.round(Math.round(Math.floor(UD.Level - 5) * ((UD.Level - 2)* 1.5) + MD.Vit) * Math.sqrt(MD.Vit))
-                                    let M_DMG = Math.round(Math.round((Math.floor(UD.Level - 5) * Math.sqrt(UD.Level - 5))) * Math.sqrt(MD.Att)) - 15
+                                    let M_HP = Math.round(Math.round(Math.floor(UD.Level - 4.5) * ((UD.Level - 4.5)* 1.5) + MD.Vit) * Math.sqrt(MD.Vit))
+                                    let M_DMG = Math.round(Math.round((Math.floor(UD.Level - 1.5) * Math.sqrt(UD.Level - 1.5))) * Math.sqrt(MD.Att)) - 10
                                     let M_XP = Math.round((Math.floor(UD.Level) + (MD.BXP * MD.BXP) * BXP))
                                     let M_ARC = Math.round((Math.floor(UD.Level) + (MD.BARC * MD.BARC) * BARC) / 3)
 
