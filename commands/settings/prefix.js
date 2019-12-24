@@ -15,6 +15,7 @@ module.exports = class PrefixCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'prefix2',
+            aliases: [`setprefix`],
             group: 'settings',
             memberName: 'prefix2',
             description: 'Get Guild Prefix or change it',

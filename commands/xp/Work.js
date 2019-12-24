@@ -45,7 +45,7 @@ module.exports = class WorkCommand extends Command {
 
                     let UD = JSON.parse(results[0].Stats)
                     let bonus = (UD.Title.Bonus.ArcmB + UD.Weapon.WeaponBonus.ArcmB + UD.Job.Bonus.ArcmB + UD.Attributes.ArcmB) / 100
-                    let rew = (UD.Level / 3) + bonus + 1
+                    let rew = (UD.Level / 2) + bonus + 1
                     let nbal = Math.round(UD.Arcanium + rew)
 
                     UD.Arcanium=nbal

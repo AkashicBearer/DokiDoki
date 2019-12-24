@@ -73,6 +73,7 @@ module.exports = class TrainCommand extends Command {
                     message.channel.send(Train)
 
                     if(att.XP >= XPWall) {
+                        
                         let hp = att.HP.HP +25
                         let mhp = att.HP.MHP + 25
                         let chp = att.HP.CHP + 25

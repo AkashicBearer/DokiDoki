@@ -14,10 +14,10 @@ module.exports = class LeaderboardCommand extends Command {
     constructor(client) {
         super(client, {
             name: 'leaderboard',
-            aliases: ['lb', 'lead', 'top', 'top10'],
+            aliases: ['lb', 'lead', 'top'],
             group: 'xp',
             memberName: 'leaderboard',
-            description: 'Shows the current top 10 players',
+            description: 'Train to gain random attributes',
             args: [
                 {
                     key: 'lbtype',

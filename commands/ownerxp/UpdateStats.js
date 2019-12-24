@@ -38,129 +38,106 @@ module.exports = class UpdateUserDataCommand extends Command {
 	}
 	
 	async run(message, args) {
+
 		let author = message.author
 		let PUser = args.person
 
-		db.getConnection(function(err, connection) {
+		db.getConnection( function(err, connection) {
 
-			if (PUser.id == author.id || !PUser) {
+			var Nyan = function ProfileOfUser(a) {
 
-                connection.query(`SELECT * FROM Users WHERE UserID="${author.id}"`,(err, results) => {
+                if(!PUser || PUser.user.id == author.id) {
 
-					if(!results[0]){
+                    return a = author
+
+                } else {
+                    
+                    return a = PUser.user
+
+                }
+
+            }
+
+            connection.query(`SELECT * FROM Users WHERE UserID="${Nyan().id}"`,(err, results) => {
+
+				if(!results[0]){
 	
-						const noUser = new RichEmbed()
-							.setTitle(`Sorry ${author.username} but you dont have a profile.`)
-							.setDescription(`Please create an account with [prefix]register`)
-							.setThumbnail(author.avatarURL)
-							.setColor("RED")
-						message.channel.send(noUser)
+					const noUser = new RichEmbed()
+						.setTitle(`Sorry ${author.username} but you dont have a profile.`)
+						.setDescription(`Please create an account with [prefix]register`)
+						.setThumbnail(author.avatarURL)
+						.setColor("RED")
+					message.channel.send(noUser)
 	
-					} else {
+				} else {
 	
-						let uD = JSON.parse(results[0].Stats)
-						const XPWall = Math.round((Math.sqrt(50) * (2.125 + uD.Level)) * 10)
-						
-						const UserData = {
-							"Name": {
-								"Name":"Akashic Bearer",
-								"Color":"F70202"
-							},
-							"Title":{
-								"Name":"Etheric Ruler",
-								"Color":"884EA0",
-								"Bonus":{
-									"Str":0,"XPB":0,"ArcmB":0,"Acc":0,"Int":0,"Mana":0,"Vit":0,"Res":0}},
-							"XP": 220,
-							"Level": 1,
-							"Arcanium": uD.Arcanium,
-							"HP": uD.HP,
-							"Mana": uD.Mana,
-							"Weapon": uD.Weapon,
-							"Points": uD.Points,
-							"CP": uD.CP,
-							"SP": uD.SP,
-							"CharRating":`「GM」`,
-							"Class":`${uD.Class}`,
-							"Race":`Etherian`,
-							"Job": uD.Job,
-							"Attributes": uD.Attributes,
-							"Object-Authority":{
-								"Authority": 100,
-								"AuthorityClass":"「GM」"
-							},
-							"System-Authority":{
-								"Authority": 100,
-								"AuthorityClass": "「GM」"
-							}
-							}
-	
-							let jsonData = JSON.stringify(UserData)
-	
-							connection.query(`UPDATE Users SET Stats='${jsonData}' WHERE UserID ='${author.id}'`)
-	
-							message.channel.send(`Updated!`)
+					let uD = JSON.parse(results[0].Stats)
+					const XPWall = Math.round((Math.sqrt(50) * (2.125 + uD.Level)) * 10)
+					
+					const UserData = {
+						"Name": uD.Name,
+						"Title": uD.Title,
+						"XP": uD.XP,
+						"Level": uD.Level,
+						"Arcanium": uD.Arcanium,
+						"HP": uD.HP,
+						"Mana": uD.Mana,
+						"Weapon": uD.Weapon,
+						"Points": uD.Points,
+						"CP": uD.CP,
+						"SP": uD.SP,
+						"CharRating": uD.CharRating,
+						"Class":`${uD.Class}`,
+						"Race": uD.Class,
+						"Job": uD.Job,
+						"Attributes": uD.Attributes,
+						"Object-Authority":{
+							"Authority": 0,
+							"AuthorityClass":"Human"
+						},
+						"System-Authority":{
+							"Authority": 0,
+							"AuthorityClass": "Mortal"
+						}
 					}
-				})
-				
-				connection.release()
 
-			} else {
-
-                connection.query(`SELECT * FROM Users WHERE UserID="${PUser.user.id}"`, async (err, results) => {
-
-					if(!results[0]){
-	
-						const noUser = new RichEmbed()
-							.setTitle(`Sorry ${author.username} but ${PUser.user.username} doesnt have a profile.`)
-							.setDescription(`Tell them to create an account with [prefix]register`)
-							.setThumbnail(PUser.user.avatarURL)
-							.setColor("RED")
-						message.channel.send(noUser)
-	
-					} else {
-	
-						let uD = JSON.parse(results[0].Stats)
-						const XPWall = Math.round((Math.sqrt(50) * (2.125 + uD.Level)) * 10)
-	
-						const UserData = {
-							"Name": uD.Name,
-							"Title": uD.Title,
-							"XP": 220,
-							"Level": 1,
-							"Arcanium": uD.Arcanium,
-							"HP": uD.HP,
-							"Mana": uD.Mana,
-							"Weapon": uD.Weapon,
-							"Points": uD.Points,
-							"CP": uD.CP,
-							"SP": uD.SP,
-							"CharRating":`${uD.CharRating}`,
-							"Class":`${uD.Class}`,
-							"Race":`${uD.Race}`,
-							"Job": uD.Job,
-							"Attributes": uD.Attributes,
-							"Object-Authority":{
-								"Authority": 0,
-								"AuthorityClass":"Human"
-							},
-							"System-Authority":{
-								"Authority": 0,
-								"AuthorityClass": "Mortal"
+					const Rewards = {
+						"Starter": {
+							"Status": "Unclaimed",
+							"LevelReq": 5,
+							"Rewards": {
+								"XP": 100,
+								"Arcanium": 1000
 							}
+						},
+						"Begginer": {
+							"Status": "Unclaimed",
+							"LevelReq": 15,
+							"Rewards": {
+								"XP": 250,
+								"Arcanium": 2000
 							}
+						},
+						"Adventurer": {
+							"Status": "Unclaimed",
+							"LevelReq": 45,
+							"Rewards": {
+								"XP": 500,
+								"Arcanium": 5000
+							}
+						}
 	
-						let jsonData = JSON.stringify(UserData)
-	
-						connection.query(`UPDATE Users SET Stats='${jsonData}' WHERE UserID ='${author.id}'`)
-	
-						message.channel.send(`Updated!`)
 					}
-				})
-				
-				connection.release()
 	
-			}
+					let jsonData = JSON.stringify(UserData)
+	
+					connection.query(`INSERT INTO Users(UserID, Stats, Rewards, Inventory, Battle) VALUES('${author.id}','${jsonData}','${JSON.stringify(Rewards)}','','')`)
+	
+					message.channel.send(`Updated!`)
+
+				}
+			})
+			connection.release()
 		})
     }
 }

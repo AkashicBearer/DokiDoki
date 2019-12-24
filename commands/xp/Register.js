@@ -86,7 +86,7 @@ module.exports = class RegisterCommand extends Command {
 						},
 						"Weapon":{
 							"WeaponLvl": 0,
-							"WeaponDmg": 1,
+							"WeaponDmg": 10,
 							"WeaponName":"Fists",
 							"WeaponClass": 0,
 							"WeaponReAuthority": 0,
@@ -173,7 +173,7 @@ module.exports = class RegisterCommand extends Command {
 
 						let jsonData = JSON.stringify(UserData)
 
-					connection.query(`INSERT INTO Users(UserID, Stats, Rewards, Inventory, Battle) VALUES('${author.id}','${jsonData}','${JSON.stringify(Rewards)}','','')`)
+					connection.query(`INSERT INTO Users(UserID, Stats, Rewards, Inventory, Battle) VALUES('${author.id}','${jsonData}','${JSON.stringify(Rewards)}','','0')`)
 					
 					const RegisteredEmbed = new RichEmbed()
 						.setTitle(`Welcome ${author.username} to the world of Arcanium!`)

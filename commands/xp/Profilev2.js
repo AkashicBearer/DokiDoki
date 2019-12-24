@@ -42,8 +42,10 @@ module.exports = class ProfileCommand extends Command {
         db.getConnection(function (err, connection) {
 
              if (err) {
+
                 console.error('error connecting: ' + err.stack);
                 return;
+                
             }   
 
             var Nyan = function ProfileOfUser(a) {
@@ -83,7 +85,7 @@ module.exports = class ProfileCommand extends Command {
                         let fontSize = 70;
 
                         do {
-                            ctx.font = `${fontSize -= 10}px sans-serif`;
+                            ctx.font = `${fontSize -= 10}px sans-serif`;    
                         } while (ctx.measureText(text).width > canvas.width - 300);
 
                         return ctx.font;
@@ -134,7 +136,7 @@ module.exports = class ProfileCommand extends Command {
                     const canvas = createCanvas(1080, 720)
                     const ctx = canvas.getContext('2d')
 
-                    const background = await loadImage('./commands/xp/wallpaper.png');
+                    const background = await loadImage('./commands/xp/wallpaper.jpg');
                     ctx.globalAlpha = 0.75;
                     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
                     ctx.globalAlpha = 1;
@@ -159,7 +161,10 @@ module.exports = class ProfileCommand extends Command {
 
                     ctx.font = applyText4(canvas, `Level ${UData.Level}: ${cxpp}%`);
                     ctx.fillText(`Level ${UData.Level} ${cxpp}%`, 25, 325);
-                    ctx.fillText(`HP ${UData.HP.CHP} / ${UData.HP.MHP}`, 300, 275);
+
+                    //let HP = ((UData.Attributes.Vit + UData.Title.Bonus.Vit + UData.Weapon.WeaponBonus.Vit + UData.Job.Bonus.Vit) / 10) + UData.HP.HP ;
+
+                    ctx.fillText(`HP ${UData.HP.CHP} / ${UData.HP.HP}`, 300, 275);
                     ctx.fillText(`MP ${UData.Mana.CMana} / ${UData.Mana.MMana}`, 550, 275);
 
                     const arcoin = await loadImage("https://cdn.discordapp.com/emojis/478210317071941642.png?v=1");

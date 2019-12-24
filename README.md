@@ -1,23 +1,34 @@
+<h1> This is Outdated atm </h1>
 <!--Bot's Stats-->
 <a href="https://discordbots.org/bot/385115460397694977" >
   <img src="https://discordbots.org/api/widget/status/385115460397694977.svg"/>
   <img src="https://discordbots.org/api/widget/upvotes/385115460397694977.svg?noavatar=false"/>
   <img src="https://discordbots.org/api/widget/owner/385115460397694977.svg?noavatar=false"/> 
 </a>
-
 <!-- Needs more Info.... -->
 
-<h1> DokiDoki Discord Bot </h1>
+<h1> CURRENTLY UNDERGOING RECODE <h1>
+
+<h1> Doki Doki Bot </h1>
 <p>
   
   Welcome to the DokiDoki Discord Bot GitHub page, here you can find the source code of the bot and help for some commands, You can use <help on Discord to view all the commands available and !help [command] to view help for a command. 
   
-  Back in September 2018 someone asked me if I will ever bring back an old Bot I once was developing, after some thinking I started recoding the bot from Python to Node.JS (at the time I didnt even know how JS even worked) and slowly released the first version of the in February 2019. 
-
-  Due to my lack of knowledge in JS when i just started the Bot, I had to do a recode of everything during the Summer of 2019, by the time I finished the recode, a friend of mine said he could let me use a part of his database, at that moment I adjusted all code to work with a database and the bots settings like prefix finally came in. Shortly after, in October I decided to start creating the RPG/XP system I had in mind for the bot back in february of that this year and decided to bring it to life with my knowledge that I've accumulated thanks to the help of others and alot of documentations.
+  This Project was started back in February last year, at the time the bot only had a few commands and ran of off my old Desktop which i used as a server. Today the bot has good amount of commands that can satisfy a persons normal need, and commands are still being developped and will be added as the bot grows and I get better at coding. So far the bot has about 50 or so commands, each command has its own unique use and works so far. Any bugs that are found are to be reported on the discord server or on github directly by creating a issue. 
   
-  Now the Bot finally is somewhat stable and ready to be used by others on 300+ server! 
+ Current Developpers are AkashicBearer#2305 (193021560792154112) & Kandrina#1426 (111469545637605376).
 
-  If you asked me last year "Do you see your bot ever becoming 'popular'" I would say No, since I didnt know anything about bot dev at the time (Only about game dev. itself). But now I can say that with the help of the XP System the bot will most likely become popular one day or another!
-  
+***Note: Xp & Currency Systems are currently down until I can find a new database. That means that bot settings are offline also.***
 </p> 
+
+<!-- Commands -->
+
+ <h1> Commands </h1>
+<table style="width:50%">
+  <tr>
+    <th>Command</th>
+    <th>Description</th> 
+    <th>Aliases</th>
+    <th>Command Group</th>
+  </tr>
+</table>
