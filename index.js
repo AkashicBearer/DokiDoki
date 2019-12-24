@@ -22,7 +22,9 @@ MySQL.createConnection({
     database: process.env.database,
 }).then((db) => {
     client.setProvider(new MySQLProvider(db));
-});
+}).catch((err) => {
+    console.log(err)
+})
 
 const db = mysql.createPool({
     connectionLimit: 100,
@@ -60,7 +62,7 @@ client.on('ready', async () => {
         return a = client.user.id
     }
 
-    var status = [`with ${client.guilds.size} guilds`, `v0.0.8aa`, `do you want some coffee?`, `with ${client.users.size} users!`, `Next Update when?`, "<help for help",`sharing the love`, 'who will reach the tower?', 'RPG System [WIP]']
+    var status = [`with ${client.guilds.size} guilds`, `v0.0.9`, `do you want some coffee?`, `with ${client.users.size} users!`, `Next Update when?`, "<help for help",`sharing the love`, 'who will reach the tower?', 'RPG System [WIP]']
 
     setInterval(function() {
 
@@ -77,7 +79,7 @@ client.on('ready', async () => {
             return;
         }
 
-        connection.query(`SELECT * FROM ClientSettings WHERE ClientID = "${nyan2()}"`, function(err, results){
+        connection.query(`SELECT * FROM ClientSettings WHERE ClientID = "${nyan2()}"`, function(err, results) {
 
             if(!results[0]){
 
@@ -114,6 +116,8 @@ client.on('ready', async () => {
 db.getConnection(function(err, connection) {
 
     connection.query(`SELECT * FROM ClientSettings WHERE ClientID = "385115460397694977"`, function(err, results, fields){
+
+        console.log(err)
 
         if(!results[0]){
 
