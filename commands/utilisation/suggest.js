@@ -20,15 +20,20 @@ module.exports = class SuggestCommand extends Command {
             ]
         });
     }
+    
     async run(message, args) {
+
+        const chann = this.client.guilds.find(guild => guild.id === '389111570162122752').channels.find(chann => chann.id === "425032471113891840")
+
         const SuggestEmbed = new RichEmbed()
             .setAuthor(message.author.tag +  `( ${message.author.id} )`, message.author.avatarURL)
             .setTitle('Suggestion')
             .setDescription(args.text)
             .setFooter(message.guild.name + "")
             .setTimestamp()
-      const chann = this.client.guilds.get('389111570162122752').channels.find('name','suggestions');
-      chann.send(SuggestEmbed);
-      message.channel.send('Your Suggestion was sent!');
+        chann.send(SuggestEmbed);
+
+      message.channel.send(`Your Suggestion was sent ${message.author.tag}!`);
+
     }
 };

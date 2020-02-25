@@ -14,27 +14,31 @@ module.exports = class todoCommand extends Command {
                 {
                     key: 'text',
                     label: 'user',
-                    prompt: 'What do you want to suggest?',
+                    prompt: 'Planing list',
                     type: 'string'
                 }
             ]
         });
     }
 
-        hasPermission(message) {
+    hasPermission(message) {
         return this.client.isOwner(message.author);
     }
 
 
     async run(message, args) {
-        const chann = this.client.guilds.get('389111570162122752').channels.find('name','todo');
+
+        const chann = this.client.guilds.find(guild => guild.id === '389111570162122752').channels.find(chann => chann.id === "463109154500902952")
+        
         const embed = new RichEmbed()
             .setAuthor(message.author.tag, message.author.avatarURL)
-            .setTitle('ToDo')
+            .setTitle('ToDo & Other Planings')
             .setDescription(args.text)
             .setFooter(message.guild.name + "")
             .setTimestamp()
-      chann.send(embed);
+        chann.send(embed);
+
       message.channel.send('Added to ToDo list!!');
+
     }
 };

@@ -20,15 +20,20 @@ module.exports = class BugReportCommand extends Command {
             ]
         });
     }
+    
     async run(message, args) {
-        const chann = this.client.guilds.get('389111570162122752').channels.find('name','bug-reports');
+
+        const chann = this.client.guilds.find(guild => guild.id === '389111570162122752').channels.find(chann => chann.id === "391683807754977311")
+        
         const BugEmbed = new RichEmbed()
             .setAuthor(message.author.tag, message.author.avatarURL)
             .setTitle('Bug Report')
             .setDescription(args.text)
             .setFooter(message.guild.name + "")
             .setTimestamp()
-      chann.send(BugEmbed);
-      message.channel.send('Your Bug report was sent!');
+        chann.send(BugEmbed);
+
+      message.channel.send(`Your Suggestion was sent ${message.author.tag}!`);
+
     }
 };
