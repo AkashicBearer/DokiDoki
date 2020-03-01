@@ -57,7 +57,8 @@ module.exports = class HealCommand extends Command {
             } else {
 
                 let THP = UD.HP.HP / 5
-                let Price = Math.round(THP * 2.5)
+                let Price = Math.round(THP * 0.75)
+                let newArc = UD.Arcanium - Price
 
                 if(UD.Arcanium >= Price) {
 
@@ -72,6 +73,7 @@ module.exports = class HealCommand extends Command {
                     } else {
 
                         UD.HP.CHP=UD.HP.HP
+                        UD.Arcanium=newArc
 
                         connection.query(`UPDATE Users SET Stats='${JSON.stringify(UD)}' WHERE UserID ='${author.id}'`)
 
