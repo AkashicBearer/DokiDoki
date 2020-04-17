@@ -1,5 +1,5 @@
 const { Command } = require('discord.js-commando');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 module.exports = class SuggestCommand extends Command {
     constructor(client) {
@@ -23,9 +23,9 @@ module.exports = class SuggestCommand extends Command {
     
     async run(message, args) {
 
-        const chann = this.client.guilds.find(guild => guild.id === '389111570162122752').channels.find(chann => chann.id === "425032471113891840")
+        const chann = this.client.guilds.cache.find(guild => guild.id === '389111570162122752').channels.find(chann => chann.id === "425032471113891840")
 
-        const SuggestEmbed = new RichEmbed()
+        const SuggestEmbed = new MessageEmbed()
             .setAuthor(message.author.tag +  `( ${message.author.id} )`, message.author.avatarURL)
             .setTitle('Suggestion')
             .setDescription(args.text)

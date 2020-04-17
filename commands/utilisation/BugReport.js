@@ -1,5 +1,5 @@
 const { Command } = require('discord.js-commando');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 module.exports = class BugReportCommand extends Command {
     constructor(client) {
@@ -23,9 +23,9 @@ module.exports = class BugReportCommand extends Command {
     
     async run(message, args) {
 
-        const chann = this.client.guilds.find(guild => guild.id === '389111570162122752').channels.find(chann => chann.id === "391683807754977311")
+        const chann = this.client.guilds.cache.find(guild => guild.id === '389111570162122752').channels.find(chann => chann.id === "391683807754977311")
         
-        const BugEmbed = new RichEmbed()
+        const BugEmbed = new MessageEmbed()
             .setAuthor(message.author.tag, message.author.avatarURL)
             .setTitle('Bug Report')
             .setDescription(args.text)

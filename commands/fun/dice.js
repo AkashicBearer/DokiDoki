@@ -1,5 +1,5 @@
 const { Command } = require('discord.js-commando')
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 module.exports = class DiceRollCommand extends Command {
     constructor(client) {
@@ -25,14 +25,14 @@ module.exports = class DiceRollCommand extends Command {
             ]
         });
     }
-    async run(msg, args) {
+    async run(message, args) {
         const roll = Math.floor(Math.random() * args.xsides) + 1;
-        const embed = new RichEmbed()
-            .setAuthor(msg.author.username, msg.author.avatarURL)
+        const embed = new MessageEmbed()
+            .setAuthor(message.author.username, message.author.avatarURL)
             .setTitle("Rolling a " + args.xsides + " sided dice.")
             .setDescription("You rolled a " + roll)
             .setThumbnail("https://gilkalai.files.wordpress.com/2017/09/dice.png?w=640")
             .setColor(0x212121)
-        return msg.embed(embed);
+        message.channel.send(embed)
     } 
 };

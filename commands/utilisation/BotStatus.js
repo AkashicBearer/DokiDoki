@@ -1,5 +1,5 @@
 const { Command } = require('discord.js-commando');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 module.exports = class BotStatsCommand extends Command {
     constructor(client) {
@@ -23,7 +23,7 @@ module.exports = class BotStatsCommand extends Command {
         let hours = Math.floor((totalSeconds / 3600) % 24);
         let mins = Math.floor((totalSeconds / 60) % 60);
 
-        const StatusEmbed = new RichEmbed()
+        const StatusEmbed = new MessageEmbed()
             .setThumbnail(this.client.user.avatarURL)
             .setTitle(`Status of ${this.client.user.username}`)
             .setColor('BLACK')

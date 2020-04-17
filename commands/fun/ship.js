@@ -1,5 +1,5 @@
 const { Command } = require('discord.js-commando');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 module.exports = class shipCommand extends Command {
     constructor(client) {
@@ -28,8 +28,8 @@ module.exports = class shipCommand extends Command {
 			]
         });
     }
-	async run(msg, args) {
-        const embed = new RichEmbed()
+	async run(message, args) {
+        const embed = new MessageEmbed()
         var shipname = "";
         var compab = (Math.random()*100).toFixed(2);
         var compatibility = ""
@@ -53,7 +53,7 @@ module.exports = class shipCommand extends Command {
 
         if(args.usr1 && !args.usr2){
             var candidates = []; 
-            var membArray = msg.guild.members.array();
+            var membArray = message.guild.members.array();
             for (var user in membArray) 
                     candidates.push(membArray[user].user.username);
             const randMemb = candidates[Math.floor(Math.random()*candidates.length)]
@@ -66,11 +66,11 @@ module.exports = class shipCommand extends Command {
 
         if(!args.usr1 && !args.usr2){
             var candidates = []; 
-            var membArray = msg.guild.members.array();
+            var membArray = message.guild.members.array();
             for (var user in membArray) 
                     candidates.push(membArray[user].user.username);
             const randMemb = candidates[Math.floor(Math.random()*candidates.length)]
-            const usrn1 = msg.author.username;
+            const usrn1 = message.author.username;
             const usrn2 = randMemb;
             shipname = usrn1.substring(0,usrn1.length/2)+""+usrn2.substring(usrn2.length/2,usrn2.length).toLowerCase()
             embed.setTitle("Shipping " + usrn1 + " and " + usrn2)
@@ -78,6 +78,6 @@ module.exports = class shipCommand extends Command {
         }
             embed.setThumbnail("https://vignette.wikia.nocookie.net/parody/images/b/b0/Anime_Heart.png/revision/latest?cb=20161125185957")
             embed.setColor(0x23ff12)
-        return msg.embed(embed);
+        return message.embed(embed);
     }
 };

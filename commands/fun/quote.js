@@ -1,5 +1,5 @@
 const { Command } = require('discord.js-commando');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 module.exports = class QuoteCommand extends Command {
     constructor(client) {
@@ -20,10 +20,10 @@ module.exports = class QuoteCommand extends Command {
 			]
         });
     }
-	async run(msg, args) {
+	async run(message, args) {
         const stamp = args.idx.createdAt;
         if(args.idx.embeds.length > 0){
-            const embed = new RichEmbed()
+            const embed = new MessageEmbed()
                 if(args.idx.embeds[0].author){
                     embed.setAuthor(args.idx.embeds[0].author.name, args.idx.embeds[0].author.iconURL)
                 }else{
@@ -58,7 +58,7 @@ module.exports = class QuoteCommand extends Command {
                     embed.setTitle(args.idx.embeds[0].title)
                 }
 
-            return msg.embed(embed);
+            return message.embed(embed);
         }else{
             const embed = new RichEmbed()
                 embed.setAuthor(args.idx.author.username, args.idx.author.avatarURL)
@@ -69,7 +69,7 @@ module.exports = class QuoteCommand extends Command {
                 
                 embed.setColor(0x23ff12)
                 embed.setFooter(stamp + "")
-            return msg.embed(embed);
+            return message.embed(embed);
         }
     }
 };
