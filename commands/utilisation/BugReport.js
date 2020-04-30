@@ -23,7 +23,7 @@ module.exports = class BugReportCommand extends Command {
     
     async run(message, args) {
 
-        const chann = this.client.guilds.cache.find(guild => guild.id === '389111570162122752').channels.find(chann => chann.id === "391683807754977311")
+        const chann = this.client.guilds.cache.find(guild => guild.id === '389111570162122752').channels.cache.find(channels => channels.id === '391683807754977311')
         
         const BugEmbed = new MessageEmbed()
             .setAuthor(message.author.tag, message.author.avatarURL)
@@ -33,7 +33,7 @@ module.exports = class BugReportCommand extends Command {
             .setTimestamp()
         chann.send(BugEmbed);
 
-      message.channel.send(`Your Suggestion was sent ${message.author.tag}!`);
+      message.channel.send(`Your bug report  was sent ${message.author.tag}!`);
 
     }
 };

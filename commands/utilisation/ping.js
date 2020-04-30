@@ -19,7 +19,7 @@ async run(message, args) {
         .setAuthor(this.client.user.username + ' Pong!')
         .addField(`The WebSocket Ping is `, `${Math.round(this.client.ws.ping)}ms`, true)
         .addField(`The message round-trip took `, time - message.createdAt+'ms', true)
-        .setThumbnail('https://emojipedia-us.s3.amazonaws.com/thumbs/160/emoji-one/44/table-tennis-paddle-and-ball_1f3d3.png')
+        //.setThumbnail('https://emojipedia-us.s3.amazonaws.com/thumbs/160/emoji-one/44/table-tennis-paddle-and-ball_1f3d3.png')
         .setColor(0x23ff12)
         .setTimestamp()
     message.channel.send(PingEmbed);

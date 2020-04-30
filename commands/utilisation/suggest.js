@@ -23,7 +23,7 @@ module.exports = class SuggestCommand extends Command {
     
     async run(message, args) {
 
-        const chann = this.client.guilds.cache.find(guild => guild.id === '389111570162122752').channels.find(chann => chann.id === "425032471113891840")
+        const chann = this.client.guilds.cache.find(guild => guild.id === '389111570162122752').channels.cache.find(chann => chann.id === "425032471113891840")
 
         const SuggestEmbed = new MessageEmbed()
             .setAuthor(message.author.tag +  `( ${message.author.id} )`, message.author.avatarURL)

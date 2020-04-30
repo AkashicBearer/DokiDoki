@@ -20,7 +20,7 @@ MySQL.createConnection({
     host: process.env.host,
     port: "3306",
     user: process.env.user,
-    password: process.env.password, 
+    password: process.env.password,
     database: process.env.database,
 }).then((db) => { 
     client.setProvider(new MySQLProvider(db))
@@ -47,12 +47,12 @@ client.registry
       	['owner', 'Owner Commands'], ['xp', 'XP Commands '],
     ])	
      .registerDefaultGroups()
-     .registerDefaultCommands({help: true, ping: false, prefix: true, eval: true})
+     .registerDefaultCommands({help: false, ping: false, prefix: true, eval: true})
      .registerCommandsIn(path.join(__dirname, 'commands'));
 
 client.once('ready', () => {
 
-    console.log(`Logged in as ${client.user.tag} (${client.user.id})`);
+    console.log(`\nLogged in as ${client.user.tag} (${client.user.id})\nMay we all climb the tower!`);
     
     var status = ["v0.1.0a", "<help for commands", "Under Recode to DJSv12"]
 
@@ -67,5 +67,11 @@ client.once('ready', () => {
  });
      
 client.on('error', console.error);
+
+client.on(`message`, (message) =>{
+
+    if (message.author.bot) return;
+
+})
 
 client.login(process.env.token);
