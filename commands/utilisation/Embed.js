@@ -8,7 +8,6 @@ module.exports = class EmbedCommand extends Command {
             group: 'util',
             memberName: 'embed',
             description: 'Embeds the text you provide.',
-            guildOnly: true,
             args: [
                 {
                     key: 'text',

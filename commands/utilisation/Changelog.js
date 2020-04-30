@@ -11,7 +11,9 @@ module.exports = class ChangelogCommand extends Command {
             description: 'Sends the latest changelog',
         });
     }
+    
 	async run(message) { 
+
         const ChangelogEmbed = new MessageEmbed()
             .setTitle(`Version 0.1.0 Changelog`)
             .setDescription(`Full out recode`)
@@ -19,5 +21,6 @@ module.exports = class ChangelogCommand extends Command {
             .setColor("GREEN")
             .setFooter(`Change Log of April 1 2020`)
         message.channel.send(ChangelogEmbed);
-        }
+
+    }
 };

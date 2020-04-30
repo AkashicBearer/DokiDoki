@@ -16,14 +16,14 @@ module.exports = class HoloLewdCommand extends Command {
     }
 	async run(message, args, neko) { 
 
-        const IMGS = await fetch('https://nekos.life/api/v2/img/baka')
+        const IMGS = await fetch('https://nekos.life/api/v2/img/hololewd')
         .then(res => res.json()).catch(err => {
             message.channel.send("The gif-API is currently down, plese try again later \n")
         })
         
         const IMG = IMGS.url
 
-        const HolowLewd = new MessageEmbed()
+        const HoloLewd = new MessageEmbed()
             .setTitle(`Here is your lewd wolf`)
             .setImage(IMG)
             .setColor("GREEN")
