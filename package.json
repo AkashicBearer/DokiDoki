@@ -9,7 +9,9 @@
     "npm": "*"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  	"prestart": "npm install",
+  	"start": "node index.js",
+  	"test": "echo \"Error: no test specified\" && exit 1"
   },
   "bugs": {
     "url": "https://github.com/AkashicBearer/DokiDoki/issues"
@@ -30,5 +32,11 @@
     "nekos.life": "^2.0.5",
     "node-fetch": "^2.6.0",
     "os": "^0.1.1"
-  }
+  },
+  "keywords": [
+  	"mysql2", 
+  	"nodejs", 
+  	"mysqldb", 
+  	"discordjs"
+  ]
 }
