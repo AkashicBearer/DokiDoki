@@ -1,8 +1,7 @@
 const { Command } = require('discord.js-commando');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 const neko = require("nekos.life");
-const superagent = require("superagent");
-const send = require("quick.hook");
+const fetch = require("node-fetch")
 
 module.exports = class NyaCommand extends Command {
     constructor(client) {
@@ -19,33 +18,32 @@ module.exports = class NyaCommand extends Command {
 
     async run(message, msg, neko) {
         if(msg.indexOf("-g")){
-            superagent.get('https://nekos.life/api/v2/img/neko')
-        .then(body => {
-            body = body.body
-            const embed = new RichEmbed()
-            embed.setAuthor("Have a random Neko!")
-            embed.setImage(body.url)
-            embed.setColor('RANDOM')
-            embed.setFooter(`Powered by Nekos.Life`)
-             message.channel.send(embed);
-        })
-        .catch(err => {
-            console.log(err)
-            msg.channel.send("The gif-API is currently down, plese try again later \n")
-        })
+            const IMGS = await fetch('https://nekos.life/api/v2/img/neko')
+            .then(res => res.json()).catch(err => {
+                message.channel.send("The gif-API is currently down, plese try again later \n")
+            })
+            
+            const IMG = IMGS.url
+
+            const embed = new MessageEmbed()
+                embed.setAuthor("Have a random Neko!")
+                embed.setImage(IMG)
+                embed.setColor('RANDOM')
+                embed.setFooter(`Powered by Nekos.Life`)
+            message.channel.send(embed);
+
         }else{
-            superagent.get('https://nekos.life/api/v2/img/ngif')
-        .then(body => {
-            body = body.body
-            const embed = new RichEmbed()
-            embed.setAuthor("Have a Random Neko GIF!")
-            embed.setImage(body.url)
-            embed.setColor('RANDOM')
-            embed.setFooter(`Powered by Nekos.Life`)
-             message.channel.send(embed);
-        })
-        .catch(err => {
-            msg.channel.send("The gif-API is currently down, plese try again later \n")
-        })
+            const IMGS = await fetch('https://nekos.life/api/v2/img/ngif')
+            .then(res => res.json()).catch(err => {
+                message.channel.send("The gif-API is currently down, plese try again later \n")
+            })
+            
+            const IMG = IMGS.url
+            const embed = new MessageEmbed()
+                embed.setAuthor("Have a Random Neko GIF!")
+                embed.setImage(IMG)
+                embed.setColor('RANDOM')
+                embed.setFooter(`Powered by Nekos.Life`)
+            message.channel.send(embed);
     }}
 };

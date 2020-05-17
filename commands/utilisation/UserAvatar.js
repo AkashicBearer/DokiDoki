@@ -1,5 +1,5 @@
 const { Command } = require('discord.js-commando');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 module.exports = class UserAvatarCommand extends Command {
     constructor(client) {
@@ -22,13 +22,21 @@ module.exports = class UserAvatarCommand extends Command {
     }
     async run(message, args) {
         if (message.author.bot) return;
-        const AvatarEmbed = new RichEmbed()
+
+        const author = message.author
+        const PUser = args.member.user
+        const AvatarEmbed = new MessageEmbed()
+
         if(!args.member || args.member.id == message.author.id) {
-            AvatarEmbed.setTitle(`${message.author.username} Avatar!`)
-            AvatarEmbed.setImage(message.author.avatarURL)
+
+            AvatarEmbed.setTitle(`${author.username} Avatar!`)
+            AvatarEmbed.setImage(author.avatarURL())
+
         } else {
-            AvatarEmbed.setTitle(`${args.member.user.username} Avatar!`)
-            AvatarEmbed.setImage(args.member.user.avatarURL)
+
+            AvatarEmbed.setTitle(`${PUser.username} Avatar!`)
+            AvatarEmbed.setImage(PUser.avatarURL())
+
         }
             AvatarEmbed.setColor("RANDOM")
         message.channel.send(AvatarEmbed)

@@ -1,0 +1,8 @@
+{
+   // "editor.formatOnPaste": true,
+    // "editor.formatOnSave": true,
+    "workbench.editor.highlightModifiedTabs": true,
+    "files.trimFinalNewlines": true,
+    "editor.letterSpacing": 0.2,
+    "editor.lineHeight": 22,
+}

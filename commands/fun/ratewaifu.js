@@ -1,5 +1,5 @@
  const { Command } = require('discord.js-commando');
-const { RichEmbed } = require('discord.js');
+const { MessageEmbed } = require('discord.js');
 
 module.exports = class RateWaifuCommand extends Command {
     constructor(client) {
@@ -21,38 +21,38 @@ module.exports = class RateWaifuCommand extends Command {
         });
     }
 
-    async run(msg, args) {
+    async run(message, args) {
         if(!args.user){
-            msg.channel.send("Please Mention a User or Put a Name");
+            message.channel.send("Please Mention a User or Put a Name");
         } else {	
             var rate = (Math.random()*100).toFixed(2);
             var rating = "";
                 if(rate <= 30){
-                    rating = `${args.user} is Shitty waifu material \n\nWaifu Rating: **${rate}%**`;
+                    rating = `${args.user.username} is Shitty waifu material \n\nWaifu Rating: **${rate}%**`;
                 }
                 if(rate <= 50 && rate > 30){
-                    rating = `${args.user} isnt very good Waifu Material \n\nWaifu Rating: **${rate}%**`;
+                    rating = `${args.user.username} isnt very good Waifu Material \n\nWaifu Rating: **${rate}%**`;
                 }
                 if(rate > 50 && rate <75){
-                    rating = `${args.user} is acceptable Waifu Material \n\nWaifu Rating: **${rate}%**l`;
+                    rating = `${args.user.username} is acceptable Waifu Material \n\nWaifu Rating: **${rate}%**l`;
                 }
                 if(rate >= 75 && rate < 90){
-                    rating = `${args.user} is good Waifu Material \n\nWaifu Rating: **${rate}%**`;
+                    rating = `${args.user.username} is good Waifu Material \n\nWaifu Rating: **${rate}%**`;
                 }
                 if(rate >= 90 && rate < 95){
-                    rating = `${args.user} is an Elite waifu Material!\n\nWaifu Rating: **${rate}%** `;
+                    rating = `${args.user.username} is an Elite waifu Material!\n\nWaifu Rating: **${rate}%** `;
                 }
                 if(rate >= 95){
-                    rating = `${args.user} is an Elite \/ Best of the Best of the Waifus!\n\nWaifu Rating: **${rate}%** `;
+                    rating = `${args.user.username} is an Elite \/ Best of the Best of the Waifus!\n\nWaifu Rating: **${rate}%** `;
                 }
                 
-            const embed = new RichEmbed()
+            const embed = new MessageEmbed()
                 embed.setAuthor(this.client.user.username, this.client.user.avatarURL)
                 embed.setTitle(`Waifu Rating!`)
                 embed.setDescription(rating)
-                embed.setFooter(`Requested By ${msg.author.username}`)
+                embed.setFooter(`Requested By ${message.author.username}`)
                 embed.setColor('RANDOM')
-            msg.channel.send(embed);
+            message.channel.send(embed);
         }
     }
 };
