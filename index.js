@@ -12,7 +12,7 @@ const client = new CommandoClient({
     commandPrefix: '<',
     owner: ['193021560792154112'],
     invite: "https://discord.gg/gjv2SZU",
-    unknownCommand: false,
+    unknownCommandResponse: false,
     disableEveryone: true
 });
 
@@ -48,7 +48,7 @@ client.registry
       	['owner', 'Owner Commands'], ['xp', 'XP Commands '],
     ])	
      .registerDefaultGroups()
-     .registerDefaultCommands({help: false, ping: false, prefix: true, eval: true})
+          .registerDefaultCommands({help: false, ping: false, prefix: true, eval: true, unknownCommand: false})
      .registerCommandsIn(path.join(__dirname, 'commands'))
      .registerDefaultCommands({unknownCommand: false});
 
