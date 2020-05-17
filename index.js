@@ -44,7 +44,7 @@ client.registry
         ['emo', 'Emotions'], ['fun', 'Fun'],
         ['utilisation', 'Util'],
         ['admin', 'Administration'], ['nsfw', 'NSFW'],
-      	['owner', 'Owner Commands'], ['xp', 'XP Commands'],
+      	['owner', 'Owner Commands'], ['xp', 'XP Commands '],
     ])	
      .registerDefaultGroups()
      .registerDefaultCommands({help: false, ping: false, prefix: true, eval: true})

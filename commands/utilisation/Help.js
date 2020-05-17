@@ -38,7 +38,7 @@ module.exports = class HelpCommand extends Command {
 
         let util = [];
 
-        this.client.registry.commands.filter(c => c.groupID === "utilisation").array().forEach(command => {
+        this.client.registry.commands.filter(c => c.groupID === "util").array().forEach(command => {
             util.push('`'+command.name+'`');
         });
         util.join(", ");
