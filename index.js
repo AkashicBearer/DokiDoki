@@ -9,7 +9,7 @@ const MySQLi = require("mysql2")
 const MySQL = require('mysql2/promise');
 
 const client = new CommandoClient({
-    commandPrefix: '/>',
+    commandPrefix: '<',
     owner: ['193021560792154112'],
     invite: "https://discord.gg/gjv2SZU",
     unknownCommandResponse: false,
