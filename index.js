@@ -12,9 +12,10 @@ const client = new CommandoClient({
     commandPrefix: '<',
     owner: ['193021560792154112'],
     invite: "https://discord.gg/gjv2SZU",
-    unknownCommandResponse: false,
-    disableEveryone: true, 
+    unknownCommand: false,
+    disableEveryone: true
 });
+
 
 MySQL.createConnection({
     host: process.env.host,
