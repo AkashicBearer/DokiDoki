@@ -49,7 +49,8 @@ client.registry
     ])	
      .registerDefaultGroups()
      .registerDefaultCommands({help: false, ping: false, prefix: true, eval: true})
-     .registerCommandsIn(path.join(__dirname, 'commands'));
+     .registerCommandsIn(path.join(__dirname, 'commands'))
+     .registerDefaultCommands({unknownCommand: false});
 
 client.once('ready', () => {
 
