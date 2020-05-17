@@ -43,7 +43,7 @@ module.exports = class WorkCommand extends Command {
 
                 if(!results[0]){
 	
-                    const noUser = new RichEmbed()
+                    const noUser = new MessageEmbed()
                         .setTitle(`Sorry ${author.username} but you dont have a profile.`)
                         .setDescription(`Please create an account with [prefix]register`)
                         .setThumbnail(author.avatarURL())
