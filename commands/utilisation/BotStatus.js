@@ -31,7 +31,7 @@ module.exports = class BotStatsCommand extends Command {
             .addField(`Uptime:`,`${days} : ${hours} : ${mins} : ${realTotalSecs}` ,true)
             .addField('Node and Library',` Node: ${process.version} \nDiscord.js 11.4.2\nDiscord.js-commando 0.10.0` ,true)
             .addField(`Platform`,`${os.platform}`, true)
-            .addField('Servers, Users',`On ${this.client.guilds.size} servers, with a total of ${this.client.users.size} users.`)
+            .addField('Servers, Users',`On ${this.client.guilds.cache.size} servers, with a total of ${this.client.users.cache.size} users.`)
             .addField("My Discord Invite Link", "[Discord Invite Link](https://discordapp.com/api/oauth2/authorize?client_id=385115460397694977&permissions=8&scope=bot)", true)
             .addField("DokiDoki Support Server", "[Support Server Invite](https://discord.gg/gjv2SZU)", true)
                 code: 'AsciiDoc'
