@@ -6,7 +6,7 @@ module.exports = class BotStatsCommand extends Command {
         super(client, {
             name: 'status',
             aliases: ["info", "specs","invite", "information", "about"],
-            group: 'utilisation',
+            group: 'util',
             memberName: 'stats',
             description: 'Shows the status of the Bot'
         });
@@ -30,7 +30,7 @@ module.exports = class BotStatsCommand extends Command {
             .addField(`Memory usage:`,`${Math.round(used * 100) / 100}MB` ,true)
             .addField(`Uptime:`,`${days} : ${hours} : ${mins} : ${realTotalSecs}` ,true)
             .addField('Node and Library',` Node: ${process.version} \nDiscord.js 12.012\nDiscord.js/Commando` ,true)
-            .addField(`Platform`,`${os.platform.toUpperCase()}`, true)
+            .addField(`Platform`,`${os.platform}`, true)
             .addField('Servers, Users',`On ${this.client.guilds.cache.size} servers, with a total of ${this.client.users.cache.size} users.`)
             .addField("My Discord Invite Link", "[Discord Invite Link](https://discordapp.com/api/oauth2/authorize?client_id=385115460397694977&permissions=8&scope=bot)", true)
             .addField("DokiDoki Support Server", "[Support Server Invite](https://discord.gg/gjv2SZU)", true)
