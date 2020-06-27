@@ -6,7 +6,7 @@ module.exports = class HelpCommand extends Command {
         super(client, {
             name: 'help',
             aliases: ['commands'],
-            group: 'utilisation',
+            group: 'util',
             memberName: 'help',
             description: 'Shows commands of the Bot',
             args: [
