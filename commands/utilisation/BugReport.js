@@ -6,7 +6,7 @@ module.exports = class BugReportCommand extends Command {
         super(client, {
             name: 'bug',
             aliases: ['bugreport', 'report', 'br'],
-            group: 'utilisation',
+            group: 'util',
             memberName: 'bug',
             description: 'Sends a bug report to the Bots Server',
             examples: ['<bug This Image link is not working', '<bug this command does not work'],
