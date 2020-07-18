@@ -21,7 +21,7 @@
     "url": "git+https://github.com/AkashicBearer/DokiDoki.git"
   },
   "author": "AkashicBearer",
-  "license": "ISC",
+  "license": "GNUv3",
   "dependencies": {
     "canvas": "^2.6.1",
     "discord.js": "^12.0.1",
