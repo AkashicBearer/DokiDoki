@@ -30,7 +30,7 @@
     "eslint": "^6.8.0",
     "mysql2": "^2.1.0",
     "nekos.life": "^2.0.5",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "os": "^0.1.1"
   },
   "keywords": [
